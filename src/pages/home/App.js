@@ -3,6 +3,7 @@ import '../../assets/css/estilo.css';
 import SimpleSwiper from "../../components/swiper/Swiper"
 import {Link} from 'react-router-dom'
 import SimpleSwiperDicas from '../../components/swiper/SwiperHomeDicas'
+import Header from "../../components/header/Header"
 
 
 
@@ -33,12 +34,15 @@ class App extends Component {
     console.log("Unmount")
   }
 
+  
+
 
 
 
 
   render() {
-    return (<body>
+    return (
+    <>
       <main>
         <div className="banner"></div>
         <div className="marg"></div>
@@ -99,7 +103,7 @@ class App extends Component {
           </div>
         </section>
       </main>
-    </body>
+    </>
 
     )
   }
