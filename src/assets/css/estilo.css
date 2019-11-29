@@ -532,8 +532,6 @@ font-family: var(--fonte_titulo);
 }
 
 
-
-
 /* PÁGINA DE RESULTADO DE PRODUTOS */
 
 .itens-encontrados {
@@ -619,7 +617,10 @@ list-style: none;
     font-size: 15px;
     color: var(--roxo);
     font-weight: bold;
+}
 
+.btn_padrao{
+    border: none;
 }
 
 .imagem-redonda-card-produto{
@@ -636,7 +637,7 @@ list-style: none;
 /* LADO ESQUERDO */
 .esquerdo_perfil img{
     width: 50%;
-    margin-top: 150px;   
+    margin-top: 150px;
 }
 
 .esquerdo_perfil{
@@ -1146,6 +1147,10 @@ list-style: none;
 }
 
 /* CADASTRO DE PRODUTOS/PRODUTOR */
+.cadastro_img_perfil{
+    margin-top:0 !important;
+}
+
 .container-cards1 {
     margin: auto;
     /*______________se der merda_________________________*/
@@ -1164,12 +1169,12 @@ list-style: none;
         margin: auto;
         background-color: var(--roxo_fundo);
         color: var(--roxo_letra_fundo);
-        padding: 70px 10px;
-        border-radius: 10px;
+        padding-left: 10px;
+        padding-right: 20px;
+        border-radius: 20px;
         display: flex;
         flex-direction: column;
-        text-align: center
-     
+        /* text-align: center; */
 }
 
 .input_form_cad{
@@ -1192,11 +1197,40 @@ list-style: none;
 } 
 .lbl-form-cad-prod{
     padding: 10px 10px;
-    font-size: 20px;
+    font-size: 23px;
+    margin-top:20px;
     font-family: var(--fonte_titulo)
 }
+
+#form-cadastrar-produto select{
+    border-radius: 10px;
+    border: none;
+    /* width: 10vw; */
+    /* height: 50px; */
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+#form-cadastrar-produto input{
+    border-radius: 10px;
+    border: none;
+    /* width: 10vw; */
+    /* height: 50px; */
+    font-size: 20px;
+    margin-left: 10px;
+}
+
 .btn-cadastrar{
-    width: 22vh;
+    padding:16px 20px;
+    margin: 15px;
+    background-color: white;
+    border-radius: 8px;
+    font-family: var(--fonte_titulo);
+    font-size: 20px;
+    color: var(--roxo);
+    font-weight: bold;
+    border:none;
+    /* width: 22vh;
     height: 6vh;
     font-size: 1.2em;
     border-radius: 4px;
@@ -1206,7 +1240,7 @@ list-style: none;
     color: var(--roxo);
     cursor: pointer;
     font-weight: bold;
-    margin-top: 20px;
+    margin-top: 20px; */
 }
 
 #POST-preco-prod{
