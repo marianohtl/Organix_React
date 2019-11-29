@@ -1,7 +1,7 @@
 import React, {Component} from "react"
 import "../../assets/css/estilo.css"
 //  import "../../assets/css/img/"
-import Swiper from "../../components/swiper/Swiper"
+import SimpleSwiper from "../../components/swiper/Swiper"
 
 export default class QuemSomos extends Component{
     render(){
@@ -45,7 +45,7 @@ export default class QuemSomos extends Component{
                 </div>
               </div>
             </section>
-            <Swiper/>
+            <SimpleSwiper/>
             
           </main>
         )
