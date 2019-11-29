@@ -1,40 +1,15 @@
 import React from 'react';
 import '../../assets/css/estilo.css';
 import SimpleSwiper from "../../components/swiper/Swiper"
+import Header from "../../components/header/Header"
 
 
 
 function App() {
   return (
 
-    <body>
-      <header>
-        <div class="container-home-responsivo">
-          <a href=""><img src="imagens/bars-solid.svg" class="menu-bar" alt="botão menu hamburger" /></a>
-          <p>HOME</p>
-          <a href=""><img src="imagens/Ativo 1.svg" class="logo-cenoura" alt="logo cenoura" /></a>
-        </div>
-        <div class="container-home">
-          <h1>
-            <img src="imagens/Ativo 6.png" alt="LOGO ORGANIX COM UMA CENOURA NO FINAL" />
-          </h1>
-          <nav class="nav-home">
-            <ul class="ul-home">
-              <li><a href="index.html">HOME</a></li>
-              <li class="tracinho">|</li>
-              <li><a href="quemsomos.html">QUEM SOMOS</a></li>
-              <li class="tracinho">|</li>
-              <li><a href='#dicas'>DICAS</a></li>
-            </ul>
-          </nav>
-          <nav class="nav-home">
-            <ul class="ul-home">
-              <li class="nav-2-home"><a href="perfil.html">Entrar</a></li>
-              <li class="nav-2-home"><a href='cadastro.html'>Cadastre-se</a></li>
-            </ul>
-          </nav>
-        </div>
-      </header>
+    <>
+      <Header/>
 
 
       <main>
@@ -97,7 +72,7 @@ function App() {
           </div>
         </section>
       </main>
-    </body>
+    </>
 
 
   )
