@@ -22,7 +22,7 @@ const Rotas = (
         <div>
             <Route exact path="/" component={App} />
             <Route path="/QuemSomos" component={QuemSomos} />
-            {/* <Route path="/cadastro" component={Cadastro} />
+            {/* <Route path="/Cadastro" component={Cadastro} />
             <Route path="/PerfilComprador" component={PerfilComprador} />
             <Route path="/PerfilProdutor" component={PerfilProdutor} />
             <Route path="/BuscarProdutos" component={BuscarProdutos} />
