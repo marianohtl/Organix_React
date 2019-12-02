@@ -5,7 +5,7 @@ import './assets/css/estilo.css'
 import App from './pages/home/App';
 import * as serviceWorker from './serviceWorker';
 
-import QuemSomos from "./pages/quemSomos/QuemSomos"
+import CadastrarReceita from "./pages/cadastrarReceitas/cadastrarReceitas"
 // import Cadastro from "./pages/cadastro/Cadastro"
 // import PerfilComprador from "./pages/perfilComprador/PerfilComprador"
 // import BuscarProdutos from "./pages/buscarProdutos/BuscarProdutos"
@@ -21,7 +21,7 @@ const Rotas = (
     <Router>
         <div>
             <Route exact path="/" component={App} />
-            <Route path="/QuemSomos" component={QuemSomos} />
+            <Route path="/CadastrarReceita" component={CadastrarReceita} />
             {/* <Route path="/cadastro" component={Cadastro} />
             <Route path="/PerfilComprador" component={PerfilComprador} />
             <Route path="/PerfilProdutor" component={PerfilProdutor} />
