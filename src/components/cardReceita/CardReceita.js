@@ -5,6 +5,7 @@ import api from '../../services/api';
 
 
 
+
 export default class CardReceita extends Component {
 
   constructor() {
@@ -43,7 +44,7 @@ export default class CardReceita extends Component {
       this.state.listaOferta.map(function (a) {
         return (
           <>
-
+          
             <div className="card-produto">
               <div className="imagem-redonda-card-receita"> <img src="#"
                 alt="torta de morango" /></div>
