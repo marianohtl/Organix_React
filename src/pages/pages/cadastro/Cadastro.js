@@ -18,7 +18,7 @@ export default class PerfilComprador extends Component {
         super();
         this.state={
            showModal: false,
-           userProfile: "",
+           userProfile: ""
         }
     }
 
@@ -27,12 +27,9 @@ export default class PerfilComprador extends Component {
         this.setState({userProfile:user_profile})
     };
 
-    hideModal=(fechar_modal)=>{
+    hideModal = () => {
         this.setState({showModal:false})
-        this.setState({fechar_modal:fechar_modal})
-    }
-
-    
+    };
 
     render() {
         return (
@@ -41,18 +38,18 @@ export default class PerfilComprador extends Component {
                     <div className="esquerdo_cadastro">
                         <div className="btn_cadastro">
                             <img src={Produtor} alt="icone de um produtor"/>
-                            <p><button onClick={() => this.showModal(2)} className="btnCadastro">Produtor</button></p>
+                            <button onClick={() => this.showModal("produtor")} value="">Produtor</button>
                             {/* <p><a href="form_produtor.html" className="btn_cadastro1">Produtor</a></p> */}
                         </div>
                     </div>
                     <div className="direito_cadastro">
                         <div className="btn_cadastro">
                             <img src={Comprador} alt="icone de um comprador"/>
-                            <p><button onClick={() => this.showModal(1)} className="btnCadastro">Comprador</button></p>
+                            <button onClick={() => this.showModal("comprador")} value="">Comprador</button>
                         </div>
                     </div>
                 </main>
-                { this.state.showModal && <FormularioCadastro user_profile={this.state.userProfile} fechar_modal={this.hideModal}/> }
+                { this.state.showModal && <FormularioCadastro user_profile={this.state.userProfile}/> }
             </div>
         )}
 }

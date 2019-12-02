@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import { Link , withRouter} from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import '../../assets/css/estilo.css'
 
 import Comprador from '../../assets/img/Perfil/comprador.png'
@@ -12,9 +12,9 @@ import Comprador from '../../assets/img/Perfil/comprador.png'
 
 export default class PainelAdm extends Component{
 
-    constructor(){
-        super();
-    }
+    // constructor(){
+    //     super();
+    // }
 
     render(){
         return(

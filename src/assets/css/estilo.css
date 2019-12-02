@@ -447,11 +447,16 @@ font-family: var(--fonte_titulo);
     background-color:var(--roxo-claro);
     color: var(--branco);
     font-family: var(--fonte_titulo);
-    width: 80vw;
-    height: 80vh;
+    width: 50vw;
+    /* height: 50vh; */
     padding: 50px;
     margin: auto;
-    padding-bottom:100px;
+    /* padding-bottom:100px; */
+    position: absolute;
+    top: 160px;
+    left: 0;
+    right: 0;
+    border-radius: 20px;
 }
 
 .container-cadastro-comprador, .container-cadastro-produtor{
@@ -471,8 +476,8 @@ font-family: var(--fonte_titulo);
 #cadastro_comprador, #cadastro_produtor{
     display: flex;
     justify-content: space-between;
-    text-align: left;
     margin: auto;
+    /* margin-left: 2vw; */
 }
 
 
@@ -485,9 +490,9 @@ font-family: var(--fonte_titulo);
     border: none;
     border-radius: 10px;
     padding: 15px;
-    margin-bottom: 4%;
-    margin-top: 1%;
-    font-size: 1em; 
+    margin-bottom: 2vw;
+    margin-top: 1vw;
+    font-size: 1em;
     
 }
 
@@ -502,7 +507,7 @@ font-family: var(--fonte_titulo);
 }
 
 #cadastro_comprador .form_txt, #cadastro_produtor .form_txt{
-    width: 20vw;
+    width: 15vw;
 }
 
 #cadastro_comprador .form_txt_cidade,  #cadastro_produtor .form_txt_cidade{
@@ -522,15 +527,37 @@ font-family: var(--fonte_titulo);
 
 
 #cadastro_comprador .btn, #cadastro_produtor .btn{
-    width: 15vw;
+    width: 10vw;
     font-size: 30px;
-    bottom: 0px;
+    /* bottom: 0px; */
     background-color: var(--verde_claro);
     color: var(--roxo);
-    margin-top: 100px;
-
+    margin-top: 37px;
+    border: none;
+    border-radius: 10px;
+    padding: 15px 0px 15px 0px;
+    margin-left: 3vw;
+    
+}
+.backdrop_form{
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.6); 
+    position: fixed; /* Stay in place */
+    z-index: 1;
+    /* padding-top: 100px; Location of the box */
+    left: 0;
+    top: 0;
 }
 
+.btnCloseModal_form{
+    background-color: #0000;
+    border:none;
+    display: flex;
+    justify-items: flex-end;
+    margin-left: 48vw;
+}
 
 /* PÁGINA DE RESULTADO DE PRODUTOS */
 
@@ -617,10 +644,7 @@ list-style: none;
     font-size: 15px;
     color: var(--roxo);
     font-weight: bold;
-}
 
-.btn_padrao{
-    border: none;
 }
 
 .imagem-redonda-card-produto{
@@ -631,13 +655,29 @@ list-style: none;
     height: 80%;
 }
 
+.btnCadastro{
+    background-color: var(--verde_claro);
+    color: var(--roxo);
+    border:none;
+    padding: 5px 15px 5px 15px;
+     margin-top: 15px;
+     border-radius: 10px;
+     text-decoration: none;
+     text-align: center;
+     text-decoration: none;
+     color: var(--roxo);
+     font-weight: bold;
+     font-size: 25px;
+     font-family: var(--fonte_titulo);
+}
+
 /*______________________________*/
 
 
 /* LADO ESQUERDO */
 .esquerdo_perfil img{
     width: 50%;
-    margin-top: 150px;
+    margin-top: 150px;   
 }
 
 .esquerdo_perfil{
@@ -1147,10 +1187,6 @@ list-style: none;
 }
 
 /* CADASTRO DE PRODUTOS/PRODUTOR */
-.cadastro_img_perfil{
-    margin-top:0 !important;
-}
-
 .container-cards1 {
     margin: auto;
     /*______________se der merda_________________________*/
@@ -1169,12 +1205,12 @@ list-style: none;
         margin: auto;
         background-color: var(--roxo_fundo);
         color: var(--roxo_letra_fundo);
-        padding-left: 10px;
-        padding-right: 20px;
-        border-radius: 20px;
+        padding: 70px 10px;
+        border-radius: 10px;
         display: flex;
         flex-direction: column;
-        /* text-align: center; */
+        text-align: center
+     
 }
 
 .input_form_cad{
@@ -1197,40 +1233,11 @@ list-style: none;
 } 
 .lbl-form-cad-prod{
     padding: 10px 10px;
-    font-size: 23px;
-    margin-top:20px;
+    font-size: 20px;
     font-family: var(--fonte_titulo)
 }
-
-#form-cadastrar-produto select{
-    border-radius: 10px;
-    border: none;
-    /* width: 10vw; */
-    /* height: 50px; */
-    font-size: 20px;
-    margin-left: 10px;
-}
-
-#form-cadastrar-produto input{
-    border-radius: 10px;
-    border: none;
-    /* width: 10vw; */
-    /* height: 50px; */
-    font-size: 20px;
-    margin-left: 10px;
-}
-
 .btn-cadastrar{
-    padding:16px 20px;
-    margin: 15px;
-    background-color: white;
-    border-radius: 8px;
-    font-family: var(--fonte_titulo);
-    font-size: 20px;
-    color: var(--roxo);
-    font-weight: bold;
-    border:none;
-    /* width: 22vh;
+    width: 22vh;
     height: 6vh;
     font-size: 1.2em;
     border-radius: 4px;
@@ -1240,7 +1247,7 @@ list-style: none;
     color: var(--roxo);
     cursor: pointer;
     font-weight: bold;
-    margin-top: 20px; */
+    margin-top: 20px;
 }
 
 #POST-preco-prod{
@@ -1250,11 +1257,13 @@ list-style: none;
     .max-min label {
         margin-right: 20px;
     }
-/*cad produtor e comprador*/
+
     
+/*cad produtor e comprador*/
 .main_cadastro_comprador, .main_cadastro_produtor{
-    height: 100%;  
+    height: 60%;
 }
+
 /*---------------------------*/
 
 /*MENU PARA CELULAR*/

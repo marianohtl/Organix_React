@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import './assets/css/estilo.css'
+//import "./assets/css/imagens/Slider/aaa.jpg"
+import App from './pages/home/App';
 import * as serviceWorker from './serviceWorker';
 
-// import QuemSomos from "./pages/quemSomos/QuemSomos";
-import Cadastro from './pages/cadastro/Cadastro'
-import PerfilComprador from "./pages/perfilComprador/PerfilComprador";
+import QuemSomos from "./pages/quemSomos/QuemSomos"
+import Cadastro from "./pages/cadastro/Cadastro"
+import PerfilComprador from "./pages/perfilComprador/PerfilComprador"
 // import BuscarProdutos from "./pages/buscarProdutos/BuscarProdutos"
 // import ProdutosEncontrados from "./pages/produtosEncontrados/ProdutosEncontrados"
 // import Receitas from "./pages/receitas/Receitas"
@@ -20,8 +21,8 @@ const Rotas = (
     <Router>
         <div>
             <Route exact path="/" component={App} />
-            {/* <Route path="/QuemSomos" component={QuemSomos} /> */}
-            <Route path="/Cadastro" component={Cadastro} />
+            <Route path="/QuemSomos" component={QuemSomos} />
+            <Route path="/cadastro" component={Cadastro} />
             <Route path="/PerfilComprador" component={PerfilComprador} />
             {/* <Route path="/PerfilProdutor" component={PerfilProdutor} />
             <Route path="/BuscarProdutos" component={BuscarProdutos} />
