@@ -79,6 +79,7 @@ header img {
     font-weight: bold;
     font-size: 25px;
     font-family: var(--fonte_titulo);
+    cursor: pointer;
 }
 
 a {
