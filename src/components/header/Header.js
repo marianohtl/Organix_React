@@ -2,7 +2,11 @@ import React, { Component } from "react"
 import Logo from "../../assets/img/Ativo 6.png"
 import Menu from "../../assets/img/bars-solid.svg"
 import { Link } from "react-router-dom"
+<<<<<<< Updated upstream
 import api from "../../services/api";
+=======
+import {api, apiFormData} from "../../services/api";
+>>>>>>> Stashed changes
 import { parseJwt } from "../../services/auth"
 
 import Fab from '@material-ui/core/Fab';

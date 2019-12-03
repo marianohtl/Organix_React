@@ -11,7 +11,12 @@ import QuemSomos from "./pages/quemSomos/QuemSomos"
 // import PerfilComprador from "./pages/perfilComprador/PerfilComprador"
 // import BuscarProdutos from "./pages/buscarProdutos/BuscarProdutos"
 // import ProdutosEncontrados from "./pages/produtosEncontrados/ProdutosEncontrados"
+<<<<<<< Updated upstream
 // import Receitas from "./pages/receitas/Receitas"
+=======
+import minhasReceitas from "./pages/receitas/minhasReceitas"
+import todasReceitas from "./pages/receitas/todasReceitas"
+>>>>>>> Stashed changes
 // import PerfilProdutor from "./pages/perfilProdutor/PerfilProdutor"
 // import ProdutosCadastrados from "./pages/produtosCadastrados/ProdutosCadastrados"
 // import CadastrarProdutos from "./pages/cadastrarProdutos/CadastrarProdutos"
@@ -59,12 +64,20 @@ const Rotas = (
             <Switch>
             <Route exact path="/" component={App} />
             <PermissaoAdmin exact path="/quemsomos" component={QuemSomos} />
+<<<<<<< Updated upstream
+=======
+            <Route path="/minhasreceitas" component={minhasReceitas} />
+            <Route path="/todasreceitas" component={todasReceitas} />
+>>>>>>> Stashed changes
             {/* <Route path="/Cadastro" component={Cadastro} />
             <PermissaoComprador path="/PerfilComprador" component={PerfilComprador} />
             <PermissaoProdutor path="/PerfilProdutor" component={PerfilProdutor} />
             <Route path="/BuscarProdutos" component={BuscarProdutos} />
             <Route path="/ProdutosEncontrados" component={ProdutosEncontrados} />
+<<<<<<< Updated upstream
             <Route path="/Receitas" component={Receitas} />
+=======
+>>>>>>> Stashed changes
             <Route path="/ProdutosCadastrados" component={ProdutosCadastrados} />
             <Route path="/CadastrarProdutos" component={CadastrarProdutos} /> */}
             <Route exact path="/login" component={Login}/>
