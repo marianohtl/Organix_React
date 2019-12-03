@@ -1,28 +1,69 @@
-import React,{Component} from 'react'
+// import React,{Component} from 'react'
+// import api from '../../services/api'
+
+
+// export default class CardReceita extends Component {
+
+//   constructor(){
+//     super();
+//     this.state = {
+//       listaReceitas: []
+//     }
+
+//   }
+
+//   toggle = () => {
+//     this.setState({
+//       modal: !this.state.modal
+//     });
+//   }
 
 
 
+//   componentDidMount(){
+//     this.getReceitas();
+//   }
 
-
-export default class CardReceita extends Component {
-  render() {
-      return(
-        <>
-      
-        <div class="card-produto">
-        <div class="imagem-redonda-card-receita"> <img src="#"
-                alt="torta de morango"/></div>
-        <p class='nome-produto'>Torta de Morango</p>
-        <ul>
-            <li>Preço Médio: 25R$</li>
-            <li>Rendimento: 2 porções</li>
-        </ul>
-        <button type="button">VER RECEITA</button>
-        </div>
+// //#region GETs
   
-      </>
+//  getReceitas = () => {
+//     api.get('/receita')
+//     .then(response => {
+//       if(response.status === 200){
+//         this.setState({listaReceitas : response.data})
+//       }
+//     })
+//   }
+
+// //#endregion
+
+//   render() {
+//       return(
+//         <>
+//         <div className="card-produto">
+//         <div className="imagem-redonda-card-receita"> </div>
+//         { 
+//           this.state.listaReceitas.map(
+//               function(e){
+//                 return(
+//                   <>
+                  
+//                   <p className='nome-produto'>{e.nomeReceita}</p>
+//                   <ul>
+//                       <li>Tempo de Preparo:{e.tempoPreparo}</li>
+//                       <li>Rendimento:{e.porcoes}</li>
+//                   </ul>
+//                   <button type="button">VER RECEITA</button>
+
+//                     </>
+//                     );
+//                   })
+//                 }
+         
+//         </div>
+//       </>
         
     
-      )
-  }
-}
+//       )
+//   }
+// }
