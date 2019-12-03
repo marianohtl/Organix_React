@@ -11,6 +11,9 @@ import Comprador from '../../assets/img/cadastro/comprador.svg'
 import Produtor from '../../assets/img/cadastro/produtor.svg'
 
 import FormularioCadastro from '../../components/formularioCadastro/formularioCadastro'
+import Header from '../../components/header/Header'
+
+import Footer from '../../components/Footer/Footer'
 
 export default class PerfilComprador extends Component {
 
@@ -37,6 +40,7 @@ export default class PerfilComprador extends Component {
     render() {
         return (
             <div>
+                <Header/>
                 <main className="main_cad">
                     <div className="esquerdo_cadastro">
                         <div className="btn_cadastro">
@@ -53,6 +57,8 @@ export default class PerfilComprador extends Component {
                     </div>
                 </main>
                 { this.state.showModal && <FormularioCadastro user_profile={this.state.userProfile} fechar_modal={this.hideModal}/> }
+
+                <Footer/>
             </div>
         )}
 }

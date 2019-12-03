@@ -671,6 +671,11 @@ list-style: none;
      font-family: var(--fonte_titulo);
 }
 
+.erroMsg{
+    text-align: center;
+    font-size: 1.5em;
+}
+
 /*______________________________*/
 
 

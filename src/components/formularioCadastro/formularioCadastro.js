@@ -7,6 +7,8 @@ import api from '../../services/api';
 import Fechar from '../../assets/img/fechar.png'
 
 
+
+
 export default class FormularioCadastro extends Component {
     constructor(props) {
         super(props);
@@ -20,22 +22,11 @@ export default class FormularioCadastro extends Component {
                 cpfCnpj: "",
                 email: "",
                 senha: "",
+                senhaConfirmacao:"",
                 idTipo: this.props.user_profile
             },
-            // postEndereco: {
-            //     idUsuario: "",
-            //     endereco:"",
-            //     cep:"",
-            //     bairro:"",
-            //     cidade: "",
-            //     estado: "",
-            //     regiao:"",
-            // },
-
             erroMsg: "",
             successMsg: "",
-
-            // hideModal: this.props.fechar_modal
         }
     }
     componentDidMount() {
@@ -57,15 +48,6 @@ export default class FormularioCadastro extends Component {
             })
     }
 
-    //#region SetSTate
-    // postEnderecoSetState =(input) =>{
-    //     this.setState({
-    //         postEndereco : {
-    //             ...this.state.postEndereco, [input.target.name] : input.target.value
-    //         }
-    //     })
-    // }
-
     postSetState = (input) => {
         this.setState({
             postCadastro: {
@@ -74,40 +56,40 @@ export default class FormularioCadastro extends Component {
         })
     }
 
-    hideModal = () => {
-        this.setState({ showModal: false })
-    }
-
-
-
     postCadastro = (c) => {
         // console.log(this.ListaUsuario);
-
+       
         c.preventDefault();
 
         api.post('/Usuario', this.state.postCadastro)
             .then(response => {
                 console.log(response);
+            
             })
             .catch(error => {
                 console.log(error);
-                this.setState({ erroMsg: "Não foi possível Cadastrar!Tente Novamente" });
+                this.setState({ erroMsg: "Não foi possível Cadastrar! Tente Novamente" });
             })
 
-        setTimeout(() => {
-            // this.FormularioCadastro();
-        }, 1500);
-
-        this.props.fechar_modal();
+           
+            setTimeout(() => {
+                this.props.fechar_modal();
+                {this.setState({erroMsg: ""})}
+            }, 2000);
     }
 
     render() {
+
+        const submitDisabled = this.state.postCadastro.senha !== this.state.postCadastro.senhaConfirmacao
+
         return (
+           
             <div className="backdrop_form">
+           
                 <main className="main_cadastro_produtor">
                     <div className="h1_form">
-                        {/* <a href="index.html"><img src="imagens/Ativo 1.png" alt="logo organix"></a> */}
-                    <button onClick={this.props.fechar_modal} className="btnCloseModal_form">
+
+                    <button onClick={this.props.fechar_modal} className="btnCloseModal_form errMsg">
                             <img src={Fechar} />
                     </button>
                         <h1>Cadastro</h1>
@@ -141,77 +123,25 @@ export default class FormularioCadastro extends Component {
                                 </div>
                                 <div className="form_dir">
                                     <label>Senha:</label>
-                                    <input id="POST-senha-prod" placeholder="Mínimo 6 caracteres..." className="form_number media_input_cad"
+                                    <input id="POST-senha-prod" type="password" placeholder="Mínimo 6 caracteres..." className="form_number media_input_cad"
                                         name="senha"
                                         value={this.state.postCadastro.senha}
                                         onChange={this.postSetState}
                                     />
 
                                     <label> Confirme sua senha:</label>
-                                    <input id="POST-senha-prod2" placeholder="Confirme sua senha..." className="form_number media_input_cad"
-                                        name="senha"
-                                        value={this.state.postCadastro.senha}
+                                    <input id="POST-senha-prod2" type="password" placeholder="Confirme sua senha..." className="form_number media_input_cad"
+                                        name="senhaConfirmacao"
+                                        value={this.state.postCadastro.senhaConfirmacao}
                                         onChange={this.postSetState}
-                                    />
-
-
-                                    {/* <div className="form_dir">
-                                <label>CEP:</label>
-                                <input id="POST-cep-produtor" type="text" placeholder="Digite seu CEP..."  className="form_number media_input_cad"
-                                    name="cep"
-                                    value={this.state.postEndereco.cep}
-                                    onChange={this.postEnderecoSetState}
-                                />
-                                
-                                <label>Endereço:</label>
-                                <input id="POST-endereco-produtor" type="text" placeholder="Digite seu Endereço..." className="form_txt media_input_cad" 
-                                    name="endereco"
-                                    value={this.state.postEndereco.endereco}
-                                    onChange={this.postEnderecoSetState}
-                                />
-
-                                <label>Bairro:</label>
-                                <input id="POST-bairro-produtor" type="text" placeholder="Digite seu Bairro..." className="form_txt media_input_cad" 
-                                    name="bairro"
-                                    value={this.state.postEndereco.bairro}
-                                    onChange={this.postEnderecoSetState}
-                                />
-
-                                <label>Cidade:</label>
-                                <input id="POST-cidade-produtor" type="text" placeholder="Digite sua Cidade..." className="form_txt_cidade media_input_cad"
-                                    name="cidade"
-                                    value={this.state.postEndereco.cidade}
-                                    onChange={this.postEnderecoSetState}
-                                />
-
-                                <label>Estado:</label>
-                                <select id="POST-regiao-produtor" className="form_lista media_input_cad"
-                                     name="estado"
-                                     value={this.state.postEndereco.estado}
-                                     onChange={this.postEnderecoSetState}
-                                >
-                                    <option value="estado">Selecione o Estado</option>
-                                    <option value="Sao Paulo">São Paulo</option>
-                                </select>
-
-                                <label>Região:</label>
-                                <select  id="POST-estado-produtor" className="form_lista media_input_cad"
-                                    name="regiao"
-                                    value={this.state.postEndereco.endereco}
-                                    onChange={this.postEnderecoSetState}
-                                >
-                                    <option value="zl">Zona Leste</option>
-                                    <option value="zn">Zona Norte</option>
-                                    <option value="zo">Zona Oeste</option>
-                                    <option value="zs">Zona Sul</option>
-                                </select>
-                            </div> */}
-                                    {this.state.erroMsg}
-                        
-                                    <button className="btn media_input_cad" type="submit">Cadastrar</button>
+                                    />   
+                                    <button className="btn media_input_cad" disabled={submitDisabled}>Cadastrar</button>
                                 </div>
+                                
                             </form>
-
+                            <div className="erroMsg">
+                                {this.state.erroMsg}
+                            </div>
                         </div>
                     </div>
                 </main>

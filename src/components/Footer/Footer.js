@@ -11,7 +11,7 @@ function Footer(){
     return(
         <footer>
             <div className = "container-home-footer">
-                <div className = "rodapé">
+                <div className = "rodape">
                     <div className = "icone-redesocial-footer">
                         <img src = {Facebook} alt = "Icone Do Facebook"/>
                         <img src = {Twitter} alt = "Icone Do Twitter"/>
