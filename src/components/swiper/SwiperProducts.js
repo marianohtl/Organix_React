@@ -6,20 +6,20 @@ import '../../assets/css/estilo.css'
 import api from '../../services/api';
 
 
-const SimpleSwiper = () => {
-  const params = {
-    slidesPerView: 3,
-    spaceBetween: 30,
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    }
-  }
-}
+// const SimpleSwiper = () => {
+//   const params = {
+//     slidesPerView: 3,
+//     spaceBetween: 30,
+//     pagination: {
+//       el: '.swiper-pagination',
+//       clickable: true,
+//     },
+//     navigation: {
+//       nextEl: '.swiper-button-next',
+//       prevEl: '.swiper-button-prev',
+//     }
+//   }
+// }
 
 
 
@@ -32,6 +32,18 @@ export default class SwiperProducts extends Component {
       getOferta: {
         preco: "",
         nomeProduto: "",
+      }
+    }
+    this.params = {
+      slidesPerView: 3,
+      spaceBetween: 30,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
       }
     }
   }
@@ -55,7 +67,8 @@ export default class SwiperProducts extends Component {
   render() {
     return (
       
-      <Swiper {...SimpleSwiper.params}>
+      // <Swiper {...SimpleSwiper.params}>
+      <Swiper {...this.params}>
       
       {this.state.listaOferta.map(function (a) {
             return (
