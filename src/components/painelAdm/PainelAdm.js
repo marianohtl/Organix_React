@@ -20,9 +20,9 @@ export default class PainelAdm extends Component{
         return(
             
 
-            <div class="esquerdo_perfil">
+            <div className="esquerdo_perfil">
                 <img src={Comprador} alt="avatar do produtor"/>
-                <div class="menu_perfil">
+                <div className="menu_perfil">
                         <h2>Renata Amaral</h2>
                         <p><Link to ="#/PerfilComprador">Perfil</Link></p>
                         <p><Link to ="#/">Buscar Produtos</Link></p>

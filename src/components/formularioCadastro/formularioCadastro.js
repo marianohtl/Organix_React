@@ -6,9 +6,6 @@ import api from '../../services/api';
 
 import Fechar from '../../assets/img/fechar.png'
 
-
-
-
 export default class FormularioCadastro extends Component {
     constructor(props) {
         super(props);
@@ -22,7 +19,7 @@ export default class FormularioCadastro extends Component {
                 cpfCnpj: "",
                 email: "",
                 senha: "",
-                senhaConfirmacao:"",
+                senhaConfirmacao: "",
                 idTipo: this.props.user_profile
             },
             erroMsg: "",
@@ -58,24 +55,24 @@ export default class FormularioCadastro extends Component {
 
     postCadastro = (c) => {
         // console.log(this.ListaUsuario);
-       
+
         c.preventDefault();
 
         api.post('/Usuario', this.state.postCadastro)
             .then(response => {
                 console.log(response);
-            
+
             })
             .catch(error => {
                 console.log(error);
                 this.setState({ erroMsg: "Não foi possível Cadastrar! Tente Novamente" });
             })
 
-           
-            setTimeout(() => {
-                this.props.fechar_modal();
-                {this.setState({erroMsg: ""})}
-            }, 2000);
+
+        setTimeout(() => {
+            this.props.fechar_modal();
+            { this.setState({ erroMsg: "" }) }
+        }, 2000);
     }
 
     render() {
@@ -83,17 +80,17 @@ export default class FormularioCadastro extends Component {
         const submitDisabled = this.state.postCadastro.senha !== this.state.postCadastro.senhaConfirmacao
 
         return (
-           
+
             <div className="backdrop_form">
-           
+
                 <main className="main_cadastro_produtor">
                     <div className="h1_form">
 
-                    <button onClick={this.props.fechar_modal} className="btnCloseModal_form errMsg">
+                        <button onClick={this.props.fechar_modal} className="btnCloseModal_form errMsg">
                             <img src={Fechar} />
-                    </button>
+                        </button>
                         <h1>Cadastro</h1>
-                       
+
                     </div>
                     <div className="container-cadastro-produtor">
                         <div>
@@ -123,7 +120,7 @@ export default class FormularioCadastro extends Component {
                                 </div>
                                 <div className="form_dir">
                                     <label>Senha:</label>
-                                    <input id="POST-senha-prod" type="password" placeholder="Mínimo 6 caracteres..." className="form_number media_input_cad"
+                                    <input id="POST-senha-prod" type="password" placeholder="Mínimo 6 caracteres..." className="form_number media_input_cad" className={submitDisabled}
                                         name="senha"
                                         value={this.state.postCadastro.senha}
                                         onChange={this.postSetState}
@@ -134,12 +131,15 @@ export default class FormularioCadastro extends Component {
                                         name="senhaConfirmacao"
                                         value={this.state.postCadastro.senhaConfirmacao}
                                         onChange={this.postSetState}
-                                    />   
+                                    />
                                     <button className="btn media_input_cad" disabled={submitDisabled}>Cadastrar</button>
                                 </div>
-                                
+
                             </form>
                             <div className="erroMsg">
+                                {submitDisabled ? (
+                                    <p>As senhas devem ser iguais</p>
+                                ) : null}
                                 {this.state.erroMsg}
                             </div>
                         </div>
