@@ -16,7 +16,7 @@ import minhasReceitas from "./pages/receitas/minhasReceitas"
 import todasReceitas from "./pages/receitas/todasReceitas"
 // import PerfilProdutor from "./pages/perfilProdutor/PerfilProdutor"
 // import ProdutosCadastrados from "./pages/produtosCadastrados/ProdutosCadastrados"
-// import CadastrarProdutos from "./pages/cadastrarProdutos/CadastrarProdutos"
+import CadastrarProdutos from "./pages/produtos/CadastrarProdutos"
 
 import {Route, HashRouter as Router, Switch, Redirect} from 'react-router-dom';
 import { usuarioAutenticado, parseJwt } from './services/auth';
@@ -69,9 +69,10 @@ const Rotas = (
             <Route path="/BuscarProdutos" component={BuscarProdutos} />
             <Route path="/ProdutosEncontrados" component={ProdutosEncontrados} />
             <Route path="/Receitas" component={Receitas} />
-            <Route path="/ProdutosCadastrados" component={ProdutosCadastrados} />
-            <Route path="/CadastrarProdutos" component={CadastrarProdutos} /> */}
+            <Route path="/ProdutosCadastrados" component={ProdutosCadastrados} />*/}
+            
             <Route exact path="/login" component={Login}/>
+            <Route path="/CadastrarProdutos" component={CadastrarProdutos} />
             </Switch>
             
         </div>
