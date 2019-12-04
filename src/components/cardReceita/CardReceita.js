@@ -1,11 +1,8 @@
 import React, { Component } from 'react'
 import '../../assets/css/estilo.css'
-<<<<<<< Updated upstream
-import api from '../../services/api';
 
-=======
+
 import {api,apiFormData} from '../../services/api';
->>>>>>> Stashed changes
 
 
 
@@ -48,11 +45,8 @@ export default class CardReceita extends Component {
       this.state.listaOferta.map(function (a) {
         return (
           <>
-<<<<<<< Updated upstream
           
-=======
 
->>>>>>> Stashed changes
             <div className="card-produto">
               <div className="imagem-redonda-card-receita"> <img src="#"
                 alt="torta de morango" /></div>
