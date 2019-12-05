@@ -2,6 +2,8 @@ import React, { Component } from "react"
 import "../../assets/css/estilo.css"
 import { api } from "../../services/api"
 import { parseJwt } from "../../services/auth"
+import produtor from "../../assets/img/Perfil/Agrupar 91.png"
+import HeaderPerfil from "../../components/header/HeaderPerfil"
 
 export default class CadastrarProdutos extends Component {
 
@@ -12,7 +14,7 @@ export default class CadastrarProdutos extends Component {
             listaProdutos: [],
 
             postProduto: {
-                idProduto: "",
+                idProduto: 0,
                 estadoProduto: "",
                 preco: "",
                 dataFabricacao: "",
@@ -26,7 +28,6 @@ export default class CadastrarProdutos extends Component {
     }
     componentDidMount() {
         this.getProdutos()
-        console.log(this.state.listaProdutos)
     }
 
     getProdutos = () => {
@@ -34,6 +35,7 @@ export default class CadastrarProdutos extends Component {
             .then(response => {
                 if (response.status === 200) {
                     this.setState({ listaProdutos: response.data })
+                    console.log(this.state.listaProdutos)
                 }
             })
     }
@@ -42,6 +44,10 @@ export default class CadastrarProdutos extends Component {
         this.setState({
             postProduto: {
                 ...this.state.postProduto, [input.target.name]: input.target.value
+                
+                // Isto \/ é a mesma coisa que isto /\
+                
+                // ...this.state.postProduto, idProduto : input.target.value
             }
         })
     }
@@ -49,20 +55,20 @@ export default class CadastrarProdutos extends Component {
     postProduto = (p) => {
         p.preventDefault();
 
-
-
-
         let produto = {
-            idProduto: this.state.idProduto,
-            estadoProduto: this.state.estadoProduto,
-            preco: this.state.preco,
-            dataFabricacao: this.state.dataFabricacao,
-            dataVencimento: this.state.dataVencimento,
+            idProduto: this.state.postProduto.idProduto,
+            estadoProduto: this.state.postProduto.estadoProduto,
+            preco: this.state.postProduto.preco,
+            dataFabricacao: this.state.postProduto.dataFabricacao,
+            dataVencimento: this.state.postProduto.dataVencimento,
             idUsuario: parseJwt().IdUsuario
         }
 
         api.post("/Oferta", produto)
             .then(response => {
+                if (response.status === 200){
+                    this.props.history.push("/")
+                }
                 console.log(response)
             })
             .catch(error => {
@@ -72,16 +78,18 @@ export default class CadastrarProdutos extends Component {
 
         setTimeout(() => {
             this.getProdutos();
+            console.log(produto);
         }, 1500)
     }
 
     render() {
         return (
             <>
-                <main class="itens-encontrados">
-                    <div class="esquerdo_perfil">
-                        <a href="ïndex.html"><img src="imagens/Perfil/Agrupar 91.png" alt="avatar do produtor" /></a>
-                        <div class="menu_perfil">
+            <HeaderPerfil/>
+                <main className="itens-encontrados">
+                    <div className="esquerdo_perfil">
+                        <a href="ïndex.html"><img src={produtor} alt="avatar do produtor" /></a>
+                        <div className="menu_perfil">
                             <h2>José Carlos</h2>
                             <p><a href="perfil_produtor.html">Perfil</a></p>
                             <p><a href="produtos_cadastrados.html">Produtos Cadastrados</a></p>
@@ -89,28 +97,30 @@ export default class CadastrarProdutos extends Component {
                             <p><a href="index.html#dicas">Dicas</a></p>
                         </div>
                     </div>
-                    <div class="lado-direito-resultado">
-                        <div class="container-perfil">
+                    <div className="lado-direito-resultado">
+                        <div className="container-perfil">
 
                             <h2>Cadastrar Produtos</h2>
 
-                            <div class="container-cards1">
+                            <div className="container-cards1">
                                 <form onSubmit={this.postProduto} id="form-cadastrar-produto" method="POST">
                                     {/* {
-                            this.state.listaProdutos.map(
-                                function(p){
-                                    return(
-
-                                    )
-                                }
-                            ) */}
-                                    <label class="lbl-form-cad-prod" for="nome-prod">Produto:</label>
+                                        this.state.listaProdutos.map(
+                                            function(p){
+                                                return(
+                                                    <p>teste</p>
+                                                )
+                                            }
+                                        )
+                                    } */}
+                                    <label className="lbl-form-cad-prod" htmlFor="nome-prod">Produto:</label>
                                     <select
-                                        name="nome-prod"
+                                        name="idProduto"
                                         id="cad-preco"
                                         value={this.state.postProduto.idProduto}
                                         onChange={this.postSetState}
                                     >
+                                        <option value="0">Selecione um produto</option>
                                         {
                                             this.state.listaProdutos.map(function (p) {
                                                 return (
@@ -130,7 +140,7 @@ export default class CadastrarProdutos extends Component {
                                 // <option value="carne">Carne</option>
                                 // <option value="ovo">Ovo</option> */}
                                     </select>
-                                    <label class="lbl-form-cad-prod" for="estado-prod">Estado do Produto:</label>
+                                    <label className="lbl-form-cad-prod" htmlFor="estado-prod">Estado do Produto:</label>
                                     <select
                                         name="estadoProduto"
                                         id="cad-preco"
@@ -142,7 +152,7 @@ export default class CadastrarProdutos extends Component {
                                         <option value="Razoável">Razoável</option>
                                         <option value="Ruim">Ruim</option>
                                     </select>
-                                    <label class="lbl-form-cad-prod" for="cad-preco">Preço:</label>
+                                    <label className="lbl-form-cad-prod" htmlFor="cad-preco">Preço:</label>
                                     <input
                                         id="cad-preco"
                                         type="currency"
@@ -152,9 +162,9 @@ export default class CadastrarProdutos extends Component {
                                         onChange={this.postSetState}
                                     />
 
-                                    <label class="lbl-form-cad-prod" for="dt-fab-prod">Data de Fabricação: </label>
+                                    <label className="lbl-form-cad-prod" htmlFor="dt-fab-prod">Data de Fabricação: </label>
                                     <input
-                                        class="inp-date"
+                                        className="inp-date"
                                         id="dt-fab-prod"
                                         type="date"
                                         name="dataFabricacao"
@@ -162,23 +172,23 @@ export default class CadastrarProdutos extends Component {
                                         onChange={this.postSetState}
                                     />
 
-                                    <label class="lbl-form-cad-prod" for="dt-venc-prod">Data de Vencimento:</label>
+                                    <label className="lbl-form-cad-prod" htmlFor="dt-venc-prod">Data de Vencimento:</label>
                                     <input
-                                        class="inp-date"
+                                        className="inp-date"
                                         id="dt-venc-prod"
                                         type="date"
                                         name="dataVencimento"
                                         value={this.state.postProduto.dataVencimento}
                                         onChange={this.postSetState}
                                     />
-                                    <div class="btn-b">
-                                        <button class="btn-cadastrar" type="submit">Cadastrar</button>
+                                    <div className="btn-b">
+                                        <button className="btn-cadastrar" type="submit">Cadastrar</button>
                                     </div>
                                     {/* } */}
                                 </form>
 
                             </div>
-                            <div class="lado-direito-resultado1"></div>
+                            <div className="lado-direito-resultado1"></div>
                         </div>
 
                     </div>
