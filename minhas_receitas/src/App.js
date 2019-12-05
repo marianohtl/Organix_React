@@ -60,7 +60,8 @@ export default class App extends Component {
             modoPreparo:"",
             idUsuario:"",
             idCategoriaReceita:"",
-            imagem: ""
+            // 01 - Colocamos o createRef
+            imagem: React.createRef()
         },
         successMsg : "",
         erroMsg:""
@@ -127,14 +128,44 @@ export default class App extends Component {
         })
     }
 
+    // 02 - Adicionamos um setState específico
+    putSetStateFile = (input) =>{
+        this.setState({
+            putReceita : {
+                ...this.state.putReceita, [input.target.name] : input.target.files[0]
+            }   
+        })
+    }
+
     
     putReceita = (event) =>{
         event.preventDefault();
+
         let receita_id = this.state.putReceita.idReceita;
         let receita_alterada = this.state.putReceita;
+
         console.log(receita_id)
         console.log(receita_alterada)
-        apiFormData.put('/receita/'+receita_id, receita_alterada)
+
+        // 03 - Criamos nosso formData
+        let formData = new FormData();
+        formData.set('idReceita', this.state.putReceita.idReceita);
+        formData.set('nomeReceita', this.state.putReceita.nomeReceita);
+        formData.set('ingredientes', this.state.putReceita.ingredientes);
+        formData.set('tempoPreparo', this.state.putReceita.tempoPreparo);
+        formData.set('porcoes', this.state.putReceita.porcoes);
+        formData.set('modoPreparo', this.state.putReceita.modoPreparo);
+        formData.set('idUsuario', this.state.putReceita.idUsuario);
+        formData.set('idCategoriaReceita', this.state.putReceita.idCategoriaReceita);
+        // 04 - Nesta parte está o segredo, precisamos de 3 parâmetros
+        // Veja no exemplo dado na documentação:
+        // https://developer.mozilla.org/pt-BR/docs/Web/API/FormData/set
+        formData.set('imagem', this.state.putReceita.imagem.current.files[0] , this.state.putReceita.imagem);
+
+        console.log(formData);
+
+        // 05 - Não esqueçam de passar o formData
+        apiFormData.put('/receita/'+receita_id, formData)
         .then(() => {
             this.setState({successMsg : "Evento alterado com sucesso!"});
         })
@@ -145,10 +176,12 @@ export default class App extends Component {
         setTimeout(() => {
             this.getReceitas();
         }, 1500); 
+
         this.closeDialog();
+        
     }
 
-      //#endregion
+    //#endregion
 
     render() {
       return(
@@ -237,8 +270,12 @@ export default class App extends Component {
          
             
             <label htmlFor="icon-button-file">
-            <IconButton color="primary"  aria-label="upload picture" component="span"  onChange={this.putSetState} value={this.state.putReceita.imagem}>
-                <input accept="image/*" className="input_load" id="icon-button-file" type="file" name="imagem"/>
+            <IconButton color="primary"  aria-label="upload picture" component="span">
+                {
+                    // 06 - Aqui damos nosso "onChange" especial e também passamos nosso "ref"
+                
+                }
+                <input accept="image/*" className="input_load" id="icon-button-file" type="file" name="imagem" onChange={this.putSetStateFile} ref={this.state.putReceita.imagem}  />
                 <PhotoCamera />
             </IconButton>
       </label>
