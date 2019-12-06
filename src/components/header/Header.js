@@ -78,7 +78,7 @@ class Header extends Component {
             this.props.history.push("/quemsomos");
           }
           else if (parseJwt().Role === "2") {
-            this.props.history.push("/PerfilProdutor")
+            this.props.history.push("/PerfilComprador")
           } else if (parseJwt().Role === "1") {
             this.props.history.push("/PerfilComprador")
           }
