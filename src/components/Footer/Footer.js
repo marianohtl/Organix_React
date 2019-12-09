@@ -13,19 +13,19 @@ function Footer(){
             <div className = "container-home-footer">
                 <div className = "rodape">
                     <div className = "icone-redesocial-footer">
-                        <img src = {Facebook} alt = "Icone Do Facebook"/>
-                        <img src = {Twitter} alt = "Icone Do Twitter"/>
-                        <img src = {Instagram} alt = "Icone Do Instagram"/>
+                       <a target = "_blank" href = "https://www.facebook.com/"><img src = {Facebook} alt = "Icone Do Facebook"/></a>
+                       <a target = "_blank" href = "https://twitter.com/?lang=pt"><img src = {Twitter} alt = "Icone Do Twitter"/></a>
+                       <a target = "_blank" href = "https://www.instagram.com/?hl=pt-br"><img src = {Instagram} alt = "Icone Do Instagram"/></a>
                     </div>
                     <div className = "centro-footer">
                         <p>©COPYRIGHT</p>
                     </div>
                 </div>
-                {/* <div className = "icone-redesocial-footer-mobile">
-                    <img src = {mobFacebook} alt = "Icone do Facebook"/>
-                    <img src = {mobTwitter} alt = "Icone do Twitter"/>
-                    <img src = {mobInstagram} alt = "Icone do Instagram"/>      
-                </div> */}
+                <div className = "icone-redesocial-footer-mobile">
+                    <a target = "_blank" href = "https://www.facebook.com/"><img src = {mobFacebook} alt = "Icone do Facebook"/></a>
+                    <a target = "_blank" href = "https://twitter.com/?lang=pt"><img src = {mobTwitter} alt = "Icone do Twitter"/></a>
+                    <a target = "_blank" href = "https://www.instagram.com/?hl=pt-br"><img src = {mobInstagram} alt = "Icone do Instagram"/></a>      
+                </div>
             </div>
         </footer>
     )
