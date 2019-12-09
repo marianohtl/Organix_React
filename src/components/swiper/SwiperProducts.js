@@ -6,23 +6,6 @@ import '../../assets/css/estilo.css'
 import api from '../../services/api';
 
 
-// const SimpleSwiper = () => {
-//   const params = {
-//     slidesPerView: 3,
-//     spaceBetween: 30,
-//     pagination: {
-//       el: '.swiper-pagination',
-//       clickable: true,
-//     },
-//     navigation: {
-//       nextEl: '.swiper-button-next',
-//       prevEl: '.swiper-button-prev',
-//     }
-//   }
-// }
-
-
-
 export default class SwiperProducts extends Component {
   constructor() {
     super()
@@ -37,6 +20,7 @@ export default class SwiperProducts extends Component {
     this.params = {
       slidesPerView: 3,
       spaceBetween: 30,
+      observer: true,
       pagination: {
         el: '.swiper-pagination',
         clickable: true,
@@ -71,7 +55,7 @@ export default class SwiperProducts extends Component {
       <Swiper {...this.params}>
       
       {this.state.listaOferta.map(function (a) {
-            return (
+        return (
                 <div className="swiper-slide">
                   <div className="card-produto">
                     <div className="imagem-redonda-card-receita"> <img src="#"
@@ -83,10 +67,10 @@ export default class SwiperProducts extends Component {
                     <button type="button" to="/cadastro">VER PRODUTO</button>
                   </div>
                 </div>
-            )
-          })}
-
-          </Swiper>
+                )
+              })}
+              
+        </Swiper>
         )
   }
 }
