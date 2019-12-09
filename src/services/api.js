@@ -15,5 +15,3 @@ export const apiFormData = Axios.create({
         "Authorization" : "Bearer " + localStorage.getItem("usuario-organix")
     }
 })
-
-

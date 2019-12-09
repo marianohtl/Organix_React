@@ -1,178 +1,197 @@
-import React, {Component} from 'react';
-import {apiFormData} from '../src/services/api';
-import {api} from '../src/services/api';
-import { makeStyles } from '@material-ui/core/styles';
-import PhotoCamera from '@material-ui/icons/PhotoCamera';
+import React,{Component, Fragment }  from 'react'
+//import CardReceita from '../src/components/cardReceita/CardReceita'
+import {api} from '../src/services/api'
+
+//modal
+import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import { string } from 'prop-types';
+// import Slide from '@material-ui/core/Slide';
 
 
 
-export default class Receitas extends Component{
+
+
+export default class App extends Component {
+
 
     constructor(){
-        super()
-
+        super();
         this.state = {
-            listaCategorias : [],
+          listaOfertas: [],
+          umaOferta:{
+            idProdutoNavigation: {
+               
+            },
+            idUsuarioNavigation: {
+                endereco: [
+                    {
+                        
+                    }
+                ]
+            },
+          },
+         
+          idEscolhido:"",
+          open:false, 
+        }
+    }
+
+    openDialog() {
+        this.setState({ open: true });
+    }
+    closeDialog() {
+        this.setState({ open:false });
+    }
+
+    
+      componentDidMount(){
+        this.getOferta();
+    }
+    
+    //#region GETs
+      
+     getOferta = () => {
+        api.get('/oferta')
+        .then(response => {
+          if(response.status === 200){
+            this.setState({listaOfertas : response.data})
             
-            postReceita : {
-                idUsuario: "1",
-                nomeReceita: "",
-                ingredientes: "",
-                tempoPreparo: "",
-                porcoes: "",
-                modoPreparo: "",
-                idCategoriaReceita: "",
-                nomeCategoria: ""
-            },
-
-            getCategoria : {
-                idCategoriaReceitaNavigation: "",
-                
-            },
-
-            fileInput: React.createRef(),
-            msgErro: ""
+          }
+        })
+      }
+    
+      //esta função está recebendo o id da receita que foi mapeada <<< 
+      visualizarOferta = (idOferta) => {
+          
+          api.get('/oferta/'+ idOferta)
+          .then(response => {
+              if(response.status === 200){
+                  this.setState({umaOferta : response.data})
+                  console.log(this.state.umaOferta)
+                  this.openDialog()
         }
-    };
-
-
-    getCategorias = () => {
-        api.get('/CategoriaReceita')
-        .then(response => {
-            if(response.status === 200){
-                this.setState({ listaCategorias : response.data })
-            }
         })
     }
 
-    postSetState = (input) =>{
-        this.setState({
-            postReceita : {
-                ...this.state.postReceita, [input.target.name] : input.target.value
-            }
-        })
-    }
+  
 
-    componentDidMount() {
-        this.getCategorias();
-    }
-
- 
-    postReceita = (r) => {
-        r.preventDefault();
-
-        let receita = new FormData();
-
-        
-        receita.set("idUsuario", this.state.postReceita.idUsuario);
-        receita.set("nomeReceita", this.state.postReceita.nomeReceita);
-        receita.set("ingredientes", this.state.postReceita.ingredientes);
-        receita.set("modoPreparo", this.state.postReceita.modoPreparo);
-        receita.set("porcoes", this.state.postReceita.porcoes);
-        receita.set("tempoPreparo", this.state.postReceita.tempoPreparo);
-        receita.set("idCategoriaReceita", this.state.postReceita.idCategoriaReceita);
-        receita.set("imagem" , this.state.fileInput.current.files[0]);
-
-
-        apiFormData.post('/Receita', receita)
-        .then(response => {
-            console.log(response);
-            console.log(this.postReceita)
-        })
-        .catch(erro => {
-            console.log(erro);
-            this.setState({msgErro : "Não foi possível cadastrar a receita!"})
-        })
-        }
-
-        handleImageChange = (r) => {
-            this.setState({
-                fileInput: r.target.files[0]
-            })
-        };
+    
+    //#endregion
     
 
-        render(){
-            return(
+    render() {
+      return(
+        <Fragment>
+
+                <Dialog
+                aria-labelledby="alert-dialog-slide-title"
+                aria-describedby="alert-dialog-slide-description"
+                open={this.state.open}
+                onClose={this.handleClose}>
         
+                <DialogTitle id="alert-dialog-slide-title">
+                    {this.state.umaOferta.idProdutoNavigation.nomeProduto}        
+                </DialogTitle>
+                <DialogContent>
+                    <DialogContentText id="alert-dialog-slide-description">
+                    <table> 
+                    <tr>
+                        <td>Produto: {this.state.umaOferta.idProdutoNavigation.nomeProduto}</td>
+                        <td>Preço: {this.state.umaOferta.preco}</td>
+                    </tr>
+                    <tr>
+                        <td>Data de produção: {this.state.umaOferta.dataFabricacao}</td>
+                        <td>Data de Validade: {this.state.umaOferta.dataVencimento}</td>
+                    </tr>
+                    
+                    <tr>                   
+                        <td>Vendedor: {this.state.umaOferta.idUsuarioNavigation.nome}</td>
+                        <td>CNPJ: {this.state.umaOferta.idUsuarioNavigation.cpfCnpj}</td>
+                    </tr>
+                    <tr>
+                    <td>Email: {this.state.umaOferta.idUsuarioNavigation.email}</td>
+                    <td>Endereço: {this.state.umaOferta.idUsuarioNavigation.endereco[0].rua}, {this.state.umaOferta.idUsuarioNavigation.endereco[0].bairro} - {this.state.umaOferta.idUsuarioNavigation.endereco[0].cidade}, {this.state.umaOferta.idUsuarioNavigation.endereco[0].estado} - {this.state.umaOferta.idUsuarioNavigation.endereco[0].cep} </td>
+                    </tr>
+                    
+                    </table>  
+                    </DialogContentText>
+                </DialogContent>
                 
-                    <main className="itens-encontrados-cadastro">
-                        <div className="lado-direito-resultado">
-                            <div className="container-perfil">
-
-                            <h2>Cadastro Receitas</h2>
-
-
-        <div className="direita_cadastro_receita">
-            <form action="#" id="cadastrar-receita" method="POST" onSubmit={this.postReceita}>
-                <div className="fileira-um">
-                    <div className="cadastro-receitas-correcao-input">
-                        <label className="label_porcoes" for="POST-tempo-receita">Nome da Receita: </label>
-                        <input type="text" className="nomereceita" name="nomeReceita" value={this.state.postReceita.nomeReceita} onChange={this.postSetState}/>
-                    </div>
-                    <div className="cadastro-receitas-correcao-input">
-                        <label className="label_porcoes" for="POST-tempo-receita">Porções: </label>
-                        <input type="number" name="porcoes" className="porcoesreceita" value={this.state.postReceita.porcoes} onChange={this.postSetState} />
-                    </div>
-                    <div className="cadastro-receitas-correcao-input" id="temprep">
-                        <label className="label_porcoes" for="POST-tempo-receita">Tempo de Preparo: </label>
-                        <input type="text" className="tempopreparo" name="tempoPreparo" value={this.state.postReceita.tempoPreparo} onChange={this.postSetState}/>
-                    </div>
+                <DialogActions>
+                <Button onClick={this.closeDialog.bind(this)} color="primary"  >
+                    FECHAR
+                </Button>
+                </DialogActions>
+                </Dialog>
+             
+  
+  
+      
+        <main className="itens-encontrados-cadastro"> 
+        
+        <div className="esquerdo_perfil">
+        <img src="#" alt="avatar do produtor"/>
+        <div className="menu_perfil">
+        <h2>Renata Amaral</h2>
+        <p><a href="perfil.html">Perfil</a></p>
+        <p><a href="pesquisar_produtos.html">Buscar Produtos</a></p>
+        <p><a href="receitas.html">Receitas</a></p>
+                <p><a href="cadastro_receitas.html">Cadastro de Receitas</a></p>
+                <p><a href="index.html">Dicas</a></p>
                 </div>
+                </div>                
+                <div className="lado-direito-resultado">
+                <div className="container-perfil">
+                <h2>Produtos</h2>
+                <div className="container-cards">
+                { 
+                    this.state.listaOfertas.map(
+                    function(oferta){
+                        return(
+                            <Fragment>
 
-                <div className="fileira-dois">
-                    <label for="POST-tempo-receita">Ingredientes:</label>
-                    <input id="input-receita-ingrediente" type="text" name="ingredientes" value={this.state.postReceita.ingredientes} onChange={this.postSetState} />
+                        <div className="card-produto">
+                        <div className="imagem-redonda-card-receita">
+                        <img src={"http://localhost:5000/"+ oferta.idProdutoNavigation.imagem} />
+                        </div>
+                        
+                        <p className='nome-produto' key={oferta.idProdutoNavigation.idProduto}>{oferta.idProdutoNavigation.nomeProduto}</p>
+                        <ul>
+                        <li>Região: {oferta.idUsuarioNavigation.endereco[0].regiao}</li>
+                        <li>Estado do Produto: {oferta.estadoProduto}</li>
+                        </ul>
+                        <Button size="small" variant="outlined" color="primary" onClick={e => this.visualizarOferta(oferta.idOferta)}  >
+                            Ver Oferta
+                        </Button>
+                        </div>
+                        
+                        </Fragment>
+
+                        );
+                    }.bind(this)
+                    )
+                }   
+
+     
+     
                 </div>
+            <div className="lado-direito-resultado1"></div>
 
-                <div className="fileira-dois">
-                    <label for="POST-tempo-receita">Modo de Preparo:</label>
-                    <input id="input-receita-preparo" type="text" name="modoPreparo" value={this.state.postReceita.modoPreparo} onChange={this.postSetState}  />
-                </div>
+            </div>
+           </div>
+           
+      </main>
+      
+      </Fragment>
 
-                <select id="option__tiporeceita"
-                            name="idCategoriaReceita"
-                            className="categoria-receitas"
-                            value={this.state.getCategoria.idCategoriaReceita}
-                            onChange={this.postSetState}
-                        >
-                            <option value="">Escolha uma categoria: </option>
-                            {
-                                this.state.listaCategorias.map(function(c){
-                                    return(
-                                        <option 
-                                            key={c.idCategoriaReceita}
-                                            value={c.idCategoriaReceita}
-                                        >
-                                            {c.nomeCategoria}
-                                        </option>
-                                    )
-                                })
-                            }
-                        </select>
-                <input type="file" className="imagens-receita-enviar" ref={this.state.fileInput} /><label>
-                <PhotoCamera />
-                </label>
-                
-                <button type="submit" className="receitas-enviar" >Enviar</button>
-                
-            </form>
-        </div>
-
-
-        <div className="lado-direito-resultado1"></div>
-    </div>
-
-</div>
-
-
-
-</main>
-
-                
-            )
+        
+          )
+ 
+ 
         }
-
-
-    }
-
+}
