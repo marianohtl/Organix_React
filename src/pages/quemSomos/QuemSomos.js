@@ -1,11 +1,15 @@
 import React, {Component} from "react"
 import "../../assets/css/estilo.css"
 //  import "../../assets/css/img/"
-import Swiper from "../../components/swiper/Swiper"
+import SimpleSwiper from "../../components/swiper/Swiper"
+import Header from "../../components/header/Header"
 
 export default class QuemSomos extends Component{
     render(){
         return(
+         
+           <>
+            <Header/>
             <main>
             <section className="nossa-historia">
               <div className="historia-txt">
@@ -45,9 +49,10 @@ export default class QuemSomos extends Component{
                 </div>
               </div>
             </section>
-            <Swiper/>
+            <SimpleSwiper/>
             
           </main>
+          </>
         )
     }
 }
