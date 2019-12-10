@@ -4,7 +4,11 @@ import { api } from "../../services/api"
 import { parseJwt } from "../../services/auth"
 import produtor from "../../assets/img/Perfil/Agrupar 91.png"
 import HeaderPerfil from "../../components/header/HeaderPerfil"
+<<<<<<< HEAD
 import HeaderPerfilFull from "../../components/header/HeaderPerfilFull"
+=======
+import Responsive from "../../components/responsive/ResponsiveProdutor"
+>>>>>>> origin/iguinho2
 
 export default class CadastrarProdutos extends Component {
 
@@ -86,6 +90,7 @@ export default class CadastrarProdutos extends Component {
     render() {
         return (
             <>
+<<<<<<< HEAD
             <HeaderPerfil/>
                 <main className="itens-encontrados">
                     <div className="esquerdo_perfil">
@@ -93,6 +98,20 @@ export default class CadastrarProdutos extends Component {
                         <div className="menu_perfil">
                             <h2>José Carlos</h2>
                             <HeaderPerfilFull/>
+=======
+            
+            <Responsive/>
+            <HeaderPerfil/>
+                <main className="itens-encontrados">
+                    <div className="esquerdo_perfil">
+                        <a href="ïndex.html"><img src={produtor} alt="avatar do produtor" /></a>
+                        <div className="menu_perfil">
+                            <h2>José Carlos</h2>
+                            <p><a href="perfil_produtor.html">Perfil</a></p>
+                            <p><a href="produtos_cadastrados.html">Produtos Cadastrados</a></p>
+                            <p><a href="cadastro_produto.html">Cadastrar Produtos</a></p>
+                            <p><a href="index.html#dicas">Dicas</a></p>
+>>>>>>> origin/iguinho2
                         </div>
                     </div>
                     <div className="lado-direito-resultado">

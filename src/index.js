@@ -60,7 +60,11 @@ const Rotas = (
         <div>
             <Switch>
             <Route exact path="/" component={App} />
+<<<<<<< HEAD
             <PermissaoAdmin exact path="/quemsomos" component={QuemSomos} />
+=======
+            <Route path="/quemsomos" component={QuemSomos} />
+>>>>>>> origin/iguinho2
             <Route path="/minhasreceitas" component={minhasReceitas} />
             <Route path="/todasreceitas" component={todasReceitas} />
             {/* <Route path="/Cadastro" component={Cadastro} />

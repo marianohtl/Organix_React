@@ -2,8 +2,14 @@ import React, { Component } from "react"
 import Logo from "../../assets/img/Ativo 6.png"
 import Menu from "../../assets/img/bars-solid.svg"
 import { Link } from "react-router-dom"
+<<<<<<< HEAD
 import { api, apiFormData } from "../../services/api";
 import { parseJwt, usuarioAutenticado } from "../../services/auth"
+=======
+import {api, apiFormData} from "../../services/api";
+import { parseJwt } from "../../services/auth"
+
+>>>>>>> origin/iguinho2
 import Fab from '@material-ui/core/Fab';
 // import AddIcon from '@material-ui/icons/Add';
 // import EditIcon from '@material-ui/icons/Edit';
@@ -17,7 +23,11 @@ import { string } from 'prop-types';
 import Slide from '@material-ui/core/Slide';
 
 // Alternativa para realizar redirecionamentos com this.props.history.push
+<<<<<<< HEAD
 import { withRouter } from 'react-router-dom';
+=======
+import {withRouter} from 'react-router-dom';
+>>>>>>> origin/iguinho2
 
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -31,12 +41,15 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 class Header extends Component {
 
+<<<<<<< HEAD
   logout = () => {
     localStorage.removeItem("usuario-organix")
 
     this.props.history.push("/")
   }
 
+=======
+>>>>>>> origin/iguinho2
   constructor() {
     super();
     this.state = {
@@ -88,7 +101,11 @@ class Header extends Component {
           else if (parseJwt().Role === "2") {
             this.props.history.push("/PerfilProdutor")
           } else if (parseJwt().Role === "1") {
+<<<<<<< HEAD
             this.props.history.push("/MinhasReceitas")
+=======
+            this.props.history.push("/PerfilComprador")
+>>>>>>> origin/iguinho2
           }
         }
       })
@@ -122,9 +139,13 @@ class Header extends Component {
         </div>
         <div class="container-home">
           <h1>
+<<<<<<< HEAD
             <a href="#/">
               <img src={Logo} alt="LOGO ORGANIX COM UMA CENOURA NO FINAL" />
             </a>
+=======
+            <img src={Logo} alt="LOGO ORGANIX COM UMA CENOURA NO FINAL" />
+>>>>>>> origin/iguinho2
           </h1>
           <nav class="nav-home">
             <ul class="ul-home">
@@ -137,6 +158,7 @@ class Header extends Component {
           </nav>
           <nav class="nav-home">
             <ul class="ul-home">
+<<<<<<< HEAD
 
               {((usuarioAutenticado() && parseJwt().Role === "1") || (usuarioAutenticado() && parseJwt().Role === "2") || (usuarioAutenticado() && parseJwt().Role === "3")) ?
                 (
@@ -152,6 +174,10 @@ class Header extends Component {
                   </>
                 )
                 }      
+=======
+              <li class="nav-2-home"><a onClick={this.openDialog.bind(this)}>Entrar</a></li>
+              <li class="nav-2-home"><a href='cadastro.html'>Cadastre-se</a></li>
+>>>>>>> origin/iguinho2
             </ul>
           </nav>
         </div>

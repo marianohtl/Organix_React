@@ -18,7 +18,10 @@ import HeaderPerfil from "../../components/header/HeaderPerfil"
 
 
 
+<<<<<<< HEAD:src/pages/receitas/todasReceitas.js
 
+=======
+>>>>>>> origin/iguinho2:todas_receitas/src/App.js
 export default class todasReceitas extends Component {
 
 
