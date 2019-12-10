@@ -12,6 +12,7 @@ import QuemSomos from "./pages/quemSomos/QuemSomos"
 // import BuscarProdutos from "./pages/buscarProdutos/BuscarProdutos"
 // import ProdutosEncontrados from "./pages/produtosEncontrados/ProdutosEncontrados"
 // import Receitas from "./pages/receitas/Receitas"
+// import CadastroReceitas from "./pages/receitas/CadastroReceitas"
 import minhasReceitas from "./pages/receitas/minhasReceitas"
 import todasReceitas from "./pages/receitas/todasReceitas"
 // import PerfilProdutor from "./pages/perfilProdutor/PerfilProdutor"
@@ -60,11 +61,7 @@ const Rotas = (
         <div>
             <Switch>
             <Route exact path="/" component={App} />
-<<<<<<< HEAD
-            <PermissaoAdmin exact path="/quemsomos" component={QuemSomos} />
-=======
             <Route path="/quemsomos" component={QuemSomos} />
->>>>>>> origin/iguinho2
             <Route path="/minhasreceitas" component={minhasReceitas} />
             <Route path="/todasreceitas" component={todasReceitas} />
             {/* <Route path="/Cadastro" component={Cadastro} />
@@ -73,7 +70,8 @@ const Rotas = (
             <Route path="/BuscarProdutos" component={BuscarProdutos} />
             <Route path="/ProdutosEncontrados" component={ProdutosEncontrados} />
             <Route path="/Receitas" component={Receitas} />
-            <Route path="/ProdutosCadastrados" component={ProdutosCadastrados} />*/}
+            <Route path="/ProdutosCadastrados" component={ProdutosCadastrados} />
+            <Route path="/CadastroReceitas" component={CadastroReceitas} />*/}
             
             <Route exact path="/login" component={Login}/>
             <Route path="/CadastrarProdutos" component={CadastrarProdutos} />

@@ -18,10 +18,6 @@ import HeaderPerfil from "../../components/header/HeaderPerfil"
 
 
 
-<<<<<<< HEAD:src/pages/receitas/todasReceitas.js
-
-=======
->>>>>>> origin/iguinho2:todas_receitas/src/App.js
 export default class todasReceitas extends Component {
 
 
@@ -133,13 +129,12 @@ export default class todasReceitas extends Component {
         <div className="esquerdo_perfil">
         <img src="#" alt="avatar do produtor"/>
         <div className="menu_perfil">
-        <h2>Renata Amaral</h2>
         <HeaderPerfilFull/>
                 </div>
                 </div>                
                 <div className="lado-direito-resultado">
                 <div className="container-perfil">
-                <h2>Receitas</h2>
+                <h2>Todas Receitas</h2>
                 <div className="container-cards">
                 { 
                     this.state.listaReceitas.map(

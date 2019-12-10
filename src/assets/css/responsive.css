@@ -1,6 +1,9 @@
-@media(max-width:760px){
+.ResponsiveMenu{
+display: none !important;
+}
 
 @import url('https://fonts.googleapis.com/css?family=Varela+Round');
+@media(max-width:800px){
 html, body {
     overflow-x: hidden;
     height: 100%;
@@ -11,6 +14,10 @@ body {
     margin: 0;
     font-family: 'Varela Round', sans-serif;
 }
+
+.ResponsiveMenu{
+    display: block !important;
+    }
 .header {
     display: block;
     margin: 0 auto;
@@ -50,7 +57,7 @@ body {
     margin-top: 60px;
     transform: translateX(-250px);
     transition: transform 250ms ease-in-out;
-    background: linear-gradient(180deg, #FC466B 0%, #3F5EFB 100%);
+    background: rgba(156, 66, 122, .9);
 }
 .sidebarMenuInner{
     margin:0;

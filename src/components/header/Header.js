@@ -2,14 +2,8 @@ import React, { Component } from "react"
 import Logo from "../../assets/img/Ativo 6.png"
 import Menu from "../../assets/img/bars-solid.svg"
 import { Link } from "react-router-dom"
-<<<<<<< HEAD
 import { api, apiFormData } from "../../services/api";
 import { parseJwt, usuarioAutenticado } from "../../services/auth"
-=======
-import {api, apiFormData} from "../../services/api";
-import { parseJwt } from "../../services/auth"
-
->>>>>>> origin/iguinho2
 import Fab from '@material-ui/core/Fab';
 // import AddIcon from '@material-ui/icons/Add';
 // import EditIcon from '@material-ui/icons/Edit';
@@ -23,11 +17,7 @@ import { string } from 'prop-types';
 import Slide from '@material-ui/core/Slide';
 
 // Alternativa para realizar redirecionamentos com this.props.history.push
-<<<<<<< HEAD
 import { withRouter } from 'react-router-dom';
-=======
-import {withRouter} from 'react-router-dom';
->>>>>>> origin/iguinho2
 
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -41,15 +31,12 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 class Header extends Component {
 
-<<<<<<< HEAD
   logout = () => {
     localStorage.removeItem("usuario-organix")
 
     this.props.history.push("/")
   }
 
-=======
->>>>>>> origin/iguinho2
   constructor() {
     super();
     this.state = {
@@ -101,11 +88,7 @@ class Header extends Component {
           else if (parseJwt().Role === "2") {
             this.props.history.push("/PerfilProdutor")
           } else if (parseJwt().Role === "1") {
-<<<<<<< HEAD
             this.props.history.push("/MinhasReceitas")
-=======
-            this.props.history.push("/PerfilComprador")
->>>>>>> origin/iguinho2
           }
         }
       })
@@ -132,52 +115,43 @@ class Header extends Component {
   render() {
     return (
       <header>
-        <div class="container-home-responsivo">
-          <Link href=""><img src={Menu} class="menu-bar" alt="botão menu hamburger" /></Link>
+        <div className="container-home-responsivo">
+          <Link href=""><img src={Menu} className="menu-bar" alt="botão menu hamburger" /></Link>
           <p>HOME</p>
-          <Link href=""><img src="imagens/Ativo 1.svg" class="logo-cenoura" alt="logo cenoura" /></Link>
+          <Link href=""><img src="imagens/Ativo 1.svg" className="logo-cenoura" alt="logo cenoura" /></Link>
         </div>
-        <div class="container-home">
+        <div className="container-home">
           <h1>
-<<<<<<< HEAD
             <a href="#/">
               <img src={Logo} alt="LOGO ORGANIX COM UMA CENOURA NO FINAL" />
             </a>
-=======
-            <img src={Logo} alt="LOGO ORGANIX COM UMA CENOURA NO FINAL" />
->>>>>>> origin/iguinho2
           </h1>
-          <nav class="nav-home">
-            <ul class="ul-home">
+          <nav className="nav-home">
+            <ul className="ul-home">
               <li><a href="/">HOME</a></li>
-              <li class="tracinho">|</li>
+              <li className="tracinho">|</li>
               <li><a href="#/quemsomos">QUEM SOMOS</a></li>
-              <li class="tracinho">|</li>
-              <li><a href='#dicas'>DICAS</a></li>
+              {/* <li className="tracinho">|</li>
+              <li><a href='/'>DICAS</a></li> */}
             </ul>
           </nav>
-          <nav class="nav-home">
-            <ul class="ul-home">
-<<<<<<< HEAD
+          <nav className="nav-home">
+            <ul className="ul-home">
 
               {((usuarioAutenticado() && parseJwt().Role === "1") || (usuarioAutenticado() && parseJwt().Role === "2") || (usuarioAutenticado() && parseJwt().Role === "3")) ?
                 (
                   <React.Fragment>
-                    <li class="nav-2-home"><a onClick={this.logout}>Sair</a></li>
-                    <li class="nav-2-home"><a href='#/CadastrarProdutos'>Perfil</a></li>
+                    <li className="nav-2-home"><a onClick={this.logout}>Sair</a></li>
+                    <li className="nav-2-home"><a href='#/CadastrarProdutos'>Perfil</a></li>
 
                   </React.Fragment>
                 ) : (
                   <>
-                  <li class="nav-2-home"><a onClick={this.openDialog.bind(this)}>Entrar</a></li>
-                  <li class="nav-2-home"><a href='cadastro.html'>Cadastre-se</a></li>
+                  <li className="nav-2-home"><a onClick={this.openDialog.bind(this)}>Entrar</a></li>
+                  <li className="nav-2-home"><a href='#/Cadastro'>Cadastre-se</a></li>
                   </>
                 )
                 }      
-=======
-              <li class="nav-2-home"><a onClick={this.openDialog.bind(this)}>Entrar</a></li>
-              <li class="nav-2-home"><a href='cadastro.html'>Cadastre-se</a></li>
->>>>>>> origin/iguinho2
             </ul>
           </nav>
         </div>

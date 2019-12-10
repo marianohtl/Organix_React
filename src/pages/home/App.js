@@ -4,7 +4,7 @@ import SimpleSwiper from "../../components/swiper/Swiper"
 import Header from "../../components/header/Header"
 import CardReceita from '../../components/cardReceita/CardReceita';
 import SwiperProducts from '../../components/swiper/SwiperProducts'
-
+import ResponsiveHome from "../../components/responsive/ResponsiveHome"
 
 
 
@@ -13,7 +13,9 @@ function App() {
   return (
 
     <>
+    <ResponsiveHome/>
       <Header/>
+      
       <main>
         <div className="banner"></div>
         <div className="marg"></div>

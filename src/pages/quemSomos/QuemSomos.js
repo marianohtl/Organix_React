@@ -3,12 +3,14 @@ import "../../assets/css/estilo.css"
 //  import "../../assets/css/img/"
 import SimpleSwiper from "../../components/swiper/Swiper"
 import Header from "../../components/header/Header"
+import ResponsiveHome from "../../components/responsive/ResponsiveHome"
 
 export default class QuemSomos extends Component{
     render(){
         return(
          
            <>
+           <ResponsiveHome/>
             <Header/>
             <main>
             <section className="nossa-historia">

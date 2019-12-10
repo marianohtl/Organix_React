@@ -305,7 +305,7 @@ font-family: var(--fonte_titulo);
     font-size: 25px;
 }
 .nossa-historia{
-    margin-top: 80px;
+    margin-top: 60px;
     text-align: center;
     justify-content: center;
     height: 650px;
@@ -1232,10 +1232,7 @@ list-style: none;
 /* MEDIAs */
 @media(max-width:450px){
 /*MENU PARA CELULAR*/
-.container-home{
-    display: none !important;
-    
-}
+
 .container-home-responsivo{
     width: 100%;
     margin: auto;
@@ -1536,6 +1533,11 @@ footer{
 }
 
 @media(max-width:800px){
+    .container-home{
+        display: none !important;
+        
+    }
+
     .container-home {
         width: 375px;
         margin: auto;
