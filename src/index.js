@@ -15,6 +15,7 @@ import PerfilComprador from "./pages/perfilComprador/PerfilComprador"
 // import ProdutosCadastrados from "./pages/produtosCadastrados/ProdutosCadastrados"
 // import CadastrarProdutos from "./pages/cadastrarProdutos/CadastrarProdutos"
 
+
 import {Route, HashRouter as Router} from 'react-router-dom';
 
 const Rotas = (

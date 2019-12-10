@@ -46,7 +46,6 @@ export default class PerfilComprador extends Component {
                         <div className="btn_cadastro">
                             <img src={Produtor} alt="icone de um produtor"/>
                             <p><button onClick={() => this.showModal(2)} className="btnCadastro">Produtor</button></p>
-                            {/* <p><a href="form_produtor.html" className="btn_cadastro1">Produtor</a></p> */}
                         </div>
                     </div>
                     <div className="direito_cadastro">

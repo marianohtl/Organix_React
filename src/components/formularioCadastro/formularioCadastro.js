@@ -134,12 +134,13 @@ export default class FormularioCadastro extends Component {
                                     />
                                     <button className="btn media_input_cad" disabled={submitDisabled}>Cadastrar</button>
                                 </div>
-
                             </form>
                             <div className="erroMsg">
+                                
                                 {submitDisabled ? (
                                     <p>As senhas devem ser iguais</p>
                                 ) : null}
+
                                 {this.state.erroMsg}
                             </div>
                         </div>

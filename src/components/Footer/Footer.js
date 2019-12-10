@@ -21,11 +21,11 @@ function Footer(){
                         <p>©COPYRIGHT</p>
                     </div>
                 </div>
-                <div className = "icone-redesocial-footer-mobile">
+                {/* <div className = "icone-redesocial-footer-mobile">
                     <a target = "_blank" href = "https://www.facebook.com/"><img src = {mobFacebook} alt = "Icone do Facebook"/></a>
                     <a target = "_blank" href = "https://twitter.com/?lang=pt"><img src = {mobTwitter} alt = "Icone do Twitter"/></a>
                     <a target = "_blank" href = "https://www.instagram.com/?hl=pt-br"><img src = {mobInstagram} alt = "Icone do Instagram"/></a>      
-                </div>
+                </div> */}
             </div>
         </footer>
     )

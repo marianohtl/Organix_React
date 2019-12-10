@@ -1,15 +1,21 @@
 import React, { Component } from 'react';
 
+//IMGS
+import Checked from '../../assets/img/Perfil/checked.png'
+
+//css
 import '../../assets/css/estilo.css';
+import '../../assets/css/perfilCompradorPut.css'
 
-import { parseJwt } from "../../services/auth"
-
+//components
 import PainelAdm from '../../components/painelAdm/PainelAdm';
-
 import Footer from '../../components/Footer/Footer'
 
+//services
 import api from '../../services/api';
+import { parseJwt } from "../../services/auth"
 
+//modal
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -17,6 +23,8 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
+
+
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
@@ -28,7 +36,12 @@ export default class PerfilComprador extends Component {
         super(props);
         this.state = {
             listaUsuario: [],
+
             umUsuario: {
+                nome: "",
+                cpfCnpj: "",
+                email:"",
+                senha:"",
                 endereco: [
                     {
                         cep: '',
@@ -45,34 +58,42 @@ export default class PerfilComprador extends Component {
                         celulalr: ''
                     }
                 ]
+            },
+
+            putPerfil: {
+                nome: "",
+                cpfCnpj: "",
+                email:"",
+                senha:"",
+            },
+
+            putPerfilTel: {
+                idTelefone:"",
+                telefone1: "",
+                celulalr: ""
+                
+            },
+
+            putPerfilEnd:{
+                idEndereco:"",
+                cep: "",
+                rua: "",
+                bairro: "",
+                cidade: "",
+                estado: "",
+                regiao: ""
+                 
             },
 
             erroMsg: "",
             successMsg: "",
 
-            putPerfil: {
-                nome: "",
-                cpfCnpj: "",
-                endereco: [
-                    {
-                        cep: '',
-                        rua: '',
-                        bairro: '',
-                        cidade: '',
-                        estado: '',
-                        regiao: ''
-                    }
-                ],
-                telefone: [
-                    {
-                        telefone1: '',
-                        celulalr: ''
-                    }
-                ]
-            },
-
-            // //modal
+           
+            //modal
             open: false,
+
+            //buttonSenha
+            disable: true
         }
     }
 
@@ -94,8 +115,6 @@ export default class PerfilComprador extends Component {
             })
     }
 
-    //PUT - GET
-
     getUmUsuarioId = () => {
 
         let idUser = parseJwt().IdUsuario
@@ -110,23 +129,95 @@ export default class PerfilComprador extends Component {
 
     //MODAL
 
-    handleClickOpen = (usuario) => {
+    handleClickOpen = (user) => {
         this.setState({ open: true });
 
-        this.setState({ putPerfil: usuario });
+        this.setState({ putPerfil : user });
+        this.setState({ putPerfilTel : user.telefone[0] });
+        this.setState({ putPerfilEnd : user.endereco[0] });
         this.getUmUsuarioId();
-
     };
-
+    
     handleClose = () => {
         this.setState({ open: false });
     };
-
-    //PUT PERFIL
-
     
+    //SETSTATE USER
+    putSetState = (input) =>{
+        
+        this.setState({
+            putPerfil : {
+                ...this.state.putPerfil, [input.target.name] : input.target.value
+            }   
+        })
+        console.log(this.state.putPerfil)
+    }
 
+     //SETSTATE END
+     putSetStateEnd = (input) =>{
+        
+        this.setState({
+            putPerfilEnd : {
+                ...this.state.putPerfilEnd, [input.target.name] : input.target.value
+            }   
+        })
+    }
+    //SETSTATE TEL
+    putSetStateTel = (input) =>{
+        
+        this.setState({
+            putPerfilTel : {
+                ...this.state.putPerfilTel, [input.target.name] : input.target.value
+            }   
+        })
+    }
+
+    putPerfilUser =(event) =>{
+
+        event.preventDefault();
+        
+        // user
+        let perfilAlterado = this.state.putPerfil;
+        let idUser = parseJwt().IdUsuario;
+
+        //telefone
+        let perfilAlterado1 = this.state.putPerfilTel;
+        let IdTel = this.state.putPerfilTel.idTelefone;
+
+        //endereco
+        let perfilAlterado2 = this.state.putPerfilEnd;
+        let IdEnd = this.state.putPerfilEnd.idEndereco;
+
+        //api 
+        api.put('/Usuario/' + idUser, perfilAlterado)
+        
+        api.put('/Telefone/' + IdTel, perfilAlterado1)
+        
+        api.put('/Endereco/' + IdEnd, perfilAlterado2)
+        .then(() =>{
+            this.setState({successMsg :"Perfil alterado com sucesso!"})
+        }).catch(error =>{
+            console.log(error);
+            this.setState({erroMsg:"Erro ao alterar dados!Tente novamente"})
+        })
+         
+        setTimeout(() => {
+            this.getUsuarioId();
+        }, 1500);
+
+        setTimeout(() => {
+            this.setState({successMsg : ""});
+            this.setState({erroMsg : ""});
+        }, 1500);
+        
+    }
+
+    removeDisable = () =>{
+        this.setState({disable:false})
+    }
+    
     render() {
+
         return (
 
             <div>
@@ -137,15 +228,12 @@ export default class PerfilComprador extends Component {
                         <div className="container-perfil">
 
                             <h2>Meus Dados</h2>
-
-                            <div className="container-perfil2">
-
-
                                 {
                                     this.state.listaUsuario.map(
                                         function (u) {
                                             return (
                                                 <>
+                                            <div className="container-perfil2">
                                                     <div className="dados-produtor">
                                                         <h4>Dados Pessoais</h4>
                                                         <p><span className="bold-info-type">Nome:</span> {u.nome}</p>
@@ -153,6 +241,7 @@ export default class PerfilComprador extends Component {
                                                         <p><span className="bold-info-type">Telefone: </span> {u.telefone[0].telefone1}</p>
                                                         <p><span className="bold-info-type">Celular: </span> {u.telefone[0].celular}</p>
                                                         <p><span className="bold-info-type">E-mail: </span>{u.email}</p>
+                                                        {/* <p><span className="bold-info-type" type="password">Senha: </span>{u.senha}</p> */}
                                                     </div>
                                                     <div className="dados-localizacao-produtor">
                                                         <h4>Endereço</h4>
@@ -163,16 +252,24 @@ export default class PerfilComprador extends Component {
                                                         <p><span className="bold-info-type">Estado: </span>{u.endereco[0].estado}</p>
                                                         <p><span className="bold-info-type">Zona: </span>{u.endereco[0].regiao}</p>
                                                     </div>
+                                                    </div>
+                                                    <button type="button" className="editar-perfil" onClick={()=>this.handleClickOpen(u)}>Editar Perfil</button>
                                                 </>
                                             )
                                         }.bind(this)
                                     )
                                 }
 
-                            </div>
-                            <button type="button" className="editar-perfil" onClick={this.handleClickOpen}>Editar Perfil</button>
+                        {
+                            this.state.successMsg && 
+                                <p className="SucessMsg">
+                                    {this.state.successMsg}
+                                    <img src={Checked} alt="icone de sucesso" className="imgSucessMsg"/>
+                                </p>
+                            }
                             <div className="lado-direito-resultado1"></div>
                         </div>
+
                     </div>
 
                 </main>
@@ -187,102 +284,131 @@ export default class PerfilComprador extends Component {
                         onClose={this.handleClose}
                         aria-labelledby="alert-dialog-slide-title"
                         aria-describedby="alert-dialog-slide-description"
+                        className="dialogForm"
                     >
-                        <DialogTitle id="alert-dialog-slide-title">{"Use Google's location service?"}</DialogTitle>
+                        <DialogTitle id="alert-dialog-slide-title">{"Editar Perfil"}</DialogTitle>
                         <DialogContent>
                             <DialogContentText id="alert-dialog-slide-description">
-                                <form onSubmit={this.putPerfil} >
-                                    <div>
-                                        <label>Nome:</label>
-                                        <input id="POST-nome-produtor" type="text" className="form_txt media_input_cad"
+
+                            {
+                                this.state.erroMsg && 
+                                <p color="danger" >
+                                    {this.state.erroMsg}
+                                </p>
+                            }
+                                <form onSubmit={this.putPerfilUser} className="form">
+                                    <div className="formPut">
+                                    <div className="sideLeft">
+                                        <p><label className="labelPerfil">Nome:</label></p>
+                                        <input id="POST-nome-produtor" type="text" className="inputPerfil"
                                             name="nome"
-                                            value={this.state.umUsuario.nome}
+                                            value={this.state.putPerfil.nome}
                                             onChange={this.putSetState}
                                         />
 
-                                        <label>CPF/CNPJ:</label>
-                                        <input id="POST-cpf-comprador" type="text" className="form_number  media_input_cad"
+                                        <p><label className="labelPerfil">CPF/CNPJ:</label></p>
+                                        <input id="POST-cpf-comprador" type="text" className="inputPerfil"
                                             name="cpfCnpj"
-                                            value={this.state.umUsuario.cpfCnpj}
+                                            value={this.state.putPerfil.cpfCnpj}
                                             onChange={this.putSetState}
                                         />
 
-                                        <label>E-mail:</label>
-                                        <input id="POST-email-produtor" type="email" className="form_txt media_input_cad"
+                                        <p><label className="labelPerfil">E-mail:</label></p>
+                                        <input id="POST-email-produtor" type="email" className="inputPerfil"
                                             name="email"
-                                            value={this.state.umUsuario.email}
-                                            onChange={this.putSetState}
-                                        />
-                                    </div>
-
-                                    <div className="form_dir">
-
-                                        <label>Telefone:</label>
-                                        <input id="POST-senha-prod" className="form_number media_input_cad"
-                                            name="telefone1"
-                                            value={this.state.umUsuario.telefone[0].telefone1}
+                                            value={this.state.putPerfil.email}
                                             onChange={this.putSetState}
                                         />
 
-                                        <label>Celular:</label>
-                                        <input id="POST-senha-prod" className="form_number media_input_cad"
+
+                                        <p><label className="labelPerfil">Telefone:</label></p>
+                                        <input id="POST-tel-prod" className="inputPerfil"
+                                            name= "telefone1"
+                                            value={this.state.putPerfilTel.telefone1}
+                                            onChange={this.putSetStateTel}
+                                        />
+
+                                        <p><label className="labelPerfil">Celular:</label></p>
+                                        <input id="POST-cel-prod" className="inputPerfil"
                                             name="celular"
-                                            value={this.state.umUsuario.telefone[0].celular}
-                                            onChange={this.putSetState}
+                                            value={this.state.putPerfilTel.celular}
+                                            onChange={this.putSetStateTel}
                                         />
+                                        <input type="hidden" name="idTelefone" value={this.state.putPerfilTel.idTelefone} /> 
 
-                                        <label>CEP:</label>
-                                        <input id="POST-senha-prod2" className="form_number media_input_cad"
-                                            name="cep"
-                                            value={this.state.umUsuario.endereco[0].cep}
-                                            onChange={this.putSetState}
-                                        />
-
-                                        <label>Endereço:</label>
-                                        <input id="POST-senha-prod2" className="form_number media_input_cad"
-                                            name="rua"
-                                            value={this.state.umUsuario.endereco[0].rua}
-                                            onChange={this.putSetState}
-                                        />
-
-                                        <label>Bairro:</label>
-                                        <input id="POST-senha-prod2" className="form_number media_input_cad"
-                                            name="bairro"
-                                            value={this.state.umUsuario.endereco[0].bairro}
-                                            onChange={this.putSetState}
-                                        />
-
-                                        <label>Cidade:</label>
-                                        <input id="POST-senha-prod2" className="form_number media_input_cad"
-                                            name="cidade"
-                                            value={this.state.umUsuario.endereco[0].cidade}
-                                            onChange={this.putSetState}
-                                        />
-
-                                        <label>Estado:</label>
-                                        <input id="POST-senha-prod2" className="form_number media_input_cad"
-                                            name="estado"
-                                            value={this.state.umUsuario.endereco[0].estado}
-                                            onChange={this.putSetState}
-                                        />
-
-                                        <label>Zona:</label>
-                                        <input id="POST-senha-prod2" className="form_number media_input_cad"
-                                            name="regiao"
-                                            value={this.state.umUsuario.endereco[0].regiao}
-                                            onChange={this.putSetState}
-                                        />
                                     </div>
+                                    <div className="sideRight">
+                                        <p><label className="labelPerfil">CEP:</label></p>
+                                        <input id="POST-cep-prod2" className="inputPerfil"
+                                            name="cep"
+                                            value={this.state.putPerfilEnd.cep}
+                                            onChange={this.putSetStateEnd}
+                                        />
+
+                                        <p><label className="labelPerfil">Endereço:</label></p>
+                                        <input id="POST-endereco-prod2" className="inputPerfil"
+                                            name="rua"
+                                            value={this.state.putPerfilEnd.rua}
+                                            onChange={this.putSetStateEnd}
+                                        />
+
+                                        <p><label className="labelPerfil">Bairro:</label></p>
+                                        <input id="POST-bairro-prod2" className="inputPerfil"
+                                            name="bairro"
+                                            value={this.state.putPerfilEnd.bairro}
+                                            onChange={this.putSetStateEnd}
+                                        />
+
+                                        <p><label className="labelPerfil">Cidade:</label></p>
+                                        <input id="POST-cidade-prod2" className="inputPerfil"
+                                            name="cidade"
+                                            value={this.state.putPerfilEnd.cidade}
+                                            onChange={this.putSetStateEnd}
+                                        />
+
+                                        <p><label className="labelPerfil">Estado:</label></p>
+                                        <input id="POST-estado-prod2" className="inputPerfil"
+                                            name="estado"
+                                            value={this.state.putPerfilEnd.estado}
+                                            onChange={this.putSetStateEnd}
+                                        />
+
+                                        <p><label className="labelPerfil">Zona:</label></p>
+                                        <input id="POST-regiao-prod2" className="inputPerfil"
+                                            name="regiao"
+                                            value={this.state.putPerfilEnd.regiao}
+                                            onChange={this.putSetStateEnd}
+                                        />
+                                        <input type="hidden" name="idEndereco" value={this.state.putPerfilEnd.idEndereco} />
+                                    </div>
+                                    </div>
+                                        <p className="passwordFormPut">
+                                            <label className="labelPerfil">Senha:</label>
+                                            <input id="POST-senha-produtor" type="password" className="inputPerfil"
+                                                name="senha"
+                                                value={this.state.putPerfil.senha}
+                                                onChange={this.putSetState}
+
+                                                disabled = {this.state.disable}
+                                            />
+                                            <Button onClick={this.removeDisable} id="btnPassword" color="primary">
+                                                Alterar senha
+                                            </Button>
+                                        </p>
+                                    <div className="btnFormPut">
+                                    <Button onClick={this.handleClose} color="primary" type="submit">
+                                        Salvar
+                                    </Button>
+
+                                    <Button onClick={this.handleClose} color="primary">
+                                        Fechar
+                                    </Button>
+                                    </div>
+                                    {this.state.erroMsg}
                                 </form>
                             </DialogContentText>
                         </DialogContent>
                         <DialogActions>
-                            <Button onClick={this.handleClose} color="primary">
-                                Fechar
-                            </Button>
-                            <Button onClick={this.handleClose} color="primary" type="submit">
-                                Salvar
-                            </Button>
                         </DialogActions>
                     </Dialog>
                 </>
