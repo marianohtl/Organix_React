@@ -11,7 +11,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { string } from 'prop-types';
 // import Slide from '@material-ui/core/Slide';
-
+import ResponsiveComprador from "../../components/responsive/ResponsiveComprador"
 import HeaderPerfilFull from "../../components/header/HeaderPerfilFull"
 import HeaderPerfil from "../../components/header/HeaderPerfil"
 
@@ -130,6 +130,7 @@ export default class todasReceitas extends Component {
         <img src="#" alt="avatar do produtor"/>
         <div className="menu_perfil">
         <HeaderPerfilFull/>
+        <ResponsiveComprador/>
                 </div>
                 </div>                
                 <div className="lado-direito-resultado">

@@ -14,9 +14,9 @@ export default class ResponsiveProdutor extends Component{
   </label>
   <div id="sidebarMenu">
     <ul className="sidebarMenuInner">
-      <li><a href="/perfilprodutor" target="_blank">Perfil</a></li>
-      <li><a href="/produtoscadastrados" target="_blank">Produtos Cadastrados</a></li>
-      <li><a href="/cadastrarprodutos" target="_blank">Cadastrar Produtos</a></li>
+      <li><a href="#/perfilprodutor" target="_blank">Perfil</a></li>
+      <li><a href="#/produtoscadastrados" target="_blank">Produtos Cadastrados</a></li>
+      <li><a href="#/cadastrarprodutos" target="_blank">Cadastrar Produtos</a></li>
     </ul>
   </div>
   
