@@ -16,12 +16,15 @@ export default class CadastrarCategoria extends Component{
     constructor(){
         super()
         this.state = {
-            postProduto : {
+            postCategoria : {
                 idProduto: "",
                 nomeProduto: "",
                 imagem:""},
-            fileInput: React.createRef(),
-            msgErro: ""
+                putCategoria : {
+                },
+                listaCategorias:[],
+                fileInput: React.createRef(),
+                msgErro: ""
         }
     };
   
@@ -96,6 +99,10 @@ export default class CadastrarCategoria extends Component{
                     }   
                 })
             }
+
+         
+          
+
         render(){
             return(
                     <main className="itens-encontrados-cadastro">
@@ -109,7 +116,7 @@ export default class CadastrarCategoria extends Component{
         <form action="#" id="cadastrar-receita" method="POST" class="cad-cat-produto">
                     <div className="cadastro-receitas-correcao-input">
                         <label className="label_porcoes" for="POST-tempo-receita">Nome do Produto: </label>
-                        <input type="text" name="porcoes" className="porcoesreceita" />
+                        <input type="text" name="porcoes" className="porcoesreceita"  value={this.state.putReceita.nomeReceita} />
                     </div>
                     <IconButton color="primary"  aria-label="upload picture" component="span">
                     {
@@ -117,7 +124,7 @@ export default class CadastrarCategoria extends Component{
                   
                       }
                       {/* */}
-                      <input accept="image/*" className="input_load" id="icon-button-file" type="file" name="imagem" onChange={this.putSetStateFile} ref={this.state.putReceita.imagem}  />        <PhotoCamera />
+            
                       </IconButton>
 
                       </form>
