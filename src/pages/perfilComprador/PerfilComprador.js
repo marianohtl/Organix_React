@@ -44,8 +44,8 @@ export default class PerfilComprador extends Component {
                 senha:"",
                 endereco: [
                     {
-                        cep: '',
-                        rua: '',
+                        cep: "''",
+                        rua: "''",
                         bairro: '',
                         cidade: '',
                         estado: '',
@@ -54,7 +54,7 @@ export default class PerfilComprador extends Component {
                 ],
                 telefone: [
                     {
-                        telefone1: '',
+                        telefone1:" ''",
                         celulalr: ''
                     }
                 ]
@@ -141,7 +141,6 @@ export default class PerfilComprador extends Component {
     handleClose = () => {
         this.setState({ open: false });
     };
-    
     //SETSTATE USER
     putSetState = (input) =>{
         
@@ -185,15 +184,15 @@ export default class PerfilComprador extends Component {
         let IdTel = this.state.putPerfilTel.idTelefone;
 
         //endereco
-        let perfilAlterado2 = this.state.putPerfilEnd;
-        let IdEnd = this.state.putPerfilEnd.idEndereco;
+        // let perfilAlterado2 = this.state.putPerfilEnd;
+        // let IdEnd = this.state.putPerfilEnd.idEndereco;
 
         //api 
         api.put('/Usuario/' + idUser, perfilAlterado)
         
         api.put('/Telefone/' + IdTel, perfilAlterado1)
         
-        api.put('/Endereco/' + IdEnd, perfilAlterado2)
+        // api.put('/Endereco/' + IdEnd, perfilAlterado2)
         .then(() =>{
             this.setState({successMsg :"Perfil alterado com sucesso!"})
         }).catch(error =>{
@@ -238,19 +237,19 @@ export default class PerfilComprador extends Component {
                                                         <h4>Dados Pessoais</h4>
                                                         <p><span className="bold-info-type">Nome:</span> {u.nome}</p>
                                                         <p><span className="bold-info-type">CPF: </span>{u.cpfCnpj}</p>
-                                                        <p><span className="bold-info-type">Telefone: </span> {u.telefone[0].telefone1}</p>
-                                                        <p><span className="bold-info-type">Celular: </span> {u.telefone[0].celular}</p>
+                                                        <p><span className="bold-info-type">Telefone: </span> {u.telefone[0] ? u.telefone[0].telefone1 : ""}</p>
+                                                        <p><span className="bold-info-type">Celular: </span> {u.telefone[0] ? u.telefone[0].celular : ""}</p>
                                                         <p><span className="bold-info-type">E-mail: </span>{u.email}</p>
                                                         {/* <p><span className="bold-info-type" type="password">Senha: </span>{u.senha}</p> */}
                                                     </div>
                                                     <div className="dados-localizacao-produtor">
                                                         <h4>Endereço</h4>
-                                                        <p><span className="bold-info-type">CEP: </span>{u.endereco[0].cep}</p>
-                                                        <p><span className="bold-info-type">Endereço: </span> {u.endereco[0].rua}</p>
-                                                        <p><span className="bold-info-type">Bairro: </span> {u.endereco[0].bairro}</p>
-                                                        <p><span className="bold-info-type">Cidade: </span>{u.endereco[0].cidade}</p>
-                                                        <p><span className="bold-info-type">Estado: </span>{u.endereco[0].estado}</p>
-                                                        <p><span className="bold-info-type">Zona: </span>{u.endereco[0].regiao}</p>
+                                                        <p><span className="bold-info-type">CEP: </span>{u.endereco[0] ? u.endereco[0].cep : ""}</p>
+                                                        <p><span className="bold-info-type">Endereço: </span> {u.endereco[0] ? u.endereco[0].rua : ""}</p>
+                                                        <p><span className="bold-info-type">Bairro: </span> {u.endereco[0] ? u.endereco[0].bairro : ""}</p>
+                                                        <p><span className="bold-info-type">Cidade: </span>{u.endereco[0] ? u.endereco[0].cidade : ""}</p>
+                                                        <p><span className="bold-info-type">Estado: </span>{u.endereco[0] ? u.endereco[0].estado : ""}</p>
+                                                        <p><span className="bold-info-type">Zona: </span>{u.endereco[0] ? u.endereco[0].regiao : ""}</p>
                                                     </div>
                                                     </div>
                                                     <button type="button" className="editar-perfil" onClick={()=>this.handleClickOpen(u)}>Editar Perfil</button>
@@ -259,19 +258,17 @@ export default class PerfilComprador extends Component {
                                         }.bind(this)
                                     )
                                 }
-
-                        {
-                            this.state.successMsg && 
-                                <p className="SucessMsg">
-                                    {this.state.successMsg}
-                                    <img src={Checked} alt="icone de sucesso" className="imgSucessMsg"/>
-                                </p>
-                            }
+                                {
+                                    this.state.successMsg && 
+                                    <p className="SucessMsg">
+                                        {this.state.successMsg}
+                                        <img src={Checked} alt="icone de sucesso" className="imgSucessMsg"/>
+                                    </p>
+                                }
                             <div className="lado-direito-resultado1"></div>
                         </div>
 
                     </div>
-
                 </main>
                 <Footer />
 
@@ -325,6 +322,7 @@ export default class PerfilComprador extends Component {
                                         <input id="POST-tel-prod" className="inputPerfil"
                                             name= "telefone1"
                                             value={this.state.putPerfilTel.telefone1}
+                                            // value={this.state.putPerfilTel.telefone1 ? this.state.putPerfilTel.telefone1 : "..."}
                                             onChange={this.putSetStateTel}
                                         />
 
@@ -380,7 +378,7 @@ export default class PerfilComprador extends Component {
                                             onChange={this.putSetStateEnd}
                                         />
                                         <input type="hidden" name="idEndereco" value={this.state.putPerfilEnd.idEndereco} />
-                                    </div>
+                                    </div> 
                                     </div>
                                         <p className="passwordFormPut">
                                             <label className="labelPerfil">Senha:</label>
@@ -413,6 +411,7 @@ export default class PerfilComprador extends Component {
                     </Dialog>
                 </>
 
+                
 
             </div>
         )

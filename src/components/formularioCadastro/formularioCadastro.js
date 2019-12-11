@@ -22,6 +22,21 @@ export default class FormularioCadastro extends Component {
                 senhaConfirmacao: "",
                 idTipo: this.props.user_profile
             },
+            
+            postTelefone:{
+                telefone1: "",
+                celular: "",
+                idUsuario:"",
+            },
+            postEndereco:{
+                cep: "",
+                rua: "",
+                bairro: "",
+                cidade: "",
+                estado: "",
+                regiao: ""
+            },
+
             erroMsg: "",
             successMsg: "",
         }
@@ -53,6 +68,23 @@ export default class FormularioCadastro extends Component {
         })
     }
 
+    postSetStateTel = (input) => {
+        this.setState({
+            postTelefone: {
+                ...this.state.postTelefone, [input.target.name]: input.target.value
+            }
+        })
+    }
+
+    postSetStateEnd = (input) => {
+        this.setState({
+            postEndereco: {
+                ...this.state.postEndereco, [input.target.name]: input.target.value
+            }
+        })
+    }
+
+
     postCadastro = (c) => {
         // console.log(this.ListaUsuario);
 
@@ -60,10 +92,37 @@ export default class FormularioCadastro extends Component {
 
         api.post('/Usuario', this.state.postCadastro)
             .then(response => {
-                console.log(response);
+                this.setState({ listaUsuario: response.data })
+                console.log("Response do usuário cadastrado: ", this.state.listaUsuario.idUsuario);
 
-            })
-            .catch(error => {
+                let userTelefone = this.state.postTelefone;
+                let userEndereco = this.state.postEndereco;
+                
+                userTelefone.idUsuario = response.data.idUsuario
+
+                userEndereco.idUsuario = response.data.idUsuario
+
+                api.post('/Telefone/', userTelefone)
+                    .then(response=>{
+                        console.log(response);
+                        
+                    }).catch(error => {
+                        console.log(error);
+                        this.setState({ erroMsg : "Não foi possível cadastrar telefone" });
+                        }
+                )
+
+                api.post('/Endereco/', userEndereco)
+                    .then(response=>{
+                        console.log(response);
+
+                    }).catch(error => {
+                        console.log(error);
+                        this.setState({ erroMsg : "Não foi possível cadastrar Endereço" });
+                        }
+                )
+                
+            }).catch(error => {
                 console.log(error);
                 this.setState({ erroMsg: "Não foi possível Cadastrar! Tente Novamente" });
             })
@@ -78,7 +137,7 @@ export default class FormularioCadastro extends Component {
     render() {
 
         const submitDisabled = this.state.postCadastro.senha !== this.state.postCadastro.senhaConfirmacao
-
+    
         return (
 
             <div className="backdrop_form">
@@ -132,6 +191,61 @@ export default class FormularioCadastro extends Component {
                                         value={this.state.postCadastro.senhaConfirmacao}
                                         onChange={this.postSetState}
                                     />
+                                    <p><label className="labelPerfil">Telefone:</label></p>
+                                        <input id="POST-tel-prod" className="inputPerfil"
+                                            name= "telefone1"
+                                            value={this.state.postTelefone.telefone1}
+                                            onChange={this.postSetStateTel}
+                                        />
+
+                                        <p><label className="labelPerfil">Celular:</label></p>
+                                        <input id="POST-cel-prod" className="inputPerfil"
+                                            name="celular"
+                                            value={this.state.postTelefone.celular}
+                                            onChange={this.postSetStateTel}
+                                        />
+
+                                        <p><label className="labelPerfil">CEP:</label></p>
+                                        <input id="POST-cep-prod2" className="inputPerfil"
+                                            name="cep"
+                                            value={this.state.postEndereco.cep}
+                                            onChange={this.postSetStateEnd}
+                                        />
+                                        
+                                        <p><label className="labelPerfil">Endereço:</label></p>
+                                        <input id="POST-endereco-prod2" className="inputPerfil"
+                                            name="rua"
+                                            value={this.state.postEndereco.rua}
+                                            onChange={this.postSetStateEnd}
+                                        />
+
+                                        <p><label className="labelPerfil">Bairro:</label></p>
+                                        <input id="POST-bairro-prod2" className="inputPerfil"
+                                            name="bairro"
+                                            value={this.state.postCadastro.bairro}
+                                            onChange={this.postSetStateEnd}
+                                        />
+
+                                        <p><label className="labelPerfil">Cidade:</label></p>
+                                        <input id="POST-cidade-prod2" className="inputPerfil"
+                                            name="cidade"
+                                            value={this.state.postEndereco.cidade}
+                                            onChange={this.postSetStateEnd}
+                                        />
+
+                                        <p><label className="labelPerfil">Estado:</label></p>
+                                        <input id="POST-estado-prod2" className="inputPerfil"
+                                            name="estado"
+                                            value={this.state.postEndereco.estado}
+                                            onChange={this.postSetStateEnd}
+                                        />
+
+                                        <p><label className="labelPerfil">Zona:</label></p>
+                                        <input id="POST-regiao-prod2" className="inputPerfil"
+                                            name="regiao"
+                                            value={this.state.postEndereco.regiao}
+                                            onChange={this.postSetStateEnd}
+                                        />
                                     <button className="btn media_input_cad" disabled={submitDisabled}>Cadastrar</button>
                                 </div>
                             </form>
