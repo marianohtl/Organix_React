@@ -9,7 +9,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import { string } from 'prop-types';
+
 // import Slide from '@material-ui/core/Slide';
 import ResponsiveComprador from "../../components/responsive/ResponsiveComprador"
 import HeaderPerfilFull from "../../components/header/HeaderPerfilFull"
@@ -81,7 +81,8 @@ export default class todasReceitas extends Component {
                 aria-labelledby="alert-dialog-slide-title"
                 aria-describedby="alert-dialog-slide-description"
                 open={this.state.open}
-                onClose={this.handleClose}>
+                onClose={this.handleClose}
+                key={this.state.umaReceita.idReceita  } >
         
                 <DialogTitle id="alert-dialog-slide-title">
                     {this.state.umaReceita.nomeReceita  }        
@@ -145,12 +146,10 @@ export default class todasReceitas extends Component {
 
                         <div className="card-produto">
                         <div className="imagem-redonda-card-receita"> </div>
-                        
+                        <div className="imagem-redonda-card-receita"> 
+                        <img src={"http://localhost:5000/"+receita.imagem}/>
+                        </div>
                         <p className='nome-produto' key={receita.idReceita}>{receita.nomeReceita}</p>
-                        <ul>
-                        <li>Tempo de Preparo:{receita.tempoPreparo}</li>
-                        <li>Rendimento:{receita.porcoes}</li>
-                        </ul>
                         <Button size="small" variant="outlined" color="primary" onClick={e => this.visualizarReceita(receita.idReceita)}  >
                             Ver Receita
                         </Button>

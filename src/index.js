@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './assets/css/estilo.css'
+import "./assets/css/receita.css"
 //import "./assets/css/imagens/Slider/aaa.jpg"
 import App from './pages/home/App';
 import * as serviceWorker from './serviceWorker';
@@ -12,12 +13,16 @@ import QuemSomos from "./pages/quemSomos/QuemSomos"
 // import BuscarProdutos from "./pages/buscarProdutos/BuscarProdutos"
 // import ProdutosEncontrados from "./pages/produtosEncontrados/ProdutosEncontrados"
 // import Receitas from "./pages/receitas/Receitas"
-// import CadastroReceitas from "./pages/receitas/CadastroReceitas"
-import minhasReceitas from "./pages/receitas/minhasReceitas"
-import todasReceitas from "./pages/receitas/todasReceitas"
+import MinhasReceitas from "./pages/receitas/MinhasReceitas"
+import TodasReceitas from "./pages/receitas/TodasReceitas"
+import CadastrarReceitas from "./pages/receitas/CadastrarReceitas"
+import CadastrarCategoria from "./pages/produtos/CadastrarCategoria"
+
+import TodosProdutos from "./pages/produtos/TodosProdutos"
+import CadastrarProdutos from "./pages/produtos/CadastrarProdutos"
 // import PerfilProdutor from "./pages/perfilProdutor/PerfilProdutor"
 // import ProdutosCadastrados from "./pages/produtosCadastrados/ProdutosCadastrados"
-import CadastrarProdutos from "./pages/produtos/CadastrarProdutos"
+// import CadastrarProdutos from "./pages/cadastrarProdutos/CadastrarProdutos"
 
 import {Route, HashRouter as Router, Switch, Redirect} from 'react-router-dom';
 import { usuarioAutenticado, parseJwt } from './services/auth';
@@ -61,9 +66,13 @@ const Rotas = (
         <div>
             <Switch>
             <Route exact path="/" component={App} />
-            <Route path="/quemsomos" component={QuemSomos} />
-            <Route path="/minhasreceitas" component={minhasReceitas} />
-            <Route path="/todasreceitas" component={todasReceitas} />
+            <Route path="/QuemSomos" component={QuemSomos} />
+            <Route path="/MinhasReceitas" component={MinhasReceitas} />
+            <Route path="/TodasReceitas" component={TodasReceitas} />
+            <Route path="/CadastrarReceitas" component={CadastrarReceitas} />
+            <Route path="/TodosProdutos" component={TodosProdutos} />
+            <Route path="/CadastrarCategoria" component={CadastrarCategoria} />
+            
             {/* <Route path="/Cadastro" component={Cadastro} />
             <PermissaoComprador path="/PerfilComprador" component={PerfilComprador} />
             <PermissaoProdutor path="/PerfilProdutor" component={PerfilProdutor} />

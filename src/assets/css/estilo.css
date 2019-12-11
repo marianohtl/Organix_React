@@ -317,6 +317,7 @@ font-family: var(--fonte_titulo);
     color: var(--branco);
     display: flex;
     background-attachment: fixed;
+    
 }
 .historia-txt h2{
     font-family: var(--fonte_titulo);
