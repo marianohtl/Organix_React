@@ -29,7 +29,6 @@ const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
 });
 
-
 export default class minhasReceitas extends Component {
 
     constructor(){
@@ -57,11 +56,34 @@ export default class minhasReceitas extends Component {
             // 01 - Colocamos o createRef
             imagem: React.createRef()
         }
-
         }
     }
 
+    refreshPage() {
+        window.location.reload(true);
+      }
 
+      //#region DELETE
+    deleteReceita = (id) => {
+        console.log(id)
+        this.setState({successMsg : "" })
+        api.delete('/receita/' + id)
+        .then(response => {
+            if(response.status === 200){
+                this.setState({ successMsg : "Excluído com sucesso" })
+
+                setTimeout(() => {
+                    this.refreshPage();
+                }, 1200);
+            }
+        })
+        .catch(error => {
+            console.log(error);
+            this.setState({ erroMsg : "Falha ao excluir" })
+        })
+        
+    }
+    //#endregion
     openDialog() {
         this.setState({ open: true });
     }
@@ -80,14 +102,13 @@ export default class minhasReceitas extends Component {
             openEdit: false });
     }
 
-      componentDidMount(){
+    componentDidMount(){
         this.getReceitasUsuario();   
-        this.getReceitas();
         this.visualizarReceita();
         // console.log(this.state.umUsuario)     
     }
-    getReceitas = () => {
- 
+
+    getReceitas = () => { 
       api.get('/receita')
       .then(response => {
         if(response.status === 200){
@@ -96,6 +117,8 @@ export default class minhasReceitas extends Component {
        }
       })
     }
+
+
     //#region GETs
      getReceitasUsuario = () => {
         let id = parseJwt().IdUsuario
@@ -134,7 +157,6 @@ export default class minhasReceitas extends Component {
     }
 
     putSetState = (input) =>{
-
       this.setState({
           putReceita : {
               ...this.state.putReceita, [input.target.name] : input.target.value
@@ -144,8 +166,7 @@ export default class minhasReceitas extends Component {
 
 
     putReceita = (event) =>{
-        event.preventDefault();
-
+        //event.preventDefault();
         let receita_id = this.state.putReceita.idReceita;
         let receita_alterada = this.state.putReceita;
 
@@ -177,12 +198,7 @@ export default class minhasReceitas extends Component {
             console.log(error);
             this.setState({erroMsg : "Falha ao alterar o Receita"});
         })
-        setTimeout(() => {
-            this.getReceitas();
-        }, 1500); 
-
-        this.closeDialog();
-        
+            this.refreshPage()
     }
 
 
@@ -254,8 +270,6 @@ export default class minhasReceitas extends Component {
   <DialogContentText className="inputs_block" id="alert-dialog-slide-description">
   {/*---------------------------------------------- */}
   <form  onSubmit={this.putReceita} noValidate autoComplete="off">
-  
-
   <Grid container spacing={1} direction="column" alignItems="center">        
       <Grid item>
           <TextField id="standard-secondary"  color="primary" name="nomeReceita" onChange={this.putSetState} value={this.state.putReceita.nomeReceita}/>
@@ -283,17 +297,16 @@ export default class minhasReceitas extends Component {
       {
         // 06 - Aqui damos nosso "onChange" especial e também passamos nosso "ref"
     
-    }
+        }
     <input accept="image/*" className="input_load" id="icon-button-file" type="file" name="imagem" onChange={this.putSetStateFile} ref={this.state.putReceita.imagem}  />        <PhotoCamera />
       </IconButton>
     </label>
     </Grid>
       <DialogActions>
-
-      <Button onClick={this.closeDialog.bind(this)}  type="submit" color="primary">
+      <Button   type="button" color="primary" onClick={() => this.deleteReceita(this.state.putReceita.idReceita)}>
           Excluir
       </Button>
-      <Button onClick={this.closeDialog.bind(this)}  type="submit" color="primary">
+      <Button onClick={e => this.putReceita(this.state.putReceita.idReceita)} type="button" color="primary">
           Salvar
       </Button>
       
@@ -331,13 +344,13 @@ export default class minhasReceitas extends Component {
                   this.state.umUsuario.receita.map(
                   function(user){
                       return(
-                        <Fragment>
+                        <Fragment key={user.idReceita}>
 
                         <div className="card-produto">
                         <div className="imagem-redonda-card-receita"> 
                         <img src={"http://localhost:5000/"+user.imagem}/>
                         </div>
-                        <p className='nome-produto' key={user.idReceita}>{user.nomeReceita}</p>
+                        <p className='nome-produto'>{user.nomeReceita}</p>
                         <div className="uniao_bnt">
                         <Button size="small" variant="outlined" color="primary" onClick={e => this.visualizarReceita(user.idReceita)}  >
                         Ver Receita

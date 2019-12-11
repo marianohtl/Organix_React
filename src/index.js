@@ -14,6 +14,11 @@ import QuemSomos from "./pages/quemSomos/QuemSomos"
 // import Receitas from "./pages/receitas/Receitas"
 import minhasReceitas from "./pages/receitas/minhasReceitas"
 import todasReceitas from "./pages/receitas/todasReceitas"
+import CadastrarReceitas from "./pages/receitas/cadastrarreceitas"
+import CadastrarCategoria from "./pages/produtos/cadastrarcategoria"
+
+import todosProdutos from "./pages/produtos/todosprodutos"
+
 // import PerfilProdutor from "./pages/perfilProdutor/PerfilProdutor"
 // import ProdutosCadastrados from "./pages/produtosCadastrados/ProdutosCadastrados"
 // import CadastrarProdutos from "./pages/cadastrarProdutos/CadastrarProdutos"
@@ -63,6 +68,10 @@ const Rotas = (
             <PermissaoAdmin exact path="/quemsomos" component={QuemSomos} />
             <Route path="/minhasreceitas" component={minhasReceitas} />
             <Route path="/todasreceitas" component={todasReceitas} />
+            <Route path="/cadastrarreceitas" component={CadastrarReceitas} />
+            <Route path="/todosprodutos" component={todosProdutos} />
+            <Route path="/cadastrarcategoria" component={CadastrarCategoria} />
+            
             {/* <Route path="/Cadastro" component={Cadastro} />
             <PermissaoComprador path="/PerfilComprador" component={PerfilComprador} />
             <PermissaoProdutor path="/PerfilProdutor" component={PerfilProdutor} />

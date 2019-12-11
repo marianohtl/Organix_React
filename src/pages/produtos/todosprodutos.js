@@ -1,7 +1,5 @@
 import React,{Component, Fragment }  from 'react'
-//import CardReceita from '../src/components/cardReceita/CardReceita'
 import {api,apiFormData} from "../../services/api"
-
 //modal
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -9,21 +7,32 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-
+import { string } from 'prop-types';
 // import Slide from '@material-ui/core/Slide';
 
 
 
 
 
-export default class todasReceitas extends Component {
+export default class App extends Component {
 
 
     constructor(){
         super();
         this.state = {
-          listaReceitas: [],
-          umaReceita:[],
+          listaOfertas: [],
+          umaOferta:{
+            idProdutoNavigation: {
+            },
+            idUsuarioNavigation: {
+                endereco: [
+                    {
+                        
+                    }
+                ]
+            },
+          },
+         
           idEscolhido:"",
           open:false, 
         }
@@ -36,30 +45,30 @@ export default class todasReceitas extends Component {
         this.setState({ open:false });
     }
 
-    
-      componentDidMount(){
-        this.getReceitas();
+    componentDidMount(){
+        this.getOferta();
     }
     
     //#region GETs
       
-     getReceitas = () => {
-        api.get('/receita')
+     getOferta = () => {
+        api.get('/oferta')
         .then(response => {
           if(response.status === 200){
-            this.setState({listaReceitas : response.data})
+            this.setState({listaOfertas : response.data})
+            
           }
         })
       }
     
       //esta função está recebendo o id da receita que foi mapeada <<< 
-      visualizarReceita = (idReceita) => {
+      visualizarOferta = (idOferta) => {
           
-          api.get('/receita/'+ idReceita)
+          api.get('/oferta/'+ idOferta)
           .then(response => {
               if(response.status === 200){
-                  this.setState({umaReceita : response.data})
-                  console.log(this.state.umaReceita)
+                  this.setState({umaOferta : response.data})
+                  console.log(this.state.umaOferta)
                   this.openDialog()
         }
         })
@@ -77,38 +86,34 @@ export default class todasReceitas extends Component {
 
                 <Dialog
                 aria-labelledby="alert-dialog-slide-title"
-                aria-describedby="alert-dialog-slide-description"
+                aria-describedby="alert-dialog-slide-deion"
                 open={this.state.open}
-                onClose={this.handleClose}
-                key={this.state.umaReceita.idReceita  } >
+                onClose={this.handleClose}>
         
                 <DialogTitle id="alert-dialog-slide-title">
-                    {this.state.umaReceita.nomeReceita  }        
+                    {this.state.umaOferta.idProdutoNavigation.nomeProduto}        
                 </DialogTitle>
                 <DialogContent>
-                    <DialogContentText id="alert-dialog-slide-description">
+                    <DialogContentText id="alert-dialog-slide-deion">
                     <table> 
                     <tr>
-                        <td>TEMPO DE PREPARO</td>
-                        <td>PORÇÕES</td>
+                        <td>Produto: {this.state.umaOferta.idProdutoNavigation.nomeProduto}</td>
+                        <td>Preço: {this.state.umaOferta.preco}</td>
                     </tr>
                     <tr>
-                        <td>{this.state.umaReceita.tempoPreparo}</td>
-                        <td>{this.state.umaReceita.porcoes}</td>
+                        <td>Data de produção: {this.state.umaOferta.dataFabricacao}</td>
+                        <td>Data de Validade: {this.state.umaOferta.dataVencimento}</td>
                     </tr>
                     
                     <tr>                   
-                        <td>INGREDIENTES:</td>
+                        <td>Vendedor: {this.state.umaOferta.idUsuarioNavigation.nome}</td>
+                        <td>CNPJ: {this.state.umaOferta.idUsuarioNavigation.cpfCnpj}</td>
                     </tr>
                     <tr>
-                        <td>{this.state.umaReceita.ingredientes}</td>
+                    <td>Email: {this.state.umaOferta.idUsuarioNavigation.email}</td>
+                    <td>Endereço: {this.state.umaOferta.idUsuarioNavigation.endereco[0].rua}, {this.state.umaOferta.idUsuarioNavigation.endereco[0].bairro} - {this.state.umaOferta.idUsuarioNavigation.endereco[0].cidade}, {this.state.umaOferta.idUsuarioNavigation.endereco[0].estado} - {this.state.umaOferta.idUsuarioNavigation.endereco[0].cep} </td>
                     </tr>
-                    <tr>                   
-                        <td>MODO DE PREPARO:</td>
-                    </tr>
-                    <tr>                   
-                        <td>{this.state.umaReceita.modoPreparo}</td>                    
-                    </tr>
+                    
                     </table>  
                     </DialogContentText>
                 </DialogContent>
@@ -138,22 +143,26 @@ export default class todasReceitas extends Component {
                 </div>                
                 <div className="lado-direito-resultado">
                 <div className="container-perfil">
-                <h2>Receitas</h2>
+                <h2>Produtos</h2>
                 <div className="container-cards">
                 { 
-                    this.state.listaReceitas.map(
-                    function(receita){
+                    this.state.listaOfertas.map(
+                    function(oferta){
                         return(
                             <Fragment>
 
                         <div className="card-produto">
-                        <div className="imagem-redonda-card-receita"> </div>
-                        <div className="imagem-redonda-card-receita"> 
-                        <img src={"http://localhost:5000/"+receita.imagem}/>
+                        <div className="imagem-redonda-card-receita">
+                        <img src={"http://localhost:5000/"+ oferta.idProdutoNavigation.imagem} />
                         </div>
-                        <p className='nome-produto' key={receita.idReceita}>{receita.nomeReceita}</p>
-                        <Button size="small" variant="outlined" color="primary" onClick={e => this.visualizarReceita(receita.idReceita)}  >
-                            Ver Receita
+                        
+                        <p className='nome-produto' key={oferta.idProdutoNavigation.idProduto}>{oferta.idProdutoNavigation.nomeProduto}</p>
+                        <ul>
+                        <li>Região: {oferta.idUsuarioNavigation.endereco[0].regiao}</li>
+                        <li>Estado do Produto: {oferta.estadoProduto}</li>
+                        </ul>
+                        <Button size="small" variant="outlined" color="primary" onClick={e => this.visualizarOferta(oferta.idOferta)}  >
+                            Ver Oferta
                         </Button>
                         </div>
                         
