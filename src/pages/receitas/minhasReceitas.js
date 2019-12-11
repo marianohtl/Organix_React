@@ -26,6 +26,8 @@ import "../../assets/css/receita.css";
 import HeaderPerfil from "../../components/header/HeaderPerfil"
 import ResponsiveComprador from "../../components/responsive/ResponsiveComprador"
 import HeaderPerfilFull from "../../components/header/HeaderPerfilFull"
+import produtor from "../../assets/img/Perfil/Agrupar 91.png"
+
 
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -331,9 +333,9 @@ export default class MinhasReceitas extends Component {
                 <main className="itens-encontrados-cadastro">
 
                     <div className="esquerdo_perfil">
-                        <img src="#" alt="avatar do produtor" />
+                        <a href="/"><img src={produtor} alt="avatar do produtor" /></a>
                         <div className="menu_perfil">
-                            <HeaderPerfilFull />
+                            <HeaderPerfilFull/>
                         </div>
                     </div>
                     <div className="lado-direito-resultado">
@@ -348,8 +350,8 @@ export default class MinhasReceitas extends Component {
                                                 <Fragment key={user.idReceita}>
 
                                                     <div className="card-produto">
-                                                        <div className="imagem-redonda-card-receita">
-                                                            <img src={"http://localhost:5000/" + user.imagem} />
+                                                        <div className="imagem-redonda-card-receita" alt="Imagem da receita">
+                                                            <img src={"http://localhost:5000/" + user.imagem} alt="Imagem da receita" />
                                                         </div>
                                                         <p className='nome-produto'>{user.nomeReceita}</p>
                                                         <div className="uniao_bnt">

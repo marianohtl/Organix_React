@@ -30,7 +30,7 @@ export default function AlertDialogSlide() {
 
     <div>
       <Button size="small" variant="outlined" color="primary"  onClick={handleClickOpen}>
-       Ver Receixta
+       Ver Receita
       </Button>
       <Dialog
         open={open}

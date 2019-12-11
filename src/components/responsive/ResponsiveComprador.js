@@ -1,8 +1,17 @@
 import React,{Component} from "react"
 import "../../assets/css/responsive.css"
+import { withRouter } from 'react-router-dom';
 
-export default class ResponsiveComprador extends Component{
-    render(){
+
+class ResponsiveComprador extends Component{
+  
+  logout = () => {
+    localStorage.removeItem("usuario-organix")
+
+    this.props.history.push("/")
+  }
+  
+  render(){
         return(
             <header className="ResponsiveMenu">
             <div className="header"></div>
@@ -14,11 +23,13 @@ export default class ResponsiveComprador extends Component{
   </label>
   <div id="sidebarMenu">
     <ul className="sidebarMenuInner">
-      <li><a href="#/perfilcomprador" target="_blank">Perfil</a></li>
-      <li><a href="#/buscarprodutos" target="_blank">Buscar Produtos</a></li>
-      <li><a href="#/todasreceitas" target="_blank">Receitas</a></li>
-      <li><a href="#/minhasreceitas" target="_blank">Minhas Receitas</a></li>
-      <li><a href="#/cadastroreceitas" target="_blank">Cadastrar Receitas</a></li>
+      <li><a href="/" target="_blank">Home</a></li>
+      <li><a href="#/PerfilComprador" target="_blank">Perfil</a></li>
+      <li><a href="#/BuscarProdutos" target="_blank">Buscar Produtos</a></li>
+      <li><a href="#/TodasReceitas" target="_blank">Encontrar Receitas</a></li>
+      <li><a href="#/MinhasReceitas" target="_blank">Minhas Receitas</a></li>
+      <li><a href="#/CadastrarReceitas" target="_blank">Cadastrar Receitas</a></li>
+      <li ><a onClick={this.logout}>Sair</a></li>
     </ul>
   </div>
   
@@ -26,3 +37,5 @@ export default class ResponsiveComprador extends Component{
         )
     }
 }
+
+export default withRouter(ResponsiveComprador);

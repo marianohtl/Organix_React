@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import Logo from "../../assets/img/Ativo 6.png"
 import Menu from "../../assets/img/bars-solid.svg"
 import { Link } from "react-router-dom"
-import { api, apiFormData } from "../../services/api";
+import {api} from "../../services/api";
 import { parseJwt, usuarioAutenticado } from "../../services/auth"
 // import Fab from '@material-ui/core/Fab';
 // import AddIcon from '@material-ui/icons/Add';
@@ -83,7 +83,7 @@ class Header extends Component {
           console.log(parseJwt().Role)
 
           if (parseJwt().Role === "3") {
-            this.props.history.push("/quemsomos");
+            this.props.history.push("/QuemSomos");
           }
           else if (parseJwt().Role === "2") {
             this.props.history.push("/PerfilProdutor")
@@ -130,7 +130,7 @@ class Header extends Component {
             <ul className="ul-home">
               <li><a href="/">HOME</a></li>
               <li className="tracinho">|</li>
-              <li><a href="#/quemsomos">QUEM SOMOS</a></li>
+              <li><a href="#/QuemSomos">QUEM SOMOS</a></li>
               {/* <li className="tracinho">|</li>
               <li><a href='/'>DICAS</a></li> */}
             </ul>

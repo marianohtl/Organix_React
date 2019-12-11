@@ -1,15 +1,15 @@
 import React, {Component} from 'react';
-import {api,apiFormData} from "../../services/api"
-import { parseJwt } from "../../services/auth"
+import {api} from "../../services/api"
+// import { parseJwt } from "../../services/auth"
 
 import IconButton from '@material-ui/core/IconButton';
 import PhotoCamera from '@material-ui/icons/PhotoCamera';
 
 import Fab from '@material-ui/core/Fab';
- import AddIcon from '@material-ui/icons/Add';
+//  import AddIcon from '@material-ui/icons/Add';
 import EditIcon from '@material-ui/icons/Edit';
- import FavoriteIcon from '@material-ui/icons/Favorite';
-import Grid from '@material-ui/core/Grid';
+//  import FavoriteIcon from '@material-ui/icons/Favorite';
+// import Grid from '@material-ui/core/Grid';
 
 
 export default class CadastrarCategoria extends Component{
@@ -135,7 +135,7 @@ export default class CadastrarCategoria extends Component{
                                       </p>
                                       </div>
                                       );
-                                    }.bind(this)
+                                  }// }.bind(this)
                                     )
                                 }       
                                 </div>

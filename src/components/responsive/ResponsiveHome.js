@@ -1,10 +1,10 @@
 import React, { Component } from "react"
-import Logo from "../../assets/img/Ativo 6.png"
-import Menu from "../../assets/img/bars-solid.svg"
-import { Link } from "react-router-dom"
-import { api, apiFormData } from "../../services/api";
+// import Logo from "../../assets/img/Ativo 6.png"
+// import Menu from "../../assets/img/bars-solid.svg"
+// import { Link } from "react-router-dom"
+import { api } from "../../services/api";
 import { parseJwt, usuarioAutenticado } from "../../services/auth"
-import Fab from '@material-ui/core/Fab';
+// import Fab from '@material-ui/core/Fab';
 // import AddIcon from '@material-ui/icons/Add';
 // import EditIcon from '@material-ui/icons/Edit';
 import Button from '@material-ui/core/Button';
@@ -13,7 +13,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import { string } from 'prop-types';
+// import { string } from 'prop-types';
 import Slide from '@material-ui/core/Slide';
 
 // Alternativa para realizar redirecionamentos com this.props.history.push
@@ -113,7 +113,7 @@ class ResponsiveHome extends Component {
       <header className="ResponsiveMenu">
         <div className="header"></div>
         <input type="checkbox" className="openSidebarMenu" id="openSidebarMenu" />
-        <label for="openSidebarMenu" className="sidebarIconToggle">
+        <label htmlFor="openSidebarMenu" className="sidebarIconToggle">
           <div className="spinner diagonal part-1"></div>
           <div className="spinner horizontal"></div>
           <div className="spinner diagonal part-2"></div>
@@ -134,7 +134,7 @@ class ResponsiveHome extends Component {
               (
                 <React.Fragment>
                   <li><a href="/" target="_blank">Home</a></li>
-                  <li><a href="#/quemsomos" target="_blank">Quem Somos</a></li>
+                  <li><a href="#/QuemSomos" target="_blank">Quem Somos</a></li>
                   <li ><a onClick={this.logout}>Sair</a></li>
                   <li ><a href='#/CadastrarProdutos'>Perfil</a></li>
 
@@ -142,7 +142,7 @@ class ResponsiveHome extends Component {
               ) : (
                 <>
                   <li><a href="/" target="_blank">Home</a></li>
-                  <li><a href="#/quemsomos" target="_blank">Quem Somos</a></li>
+                  <li><a href="#/QuemSomos" target="_blank">Quem Somos</a></li>
                   <li ><a onClick={this.openDialog.bind(this)}>Entrar</a></li>
                   <li ><a href='#/Cadastro'>Cadastre-se</a></li>
                 </>

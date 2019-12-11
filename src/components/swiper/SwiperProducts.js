@@ -3,7 +3,7 @@ import Swiper from 'react-id-swiper';
 import 'swiper/css/swiper.css';
 import { Component } from 'react'
 import '../../assets/css/estilo.css'
-import  {api,apiFormData} from '../../services/api';
+import  {api} from '../../services/api';
 
 
 const SimpleSwiper = () => {

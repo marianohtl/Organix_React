@@ -1,6 +1,6 @@
 import React, { Component } from "react"
-import bars from "../../assets/img/bars-solid.svg"
-import ativo1 from "../../assets/img/Ativo 1.svg"
+// import bars from "../../assets/img/bars-solid.svg"
+// import ativo1 from "../../assets/img/Ativo 1.svg"
 import ativo6 from "../../assets/img/Ativo 6.png"
 
 export default class HeaderPerfil extends Component{

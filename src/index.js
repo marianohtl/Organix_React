@@ -18,7 +18,7 @@ import TodasReceitas from "./pages/receitas/TodasReceitas"
 import CadastrarReceitas from "./pages/receitas/CadastrarReceitas"
 import CadastrarCategoria from "./pages/produtos/CadastrarCategoria"
 
-import TodosProdutos from "./pages/produtos/TodosProdutos"
+import ProdutosCadastrados from "./pages/produtos/ProdutosCadastrados"
 import CadastrarProdutos from "./pages/produtos/CadastrarProdutos"
 // import PerfilProdutor from "./pages/perfilProdutor/PerfilProdutor"
 // import ProdutosCadastrados from "./pages/produtosCadastrados/ProdutosCadastrados"
@@ -67,11 +67,11 @@ const Rotas = (
             <Switch>
             <Route exact path="/" component={App} />
             <Route path="/QuemSomos" component={QuemSomos} />
-            <Route path="/MinhasReceitas" component={MinhasReceitas} />
-            <Route path="/TodasReceitas" component={TodasReceitas} />
-            <Route path="/CadastrarReceitas" component={CadastrarReceitas} />
-            <Route path="/TodosProdutos" component={TodosProdutos} />
-            <Route path="/CadastrarCategoria" component={CadastrarCategoria} />
+            <PermissaoComprador exact path="/MinhasReceitas" component={MinhasReceitas} />
+            <PermissaoComprador exact path="/TodasReceitas" component={TodasReceitas} />
+            <PermissaoComprador exact path="/CadastrarReceitas" component={CadastrarReceitas} />
+            <PermissaoProdutor exact path="/ProdutosCadastrados" component={ProdutosCadastrados} />
+            <PermissaoAdmin exact path="/CadastrarCategoria" component={CadastrarCategoria} />
             
             {/* <Route path="/Cadastro" component={Cadastro} />
             <PermissaoComprador path="/PerfilComprador" component={PerfilComprador} />
@@ -83,7 +83,7 @@ const Rotas = (
             <Route path="/CadastroReceitas" component={CadastroReceitas} />*/}
             
             <Route exact path="/login" component={Login}/>
-            <Route path="/CadastrarProdutos" component={CadastrarProdutos} />
+            <PermissaoProdutor path="/CadastrarProdutos" component={CadastrarProdutos} />
             </Switch>
             
         </div>

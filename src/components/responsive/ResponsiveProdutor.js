@@ -1,8 +1,16 @@
 import React,{Component} from "react"
 import "../../assets/css/responsive.css"
+import { withRouter } from 'react-router-dom';
 
-export default class ResponsiveProdutor extends Component{
-    render(){
+ class ResponsiveProdutor extends Component{
+    
+  logout = () => {
+    localStorage.removeItem("usuario-organix")
+
+    this.props.history.push("#/")
+  }
+  
+  render(){
         return(
             <header className="ResponsiveMenu">
             <div className="header"></div>
@@ -14,9 +22,11 @@ export default class ResponsiveProdutor extends Component{
   </label>
   <div id="sidebarMenu">
     <ul className="sidebarMenuInner">
-      <li><a href="#/perfilprodutor" target="_blank">Perfil</a></li>
-      <li><a href="#/produtoscadastrados" target="_blank">Produtos Cadastrados</a></li>
-      <li><a href="#/cadastrarprodutos" target="_blank">Cadastrar Produtos</a></li>
+      <li><a href="/" target="_blank">Home</a></li>
+      <li><a href="#/PerfilProdutor" target="_blank">Perfil</a></li>
+      <li><a href="#/ProdutosCadastrados" target="_blank">Produtos Cadastrados</a></li>
+      <li><a href="#/CadastrarProdutos" target="_blank">Cadastrar Produtos</a></li>
+      <li ><a onClick={this.logout}>Sair</a></li>
     </ul>
   </div>
   
@@ -24,3 +34,5 @@ export default class ResponsiveProdutor extends Component{
         )
     }
 }
+
+export default withRouter(ResponsiveProdutor);

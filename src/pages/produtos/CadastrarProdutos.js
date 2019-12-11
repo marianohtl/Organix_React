@@ -5,7 +5,7 @@ import { parseJwt } from "../../services/auth"
 import produtor from "../../assets/img/Perfil/Agrupar 91.png"
 import HeaderPerfil from "../../components/header/HeaderPerfil"
 import HeaderPerfilFull from "../../components/header/HeaderPerfilFull"
-import Responsive from "../../components/responsive/ResponsiveProdutor"
+import ResponsiveProdutor from "../../components/responsive/ResponsiveProdutor"
 
 export default class CadastrarProdutos extends Component {
 
@@ -87,11 +87,7 @@ export default class CadastrarProdutos extends Component {
     render() {
         return (
             <>
-            
-                            
-                            
-            
-            <Responsive/>
+            <ResponsiveProdutor/>
             <HeaderPerfil/>
                 <main className="itens-encontrados">
                     <div className="esquerdo_perfil">

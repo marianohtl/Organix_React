@@ -1,5 +1,5 @@
 import React,{Component, Fragment }  from 'react'
-import {api,apiFormData} from "../../services/api"
+import {api} from "../../services/api"
 //modal
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -7,14 +7,14 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import { string } from 'prop-types';
+// import { string } from 'prop-types';
 // import Slide from '@material-ui/core/Slide';
 
 
 
 
 
-export default class App extends Component {
+export default class ProdutosCadastrados extends Component {
 
 
     constructor(){
@@ -152,8 +152,8 @@ export default class App extends Component {
                             <Fragment>
 
                         <div className="card-produto">
-                        <div className="imagem-redonda-card-receita">
-                        <img src={"http://localhost:5000/"+ oferta.idProdutoNavigation.imagem} />
+                        <div className="imagem-redonda-card-receita" alt="Card de receita">
+                        <img src={"http://localhost:5000/"+ oferta.idProdutoNavigation.imagem} alt="Imagem da receita"/>
                         </div>
                         
                         <p className='nome-produto' key={oferta.idProdutoNavigation.idProduto}>{oferta.idProdutoNavigation.nomeProduto}</p>
