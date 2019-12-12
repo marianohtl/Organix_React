@@ -6,6 +6,8 @@ import "../../assets/css/estilo.css"
 import HeaderPerfil from "../../components/header/HeaderPerfil"
 import HeaderPerfilFull from "../../components/header/HeaderPerfilFull"
 import ResponsiveComprador from "../../components/responsive/ResponsiveComprador"
+import Footer from '../../components/Footer/Footer'
+
 
 
 
@@ -215,6 +217,8 @@ export default class CadastrarReceitas extends Component {
 
 
             </main>
+            <Footer/>
+
                                     </>
                 
             )

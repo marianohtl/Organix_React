@@ -4,7 +4,7 @@ import '../../assets/css/estilo.css';
 
 import '../../assets/css/perfilAdm.css';
 
-import api from '../../services/api';
+import {api} from '../../services/api';
 
 import Footer from '../../components/Footer/Footer'
 

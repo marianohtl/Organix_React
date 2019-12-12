@@ -27,6 +27,8 @@ import HeaderPerfil from "../../components/header/HeaderPerfil"
 import ResponsiveComprador from "../../components/responsive/ResponsiveComprador"
 import HeaderPerfilFull from "../../components/header/HeaderPerfilFull"
 import produtor from "../../assets/img/Perfil/Agrupar 91.png"
+import Footer from '../../components/Footer/Footer'
+
 
 
 
@@ -385,6 +387,8 @@ export default class MinhasReceitas extends Component {
                     </div>
 
                 </main>
+                <Footer/>
+
 
             </Fragment>
 

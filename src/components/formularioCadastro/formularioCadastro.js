@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import '../../assets/css/estilo.css';
 
-import api from '../../services/api';
+import {api} from '../../services/api';
 
 import Fechar from '../../assets/img/fechar.png'
 

@@ -4,6 +4,8 @@ import "../../assets/css/estilo.css"
 import SimpleSwiper from "../../components/swiper/Swiper"
 import Header from "../../components/header/Header"
 import ResponsiveHome from "../../components/responsive/ResponsiveHome"
+import Footer from '../../components/Footer/Footer'
+
 
 export default class QuemSomos extends Component{
     render(){
@@ -54,6 +56,8 @@ export default class QuemSomos extends Component{
             <SimpleSwiper/>
             
           </main>
+          <Footer/>
+
           </>
         )
     }

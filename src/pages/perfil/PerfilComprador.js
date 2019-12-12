@@ -12,7 +12,7 @@ import PainelAdm from '../../components/painelAdm/PainelAdm';
 import Footer from '../../components/Footer/Footer'
 
 //services
-import api from '../../services/api';
+import {api} from '../../services/api';
 import { parseJwt } from "../../services/auth"
 
 //modal
@@ -23,6 +23,10 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
+
+import HeaderPerfil from "../../components/header/HeaderPerfil"
+import HeaderPerfilFull from "../../components/header/HeaderPerfilFull"
+import ResponsiveProdutor from "../../components/responsive/ResponsiveProdutor"
 
 
 
@@ -221,8 +225,14 @@ export default class PerfilComprador extends Component {
         return (
 
             <div>
-                <main className="itens-encontrados">
-                    <PainelAdm />
+                <ResponsiveProdutor/>
+        <HeaderPerfil/>
+        <main className="itens-encontrados">
+                    <div className="esquerdo_perfil">
+                        <div className="menu_perfil">
+                            <HeaderPerfilFull/>
+                        </div>
+                    </div>
                     <div className="lado-direito-perfil-produtor">
 
                         <div className="container-perfil">

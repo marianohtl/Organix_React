@@ -3,9 +3,12 @@ import "../../assets/css/estilo.css"
 import { api } from "../../services/api"
 import { parseJwt } from "../../services/auth"
 
+
 import HeaderPerfil from "../../components/header/HeaderPerfil"
 import HeaderPerfilFull from "../../components/header/HeaderPerfilFull"
 import ResponsiveProdutor from "../../components/responsive/ResponsiveProdutor"
+import Footer from '../../components/Footer/Footer'
+
 
 export default class CadastrarProdutos extends Component {
 
@@ -206,6 +209,8 @@ export default class CadastrarProdutos extends Component {
 
                     </div>
                 </main>
+                <Footer/>
+
             </>
         )
     }

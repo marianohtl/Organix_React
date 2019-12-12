@@ -12,8 +12,10 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import HeaderPerfil from "../../components/header/HeaderPerfil"
 import HeaderPerfilFull from "../../components/header/HeaderPerfilFull"
 import ResponsiveProdutor from "../../components/responsive/ResponsiveProdutor"
+import Footer from '../../components/Footer/Footer'
 
-import produtor from "../../assets/img/Perfil/Agrupar 91.png"
+
+
 
 
 
@@ -135,7 +137,6 @@ export default class ProdutosCadastrados extends Component {
   
         <ResponsiveProdutor/>
         <HeaderPerfil/>
-      
         <main className="itens-encontrados">
                     <div className="esquerdo_perfil">
                         <div className="menu_perfil">
@@ -183,6 +184,8 @@ export default class ProdutosCadastrados extends Component {
            </div>
            
       </main>
+      <Footer/>
+
       
       </Fragment>
 

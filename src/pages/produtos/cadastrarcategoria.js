@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { api } from "../../services/api"
 // import { parseJwt } from "../../services/auth"
+import Footer from '../../components/Footer/Footer'
+
 
 import IconButton from '@material-ui/core/IconButton';
 import PhotoCamera from '@material-ui/icons/PhotoCamera';
@@ -158,6 +160,7 @@ export default class CadastrarCategoria extends Component {
                         </div>
                     </div>
                 </main>
+                <Footer/>
             </>
         )
     }

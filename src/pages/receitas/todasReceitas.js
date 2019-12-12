@@ -15,6 +15,8 @@ import ResponsiveComprador from "../../components/responsive/ResponsiveComprador
 import HeaderPerfilFull from "../../components/header/HeaderPerfilFull"
 import HeaderPerfil from "../../components/header/HeaderPerfil"
 import produtor from "../../assets/img/Perfil/Agrupar 91.png"
+import Footer from '../../components/Footer/Footer'
+
 
 import "../../assets/css/responsive.css"
 import "../../assets/css/estilo.css"
@@ -175,6 +177,8 @@ export default class todasReceitas extends Component {
                     </div>
 
                 </main>
+                <Footer/>
+
 
             </Fragment>
 
