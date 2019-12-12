@@ -448,11 +448,16 @@ font-family: var(--fonte_titulo);
     background-color:var(--roxo-claro);
     color: var(--branco);
     font-family: var(--fonte_titulo);
-    width: 80vw;
-    height: 80vh;
+    width: 50vw;
+    /* height: 50vh; */
     padding: 50px;
     margin: auto;
-    padding-bottom:100px;
+    /* padding-bottom:100px; */
+    position: absolute;
+    top: 160px;
+    left: 0;
+    right: 0;
+    border-radius: 20px;
 }
 
 .container-cadastro-comprador, .container-cadastro-produtor{
@@ -472,8 +477,8 @@ font-family: var(--fonte_titulo);
 #cadastro_comprador, #cadastro_produtor{
     display: flex;
     justify-content: space-between;
-    text-align: left;
     margin: auto;
+    /* margin-left: 2vw; */
 }
 
 
@@ -486,9 +491,9 @@ font-family: var(--fonte_titulo);
     border: none;
     border-radius: 10px;
     padding: 15px;
-    margin-bottom: 4%;
-    margin-top: 1%;
-    font-size: 1em; 
+    margin-bottom: 2vw;
+    margin-top: 1vw;
+    font-size: 1em;
     
 }
 
@@ -503,7 +508,7 @@ font-family: var(--fonte_titulo);
 }
 
 #cadastro_comprador .form_txt, #cadastro_produtor .form_txt{
-    width: 20vw;
+    width: 15vw;
 }
 
 #cadastro_comprador .form_txt_cidade,  #cadastro_produtor .form_txt_cidade{
@@ -523,17 +528,37 @@ font-family: var(--fonte_titulo);
 
 
 #cadastro_comprador .btn, #cadastro_produtor .btn{
-    width: 15vw;
+    width: 10vw;
     font-size: 30px;
-    bottom: 0px;
+    /* bottom: 0px; */
     background-color: var(--verde_claro);
     color: var(--roxo);
-    margin-top: 100px;
-
+    margin-top: 37px;
+    border: none;
+    border-radius: 10px;
+    padding: 15px 0px 15px 0px;
+    margin-left: 3vw;
+    
+}
+.backdrop_form{
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.6); 
+    position: fixed; /* Stay in place */
+    z-index: 1;
+    /* padding-top: 100px; Location of the box */
+    left: 0;
+    top: 0;
 }
 
-
-
+.btnCloseModal_form{
+    background-color: #0000;
+    border:none;
+    display: flex;
+    justify-items: flex-end;
+    margin-left: 48vw;
+}
 
 /* PÁGINA DE RESULTADO DE PRODUTOS */
 
@@ -629,6 +654,27 @@ list-style: none;
 .imagem-redonda-card-produto img{
     width: 80%;
     height: 80%;
+}
+
+.btnCadastro{
+    background-color: var(--verde_claro);
+    color: var(--roxo);
+    border:none;
+    padding: 5px 15px 5px 15px;
+     margin-top: 15px;
+     border-radius: 10px;
+     text-decoration: none;
+     text-align: center;
+     text-decoration: none;
+     color: var(--roxo);
+     font-weight: bold;
+     font-size: 25px;
+     font-family: var(--fonte_titulo);
+}
+
+.erroMsg{
+    text-align: center;
+    font-size: 1.5em;
 }
 
 /*______________________________*/
@@ -1217,11 +1263,13 @@ list-style: none;
     .max-min label {
         margin-right: 20px;
     }
-/*cad produtor e comprador*/
+
     
+/*cad produtor e comprador*/
 .main_cadastro_comprador, .main_cadastro_produtor{
-    height: 100%;  
+    height: 60%;
 }
+
 /*---------------------------*/
 
 /*MENU PARA CELULAR*/

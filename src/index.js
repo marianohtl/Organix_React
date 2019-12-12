@@ -8,8 +8,9 @@ import * as serviceWorker from './serviceWorker';
 import Login from "../src/components/header/Header"
 
 import QuemSomos from "./pages/quemSomos/QuemSomos"
-// import Cadastro from "./pages/cadastro/Cadastro"
-// import PerfilComprador from "./pages/perfilComprador/PerfilComprador"
+import Cadastro from "./pages/cadastro/Cadastro"
+import PerfilComprador from "./pages/perfil/PerfilComprador"
+import perfilAdm from "./pages/perfilAdm/NewCategoria"
 // import BuscarProdutos from "./pages/buscarProdutos/BuscarProdutos"
 // import ProdutosEncontrados from "./pages/produtosEncontrados/ProdutosEncontrados"
 // import Receitas from "./pages/receitas/Receitas"
@@ -26,6 +27,8 @@ import CadastrarProdutos from "./pages/produtos/CadastrarProdutos"
 
 import {Route, HashRouter as Router, Switch, Redirect} from 'react-router-dom';
 import { usuarioAutenticado, parseJwt } from './services/auth';
+import CategoriaReceita from './pages/perfilAdm/NewCategoria';
+import PerfilProdutor from './pages/perfil/PerfilProdutor';
 
 const PermissaoAdmin = ({component : Component}) => (
     <Route
@@ -72,18 +75,18 @@ const Rotas = (
             <PermissaoComprador exact path="/CadastrarReceitas" component={CadastrarReceitas} />
             <PermissaoProdutor exact path="/ProdutosCadastrados" component={ProdutosCadastrados} />
             <PermissaoAdmin exact path="/CadastrarCategoria" component={CadastrarCategoria} />
-            
-            {/* <Route path="/Cadastro" component={Cadastro} />
+            <Route path="/Cadastro" component={Cadastro} />
             <PermissaoComprador path="/PerfilComprador" component={PerfilComprador} />
             <PermissaoProdutor path="/PerfilProdutor" component={PerfilProdutor} />
+            {/*
             <Route path="/BuscarProdutos" component={BuscarProdutos} />
             <Route path="/ProdutosEncontrados" component={ProdutosEncontrados} />
-            <Route path="/Receitas" component={Receitas} />
-            <Route path="/ProdutosCadastrados" component={ProdutosCadastrados} />
-            <Route path="/CadastroReceitas" component={CadastroReceitas} />*/}
+            */}
             
+            <Route path="/PerfilAdm" component={perfilAdm} />            
             <Route exact path="/login" component={Login}/>
             <PermissaoProdutor path="/CadastrarProdutos" component={CadastrarProdutos} />
+            <Route path="/CategoriaReceita" component={CategoriaReceita}/>
             </Switch>
             
         </div>

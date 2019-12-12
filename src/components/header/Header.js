@@ -83,12 +83,12 @@ class Header extends Component {
           console.log(parseJwt().Role)
 
           if (parseJwt().Role === "3") {
-            this.props.history.push("/QuemSomos");
+            this.props.history.push("/PerfilAdm");
           }
           else if (parseJwt().Role === "2") {
             this.props.history.push("/PerfilProdutor")
           } else if (parseJwt().Role === "1") {
-            this.props.history.push("/MinhasReceitas")
+            this.props.history.push("/PerfilComprador")
           }
         }
       })

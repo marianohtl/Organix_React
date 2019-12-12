@@ -5,6 +5,8 @@ import Header from "../../components/header/Header"
 import CardReceita from '../../components/cardReceita/CardReceita';
 import SwiperProducts from '../../components/swiper/SwiperProducts'
 import ResponsiveHome from "../../components/responsive/ResponsiveHome"
+import Footer from '../../components/Footer/Footer'
+
 
 
 
@@ -28,6 +30,7 @@ function App() {
         <CardReceita/>
         </section>
       </main>
+      <Footer/>
     </>
 
 
