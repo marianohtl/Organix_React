@@ -5,10 +5,15 @@ import './assets/css/estilo.css'
 import App from './pages/home/App';
 import * as serviceWorker from './serviceWorker';
 
-import QuemSomos from "./pages/quemSomos/QuemSomos"
-import Cadastro from "./pages/cadastro/Cadastro"
-import PerfilComprador from "./pages/perfilComprador/PerfilComprador"
-import perfilAdm from "./pages/perfilAdm/NewCategoria"
+//PAGES
+
+import QuemSomos from "./pages/quemSomos/QuemSomos";
+import Cadastro from "./pages/cadastro/Cadastro";
+import PerfilComprador from "./pages/perfilComprador/PerfilComprador";
+import EditUsers from './pages/perfilAdm/EditUsers';
+import NewCategoria from './pages/perfilAdm/NewCategoria';
+import PerfilAdm from './pages/perfilAdm/PerfilAdm';
+
 // import BuscarProdutos from "./pages/buscarProdutos/BuscarProdutos"
 // import ProdutosEncontrados from "./pages/produtosEncontrados/ProdutosEncontrados"
 // import Receitas from "./pages/receitas/Receitas"
@@ -26,13 +31,15 @@ const Rotas = (
             <Route path="/QuemSomos" component={QuemSomos} />
             <Route path="/cadastro" component={Cadastro} />
             <Route path="/PerfilComprador" component={PerfilComprador} />
+            <Route path="/editUsers" component={EditUsers} />
+            <Route path="/newCategoria" component={NewCategoria} />
+            <Route path="/perfilAdm" component={PerfilAdm} />
             {/* <Route path="/PerfilProdutor" component={PerfilProdutor} />
             <Route path="/BuscarProdutos" component={BuscarProdutos} />
             <Route path="/ProdutosEncontrados" component={ProdutosEncontrados} />
             <Route path="/Receitas" component={Receitas} />
             <Route path="/ProdutosCadastrados" component={ProdutosCadastrados} />
             <Route path="/CadastrarProdutos" component={CadastrarProdutos} />  */}
-            <Route path="/newCategoria" component={perfilAdm} />
             
             
         </div>
