@@ -55,7 +55,7 @@ export default class PerfilComprador extends Component {
                 telefone: [
                     {
                         telefone1:" ''",
-                        celulalr: ''
+                        celular: ''
                     }
                 ]
             },
@@ -70,7 +70,7 @@ export default class PerfilComprador extends Component {
             putPerfilTel: {
                 idTelefone:"",
                 telefone1: "",
-                celulalr: ""
+                celular: ""
                 
             },
 
@@ -184,15 +184,16 @@ export default class PerfilComprador extends Component {
         let IdTel = this.state.putPerfilTel.idTelefone;
 
         //endereco
-        // let perfilAlterado2 = this.state.putPerfilEnd;
-        // let IdEnd = this.state.putPerfilEnd.idEndereco;
+        let perfilAlterado2 = this.state.putPerfilEnd;
+        let IdEnd = this.state.putPerfilEnd.idEndereco;
 
         //api 
         api.put('/Usuario/' + idUser, perfilAlterado)
         
         api.put('/Telefone/' + IdTel, perfilAlterado1)
         
-        // api.put('/Endereco/' + IdEnd, perfilAlterado2)
+        api.put('/Endereco/' + IdEnd, perfilAlterado2)
+
         .then(() =>{
             this.setState({successMsg :"Perfil alterado com sucesso!"})
         }).catch(error =>{

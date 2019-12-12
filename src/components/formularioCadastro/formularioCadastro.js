@@ -41,23 +41,13 @@ export default class FormularioCadastro extends Component {
             successMsg: "",
         }
     }
-    componentDidMount() {
-        this.getUsuario();
-    }
+    // componentDidMount() {
+    //     this.getUsuario();
+    // }
 
     componentDidUpdate() {
         console.log(this.state.postCadastro)
         //  console.log(this.state.postEndereco)
-    }
-
-    getUsuario = () => {
-        api.get('/Usuario')
-            .then(response => {
-                if (response.status === 200) {
-                    this.setState({ listaUsuario: response.data })
-                }
-                console.log(response)
-            })
     }
 
     postSetState = (input) => {
@@ -104,7 +94,6 @@ export default class FormularioCadastro extends Component {
 
                 api.post('/Telefone/', userTelefone)
                     .then(response=>{
-                        console.log(response);
                         
                     }).catch(error => {
                         console.log(error);
@@ -146,7 +135,7 @@ export default class FormularioCadastro extends Component {
                     <div className="h1_form">
 
                         <button onClick={this.props.fechar_modal} className="btnCloseModal_form errMsg">
-                            <img src={Fechar} />
+                            <img src={Fechar}  alt="icone de fechar modal"/>
                         </button>
                         <h1>Cadastro</h1>
 

@@ -8,6 +8,7 @@ import * as serviceWorker from './serviceWorker';
 import QuemSomos from "./pages/quemSomos/QuemSomos"
 import Cadastro from "./pages/cadastro/Cadastro"
 import PerfilComprador from "./pages/perfilComprador/PerfilComprador"
+import perfilAdm from "./pages/perfilAdm/NewCategoria"
 // import BuscarProdutos from "./pages/buscarProdutos/BuscarProdutos"
 // import ProdutosEncontrados from "./pages/produtosEncontrados/ProdutosEncontrados"
 // import Receitas from "./pages/receitas/Receitas"
@@ -31,6 +32,7 @@ const Rotas = (
             <Route path="/Receitas" component={Receitas} />
             <Route path="/ProdutosCadastrados" component={ProdutosCadastrados} />
             <Route path="/CadastrarProdutos" component={CadastrarProdutos} />  */}
+            <Route path="/newCategoria" component={perfilAdm} />
             
             
         </div>

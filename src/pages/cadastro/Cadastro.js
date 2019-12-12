@@ -15,7 +15,7 @@ import Header from '../../components/header/Header'
 
 import Footer from '../../components/Footer/Footer'
 
-export default class PerfilComprador extends Component {
+export default class Cadastro extends Component {
 
     constructor(){
         super();
