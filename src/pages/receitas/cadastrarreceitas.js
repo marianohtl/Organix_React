@@ -3,14 +3,10 @@ import {api,apiFormData} from "../../services/api"
 import { parseJwt } from "../../services/auth"
 
 
-
-
-
 export default class CadastrarReceitas extends Component{
 
     constructor(){
         super()
-
         this.state = {
             listaCategorias : [],
             postReceita : {
@@ -23,20 +19,17 @@ export default class CadastrarReceitas extends Component{
                 idCategoriaReceita: "",
                 nomeCategoria: ""
             },
-
             getCategoria : {
-                idCategoriaReceitaNavigation: "",
-                
+                idCategoriaReceitaNavigation: ""
             },
             fileInput: React.createRef(),
             msgErro: ""
         }
     };
-
   
     refreshPage() {
         window.location.reload(true);
-      }
+    }
 
     getCategorias = () => {
         api.get('/CategoriaReceita')
@@ -56,11 +49,13 @@ export default class CadastrarReceitas extends Component{
     }
 
     componentDidMount() {
-        this.getCategorias();
+        setTimeout(() => {
+            this.getCategorias();
+         }, 1000);
     }
 
  
-    postReceita = (r) => {
+    postReceita = (r) => {  
         r.preventDefault();
 
         let receita = new FormData();
@@ -76,7 +71,6 @@ export default class CadastrarReceitas extends Component{
         receita.set("tempoPreparo", this.state.postReceita.tempoPreparo);
         receita.set("idCategoriaReceita", this.state.postReceita.idCategoriaReceita);
         receita.set("imagem" , this.state.fileInput.current.files[0]);
-
 
         apiFormData.post('/Receita', receita)
         .then(response => {
@@ -130,7 +124,7 @@ export default class CadastrarReceitas extends Component{
 
                 <div className="fileira-dois">
                     <label for="POST-tempo-receita">Modo de Preparo:</label>
-                    <input id="input-receita-preparo" type="text" name="modoPreparo" value={this.state.postReceita.modoPreparo} onChange={this.postSetState}  />
+                    <input id="input-receita-preparo" type="text" name="modoPreparo" onChange={this.postSetState}  />
                 </div>
 
                 <select id="option__tiporeceita"

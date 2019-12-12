@@ -9,13 +9,10 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import { string, array } from 'prop-types';
 import Slide from '@material-ui/core/Slide';
 
 import Fab from '@material-ui/core/Fab';
- import AddIcon from '@material-ui/icons/Add';
 import EditIcon from '@material-ui/icons/Edit';
- import FavoriteIcon from '@material-ui/icons/Favorite';
 import Grid from '@material-ui/core/Grid';
 
 
@@ -112,7 +109,7 @@ export default class minhasReceitas extends Component {
       api.get('/receita')
       .then(response => {
         if(response.status === 200){
-          this.setState({listaReceitas : response.data})
+        this.setState({listaReceitas : response.data})
          console.log(this.state.listaReceitas)
        }
       })
