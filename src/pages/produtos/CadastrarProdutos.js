@@ -1,0 +1,199 @@
+import React, { Component } from "react"
+import "../../assets/css/estilo.css"
+import { api } from "../../services/api"
+import { parseJwt } from "../../services/auth"
+import produtor from "../../assets/img/Perfil/Agrupar 91.png"
+import HeaderPerfil from "../../components/header/HeaderPerfil"
+
+export default class CadastrarProdutos extends Component {
+
+    constructor() {
+        super()
+        this.state = {
+
+            listaProdutos: [],
+
+            postProduto: {
+                idProduto: 0,
+                estadoProduto: "",
+                preco: "",
+                dataFabricacao: "",
+                dataVencimento: "",
+                idUsuario: "",
+            },
+            errorMsg: "",
+            successMsg: ""
+        }
+
+    }
+    componentDidMount() {
+        this.getProdutos()
+    }
+
+    getProdutos = () => {
+        api.get("/Produto")
+            .then(response => {
+                if (response.status === 200) {
+                    this.setState({ listaProdutos: response.data })
+                    console.log(this.state.listaProdutos)
+                }
+            })
+    }
+
+    postSetState = (input) => {
+        this.setState({
+            postProduto: {
+                ...this.state.postProduto, [input.target.name]: input.target.value
+                
+                // Isto \/ é a mesma coisa que isto /\
+                
+                // ...this.state.postProduto, idProduto : input.target.value
+            }
+        })
+    }
+
+    postProduto = (p) => {
+        p.preventDefault();
+
+        let produto = {
+            idProduto: this.state.postProduto.idProduto,
+            estadoProduto: this.state.postProduto.estadoProduto,
+            preco: this.state.postProduto.preco,
+            dataFabricacao: this.state.postProduto.dataFabricacao,
+            dataVencimento: this.state.postProduto.dataVencimento,
+            idUsuario: parseJwt().IdUsuario
+        }
+
+        api.post("/Oferta", produto)
+            .then(response => {
+                if (response.status === 200){
+                    this.props.history.push("/")
+                }
+                console.log(response)
+            })
+            .catch(error => {
+                console.log(error)
+                this.setState({ errorMsg: "Não foi possivel cadastrar o Produto." })
+            })
+
+        setTimeout(() => {
+            this.getProdutos();
+            console.log(produto);
+        }, 1500)
+    }
+
+    render() {
+        return (
+            <>
+            <HeaderPerfil/>
+                <main className="itens-encontrados">
+                    <div className="esquerdo_perfil">
+                        <a href="ïndex.html"><img src={produtor} alt="avatar do produtor" /></a>
+                        <div className="menu_perfil">
+                            <h2>José Carlos</h2>
+                            <p><a href="perfil_produtor.html">Perfil</a></p>
+                            <p><a href="produtos_cadastrados.html">Produtos Cadastrados</a></p>
+                            <p><a href="cadastro_produto.html">Cadastrar Produtos</a></p>
+                            <p><a href="index.html#dicas">Dicas</a></p>
+                        </div>
+                    </div>
+                    <div className="lado-direito-resultado">
+                        <div className="container-perfil">
+
+                            <h2>Cadastrar Produtos</h2>
+
+                            <div className="container-cards1">
+                                <form onSubmit={this.postProduto} id="form-cadastrar-produto" method="POST">
+                                    {/* {
+                                        this.state.listaProdutos.map(
+                                            function(p){
+                                                return(
+                                                    <p>teste</p>
+                                                )
+                                            }
+                                        )
+                                    } */}
+                                    <label className="lbl-form-cad-prod" htmlFor="nome-prod">Produto:</label>
+                                    <select
+                                        name="idProduto"
+                                        id="cad-preco"
+                                        value={this.state.postProduto.idProduto}
+                                        onChange={this.postSetState}
+                                    >
+                                        <option value="0">Selecione um produto</option>
+                                        {
+                                            this.state.listaProdutos.map(function (p) {
+                                                return (
+                                                    <option
+                                                        key={p.idProduto}
+                                                        value={p.idProduto}
+                                                    >
+                                                        {p.nomeProduto}
+                                                    </option>
+
+
+                                                )
+                                            })
+                                        }
+                                        {/* // <option value="arroz">Arroz</option>
+                                // <option value="feijao">Feijão</option>
+                                // <option value="carne">Carne</option>
+                                // <option value="ovo">Ovo</option> */}
+                                    </select>
+                                    <label className="lbl-form-cad-prod" htmlFor="estado-prod">Estado do Produto:</label>
+                                    <select
+                                        name="estadoProduto"
+                                        id="cad-preco"
+                                        value={this.state.postProduto.estadoProduto}
+                                        onChange={this.postSetState}
+                                    >
+                                        <option value="Ótimo">Ótimo</option>
+                                        <option value="Bom">Bom</option>
+                                        <option value="Razoável">Razoável</option>
+                                        <option value="Ruim">Ruim</option>
+                                    </select>
+                                    <label className="lbl-form-cad-prod" htmlFor="cad-preco">Preço:</label>
+                                    <input
+                                        id="cad-preco"
+                                        type="currency"
+                                        placeholder="Digite um valor..."
+                                        name="preco"
+                                        value={this.state.postProduto.preco}
+                                        onChange={this.postSetState}
+                                    />
+
+                                    <label className="lbl-form-cad-prod" htmlFor="dt-fab-prod">Data de Fabricação: </label>
+                                    <input
+                                        className="inp-date"
+                                        id="dt-fab-prod"
+                                        type="date"
+                                        name="dataFabricacao"
+                                        value={this.state.postProduto.dataFabricacao}
+                                        onChange={this.postSetState}
+                                    />
+
+                                    <label className="lbl-form-cad-prod" htmlFor="dt-venc-prod">Data de Vencimento:</label>
+                                    <input
+                                        className="inp-date"
+                                        id="dt-venc-prod"
+                                        type="date"
+                                        name="dataVencimento"
+                                        value={this.state.postProduto.dataVencimento}
+                                        onChange={this.postSetState}
+                                    />
+                                    <div className="btn-b">
+                                        <button className="btn-cadastrar" type="submit">Cadastrar</button>
+                                    </div>
+                                    {/* } */}
+                                </form>
+
+                            </div>
+                            <div className="lado-direito-resultado1"></div>
+                        </div>
+
+                    </div>
+                </main>
+            </>
+        )
+    }
+}

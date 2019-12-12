@@ -6,7 +6,6 @@ import banana from "../../assets/img/Slider/banana.png"
 import abacaxi from "../../assets/img/Slider/abacaxi.png"
 import tomate from "../../assets/img/Slider/tomate.png"
 
-
 import 'swiper/css/swiper.css';
 
 const SimpleSwiper = () => {

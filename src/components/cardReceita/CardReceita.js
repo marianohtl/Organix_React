@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import '../../assets/css/estilo.css'
-import api from '../../services/api';
 
+
+import {api,apiFormData} from '../../services/api';
 
 
 
@@ -45,6 +46,7 @@ export default class CardReceita extends Component {
         return (
           <>
           
+
             <div className="card-produto">
               <div className="imagem-redonda-card-receita"> <img src="#"
                 alt="torta de morango" /></div>

@@ -51,8 +51,7 @@ export default class SwiperProducts extends Component {
   render() {
     return (
       
-      // <Swiper {...SimpleSwiper.params}>
-      <Swiper {...this.params}>
+      <Swiper {...SimpleSwiper.params}>
       
       {this.state.listaOferta.map(function (a) {
         return (

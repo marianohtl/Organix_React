@@ -13,8 +13,11 @@ import BuscarProdutos from './pages/produtos/BuscarProdutos';
 import ProdutosEncontrados from "./pages/produtosEncontrados/ProdutosEncontrados"
 // import Receitas from "./pages/receitas/Receitas"
 import PerfilProdutor from "./pages/perfilProdutor/PerfilProdutor"
+import minhasReceitas from "./pages/receitas/minhasReceitas"
+import todasReceitas from "./pages/receitas/todasReceitas"
+// import PerfilProdutor from "./pages/perfilProdutor/PerfilProdutor"
 // import ProdutosCadastrados from "./pages/produtosCadastrados/ProdutosCadastrados"
-// import CadastrarProdutos from "./pages/cadastrarProdutos/CadastrarProdutos"
+import CadastrarProdutos from "./pages/produtos/CadastrarProdutos"
 
 import {Route, HashRouter as Router, Switch, Redirect} from 'react-router-dom';
 import { usuarioAutenticado, parseJwt } from './services/auth';
