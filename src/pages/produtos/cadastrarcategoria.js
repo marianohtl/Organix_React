@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {api} from "../../services/api"
+import React, { Component } from 'react';
+import { api } from "../../services/api"
 // import { parseJwt } from "../../services/auth"
 
 import IconButton from '@material-ui/core/IconButton';
@@ -11,39 +11,44 @@ import EditIcon from '@material-ui/icons/Edit';
 //  import FavoriteIcon from '@material-ui/icons/Favorite';
 // import Grid from '@material-ui/core/Grid';
 
+import HeaderPerfil from "../../components/header/HeaderPerfil"
+import HeaderPerfilFull from "../../components/header/HeaderPerfilFull"
+import ResponsiveProdutor from "../../components/responsive/ResponsiveProdutor"
 
-export default class CadastrarCategoria extends Component{
-    constructor(){
+
+export default class CadastrarCategoria extends Component {
+    constructor() {
         super()
         this.state = {
-            postProduto : {
+            postProduto: {
                 idProduto: "",
                 nomeProduto: "",
-                imagem:""},
+                imagem: ""
+            },
             fileInput: React.createRef(),
             msgErro: ""
         }
     };
-  
+
     refreshPage() {
         window.location.reload(true);
-      }
+    }
 
-    
-    postSetState = (input) =>{
+
+    postSetState = (input) => {
         this.setState({
-            postProduto : {
-                ...this.state.postReceita, [input.target.name] : input.target.value
+            postProduto: {
+                ...this.state.postReceita, [input.target.name]: input.target.value
             }
         })
     }
 
- 
+
     // postReceita = (r) => {
     //     r.preventDefault();
 
     //     let receita = new FormData();
-        
+
     //     let id = parseJwt().IdUsuario
     //     console.log(id)
 
@@ -69,83 +74,93 @@ export default class CadastrarCategoria extends Component{
     //     })
     //     }
 
-        handleImageChange = (r) => {
-            this.setState({
-                fileInput: r.target.files[0]
-            })
-        };
-        componentDidMount(){
-            this.getCategorias();
-        }
+    handleImageChange = (r) => {
+        this.setState({
+            fileInput: r.target.files[0]
+        })
+    };
+    componentDidMount() {
+        this.getCategorias();
+    }
 
-        getCategorias = () => {
-            api.get('/produto')
+    getCategorias = () => {
+        api.get('/produto')
             .then(response => {
-              if(response.status === 200){
-               this.setState({listaCategorias : response.data})
-               console.log(this.state.listaCategorias)
-             }
+                if (response.status === 200) {
+                    this.setState({ listaCategorias: response.data })
+                    console.log(this.state.listaCategorias)
+                }
             })
-        }
- 
-           // 02 - Adicionamos um setState específico
-            putSetStateFile = (input) =>{
-                this.setState({
-                    putReceita : {
-                        ...this.state.putReceita, [input.target.name] : input.target.files[0]
-                    }   
-                })
+    }
+
+    // 02 - Adicionamos um setState específico
+    putSetStateFile = (input) => {
+        this.setState({
+            putReceita: {
+                ...this.state.putReceita, [input.target.name]: input.target.files[0]
             }
-        render(){
-            return(
-                    <main className="itens-encontrados-cadastro">
-                        <div className="lado-direito-resultado">
-                            <div className="container-perfil">
+        })
+    }
+    render() {
+        return (
+            <>
+                <ResponsiveProdutor />
+                <HeaderPerfil />
+                <main className="itens-encontrados">
+                    <div className="esquerdo_perfil">
+
+                        <div className="menu_perfil">
+                            <HeaderPerfilFull />
+                        </div>
+                    </div>
+                    <div className="lado-direito-resultado">
+                        <div className="container-perfil">
 
                             <h2>Cadastro Padrão de Produtos</h2>
 
 
-        <div className="direita_cadastro_receita prod-cad">
-        <form action="#" id="cadastrar-receita" method="POST" class="cad-cat-produto">
-                    <div className="cadastro-receitas-correcao-input">
-                        <label className="label_porcoes" for="POST-tempo-receita">Nome do Produto: </label>
-                        <input type="text" name="porcoes" className="porcoesreceita" />
-                    </div>
-                    <IconButton color="primary"  aria-label="upload picture" component="span">
-                    {
-                      // 06 - Aqui damos nosso "onChange" especial e também passamos nosso "ref"
-                  
-                      }
-                      {/* */}
-                      <input accept="image/*" className="input_load" id="icon-button-file" type="file" name="imagem" onChange={this.putSetStateFile} ref={this.state.putReceita.imagem}  />        <PhotoCamera />
-                      </IconButton>
+                            <div className="direita_cadastro_receita prod-cad">
+                                <form action="#" id="cadastrar-receita" method="POST" class="cad-cat-produto">
+                                    <div className="cadastro-receitas-correcao-input">
+                                        <label className="label_porcoes" for="POST-tempo-receita">Nome do Produto: </label>
+                                        <input type="text" name="porcoes" className="porcoesreceita" />
+                                    </div>
+                                    <IconButton color="primary" aria-label="upload picture" component="span">
+                                        {
+                                            // 06 - Aqui damos nosso "onChange" especial e também passamos nosso "ref"
 
-                      </form>
-                      <div className="prop-cad-div">
-                      {
-                          this.state.listaCategorias.map(
-                              function(cat){
-                                  return(   
-                                      <div className="divisao-produto">
-                                      <p>
-                                      {cat.nomeProduto}
-                                      <Fab  color="secondary" aria-label="edit" size="small">
-                                      <EditIcon/>
-                                      </Fab>
-                                      </p>
-                                      </div>
-                                      );
-                                  }// }.bind(this)
-                                    )
-                                }       
+                                        }
+                                        {/* */}
+                                        <input accept="image/*" className="input_load" id="icon-button-file" type="file" name="imagem" onChange={this.putSetStateFile} ref={this.state.putReceita.imagem} />        <PhotoCamera />
+                                    </IconButton>
+
+                                </form>
+                                <div className="prop-cad-div">
+                                    {
+                                        this.state.listaCategorias.map(
+                                            function (cat) {
+                                                return (
+                                                    <div className="divisao-produto">
+                                                        <p>
+                                                            {cat.nomeProduto}
+                                                            <Fab color="secondary" aria-label="edit" size="small">
+                                                                <EditIcon />
+                                                            </Fab>
+                                                        </p>
+                                                    </div>
+                                                );
+                                            }// }.bind(this)
+                                        )
+                                    }
                                 </div>
-                                </div>
-                                <div className="lado-direito-resultado1"></div>
+                            </div>
+                            <div className="lado-direito-resultado1"></div>
                         </div>
                     </div>
                 </main>
-            )
-        }
-
-
+            </>
+        )
     }
+
+
+}

@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import "../../assets/css/estilo.css"
 import { api } from "../../services/api"
 import { parseJwt } from "../../services/auth"
-import produtor from "../../assets/img/Perfil/Agrupar 91.png"
+
 import HeaderPerfil from "../../components/header/HeaderPerfil"
 import HeaderPerfilFull from "../../components/header/HeaderPerfilFull"
 import ResponsiveProdutor from "../../components/responsive/ResponsiveProdutor"
@@ -22,6 +22,7 @@ export default class CadastrarProdutos extends Component {
                 dataFabricacao: "",
                 dataVencimento: "",
                 idUsuario: "",
+                // regiao: ""
             },
             errorMsg: "",
             successMsg: ""
@@ -46,9 +47,9 @@ export default class CadastrarProdutos extends Component {
         this.setState({
             postProduto: {
                 ...this.state.postProduto, [input.target.name]: input.target.value
-                
+
                 // Isto \/ é a mesma coisa que isto /\
-                
+
                 // ...this.state.postProduto, idProduto : input.target.value
             }
         })
@@ -63,13 +64,14 @@ export default class CadastrarProdutos extends Component {
             preco: this.state.postProduto.preco,
             dataFabricacao: this.state.postProduto.dataFabricacao,
             dataVencimento: this.state.postProduto.dataVencimento,
+            // regiao: this.state.postProduto.regiao,
             idUsuario: parseJwt().IdUsuario
         }
 
         api.post("/Oferta", produto)
             .then(response => {
-                if (response.status === 200){
-                    this.props.history.push("/")
+                if (response.status === 200) {
+                    this.props.history.push("/ProdutosCadastrados")
                 }
                 console.log(response)
             })
@@ -87,13 +89,13 @@ export default class CadastrarProdutos extends Component {
     render() {
         return (
             <>
-            <ResponsiveProdutor/>
-            <HeaderPerfil/>
+                <ResponsiveProdutor />
+                <HeaderPerfil />
                 <main className="itens-encontrados">
                     <div className="esquerdo_perfil">
-                        <a href="/"><img src={produtor} alt="avatar do produtor" /></a>
+
                         <div className="menu_perfil">
-                            <HeaderPerfilFull/>
+                            <HeaderPerfilFull />
                         </div>
                     </div>
                     <div className="lado-direito-resultado">
@@ -139,7 +141,7 @@ export default class CadastrarProdutos extends Component {
                                 // <option value="carne">Carne</option>
                                 // <option value="ovo">Ovo</option> */}
                                     </select>
-                                    <label className="lbl-form-cad-prod" htmlFor="estado-prod">Estado do Produto:</label>
+                                    <label className="lbl-form-cad-prod" htmlFor="estado-prod">Estado do Produto</label>
                                     <select
                                         name="estadoProduto"
                                         id="cad-preco"
@@ -151,7 +153,19 @@ export default class CadastrarProdutos extends Component {
                                         <option value="n-amadurecido">Não Amadurecido</option>
                                         {/* <option value="Ruim">Ruim</option> */}
                                     </select>
-                                    <label className="lbl-form-cad-prod" htmlFor="cad-preco">Preço:</label>
+                                    {/* <label className="lbl-form-cad-prod" htmlFor="regiao">Região</label>
+                                    <select
+                                        name="regiao"
+                                        id="cad-preco"
+                                        value={this.state.postProduto.regiao}
+                                        onChange={this.postSetState}
+                                    >
+                                        <option value="Norte">Norte</option>
+                                        <option value="Sul">Sul</option>
+                                        <option value="Leste">Leste</option>
+                                        <option value="Oeste">Oeste</option>
+                                    </select> */}
+                                    <label className="lbl-form-cad-prod" htmlFor="cad-preco">Preço</label>
                                     <input
                                         id="cad-preco"
                                         type="currency"
@@ -161,7 +175,7 @@ export default class CadastrarProdutos extends Component {
                                         onChange={this.postSetState}
                                     />
 
-                                    <label className="lbl-form-cad-prod" htmlFor="dt-fab-prod">Data de Fabricação: </label>
+                                    <label className="lbl-form-cad-prod" htmlFor="dt-fab-prod">Data de Fabricação</label>
                                     <input
                                         className="inp-date"
                                         id="dt-fab-prod"
@@ -171,7 +185,7 @@ export default class CadastrarProdutos extends Component {
                                         onChange={this.postSetState}
                                     />
 
-                                    <label className="lbl-form-cad-prod" htmlFor="dt-venc-prod">Data de Vencimento:</label>
+                                    <label className="lbl-form-cad-prod" htmlFor="dt-venc-prod">Data de Vencimento</label>
                                     <input
                                         className="inp-date"
                                         id="dt-venc-prod"

@@ -333,7 +333,6 @@ export default class MinhasReceitas extends Component {
                 <main className="itens-encontrados-cadastro">
 
                     <div className="esquerdo_perfil">
-                        <a href="/"><img src={produtor} alt="avatar do produtor" /></a>
                         <div className="menu_perfil">
                             <HeaderPerfilFull/>
                         </div>

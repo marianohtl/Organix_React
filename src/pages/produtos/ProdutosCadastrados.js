@@ -9,6 +9,12 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 // import { string } from 'prop-types';
 // import Slide from '@material-ui/core/Slide';
+import HeaderPerfil from "../../components/header/HeaderPerfil"
+import HeaderPerfilFull from "../../components/header/HeaderPerfilFull"
+import ResponsiveProdutor from "../../components/responsive/ResponsiveProdutor"
+
+import produtor from "../../assets/img/Perfil/Agrupar 91.png"
+
 
 
 
@@ -82,6 +88,7 @@ export default class ProdutosCadastrados extends Component {
 
     render() {
       return(
+       
         <Fragment>
 
                 <Dialog
@@ -126,21 +133,15 @@ export default class ProdutosCadastrados extends Component {
                 </Dialog>
              
   
-  
+        <ResponsiveProdutor/>
+        <HeaderPerfil/>
       
-        <main className="itens-encontrados-cadastro"> 
-        
-        <div className="esquerdo_perfil">
-        <img src="#" alt="avatar do produtor"/>
-        <div className="menu_perfil">
-        <h2>Renata Amaral</h2>
-        <p><a href="perfil.html">Perfil</a></p>
-        <p><a href="pesquisar_produtos.html">Buscar Produtos</a></p>
-        <p><a href="receitas.html">Receitas</a></p>
-                <p><a href="cadastro_receitas.html">Cadastro de Receitas</a></p>
-                <p><a href="index.html">Dicas</a></p>
-                </div>
-                </div>                
+        <main className="itens-encontrados">
+                    <div className="esquerdo_perfil">
+                        <div className="menu_perfil">
+                            <HeaderPerfilFull/>
+                        </div>
+                    </div>
                 <div className="lado-direito-resultado">
                 <div className="container-perfil">
                 <h2>Produtos</h2>

@@ -4,71 +4,80 @@ import { parseJwt, usuarioAutenticado } from "../../services/auth"
 import React, { Component } from "react"
 import { api } from "../../services/api"
 
+import Qiyana from "../../assets/img/token_1.png"
+import Fizz from "../../assets/img/token_2.png"
+import Orianna from "../../assets/img/token_3.png"
+
 
 export default class HeaderPerfilFull extends Component {
-    
-    constructor(){
+
+    constructor() {
         super()
         this.state = {
-            usuario:{},
+            usuario: {},
         }
     }
-    componentDidMount(){
+    componentDidMount() {
         this.getNome()
     }
 
-    getNome = () =>{
+    getNome = () => {
         let id = parseJwt().IdUsuario
-        api.get("/usuario/"+id)
-        .then(response => {
-            if(response.status === 200){
-                this.setState({usuario: response.data})
-                console.log("user: ",this.state.usuario.nome)
-            }
-        })
+        api.get("/usuario/" + id)
+            .then(response => {
+                if (response.status === 200) {
+                    this.setState({ usuario: response.data })
+                    console.log("user: ", this.state.usuario.nome)
+                }
+            })
     }
-    
-    
+
+
     render() {
         return (
             <>
-         
-            <h2>{this.state.usuario.nome}</h2>
-            <div>
-            {
-                    usuarioAutenticado() && parseJwt().Role === "1" ?
-                        (
-                            <>
-                                
-                                <p><a href="#/PerfilComprador">Perfil</a></p>
-                                <p><a href="#/BuscarProdutos">Buscar Produtos</a></p>
-                                <p><a href="#/todasreceitas">Encontrar Receitas</a></p>
-                                <p><a href="#/minhasreceitas">Minhas Receitas</a></p>
-                                <p><a href="#/CadastrarReceitas">Cadastrar Receitas</a></p>
-                            </>
-                        ) : (
-                            usuarioAutenticado() && parseJwt().Role === "2" ?
-                                (
-                                    <>
-                                        <p><a href="#/PerfilProdutor">Perfil</a></p>
-                                        <p><a href="#/ProdutosCadastrados">Produtos Cadastrados</a></p>
-                                        <p><a href="#/CadastrarProdutos">Cadastrar Produtos</a></p>
-                                    </>
-                                ) : (
-                                    usuarioAutenticado() && parseJwt().Role === "3" ?
-                                        (
-                                            <>
-                                                <p><a href="#/PerfilProdutor">Perfil</a></p>
-                                                {/* <p><a href="produtos_cadastrados.html">Produtos Cadastrados</a></p>
+
+
+                <div>
+                    {
+                        usuarioAutenticado() && parseJwt().Role === "1" ?
+                            (
+                                <>
+                                    <img src={Qiyana} alt="avatar do comprador" />
+                                    <h2>{this.state.usuario.nome}</h2>
+                                    <p><a href="#/PerfilComprador">Perfil</a></p>
+                                    <p><a href="#/BuscarProdutos">Buscar Produtos</a></p>
+                                    <p><a href="#/todasreceitas">Encontrar Receitas</a></p>
+                                    <p><a href="#/minhasreceitas">Minhas Receitas</a></p>
+                                    <p><a href="#/CadastrarReceitas">Cadastrar Receitas</a></p>
+                                </>
+                            ) : (
+                                usuarioAutenticado() && parseJwt().Role === "2" ?
+                                    (
+                                        <>
+                                            <img src={Fizz} alt="avatar do produtor" />
+                                            <h2>{this.state.usuario.nome}</h2>
+                                            <p><a href="#/PerfilProdutor">Perfil</a></p>
+                                            <p><a href="#/ProdutosCadastrados">Produtos Cadastrados</a></p>
+                                            <p><a href="#/CadastrarProdutos">Cadastrar Produtos</a></p>
+                                        </>
+                                    ) : (
+                                        usuarioAutenticado() && parseJwt().Role === "3" ?
+                                            (
+                                                <>
+                                                    <img src={Orianna} alt="avatar do Admin" />
+                                                    <h2>{this.state.usuario.nome}</h2>
+                                                    <p><a href="#/PerfilProdutor">Perfil</a></p>
+                                                    {/* <p><a href="produtos_cadastrados.html">Produtos Cadastrados</a></p>
                                                 <p><a href="cadastro_produto.html">Cadastrar Produtos</a></p>
                                                 <p><a href="index.html#dicas">Dicas</a></p> */}
-                                            </>
-                                        ) : (
-                                            <>
-                                            </>
-                                        )
-                                ))}
-            </div>
+                                                </>
+                                            ) : (
+                                                <>
+                                                </>
+                                            )
+                                    ))}
+                </div>
             </>
         )
     }
