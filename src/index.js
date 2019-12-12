@@ -10,9 +10,9 @@ import QuemSomos from "./pages/quemSomos/QuemSomos"
 // import Cadastro from "./pages/cadastro/Cadastro"
 // import PerfilComprador from "./pages/perfilComprador/PerfilComprador"
 import BuscarProdutos from './pages/produtos/BuscarProdutos';
-// import ProdutosEncontrados from "./pages/produtosEncontrados/ProdutosEncontrados"
+import ProdutosEncontrados from "./pages/produtosEncontrados/ProdutosEncontrados"
 // import Receitas from "./pages/receitas/Receitas"
-// import PerfilProdutor from "./pages/perfilProdutor/PerfilProdutor"
+import PerfilProdutor from "./pages/perfilProdutor/PerfilProdutor"
 // import ProdutosCadastrados from "./pages/produtosCadastrados/ProdutosCadastrados"
 // import CadastrarProdutos from "./pages/cadastrarProdutos/CadastrarProdutos"
 
@@ -60,10 +60,12 @@ const Rotas = (
             <Route exact path="/" component={App} />
             <Route path="/quemsomos" component={QuemSomos} />
             <Route path="/buscarprodutos" component={BuscarProdutos} />
+            <Route path="/PerfilProdutor" component={PerfilProdutor} />
+            <Route path="/ProdutosEncontrados" component={ProdutosEncontrados} />
             {/* <Route path="/Cadastro" component={Cadastro} />
             <PermissaoComprador path="/PerfilComprador" component={PerfilComprador} />
-            <PermissaoProdutor path="/PerfilProdutor" component={PerfilProdutor} />
-            <Route path="/ProdutosEncontrados" component={ProdutosEncontrados} />
+            >
+            
             <Route path="/Receitas" component={Receitas} />
             <Route path="/ProdutosCadastrados" component={ProdutosCadastrados} />
             <Route path="/CadastrarProdutos" component={CadastrarProdutos} /> */}

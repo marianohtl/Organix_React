@@ -60,7 +60,7 @@ export default class SwiperProducts extends Component {
                   <div className="card-produto">
                     <div className="imagem-redonda-card-receita"> <img src="#"
                       alt="torta de morango" /></div>
-                    <p className='nome-produto'>{a.idProdutoNavigation.nomeProduto}</p>
+                    <p className='nome-produto'>{a.nome_produto}</p>
                     <ul>
                       <li>Preço Médio: {a.preco}R$</li>
                     </ul>
