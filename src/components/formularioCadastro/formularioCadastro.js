@@ -27,7 +27,7 @@ export default class FormularioCadastro extends Component {
             postTelefone: {
                 telefone1: "",
                 celular: "",
-                idListaUsuario: "",
+                idUsuario: "",
             },
 
             postEndereco: {
@@ -36,7 +36,8 @@ export default class FormularioCadastro extends Component {
                 bairro: "",
                 cidade: "",
                 estado: "",
-                regiao: ""
+                regiao: "",
+                idUsuario:""
             },
 
             erroMsg: "",
@@ -84,14 +85,14 @@ export default class FormularioCadastro extends Component {
         api.post('/Usuario', this.state.postCadastro)
             .then(response => {
                 this.setState({ ListaUsuario: response.data })
-                console.log("Response do usuário cadastrado: ", this.state.listaListaUsuario.idListaUsuario);
+                console.log("Response do usuário cadastrado: ", this.state.ListaUsuario.idUsuario);
 
                 let userTelefone = this.state.postTelefone;
                 let userEndereco = this.state.postEndereco;
 
-                userTelefone.idListaUsuario = response.data.idListaUsuario
+                userTelefone.idUsuario = response.data.idUsuario
 
-                userEndereco.idListaUsuario = response.data.idListaUsuario
+                userEndereco.idUsuario = response.data.idUsuario
 
                 api.post('/Telefone/', userTelefone)
                     .then(response => {
