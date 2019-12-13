@@ -18,26 +18,26 @@ export default class ProdutosEncontrados extends Component {
             listaOfertas: [],
             filtro: "",
             listaFiltro: [],
-            filtroPropriedades: [this.props.location.filtroPropriedades],
-            umaOferta: {
-                idProdutoNavigation: {
-                },
-                idUsuarioNavigation: {
-                    endereco: [
-                        {
-
-                        }
-                    ]
-                },
-            },
         }
     }
     componentDidMount() {
         console.log("lista vinda da outra pagina", this.props.location.listaFiltrada);
         this.setState({ listaFiltro: this.props.location.listaFiltrada });
     }
+ 
+    // getDadosProdutor = () =>{
+    //     api.get()
+    // }
 
-    
+
+    getProdutos = () => {
+        api.get('/Produto')
+            .then(response => {
+                if (response.status === 200) {
+                    this.setState({ listaProdutos: response.data })
+                }
+            })
+    }
 
 
     render() {
@@ -71,7 +71,8 @@ export default class ProdutosEncontrados extends Component {
                                                 <ul>
                                                     <li>Preço: {a.preco}</li>
                                                     <li>Região: {a.regiao}</li>
-                                                    <li>Produtor: Rogério do Sertão</li>
+                                                    <li>Id Oferta: {a.id_oferta}</li>
+                                       
                                                 </ul>
                                                 <button type="button" className="btn_padrao">Negociar</button>
                                             </div>

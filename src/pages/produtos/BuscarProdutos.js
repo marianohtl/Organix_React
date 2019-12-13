@@ -27,7 +27,7 @@ export default class BuscarProdutos extends Component {
                 menorPreco: "",
                 maiorPreco: "",
             },
-            
+
         }
 
     }
@@ -66,15 +66,16 @@ export default class BuscarProdutos extends Component {
                     this.setState({ listaFiltro: response.data });
                     this.props.history.push({
                         pathname: '/ProdutosEncontrados',
-                        listaFiltrada: this.state.listaFiltro, 
-                      })
+                        listaFiltrada: this.state.listaFiltro,
+                    })
                 }
             })
             .catch(error => {
                 console.log(error)
-            })          
+            })
 
     }
+    
 
 
     componentDidMount() {
@@ -101,7 +102,7 @@ export default class BuscarProdutos extends Component {
         this.getFiltro();
     }
 
-    
+
     render() {
 
         return (
@@ -112,11 +113,11 @@ export default class BuscarProdutos extends Component {
                     <img src="imagens/Perfil/Agrupar 86.png" alt="avatar do produtor" />
                     <div className="menu_perfil">
                         <h2>Renata Amaral</h2>
-                        <p><Link href="perfil.html">Perfil</Link></p>
-                        <p><Link href="pesquisar_produtos.html">Buscar Produtos</Link></p>
-                        <p><Link href="receitas.html">Receitas</Link></p>
-                        <p><Link href="cadastro_receitas.html">Cadastro de Receitas</Link></p>
-                        <p><Link href="index.html">Dicas</Link></p>
+                        <p><Link to="perfil.html">Perfil</Link></p>
+                        <p><Link to="pesquisar_produtos.html">Buscar Produtos</Link></p>
+                        <p><Link to="receitas.html">Receitas</Link></p>
+                        <p><Link to="cadastro_receitas.html">Cadastro de Receitas</Link></p>
+                        <p><Link to="index.html">Dicas</Link></p>
                     </div>
                 </div>
                 <div className="lado-direito-resultado">
@@ -128,6 +129,7 @@ export default class BuscarProdutos extends Component {
                             <form id="pesquisar-produto" onSubmit={this.carregaForm} to='/ProdutosEncontrados'>
                                 <label for="POST-nome-prod">Produto:
                             <select className="prodt" name="Produto" onChange={this.postSetState}>
+                                        <option>Escolha</option>
                                         {this.state.listaProdutos.map(function (a) {
                                             return (
                                                 <option value={a.idProduto}>{a.nomeProduto}</option>
@@ -138,6 +140,7 @@ export default class BuscarProdutos extends Component {
                                 </label>
                                 <label for="POST-regiao">Região:
                             <select className="reg" name="Regiao" value={this.state.listaFiltro.Regiao} onChange={this.postSetState}>
+                                        <option>Escolha</option>
                                         <option value="zona-norte" value="Norte" >Norte-SP</option>
                                         <option value="zona-sul" value="Sul">Sul-SP</option>
                                         <option value="zona-leste" value="Leste">Leste-SP</option>
@@ -152,7 +155,7 @@ export default class BuscarProdutos extends Component {
                                     <input className="input_produto_list" id="POST-preco-prod" type="text" name="maiorPreco"
                                         placeholder="R$0,00" defaultValue={this.state.listaFiltro.maiorPreco} onChange={this.postSetState} />
                                 </label>
-                              
+
                                 <button type="submit" className="btn_cadastro2" onClick={() => this.getFiltro(this.state.listaFiltro)}>Buscar</button>
                             </form>
                         </div>

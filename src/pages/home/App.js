@@ -17,7 +17,7 @@ function App() {
       <main>
         <div className="banner"></div>
         <div className="marg"></div>
-        <SwiperProducts/>
+        <SimpleSwiper/>
         <div className="h1_dicas">
           <h2>Ofertas</h2>
         </div>
