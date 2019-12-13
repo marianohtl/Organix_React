@@ -16,11 +16,13 @@ import PerfilComprador from "./pages/perfil/PerfilComprador"
 import EditUsers from './pages/perfilAdm/EditUsers';
 import NewCategoria from './pages/perfilAdm/NewCategoria';
 import PerfilAdm from './pages/perfilAdm/PerfilAdm';
+import BuscarProdutos from './pages/produtos/BuscarProdutos';
+
 
 // import BuscarProdutos from "./pages/buscarProdutos/BuscarProdutos"
-// import ProdutosEncontrados from "./pages/produtosEncontrados/ProdutosEncontrados"
-// import Receitas from "./pages/receitas/Receitas"
 
+// import Receitas from "./pages/receitas/Receitas"
+import ProdutosEncontrados from "./pages/produtosEncontrados/ProdutosEncontrados"
 import MinhasReceitas from "./pages/receitas/MinhasReceitas"
 import TodasReceitas from "./pages/receitas/TodasReceitas"
 import CadastrarReceitas from "./pages/receitas/CadastrarReceitas"
@@ -85,13 +87,13 @@ const Rotas = (
             <Route path="/Cadastro" component={Cadastro} />
             <PermissaoComprador path="/PerfilComprador" component={PerfilComprador} />
             <PermissaoProdutor path="/PerfilProdutor" component={PerfilProdutor} />
+            
+            
             <Route path="/editUsers" component={EditUsers} />
             <Route path="/NewCategoria" component={NewCategoria}/>
-
-            {/*
             <Route path="/BuscarProdutos" component={BuscarProdutos} />
             <Route path="/ProdutosEncontrados" component={ProdutosEncontrados} />
-            */}
+            
             
             <Route path="/PerfilAdm" component={PerfilAdm} />            
             <Route exact path="/login" component={Login}/>

@@ -46,7 +46,6 @@ export default class CardReceita extends Component {
         return (
           <>
           
-
             <div className="card-produto">
               <div className="imagem-redonda-card-receita"> <img src="#"
                 alt="torta de morango" /></div>

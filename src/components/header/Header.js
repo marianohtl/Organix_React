@@ -2,22 +2,22 @@ import React, { Component } from "react"
 import Logo from "../../assets/img/Ativo 6.png"
 import Menu from "../../assets/img/bars-solid.svg"
 import { Link } from "react-router-dom"
-import {api} from "../../services/api";
+import {api} from "../../services/api"
 import { parseJwt, usuarioAutenticado } from "../../services/auth"
-// import Fab from '@material-ui/core/Fab';
+// import Fab from '@material-ui/core/Fab'
 // import AddIcon from '@material-ui/icons/Add';
 // import EditIcon from '@material-ui/icons/Edit';
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
-// import { string } from 'prop-types';
-import Slide from '@material-ui/core/Slide';
+import Button from '@material-ui/core/Button'
+import Dialog from '@material-ui/core/Dialog'
+import DialogActions from '@material-ui/core/DialogActions'
+import DialogContent from '@material-ui/core/DialogContent'
+import DialogContentText from '@material-ui/core/DialogContentText'
+import DialogTitle from '@material-ui/core/DialogTitle'
+import { string } from 'prop-types'
+import Slide from '@material-ui/core/Slide'
 
 // Alternativa para realizar redirecionamentos com this.props.history.push
-import { withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom'
 
 
 const Transition = React.forwardRef(function Transition(props, ref) {
