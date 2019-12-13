@@ -169,7 +169,6 @@ export default class minhasReceitas extends Component {
 
         console.log(receita_id)
         console.log(receita_alterada)
-
         // 03 - Criamos nosso formData
         let formData = new FormData();
         formData.set('idReceita', this.state.putReceita.idReceita);
@@ -270,8 +269,6 @@ export default class minhasReceitas extends Component {
       <Grid item>
           <TextField id="standard-secondary"  color="primary" name="nomeReceita" onChange={this.putSetState} value={this.state.putReceita.nomeReceita}/>
       </Grid>
-      {/*({ target: { name, value } }) => {
-              console.log('textfield changed', name, value) } */}
       <Grid item>
           <TextField id="standard-secondary"  color="primary" name="ingredientes" onChange={this.putSetState} value={this.state.putReceita.ingredientes}/>
       </Grid>
@@ -284,15 +281,10 @@ export default class minhasReceitas extends Component {
       <Grid item>
           <TextField id="standard-secondary"  color="primary" name="idCategoriaReceita" onChange={this.putSetState} value={this.state.putReceita.idCategoriaReceita}/>
       </Grid>
-   
-      
       <label htmlFor="icon-button-file">
-           
-     
       <IconButton color="primary"  aria-label="upload picture" component="span">
       {
         // 06 - Aqui damos nosso "onChange" especial e também passamos nosso "ref"
-    
         }
     <input accept="image/*" className="input_load" id="icon-button-file" type="file" name="imagem" onChange={this.putSetStateFile} ref={this.state.putReceita.imagem}  />        <PhotoCamera />
       </IconButton>
@@ -305,9 +297,8 @@ export default class minhasReceitas extends Component {
       <Button onClick={e => this.putReceita(this.state.putReceita.idReceita)} type="button" color="primary">
           Salvar
       </Button>
-      
       <Button onClick={this.closeDialog.bind(this)}  type="submit" color="primary">
-             Sair
+          Sair
      </Button>
       </DialogActions>
       </form> 

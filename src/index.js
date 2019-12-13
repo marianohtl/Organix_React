@@ -15,6 +15,7 @@ import QuemSomos from "./pages/quemSomos/QuemSomos"
 import minhasReceitas from "./pages/receitas/minhasReceitas"
 import todasReceitas from "./pages/receitas/todasReceitas"
 import CadastrarReceitas from "./pages/receitas/cadastrarreceitas"
+import AlterarCategoria from "./pages/produtos/alterarcategoria"
 import CadastrarCategoria from "./pages/produtos/cadastrarcategoria"
 
 import todosProdutos from "./pages/produtos/todosprodutos"
@@ -71,6 +72,7 @@ const Rotas = (
             <Route path="/cadastrarreceitas" component={CadastrarReceitas} />
             <Route path="/todosprodutos" component={todosProdutos} />
             <Route path="/cadastrarcategoria" component={CadastrarCategoria} />
+            <Route path="/alterarcategoria" component={AlterarCategoria} />
             
             {/* <Route path="/Cadastro" component={Cadastro} />
             <PermissaoComprador path="/PerfilComprador" component={PerfilComprador} />
