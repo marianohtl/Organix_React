@@ -7,6 +7,7 @@ import '../../assets/css/perfilAdm.css';
 import api from '../../services/api';
 
 import Footer from '../../components/Footer/Footer'
+import FormularioCadastro from '../../components/formularioCadastro/formularioCadastro'
 
 
 export default class EditUser extends Component {
@@ -18,11 +19,27 @@ export default class EditUser extends Component {
 
             erroMsg: "",
             successMsg: "",
+
+            showModal: false,
+            userProfile: "",
         }
+
     }
+
 
     componentDidMount() {
         this.getUsuarios();
+    }
+
+
+    showModal = (user_profile) => {
+        this.setState({ showModal: true })
+        this.setState({ userProfile: user_profile })
+    };
+
+    hideModal = (fechar_modal) => {
+        this.setState({ showModal: false })
+        this.setState({ fechar_modal: fechar_modal })
     }
 
 
@@ -35,25 +52,25 @@ export default class EditUser extends Component {
             })
     }
 
-    deleteUser(id){
+    deleteUser(id) {
 
-        this.setState({ successMsg : "" })
+        this.setState({ successMsg: "" })
 
-        api.delete('/Usuario/'+id)
-        .then(response => {
-            if(response.status === 200){
-                this.setState({ successMsg : "Excluído com sucesso" })
+        api.delete('/Usuario/' + id)
+            .then(response => {
+                if (response.status === 200) {
+                    this.setState({ successMsg: "Excluído com sucesso" })
 
-                setTimeout(() => {
-                    this.getUsuarios();
-                }, 1500);
-            }
-        })
-        .catch(error => {
-            console.log(error);
-            this.setState({ erroMsg : "Falha ao excluir" })
-        })
-        
+                    setTimeout(() => {
+                        this.getUsuarios();
+                    }, 1500);
+                }
+            })
+            .catch(error => {
+                console.log(error);
+                this.setState({ erroMsg: "Falha ao excluir" })
+            })
+
     }
 
 
@@ -61,43 +78,46 @@ export default class EditUser extends Component {
     render() {
         return (
             <>
-            <div className="lado-direito-perfil-produtor">
+                <div className="lado-direito-perfil-produtor">
 
-            <div className="container-perfil">
-                <div className="container-perfil2">
+                    <div className="container-perfil">
+                        <div className="container-perfil2">
 
-                    <div className="dados-produtor">
-                        {/* <h4>Usuários Cadastrados</h4> */}
-                        {
-                            this.state.listaUsuario.map(
-                                function (u) {
-                                    return (
-                                      <div className="table">  
-                                            <div className="users">
+                            <div className="dados-produtor">
+                                {/* <h4>Usuários Cadastrados</h4> */}
+                                {
+                                    this.state.listaUsuario.map(
+                                        function (u) {
+                                            return (
+                                                <div className="table">
+                                                    <div className="users">
 
-                                                <p><span className="bold-info-type">Nome: </span>{u.nome}</p>
-                                                <p><span className="bold-info-type">E-mail: </span>{u.email}</p>
-                                            </div>
-                                            <div className="btnDelete">
-                                            
-                                                <button onClick={() => this.deleteUser(u.idUsuario)}>DELETE</button>
-                                            </div>
-                                        </div>
+                                                        <p><span className="bold-info-type">Nome: </span>{u.nome}</p>
+                                                        <p><span className="bold-info-type">E-mail: </span>{u.email}</p>
+                                                    </div>
+                                                    <div className="btnDelete">
+
+                                                        <button onClick={() => this.deleteUser(u.idUsuario)}>DELETE</button>
+                                                    </div>
+                                                </div>
+                                            )
+                                        }.bind(this)
                                     )
-                                }.bind(this)
-                            )
-                        }
+                                }
+                            </div>
+
+                        </div>
+                        <p><button onClick={() => this.showModal(1)} className="">Cadastrar Comprador</button></p>
+                        <p><button onClick={() => this.showModal(2)} className="">Cadastrar Produtor</button></p>
+                        <p><button onClick={() => this.showModal(3)} className="">Cadastrar Administrador</button></p>
+                        {this.state.showModal && <FormularioCadastro user_profile={this.state.userProfile} fechar_modal={this.hideModal} />}
+                        <div className="lado-direito-resultado1"></div>
+
+
                     </div>
-
                 </div>
-             
-                <div className="lado-direito-resultado1"></div>
 
-                
-            </div>
-        </div>
-
-            <Footer/>
+                <Footer />
             </>
         )
     }

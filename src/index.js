@@ -7,28 +7,35 @@ import App from './pages/home/App';
 import * as serviceWorker from './serviceWorker';
 import Login from "../src/components/header/Header"
 
-import QuemSomos from "./pages/quemSomos/QuemSomos"
-import Cadastro from "./pages/cadastro/Cadastro"
+//PAGES
+
+import QuemSomos from "./pages/quemSomos/QuemSomos";
+import Cadastro from "./pages/cadastro/Cadastro";
+// import PerfilComprador from "./pages/perfilComprador/PerfilComprador";
 import PerfilComprador from "./pages/perfil/PerfilComprador"
-import perfilAdm from "./pages/perfilAdm/NewCategoria"
+import EditUsers from './pages/perfilAdm/EditUsers';
+import NewCategoria from './pages/perfilAdm/NewCategoria';
+import PerfilAdm from './pages/perfilAdm/PerfilAdm';
+
 // import BuscarProdutos from "./pages/buscarProdutos/BuscarProdutos"
 // import ProdutosEncontrados from "./pages/produtosEncontrados/ProdutosEncontrados"
 // import Receitas from "./pages/receitas/Receitas"
+
 import MinhasReceitas from "./pages/receitas/MinhasReceitas"
 import TodasReceitas from "./pages/receitas/TodasReceitas"
 import CadastrarReceitas from "./pages/receitas/CadastrarReceitas"
 import CadastrarCategoria from "./pages/produtos/CadastrarCategoria"
-
 import ProdutosCadastrados from "./pages/produtos/ProdutosCadastrados"
 import CadastrarProdutos from "./pages/produtos/CadastrarProdutos"
+
 // import PerfilProdutor from "./pages/perfilProdutor/PerfilProdutor"
 // import ProdutosCadastrados from "./pages/produtosCadastrados/ProdutosCadastrados"
 // import CadastrarProdutos from "./pages/cadastrarProdutos/CadastrarProdutos"
+// import CategoriaReceita from './pages/perfilAdm/NewCategoria'
 
-import {Route, HashRouter as Router, Switch, Redirect} from 'react-router-dom';
-import { usuarioAutenticado, parseJwt } from './services/auth';
-import CategoriaReceita from './pages/perfilAdm/NewCategoria';
-import PerfilProdutor from './pages/perfil/PerfilProdutor';
+import {Route, HashRouter as Router, Switch, Redirect} from 'react-router-dom'
+import { usuarioAutenticado, parseJwt } from './services/auth'
+import PerfilProdutor from './pages/perfil/PerfilProdutor'
 
 const PermissaoAdmin = ({component : Component}) => (
     <Route
@@ -78,15 +85,18 @@ const Rotas = (
             <Route path="/Cadastro" component={Cadastro} />
             <PermissaoComprador path="/PerfilComprador" component={PerfilComprador} />
             <PermissaoProdutor path="/PerfilProdutor" component={PerfilProdutor} />
+            <Route path="/editUsers" component={EditUsers} />
+            <Route path="/NewCategoria" component={NewCategoria}/>
+
             {/*
             <Route path="/BuscarProdutos" component={BuscarProdutos} />
             <Route path="/ProdutosEncontrados" component={ProdutosEncontrados} />
             */}
             
-            <Route path="/PerfilAdm" component={perfilAdm} />            
+            <Route path="/PerfilAdm" component={PerfilAdm} />            
             <Route exact path="/login" component={Login}/>
             <PermissaoProdutor path="/CadastrarProdutos" component={CadastrarProdutos} />
-            <Route path="/CategoriaReceita" component={CategoriaReceita}/>
+            {/* <Route path="/CategoriaReceita" component={CategoriaReceita}/> */}
             </Switch>
             
         </div>

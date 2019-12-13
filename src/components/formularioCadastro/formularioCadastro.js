@@ -28,6 +28,7 @@ export default class FormularioCadastro extends Component {
                 celular: "",
                 idUsuario:"",
             },
+            
             postEndereco:{
                 cep: "",
                 rua: "",

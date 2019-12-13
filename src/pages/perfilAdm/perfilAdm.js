@@ -4,9 +4,9 @@ import '../../assets/css/estilo.css';
 
 import api from '../../services/api';
 import { parseJwt } from "../../services/auth"
+import {Link} from 'react-router-dom'
 
 import Footer from '../../components/Footer/Footer'
-import PerfilAdmModal from '../../components/perfilAdministrador/PerfilAdmModal'
 
 export default class perfilAdm extends Component {
 
@@ -39,7 +39,7 @@ export default class perfilAdm extends Component {
     handleClickOpen = () => {
         this.setState({ open: true });
     };
-    
+
     handleClose = (fechar_modal) => {
         this.setState({ open: false });
     };
@@ -70,11 +70,12 @@ export default class perfilAdm extends Component {
                             </div>
 
                         </div>
-                        <button type="button" className="editar-perfil" onClick={()=>this.handleClickOpen()}>Listar Usuários</button>
-                        <div className="lado-direito-resultado1"></div>
+                        <button type="button" className="editar-perfil" onClick={() => this.handleClickOpen()}>Listar Usuários</button>
+                        <Link to='/editUsers'>Editar Usuario</Link>
+                        <Link to='/newCategoria'>Cadastar categoria de Receitas</Link>
+                        <Link to='/perfilAdm'>Perfil</Link>
 
-                        {/* <PerfilAdmModal/> */}
-                        {this.state.open && <PerfilAdmModal open_modal={this.state.open} fechar_modal={this.handleClose}/>}
+                        <div className="lado-direito-resultado1"></div>
                     </div>
                 </div>
 
