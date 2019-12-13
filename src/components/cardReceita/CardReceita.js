@@ -1,16 +1,14 @@
 import React, { Component } from 'react'
 import '../../assets/css/estilo.css'
-
-
 import {api} from '../../services/api';
 
+import { withRouter } from 'react-router-dom'
 
-
-
-export default class CardReceita extends Component {
+class CardReceita extends Component {
 
   constructor() {
     super()
+
     this.state = {
 
       listaOferta: [],
@@ -23,6 +21,7 @@ export default class CardReceita extends Component {
     }
   }
 
+
   getOferta = () => {
     api.get('/Oferta')
       .then(response => {
@@ -33,6 +32,9 @@ export default class CardReceita extends Component {
       })
   }
 
+  irParaAPagina = (pagina) => {
+    this.props.history.push(pagina);
+  }
 
   componentDidMount() {
     this.getOferta();
@@ -47,26 +49,27 @@ export default class CardReceita extends Component {
           <>
           
             <div className="card-produto">
-              <div className="imagem-redonda-card-receita"> <img src="#"
+              <div className="imagem-redonda-card-receita"> <img src={"http://localhost:5000/" + a.idProdutoNavigation.imagem}
                 alt="torta de morango" /></div>
               <p className='nome-produto'>{a.idProdutoNavigation.nomeProduto}</p>
 
               <ul>
                 <li>Preço Médio: {a.preco}R$</li>
-                <li>Rendimento: 2 porções</li>
+                
               </ul>
-             <button type="button" to="/cadastro">VER PRODUTO</button>
+             <button type="button" onClick={() => this.irParaAPagina("/Cadastro")}>VER PRODUTO</button>
             </div>
 
           </>
         )
-      })
+      }.bind(this))
 
 
     )
   }
 }
 
+export default withRouter(CardReceita)
 
 
 

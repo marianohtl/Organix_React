@@ -6,6 +6,7 @@ import CardReceita from '../../components/cardReceita/CardReceita';
 import SwiperProducts from '../../components/swiper/SwiperProducts'
 import ResponsiveHome from "../../components/responsive/ResponsiveHome"
 import Footer from '../../components/Footer/Footer'
+import Banner from "../../components/banner/Banner"
 
 
 
@@ -17,9 +18,9 @@ function App() {
     <>
     <ResponsiveHome/>
       <Header/>
-      
-      <main>
         <div className="banner"></div>
+      {/* <Banner/> */}
+      <main>
         <div className="marg"></div>
         <SwiperProducts/>
         <div className="h1_dicas">
