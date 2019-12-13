@@ -29,7 +29,7 @@ class ResponsiveComprador extends Component{
       <li><a href="#/TodasReceitas" target="_blank">Encontrar Receitas</a></li>
       <li><a href="#/MinhasReceitas" target="_blank">Minhas Receitas</a></li>
       <li><a href="#/CadastrarReceitas" target="_blank">Cadastrar Receitas</a></li>
-      <li ><a onClick={this.logout}>Sair</a></li>
+      <li ><a href="#/" onClick={this.logout}>Sair</a></li>
     </ul>
   </div>
   

@@ -141,13 +141,13 @@ class Header extends Component {
               {((usuarioAutenticado() && parseJwt().Role === "1") || (usuarioAutenticado() && parseJwt().Role === "2") || (usuarioAutenticado() && parseJwt().Role === "3")) ?
                 (
                   <React.Fragment>
-                    <li className="nav-2-home"><a onClick={this.logout}>Sair</a></li>
+                    <li className="nav-2-home"><a href="#/" onClick={this.logout}>Sair</a></li>
                     <li className="nav-2-home"><a href='#/CadastrarProdutos'>Perfil</a></li>
 
                   </React.Fragment>
                 ) : (
                   <>
-                  <li className="nav-2-home"><a onClick={this.openDialog.bind(this)}>Entrar</a></li>
+                  <li className="nav-2-home"><a href="#/" onClick={this.openDialog.bind(this)}>Entrar</a></li>
                   <li className="nav-2-home"><a href='#/Cadastro'>Cadastre-se</a></li>
                   </>
                 )

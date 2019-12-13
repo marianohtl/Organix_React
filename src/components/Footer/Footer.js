@@ -13,9 +13,9 @@ function Footer(){
             <div className = "container-home-footer">
                 <div className = "rodape">
                     <div className = "icone-redesocial-footer">
-                       <a target = "_blank" href = "https://www.facebook.com/"><img src = {Facebook} alt = "Icone Do Facebook"/></a>
-                       <a target = "_blank" href = "https://twitter.com/?lang=pt"><img src = {Twitter} alt = "Icone Do Twitter"/></a>
-                       <a target = "_blank" href = "https://www.instagram.com/?hl=pt-br"><img src = {Instagram} alt = "Icone Do Instagram"/></a>
+                       <a target = "_blank" rel="noopener noreferrer" href = "https://www.facebook.com/"><img src = {Facebook} alt = "Icone Do Facebook"/></a>
+                       <a target = "_blank" rel="noopener noreferrer" href = "https://twitter.com/?lang=pt"><img src = {Twitter} alt = "Icone Do Twitter"/></a>
+                       <a target = "_blank" rel="noopener noreferrer" href = "https://www.instagram.com/?hl=pt-br"><img src = {Instagram} alt = "Icone Do Instagram"/></a>
                     </div>
                     <div className = "centro-footer">
                         <p>©COPYRIGHT</p>

@@ -889,10 +889,28 @@ margin-left: 10px;
     font-weight: bold;
     font-size: 25px;
 }
+.container-perfil3 h4{
+    font-family: var(--fonte_titulo);
+    color: var(--roxo_letra_fundo);
+    font-weight: bold;
+    font-size: 25px;
+}
 
 .container-perfil2 {
     margin: auto;
     margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color:var(--roxo_fundo);
+    width: 80%;
+    padding: 45px 20px 45px 20px;
+    border-radius: 10px;
+    line-height: 3em;
+}
+.container-perfil3 {
+    margin: auto;
+    margin-bottom: 120px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -908,8 +926,18 @@ margin-left: 10px;
 list-style: none;
 
 }
+.container-perfil3 input {
+    list-style: none;
+    
+    }
 
 .container-perfil2 p{
+    color: black;
+    font-family: var(--fonte_titulo);
+    font-size: 20px;
+
+}
+.container-perfil3 p{
     color: black;
     font-family: var(--fonte_titulo);
     font-size: 20px;
@@ -1479,10 +1507,17 @@ footer{
     .container-perfil2 p{
         font-size: 15px;
     }
+    .container-perfil3 p{
+        font-size: 15px;
+    }
 
     .container-perfil2 h4{
         font-size: 18px;
     }
+    .container-perfil3 h4{
+        font-size: 18px;
+    }
+
 
     .botao-perfil{
         margin-top: 1vh;

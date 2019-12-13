@@ -8,7 +8,7 @@ import '../../assets/css/estilo.css';
 import '../../assets/css/perfilCompradorPut.css'
 
 //components
-import PainelAdm from '../../components/painelAdm/PainelAdm';
+// import PainelAdm from '../../components/painelAdm/PainelAdm';
 import Footer from '../../components/Footer/Footer'
 
 //services

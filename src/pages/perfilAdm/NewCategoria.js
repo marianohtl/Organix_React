@@ -20,7 +20,7 @@ import Slide from '@material-ui/core/Slide';
 
 import HeaderPerfil from "../../components/header/HeaderPerfil"
 import HeaderPerfilFull from "../../components/header/HeaderPerfilFull"
-import ResponsiveProdutor from "../../components/responsive/ResponsiveProdutor"
+import ResponsiveAdm from "../../components/responsive/ResponsiveAdm"
 
 
 
@@ -144,7 +144,7 @@ export default class CategoriaReceita extends Component {
     render() {
         return (
             <>
-                <ResponsiveProdutor />
+                <ResponsiveAdm />
                 <HeaderPerfil />
                 
                 <main className="itens-encontrados">

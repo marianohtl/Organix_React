@@ -11,7 +11,7 @@ import FormularioCadastro from '../../components/formularioCadastro/formularioCa
 
 import HeaderPerfil from "../../components/header/HeaderPerfil"
 import HeaderPerfilFull from "../../components/header/HeaderPerfilFull"
-import ResponsiveProdutor from "../../components/responsive/ResponsiveProdutor"
+import ResponsiveAdm from "../../components/responsive/ResponsiveAdm"
 
 export default class EditUser extends Component {
 
@@ -81,7 +81,7 @@ export default class EditUser extends Component {
     render() {
         return (
             <>
-                <ResponsiveProdutor />
+                <ResponsiveAdm />                
                 <HeaderPerfil />
 
                 <main className="itens-encontrados">

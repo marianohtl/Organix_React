@@ -2,12 +2,13 @@ import React,{Component} from "react"
 import "../../assets/css/responsive.css"
 import { withRouter } from 'react-router-dom';
 
- class ResponsiveProdutor extends Component{
-    
+
+class ResponsiveAdm extends Component{
+  
   logout = () => {
     localStorage.removeItem("usuario-organix")
 
-    this.props.history.push("#/")
+    this.props.history.push("/")
   }
   
   render(){
@@ -23,10 +24,10 @@ import { withRouter } from 'react-router-dom';
   <div id="sidebarMenu">
     <ul className="sidebarMenuInner">
       <li><a href="/" target="_blank">Home</a></li>
-      <li><a href="#/PerfilProdutor" target="_blank">Perfil</a></li>
-      <li><a href="#/ProdutosCadastrados" target="_blank">Produtos Cadastrados</a></li>
-      <li><a href="#/CadastrarProdutos" target="_blank">Cadastrar Produtos</a></li>
-      <li ><a href="#/"onClick={this.logout}>Sair</a></li>
+      <li><a href="#/PerfilAdm" target="_blank">Perfil</a></li>
+      <li><a href="#/NewCategoria" target="_blank">Cadastrar Categoria de Receita</a></li>
+      <li><a href="#/EditUsers" target="_blank">Editar Usuario</a></li>
+      <li ><a href="#/" onClick={this.logout}>Sair</a></li>
     </ul>
   </div>
   
@@ -35,4 +36,4 @@ import { withRouter } from 'react-router-dom';
     }
 }
 
-export default withRouter(ResponsiveProdutor);
+export default withRouter(ResponsiveAdm);

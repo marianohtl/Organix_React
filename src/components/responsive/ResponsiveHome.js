@@ -78,12 +78,12 @@ class ResponsiveHome extends Component {
           console.log(parseJwt().Role)
 
           if (parseJwt().Role === "3") {
-            this.props.history.push("/quemsomos");
+            this.props.history.push("/PerfilAdm");
           }
           else if (parseJwt().Role === "2") {
             this.props.history.push("/PerfilProdutor")
           } else if (parseJwt().Role === "1") {
-            this.props.history.push("/MinhasReceitas")
+            this.props.history.push("/PerfilComprador")
           }
         }
       })
@@ -135,7 +135,7 @@ class ResponsiveHome extends Component {
                 <React.Fragment>
                   <li><a href="/" target="_blank">Home</a></li>
                   <li><a href="#/QuemSomos" target="_blank">Quem Somos</a></li>
-                  <li ><a onClick={this.logout}>Sair</a></li>
+                  <li ><a href="#/" onClick={this.logout}>Sair</a></li>
                   <li ><a href='#/CadastrarProdutos'>Perfil</a></li>
 
                 </React.Fragment>
@@ -143,7 +143,7 @@ class ResponsiveHome extends Component {
                 <>
                   <li><a href="/" target="_blank">Home</a></li>
                   <li><a href="#/QuemSomos" target="_blank">Quem Somos</a></li>
-                  <li ><a onClick={this.openDialog.bind(this)}>Entrar</a></li>
+                  <li ><a href="#/" onClick={this.openDialog.bind(this)}>Entrar</a></li>
                   <li ><a href='#/Cadastro'>Cadastre-se</a></li>
                 </>
               )

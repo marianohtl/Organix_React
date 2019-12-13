@@ -8,7 +8,7 @@ import { parseJwt } from "../../services/auth"
 
 import HeaderPerfil from "../../components/header/HeaderPerfil"
 import HeaderPerfilFull from "../../components/header/HeaderPerfilFull"
-import ResponsiveProdutor from "../../components/responsive/ResponsiveProdutor"
+import ResponsiveAdm from "../../components/responsive/ResponsiveAdm"
 import Footer from '../../components/Footer/Footer'
 
 export default class perfilAdm extends Component {
@@ -50,7 +50,7 @@ export default class perfilAdm extends Component {
     render() {
         return (
             <>
-                <ResponsiveProdutor />
+                <ResponsiveAdm />
                 <HeaderPerfil />
 
                 <main className="itens-encontrados">
@@ -60,13 +60,12 @@ export default class perfilAdm extends Component {
                             <HeaderPerfilFull />
                         </div>
                     </div>
-                    <div className="lado-direito-perfil-produtor">
-
+                        <div className="lado-direito-resultado">
                         <div className="container-perfil">
-                            <div className="container-perfil2">
+                            <div className="container-perfil3">
 
                                 <div className="dados-produtor">
-                                    <h4>Painel Administrador</h4>
+                                    <h4>Perfil Administrador</h4>
                                     {
                                         this.state.listaUsuario.map(
                                             function (u) {
