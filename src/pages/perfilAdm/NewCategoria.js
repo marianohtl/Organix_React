@@ -18,6 +18,10 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
 
+import HeaderPerfil from "../../components/header/HeaderPerfil"
+import HeaderPerfilFull from "../../components/header/HeaderPerfilFull"
+import ResponsiveProdutor from "../../components/responsive/ResponsiveProdutor"
+
 
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -140,6 +144,16 @@ export default class CategoriaReceita extends Component {
     render() {
         return (
             <>
+                <ResponsiveProdutor />
+                <HeaderPerfil />
+                
+                <main className="itens-encontrados">
+                    <div className="esquerdo_perfil">
+
+                        <div className="menu_perfil">
+                            <HeaderPerfilFull />
+                        </div>
+                    </div>
                 <div className="lado-direito-perfil-produtor">
 
                     <div className="container-perfil">
@@ -174,7 +188,7 @@ export default class CategoriaReceita extends Component {
                     </div>
                 </div>
 
-                <Footer />
+                
                 <>
                     <Dialog
                         open={this.state.open}
@@ -208,6 +222,8 @@ export default class CategoriaReceita extends Component {
                         </DialogActions>
                     </Dialog>
                 </>
+                </main>
+                <Footer/>
             </>
         )
     }

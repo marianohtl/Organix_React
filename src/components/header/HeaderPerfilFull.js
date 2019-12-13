@@ -67,7 +67,9 @@ export default class HeaderPerfilFull extends Component {
                                                 <>
                                                     <img src={Orianna} alt="avatar do Admin" />
                                                     <h2>{this.state.usuario.nome}</h2>
-                                                    <p><a href="#/PerfilProdutor">Perfil</a></p>
+                                                    <p><a href="#/PerfilAdm">Perfil</a></p>
+                                                    <p><a href="#/NewCategoria">Cadastrar Categoria de Receita</a></p>
+                                                    <p><a href="#/editUsers">Editar Usuario</a></p>
                                                     {/* <p><a href="produtos_cadastrados.html">Produtos Cadastrados</a></p>
                                                 <p><a href="cadastro_produto.html">Cadastrar Produtos</a></p>
                                                 <p><a href="index.html#dicas">Dicas</a></p> */}

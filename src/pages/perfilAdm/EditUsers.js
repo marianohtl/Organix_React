@@ -4,11 +4,14 @@ import '../../assets/css/estilo.css';
 
 import '../../assets/css/perfilAdm.css';
 
-import api from '../../services/api';
+import { api } from '../../services/api';
 
 import Footer from '../../components/Footer/Footer'
 import FormularioCadastro from '../../components/formularioCadastro/formularioCadastro'
 
+import HeaderPerfil from "../../components/header/HeaderPerfil"
+import HeaderPerfilFull from "../../components/header/HeaderPerfilFull"
+import ResponsiveProdutor from "../../components/responsive/ResponsiveProdutor"
 
 export default class EditUser extends Component {
 
@@ -78,45 +81,55 @@ export default class EditUser extends Component {
     render() {
         return (
             <>
-                <div className="lado-direito-perfil-produtor">
+                <ResponsiveProdutor />
+                <HeaderPerfil />
 
-                    <div className="container-perfil">
-                        <div className="container-perfil2">
+                <main className="itens-encontrados">
+                    <div className="esquerdo_perfil">
 
-                            <div className="dados-produtor">
-                                {/* <h4>Usuários Cadastrados</h4> */}
-                                {
-                                    this.state.listaUsuario.map(
-                                        function (u) {
-                                            return (
-                                                <div className="table">
-                                                    <div className="users">
+                        <div className="menu_perfil">
+                            <HeaderPerfilFull />
+                        </div>
+                    </div>
+                    <div className="lado-direito-perfil-produtor">
 
-                                                        <p><span className="bold-info-type">Nome: </span>{u.nome}</p>
-                                                        <p><span className="bold-info-type">E-mail: </span>{u.email}</p>
+                        <div className="container-perfil">
+                            <div className="container-perfil2">
+
+                                <div className="dados-produtor">
+                                    {/* <h4>Usuários Cadastrados</h4> */}
+                                    {
+                                        this.state.listaUsuario.map(
+                                            function (u) {
+                                                return (
+                                                    <div className="table">
+                                                        <div className="users">
+
+                                                            <p><span className="bold-info-type">Nome: </span>{u.nome}</p>
+                                                            <p><span className="bold-info-type">E-mail: </span>{u.email}</p>
+                                                        </div>
+                                                        <div className="btnDelete">
+
+                                                            <button onClick={() => this.deleteUser(u.idUsuario)}>DELETE</button>
+                                                        </div>
                                                     </div>
-                                                    <div className="btnDelete">
+                                                )
+                                            }.bind(this)
+                                        )
+                                    }
+                                </div>
 
-                                                        <button onClick={() => this.deleteUser(u.idUsuario)}>DELETE</button>
-                                                    </div>
-                                                </div>
-                                            )
-                                        }.bind(this)
-                                    )
-                                }
                             </div>
+                            <p><button onClick={() => this.showModal(1)} className="">Cadastrar Comprador</button></p>
+                            <p><button onClick={() => this.showModal(2)} className="">Cadastrar Produtor</button></p>
+                            <p><button onClick={() => this.showModal(3)} className="">Cadastrar Administrador</button></p>
+                            {this.state.showModal && <FormularioCadastro user_profile={this.state.userProfile} fechar_modal={this.hideModal} />}
+                            <div className="lado-direito-resultado1"></div>
+
 
                         </div>
-                        <p><button onClick={() => this.showModal(1)} className="">Cadastrar Comprador</button></p>
-                        <p><button onClick={() => this.showModal(2)} className="">Cadastrar Produtor</button></p>
-                        <p><button onClick={() => this.showModal(3)} className="">Cadastrar Administrador</button></p>
-                        {this.state.showModal && <FormularioCadastro user_profile={this.state.userProfile} fechar_modal={this.hideModal} />}
-                        <div className="lado-direito-resultado1"></div>
-
-
                     </div>
-                </div>
-
+                </main>
                 <Footer />
             </>
         )
