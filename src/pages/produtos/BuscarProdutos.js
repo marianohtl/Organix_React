@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { useState } from "react";
-import api from '../../services/api';
+import {api} from '../../services/api';
 import '../../assets/css/estilo.css';
 import { Link } from 'react-router-dom';
 
