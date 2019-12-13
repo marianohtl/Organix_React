@@ -439,9 +439,6 @@ font-family: var(--fonte_titulo);
 
 /* FORM CADASTRO-COMPRADOR / PRODUTOR */
 
-.body_form{
-    background-color: gray;
-}
 
 .main_cadastro_comprador, .main_cadastro_produtor{
     background-color:var(--roxo-claro);
@@ -472,59 +469,6 @@ font-family: var(--fonte_titulo);
 .h1_form{
     text-align: center;
 }
-
-#cadastro_comprador, #cadastro_produtor{
-    display: flex;
-    justify-content: space-between;
-    margin: auto;
-    /* margin-left: 2vw; */
-}
-
-
-#cadastro_comprador label, #cadastro_produtor label{
-    font-size: 1.5em;
-
-}
-
-#cadastro_comprador input, #cadastro_comprador select, #cadastro_produtor input, #cadastro_produtor select{
-    border: none;
-    border-radius: 10px;
-    padding: 15px;
-    margin-bottom: 2vw;
-    margin-top: 1vw;
-    font-size: 1em;
-    
-}
-
-#cadastro_comprador ::placeholder , #cadastro_produtor ::placeholder {
-    padding-left: 10px;
-
-}
-
-#cadastro_comprador div, #cadastro_produtor div{
-    display: flex;
-    flex-direction: column;
-}
-
-#cadastro_comprador .form_txt, #cadastro_produtor .form_txt{
-    width: 15vw;
-}
-
-#cadastro_comprador .form_txt_cidade,  #cadastro_produtor .form_txt_cidade{
-    width: 10vw;
-}
-#cadastro_comprador .form_date{
-    width: 8vw;
-}
-
-#cadastro_comprador .form_number,  #cadastro_produtor .form_number {
-    width: 15vw;
-}
-
-#cadastro_comprador .form_lista,  #cadastro_produtor .form_lista{
-    width: 11vw;
-}
-
 
 #cadastro_comprador .btn, #cadastro_produtor .btn{
     width: 10vw;
@@ -1541,45 +1485,7 @@ footer{
         /* text-align: center; */
         display: flex;
     }
-     /* FORMULÁRIO */
     
- 
-  
-  #cadastro_comprador,#cadastro_produtor {
-      display: flex;
-      flex-direction: column;
-      margin: auto;
-      width: 50%;
-  }
-
-  #cadastro_comprador label, #cadastro_produtor label{
-      font-size:1em;
-  }
-  
-  #cadastro_comprador div, #cadastro_produtor div {
-      display: flex;
-      flex-direction: column;
-  }
-  
-  #cadastro_comprador input, #cadastro_comprador select, #cadastro_produtor input,#cadastro_produtor select {
-      border: none;
-      border-radius: 10px;
-      padding: 10px;
-      font-size: 1em;
-  }
-  #cadastro_comprador .media_input_cad, #cadastro_produtor .media_input_cad{
-       width: 50vw;
-  }
-         
-  
-  #cadastro_comprador .btn, #cadastro_produtor .btn{
-      font-size: 20px;
-      bottom: 0px;
-      background-color: var(--verde_claro);
-      color: var(--roxo);
-      margin-top: 40px;
-}   
-
 }
 
 @media(max-width:800px){

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
-import '../../assets/css/estilo.css';
+// import '../../assets/css/estilo.css';
+import '../../assets/css/formularioCadastro.css';
 
 import api from '../../services/api';
 
@@ -22,14 +23,14 @@ export default class FormularioCadastro extends Component {
                 senhaConfirmacao: "",
                 idTipo: this.props.user_profile
             },
-            
-            postTelefone:{
+
+            postTelefone: {
                 telefone1: "",
                 celular: "",
-                idUsuario:"",
+                idListaUsuario: "",
             },
-            
-            postEndereco:{
+
+            postEndereco: {
                 cep: "",
                 rua: "",
                 bairro: "",
@@ -43,7 +44,7 @@ export default class FormularioCadastro extends Component {
         }
     }
     // componentDidMount() {
-    //     this.getUsuario();
+    //     this.getListaUsuario();
     // }
 
     componentDidUpdate() {
@@ -77,41 +78,40 @@ export default class FormularioCadastro extends Component {
 
 
     postCadastro = (c) => {
-        // console.log(this.ListaUsuario);
 
         c.preventDefault();
 
         api.post('/Usuario', this.state.postCadastro)
             .then(response => {
-                this.setState({ listaUsuario: response.data })
-                console.log("Response do usuário cadastrado: ", this.state.listaUsuario.idUsuario);
+                this.setState({ ListaUsuario: response.data })
+                console.log("Response do usuário cadastrado: ", this.state.listaListaUsuario.idListaUsuario);
 
                 let userTelefone = this.state.postTelefone;
                 let userEndereco = this.state.postEndereco;
-                
-                userTelefone.idUsuario = response.data.idUsuario
 
-                userEndereco.idUsuario = response.data.idUsuario
+                userTelefone.idListaUsuario = response.data.idListaUsuario
+
+                userEndereco.idListaUsuario = response.data.idListaUsuario
 
                 api.post('/Telefone/', userTelefone)
-                    .then(response=>{
-                        
+                    .then(response => {
+
                     }).catch(error => {
                         console.log(error);
-                        this.setState({ erroMsg : "Não foi possível cadastrar telefone" });
-                        }
-                )
+                        this.setState({ erroMsg: "Não foi possível cadastrar telefone" });
+                    }
+                    )
 
                 api.post('/Endereco/', userEndereco)
-                    .then(response=>{
+                    .then(response => {
                         console.log(response);
 
                     }).catch(error => {
                         console.log(error);
-                        this.setState({ erroMsg : "Não foi possível cadastrar Endereço" });
-                        }
-                )
-                
+                        this.setState({ erroMsg: "Não foi possível cadastrar Endereço" });
+                    }
+                    )
+
             }).catch(error => {
                 console.log(error);
                 this.setState({ erroMsg: "Não foi possível Cadastrar! Tente Novamente" });
@@ -123,133 +123,137 @@ export default class FormularioCadastro extends Component {
             { this.setState({ erroMsg: "" }) }
         }, 2000);
     }
-
     render() {
 
         const submitDisabled = this.state.postCadastro.senha !== this.state.postCadastro.senhaConfirmacao
-    
+
         return (
-
             <div className="backdrop_form">
-
-                <main className="main_cadastro_produtor">
+                <div className="formCadastro">
                     <div className="h1_form">
-
                         <button onClick={this.props.fechar_modal} className="btnCloseModal_form errMsg">
-                            <img src={Fechar}  alt="icone de fechar modal"/>
+                            <img src={Fechar} alt="icone de fechar modal" />
                         </button>
-                        <h1>Cadastro</h1>
-
                     </div>
-                    <div className="container-cadastro-produtor">
-                        <div>
-                            {this.props.user_profile}
-                            <form id="cadastro_produtor" onSubmit={this.postCadastro} >
-                                <div>
-                                    <label>Nome Completo/Razão Social:</label>
-                                    <input id="POST-nome-produtor" type="text" placeholder="Digite seu Nome Completo/Razão Social..." className="form_txt media_input_cad"
+
+                    <form id="cadastro_produtor" onSubmit={this.postCadastro}>
+                        <h2>Dados Pessoais</h2>
+                        <div className="container">
+                            <div className="dadosPessoais">
+                                <div className="dadosPessoais1">
+                                    <label className="labelForm">Nome Completo/Razão Social:</label>
+                                    <input id="POST-nome-produtor" type="text" placeholder="Digite o Nome Completo/Razão Social..." className="inputForm"
                                         name="nome"
                                         value={this.state.postCadastro.nome}
                                         onChange={this.postSetState}
                                     />
 
-                                    <label>CPF/CNPJ:</label>
-                                    <input id="POST-cpf-comprador" type="text" placeholder="Digite seu CPF..." className="form_number  media_input_cad"
-                                        name="cpfCnpj"
-                                        value={this.state.postCadastro.cpfCnpj}
-                                        onChange={this.postSetState}
-                                    ></input>
-
-                                    <label>E-mail:</label>
-                                    <input id="POST-email-produtor" type="email" placeholder="Mínimo 6 caracteres..." className="form_txt media_input_cad"
+                                    <label className="labelForm">E-mail:</label>
+                                    <input id="POST-email-produtor" type="email" placeholder="Digite o email" className="inputForm"
                                         name="email"
                                         value={this.state.postCadastro.email}
                                         onChange={this.postSetState}
                                     />
+
+                                    <label className="labelForm">Telefone:</label>
+                                    <input id="POST-tel-prod" className="inputForm" placeholder="Digite o telefone"
+                                        name="telefone1"
+                                        value={this.state.postTelefone.telefone1}
+                                        onChange={this.postSetStateTel}
+                                    />
+
+                                    <label className="labelForm">Celular:</label>
+                                    <input id="POST-cel-prod" className="inputForm" placeholder="Digite o celular"
+                                        name="celular"
+                                        value={this.state.postTelefone.celular}
+                                        onChange={this.postSetStateTel}
+                                    />
                                 </div>
-                                <div className="form_dir">
-                                    <label>Senha:</label>
-                                    <input id="POST-senha-prod" type="password" placeholder="Mínimo 6 caracteres..." className="form_number media_input_cad" className={submitDisabled}
+
+                                <div className="dadosPessoais1">
+                                    <label className="labelForm">CPF/CNPJ:</label>
+                                    <input id="POST-cpf-comprador" type="text" placeholder="Digite o CPF/CNPJ" className="inputForm"
+                                        name="cpfCnpj"
+                                        value={this.state.postCadastro.cpfCnpj}
+                                        onChange={this.postSetState}
+                                    />
+
+                                    <label className="labelForm">Senha:</label>
+                                    <input id="POST-senha-prod" type="password" placeholder="Mínimo 6 caracteres" className="inputForm"
                                         name="senha"
                                         value={this.state.postCadastro.senha}
                                         onChange={this.postSetState}
                                     />
 
-                                    <label> Confirme sua senha:</label>
-                                    <input id="POST-senha-prod2" type="password" placeholder="Confirme sua senha..." className="form_number media_input_cad"
+                                    <label className="labelForm"> Confirme o senha:</label>
+                                    <input id="POST-senha-prod2" type="password" placeholder="Confirme a senha" className="inputForm"
                                         name="senhaConfirmacao"
                                         value={this.state.postCadastro.senhaConfirmacao}
                                         onChange={this.postSetState}
                                     />
-                                    <p><label className="labelPerfil">Telefone:</label></p>
-                                        <input id="POST-tel-prod" className="inputPerfil"
-                                            name= "telefone1"
-                                            value={this.state.postTelefone.telefone1}
-                                            onChange={this.postSetStateTel}
-                                        />
-
-                                        <p><label className="labelPerfil">Celular:</label></p>
-                                        <input id="POST-cel-prod" className="inputPerfil"
-                                            name="celular"
-                                            value={this.state.postTelefone.celular}
-                                            onChange={this.postSetStateTel}
-                                        />
-
-                                        <p><label className="labelPerfil">CEP:</label></p>
-                                        <input id="POST-cep-prod2" className="inputPerfil"
-                                            name="cep"
-                                            value={this.state.postEndereco.cep}
-                                            onChange={this.postSetStateEnd}
-                                        />
-                                        
-                                        <p><label className="labelPerfil">Endereço:</label></p>
-                                        <input id="POST-endereco-prod2" className="inputPerfil"
-                                            name="rua"
-                                            value={this.state.postEndereco.rua}
-                                            onChange={this.postSetStateEnd}
-                                        />
-
-                                        <p><label className="labelPerfil">Bairro:</label></p>
-                                        <input id="POST-bairro-prod2" className="inputPerfil"
-                                            name="bairro"
-                                            value={this.state.postCadastro.bairro}
-                                            onChange={this.postSetStateEnd}
-                                        />
-
-                                        <p><label className="labelPerfil">Cidade:</label></p>
-                                        <input id="POST-cidade-prod2" className="inputPerfil"
-                                            name="cidade"
-                                            value={this.state.postEndereco.cidade}
-                                            onChange={this.postSetStateEnd}
-                                        />
-
-                                        <p><label className="labelPerfil">Estado:</label></p>
-                                        <input id="POST-estado-prod2" className="inputPerfil"
-                                            name="estado"
-                                            value={this.state.postEndereco.estado}
-                                            onChange={this.postSetStateEnd}
-                                        />
-
-                                        <p><label className="labelPerfil">Zona:</label></p>
-                                        <input id="POST-regiao-prod2" className="inputPerfil"
-                                            name="regiao"
-                                            value={this.state.postEndereco.regiao}
-                                            onChange={this.postSetStateEnd}
-                                        />
-                                    <button className="btn media_input_cad" disabled={submitDisabled}>Cadastrar</button>
                                 </div>
-                            </form>
-                            <div className="erroMsg">
-                                
-                                {submitDisabled ? (
-                                    <p>As senhas devem ser iguais</p>
-                                ) : null}
+                            </div>
+                            <hr></hr>
+                            <h2>Endereço</h2>
+                            
+                            <div className="endereco">
+                                <div className="endereco1">
+                                    <label className="labelForm">CEP:</label>
+                                    <input id="POST-cep-prod2" className="inputForm" placeholder="Digite o CEP"
+                                        name="cep"
+                                        value={this.state.postEndereco.cep}
+                                        onChange={this.postSetStateEnd}
+                                    />
 
-                                {this.state.erroMsg}
+                                    <label className="labelForm">Endereço:</label>
+                                    <input id="POST-endereco-prod2" className="inputForm" placeholder="Digite o endereço"
+                                        name="rua"
+                                        value={this.state.postEndereco.rua}
+                                        onChange={this.postSetStateEnd}
+                                    />
+
+                                    <label className="labelForm">Bairro:</label>
+                                    <input id="POST-bairro-prod2" className="inputForm" placeholder="Digite o bairro"
+                                        name="bairro"
+                                        value={this.state.postCadastro.bairro}
+                                        onChange={this.postSetStateEnd}
+                                    />
+                                </div>
+                                <div className="endereco1">
+                                    <label className="labelForm">Cidade:</label>
+                                    <input id="POST-cidade-prod2" className="inputForm" placeholder="Digite a cidade"
+                                        name="cidade"
+                                        value={this.state.postEndereco.cidade}
+                                        onChange={this.postSetStateEnd}
+                                    />
+
+                                    <label className="labelForm">Estado:</label>
+                                    <input id="POST-estado-prod2" className="inputForm" placeholder="Digite o estado"
+                                        name="estado"
+                                        value={this.state.postEndereco.estado}
+                                        onChange={this.postSetStateEnd}
+                                    />
+
+                                    <label className="labelForm">Zona:</label>
+                                    <input id="POST-regiao-prod2" className="inputForm" placeholder="Digite a região"
+                                        name="regiao"
+                                        value={this.state.postEndereco.regiao}
+                                        onChange={this.postSetStateEnd}
+                                    />
+                                </div>
                             </div>
                         </div>
+                        <p><button className="submitBtn btnResposivo" disabled={submitDisabled}>Cadastrar</button></p>
+                    </form>
+                    <div className="erroMsg">
+
+                        {submitDisabled ? (
+                            <p>As senhas devem ser iguais</p>
+                        ) : null}
+
+                        {this.state.erroMsg}
                     </div>
-                </main>
+                </div>
             </div>
         )
     }
