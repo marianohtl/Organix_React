@@ -185,7 +185,6 @@ export default class minhasReceitas extends Component {
         // https://developer.mozilla.org/pt-BR/docs/Web/API/FormData/set
         formData.set('imagem', this.state.putReceita.imagem.current.files[0] , this.state.putReceita.imagem.value);
 
-
         // 05 - Não esqueçam de passar o formData
         apiFormData.put('/receita/'+receita_id, formData)
         .then(() => {
