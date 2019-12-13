@@ -47,6 +47,7 @@ export default class perfilAdm extends Component {
     render() {
         return (
             <div>
+                
                 <div className="lado-direito-perfil-produtor">
 
                     <div className="container-perfil">
