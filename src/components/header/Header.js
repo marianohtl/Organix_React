@@ -147,8 +147,8 @@ class Header extends Component {
                   </React.Fragment>
                 ) : (
                   <>
-                  <li className="nav-2-home"><a href="#/" onClick={this.openDialog.bind(this)}>Entrar</a></li>
-                  <li className="nav-2-home"><a href='#/Cadastro'>Cadastre-se</a></li>
+                  <li className="nav-2-home"><a onClick={this.openDialog.bind(this)}>Entrar</a></li>
+                  <li className="nav-2-home"><a href='#/Cadastro'>Cadastrar-se</a></li>
                   </>
                 )
                 }      

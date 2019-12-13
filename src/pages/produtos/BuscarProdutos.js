@@ -1,8 +1,13 @@
 import React, { Component } from "react";
-import { useState } from "react";
+// import { useState } from "react";
 import {api} from '../../services/api';
 import '../../assets/css/estilo.css';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+
+import HeaderPerfil from "../../components/header/HeaderPerfil"
+import HeaderPerfilFull from "../../components/header/HeaderPerfilFull"
+import ResponsiveProdutor from "../../components/responsive/ResponsiveProdutor"
+import Footer from '../../components/Footer/Footer'
 
 
 
@@ -106,19 +111,16 @@ export default class BuscarProdutos extends Component {
 
         return (
 
-            <main className="itens-encontrados">
+            <>
+                <ResponsiveProdutor />
+                <HeaderPerfil />
+                <main className="itens-encontrados">
+                    <div className="esquerdo_perfil">
 
-                <div className="esquerdo_perfil">
-                    <img src="imagens/Perfil/Agrupar 86.png" alt="avatar do produtor" />
-                    <div className="menu_perfil">
-                        <h2>Renata Amaral</h2>
-                        <p><Link href="perfil.html">Perfil</Link></p>
-                        <p><Link href="pesquisar_produtos.html">Buscar Produtos</Link></p>
-                        <p><Link href="receitas.html">Receitas</Link></p>
-                        <p><Link href="cadastro_receitas.html">Cadastro de Receitas</Link></p>
-                        <p><Link href="index.html">Dicas</Link></p>
+                        <div className="menu_perfil">
+                            <HeaderPerfilFull />
+                        </div>
                     </div>
-                </div>
                 <div className="lado-direito-resultado">
                     <div className="container-perfil">
 
@@ -160,6 +162,8 @@ export default class BuscarProdutos extends Component {
                     </div>
                 </div>
             </main>
+            <Footer/>
+            </>
         )
     }
 }
