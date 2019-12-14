@@ -137,8 +137,37 @@ class Header extends Component {
           </nav>
           <nav className="nav-home">
             <ul className="ul-home">
-
-              {((usuarioAutenticado() && parseJwt().Role === "1") || (usuarioAutenticado() && parseJwt().Role === "2") || (usuarioAutenticado() && parseJwt().Role === "3")) ?
+              {
+                 usuarioAutenticado() && parseJwt().Role === "1" ?
+                 (
+                   <>
+                   <li className="nav-2-home"><a href="#/" onClick={this.logout}>Sair</a></li>
+                    <li className="nav-2-home"><a href='#/PerfilComprador'>Meu Perfil</a></li>
+                    </>
+                 ) : (
+                  usuarioAutenticado() && parseJwt().Role === "2" ?
+                  (
+                    <>
+                    <li className="nav-2-home"><a href="#/" onClick={this.logout}>Sair</a></li>
+                    <li className="nav-2-home"><a href='#/PerfilProdutor'>Meu Perfil</a></li>
+                    </>
+                  ) : (
+                    usuarioAutenticado() && parseJwt().Role === "3" ?
+                    (
+                      <>
+                      <li className="nav-2-home"><a href="#/" onClick={this.logout}>Sair</a></li>
+                    <li className="nav-2-home"><a href='#/PerfilAdm'>Meu Perfil</a></li>
+                      </>
+                    ) : (
+                      <>
+                      <li className="nav-2-home"><a onClick={this.openDialog.bind(this)}>Entrar</a></li>
+                  <li className="nav-2-home"><a href='#/Cadastro'>Cadastrar-se</a></li>
+                      </>
+                    )
+                  )
+                 )
+              }
+              {/* {((usuarioAutenticado() && parseJwt().Role === "1") || (usuarioAutenticado() && parseJwt().Role === "2") || (usuarioAutenticado() && parseJwt().Role === "3")) ?
                 (
                   <React.Fragment>
                     <li className="nav-2-home"><a href="#/" onClick={this.logout}>Sair</a></li>
@@ -151,7 +180,7 @@ class Header extends Component {
                   <li className="nav-2-home"><a href='#/Cadastro'>Cadastrar-se</a></li>
                   </>
                 )
-                }      
+                }       */}
             </ul>
           </nav>
         </div>

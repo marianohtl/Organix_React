@@ -151,6 +151,7 @@ export default class CadastrarProdutos extends Component {
                                         value={this.state.postProduto.estadoProduto}
                                         onChange={this.postSetState}
                                     >
+                                        <option value="0">Selecione o estado do produto</option>
                                         <option value="Pronto-para-consumo">Pronto para consumo</option>
                                         <option value="Amadurecido">Amadurecido</option>
                                         <option value="n-amadurecido">Não Amadurecido</option>

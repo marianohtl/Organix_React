@@ -182,6 +182,11 @@ export default class MinhasReceitas extends Component {
 
         // 03 - Criamos nosso formData
         let formData = new FormData();
+
+        if (this.state.putReceita.imagem.current !== undefined) {
+            // Seta a nova imagem.
+                formData.set('imagem', this.state.putReceita.imagem.current.files[0], this.state.putReceita.imagem.value);
+            }
         formData.set('idReceita', this.state.putReceita.idReceita);
         formData.set('nomeReceita', this.state.putReceita.nomeReceita);
         formData.set('ingredientes', this.state.putReceita.ingredientes);
@@ -193,7 +198,7 @@ export default class MinhasReceitas extends Component {
         // 04 - Nesta parte está o segredo, precisamos de 3 parâmetros
         // Veja no exemplo dado na documentação:
         // https://developer.mozilla.org/pt-BR/docs/Web/API/FormData/set
-        formData.set('imagem', this.state.putReceita.imagem.current.files[0], this.state.putReceita.imagem.value);
+        // formData.set('imagem', this.state.putReceita.imagem.current.files[0], this.state.putReceita.imagem.value);
 
 
         // 05 - Não esqueçam de passar o formData
