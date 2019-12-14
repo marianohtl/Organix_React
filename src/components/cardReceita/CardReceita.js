@@ -21,7 +21,6 @@ class CardReceita extends Component {
     }
   }
 
-
   getOferta = () => {
     api.get('/Oferta')
       .then(response => {

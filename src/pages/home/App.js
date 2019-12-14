@@ -12,10 +12,10 @@ import SimpleSwiper from "../../components/swiper/Swiper"
 
 
 
-function App() {
-  
-  return (
 
+
+function App() {  
+  return (
     <>
     <ResponsiveHome/>
       <Header/>
@@ -33,8 +33,6 @@ function App() {
       </main>
       <Footer/>
     </>
-
-
   )
 }
 

@@ -11,7 +11,7 @@ import Login from "../src/components/header/Header"
 
 import QuemSomos from "./pages/quemSomos/QuemSomos";
 import Cadastro from "./pages/cadastro/Cadastro";
-// import PerfilComprador from "./pages/perfilComprador/PerfilComprador";
+
 import PerfilComprador from "./pages/perfil/PerfilComprador"
 import EditUsers from './pages/perfilAdm/EditUsers';
 import NewCategoria from './pages/perfilAdm/NewCategoria';
@@ -19,9 +19,9 @@ import PerfilAdm from './pages/perfilAdm/PerfilAdm';
 import BuscarProdutos from './pages/produtos/BuscarProdutos';
 
 
-// import BuscarProdutos from "./pages/buscarProdutos/BuscarProdutos"
 
-// import Receitas from "./pages/receitas/Receitas"
+import MinhasOfertas from "./pages/oferta/oferta"
+
 import ProdutosEncontrados from "./pages/produtosEncontrados/ProdutosEncontrados"
 import MinhasReceitas from "./pages/receitas/MinhasReceitas"
 import TodasReceitas from "./pages/receitas/TodasReceitas"
@@ -31,10 +31,7 @@ import ProdutosCadastrados from "./pages/produtos/ProdutosCadastrados"
 import CadastrarProdutos from "./pages/produtos/CadastrarProdutos"
 import AlterarCategoria from "./pages/produtos/AlterarCategoria"
 
-// import PerfilProdutor from "./pages/perfilProdutor/PerfilProdutor"
-// import ProdutosCadastrados from "./pages/produtosCadastrados/ProdutosCadastrados"
-// import CadastrarProdutos from "./pages/cadastrarProdutos/CadastrarProdutos"
-// import CategoriaReceita from './pages/perfilAdm/NewCategoria'
+
 
 import {Route, HashRouter as Router, Switch, Redirect} from 'react-router-dom'
 import { usuarioAutenticado, parseJwt } from './services/auth'
@@ -95,6 +92,7 @@ const Rotas = (
             <Route path="/NewCategoria" component={NewCategoria}/>
             <Route path="/BuscarProdutos" component={BuscarProdutos} />
             <Route path="/ProdutosEncontrados" component={ProdutosEncontrados} />
+            <Route path="/MinhasOfertas" component={MinhasOfertas}/>
             
             
             <Route path="/PerfilAdm" component={PerfilAdm} />            
