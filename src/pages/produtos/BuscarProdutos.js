@@ -32,7 +32,7 @@ export default class BuscarProdutos extends Component {
                 menorPreco: "",
                 maiorPreco: "",
             },
-            
+
         }
 
     }
@@ -71,15 +71,18 @@ export default class BuscarProdutos extends Component {
                     this.setState({ listaFiltro: response.data });
                     this.props.history.push({
                         pathname: '/ProdutosEncontrados',
-                        listaFiltrada: this.state.listaFiltro, 
-                      })
+                        listaFiltrada: this.state.listaFiltro,
+                    })
                 }
             })
             .catch(error => {
                 console.log(error)
-            })          
+            })
 
     }
+      
+
+    
 
 
     componentDidMount() {
@@ -88,7 +91,7 @@ export default class BuscarProdutos extends Component {
     }
 
     componentDidUpdate() {
-        console.log(this.state.listaFiltro);
+        console.log(this.state.listaProdutos.idProduto);
     }
 
 
@@ -106,7 +109,7 @@ export default class BuscarProdutos extends Component {
         this.getFiltro();
     }
 
-    
+
     render() {
 
         return (
@@ -124,12 +127,13 @@ export default class BuscarProdutos extends Component {
                 <div className="lado-direito-resultado">
                     <div className="container-perfil">
 
-                        <h2>Pesquisar Produtos</h2>
+                        <h2>Buscar Produtos</h2>
 
                         <div className="container-pesq-prod">
                             <form id="pesquisar-produto" onSubmit={this.carregaForm} to='/ProdutosEncontrados'>
                                 <label for="POST-nome-prod">Produto:
                             <select className="prodt" name="Produto" onChange={this.postSetState}>
+                                        <option>Escolha</option>
                                         {this.state.listaProdutos.map(function (a) {
                                             return (
                                                 <option value={a.idProduto}>{a.nomeProduto}</option>
@@ -140,10 +144,11 @@ export default class BuscarProdutos extends Component {
                                 </label>
                                 <label for="POST-regiao">Região:
                             <select className="reg" name="Regiao" value={this.state.listaFiltro.Regiao} onChange={this.postSetState}>
-                                        <option value="zona-norte" value="Norte" >Norte-SP</option>
-                                        <option value="zona-sul" value="Sul">Sul-SP</option>
-                                        <option value="zona-leste" value="Leste">Leste-SP</option>
-                                        <option value="zona-oeste" value="Oeste">Oeste-SP</option>
+                                        <option>Escolha</option>
+                                        <option value="Norte" >Norte</option>
+                                        <option value="Sul">Sul</option>
+                                        <option value="Leste">Leste</option>
+                                        <option value="Oeste">Oeste</option>
                                     </select>
                                 </label>
                                 <label for="POST-preco-min-prod">Preço Mínimo:
@@ -154,7 +159,7 @@ export default class BuscarProdutos extends Component {
                                     <input className="input_produto_list" id="POST-preco-prod" type="text" name="maiorPreco"
                                         placeholder="R$0,00" defaultValue={this.state.listaFiltro.maiorPreco} onChange={this.postSetState} />
                                 </label>
-                              
+
                                 <button type="submit" className="btn_cadastro2" onClick={() => this.getFiltro(this.state.listaFiltro)}>Buscar</button>
                             </form>
                         </div>

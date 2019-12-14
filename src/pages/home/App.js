@@ -22,7 +22,7 @@ function App() {
       {/* <Banner/> */}
       <main>
         <div className="marg"></div>
-        <SwiperProducts/>
+        <SimpleSwiper/>
         <div className="h1_dicas">
           <h2>Ofertas</h2>
         </div>

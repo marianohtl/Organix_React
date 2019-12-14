@@ -4,10 +4,18 @@ import api from '../../services/api';
 import '../../assets/css/estilo.css';
 import { Link } from 'react-router-dom';
 
+//modal
+import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import Slide from '@material-ui/core/Slide';
 
-
-
-
+const Transition = React.forwardRef(function Transition(props, ref) {
+    return <Slide direction="up" ref={ref} {...props} />;
+});
 
 
 export default class ProdutosEncontrados extends Component {
@@ -18,18 +26,9 @@ export default class ProdutosEncontrados extends Component {
             listaOfertas: [],
             filtro: "",
             listaFiltro: [],
-            filtroPropriedades: [this.props.location.filtroPropriedades],
-            umaOferta: {
-                idProdutoNavigation: {
-                },
-                idUsuarioNavigation: {
-                    endereco: [
-                        {
 
-                        }
-                    ]
-                },
-            },
+            //modal
+            open: false
         }
     }
     componentDidMount() {
@@ -37,7 +36,22 @@ export default class ProdutosEncontrados extends Component {
         this.setState({ listaFiltro: this.props.location.listaFiltrada });
     }
 
-    
+    getProdutos = () => {
+        api.get('/Produto')
+            .then(response => {
+                if (response.status === 200) {
+                    this.setState({ listaProdutos: response.data })
+                }
+            })
+    }
+
+   handleClickOpen = () => {
+        this.setState({ open: true });
+    };
+
+    handleClose = () => {
+        this.setState({ open: false });
+    };
 
 
     render() {
@@ -71,21 +85,62 @@ export default class ProdutosEncontrados extends Component {
                                                 <ul>
                                                     <li>Preço: {a.preco}</li>
                                                     <li>Região: {a.regiao}</li>
-                                                    <li>Produtor: Rogério do Sertão</li>
+                                                    <li>Data de Fabricação: {a.data_fabricacao}</li>
+                                                    <li>Data de Fabricação: {a.data_vencimento}</li>
                                                 </ul>
-                                                <button type="button" className="btn_padrao">Negociar</button>
+                                            </div>
+                                        )
+                                    }
+                                    )
+                                }
+
+                        </div>
+                                <button onClick={this.handleClickOpen}>Negociar</button>
+                        
+
+                        <div className="lado-direito-resultado1"></div>
+                    </div>
+                </div>
+                <> 
+                    <Dialog
+                        open={this.state.open}
+                        TransitionComponent={Transition}
+                        keepMounted
+                        onClose={this.handleClose}
+                        aria-labelledby="alert-dialog-slide-title"
+                        aria-describedby="alert-dialog-slide-description"
+                        className="dialogForm"
+                    >
+                        <DialogTitle id="alert-dialog-slide-title">{"PRODUTOR"}</DialogTitle>
+                        <DialogContent>
+                            <DialogContentText id="alert-dialog-slide-description">
+                            {
+                                this.state.listaFiltro.map(
+                                    function (a) {
+                                        return (
+                                            <div className="card-produto">
+                                                <div className="imagem-redonda-card-produto"> <img src="" alt="" /></div>
+                                                <p className='nome-produto'>{a.nome_produto}</p>
+                                                <ul>
+                                                    <li>Nome: {a.nome}</li>
+                                                    <li>Telefone: {a.telefone}</li>
+                                                    <li>Celular: {a.celular}</li>
+                                                    <li>Endereço: {a.rua}</li>
+                                                    <li>Cidade: {a.cidade}</li>
+                                                    <li>Região: {a.regiao}</li>
+                                                </ul>
                                             </div>
                                         )
                                     }
                                 )
                             }
-
-                        </div>
-
-
-                        <div className="lado-direito-resultado1"></div>
-                    </div>
-                </div>
+                                
+                            </DialogContentText>
+                        </DialogContent>
+                        <DialogActions>
+                        </DialogActions>
+                    </Dialog>
+                </>
             </main>
         )
     }
