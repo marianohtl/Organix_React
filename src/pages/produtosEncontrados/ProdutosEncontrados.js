@@ -23,6 +23,8 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 
+
+
 export default class ProdutosEncontrados extends Component {
 
     constructor(props) {
@@ -30,33 +32,65 @@ export default class ProdutosEncontrados extends Component {
         this.state = {
             listaOfertas: [],
             filtro: "",
-            listaFiltro: [],
+            listaFiltro: [
 
-            //modal
-            open: false
+            ],
+            umProduto: {
+
+
+
+                idUsuarioNavigation: {
+                    nome: "",
+
+
+                    telefone: [{
+                        telefone1: "''",
+                        celular: "''",
+                    }],
+
+
+                    endereco: [{
+                        rua: "''",
+                        bairro: "''",
+                        regiao: "''",
+                    }],
+
+                },
+
+
+                //modal
+                open: false,
+            }
         }
     }
+
     componentDidMount() {
         console.log("lista vinda da outra pagina", this.props.location.listaFiltrada);
         this.setState({ listaFiltro: this.props.location.listaFiltrada });
     }
 
-    getProdutos = () => {
-        api.get('/Produto')
+
+
+    handleClickOpen = (a) => {
+        let id = a;
+        api.get('/oferta/' + id)
             .then(response => {
                 if (response.status === 200) {
-                    this.setState({ listaProdutos: response.data })
+                    this.setState({ umProduto: response.data })
                 }
             })
-    }
-
-   handleClickOpen = () => {
         this.setState({ open: true });
+        setTimeout(() => {
+            console.log(this.state.umProduto)
+        }, 1000);
+
+
     };
 
     handleClose = () => {
         this.setState({ open: false });
     };
+
 
 
     render() {
@@ -87,21 +121,23 @@ export default class ProdutosEncontrados extends Component {
                                                     <li>Região: {a.regiao}</li>
                                                     <li>Data de Fabricação: {a.data_fabricacao}</li>
                                                     <li>Data de Fabricação: {a.data_vencimento}</li>
+                                                    <li>Data de Fabricação: {a.id_oferta}</li>
+                                                    <button onClick={e => this.handleClickOpen(a.id_oferta)}>Negociar</button>
                                                 </ul>
                                             </div>
                                         )
-                                    }
-                                    )
-                                }
+                                    }.bind(this)
+                                )
+                            }
 
                         </div>
-                                <button onClick={this.handleClickOpen}>Negociar</button>
-                        
+                        <button onClick={this.handleClickOpen}>Negociar</button>
+
 
                         <div className="lado-direito-resultado1"></div>
                     </div>
                 </div>
-                <> 
+                <>
                     <Dialog
                         open={this.state.open}
                         TransitionComponent={Transition}
@@ -114,27 +150,24 @@ export default class ProdutosEncontrados extends Component {
                         <DialogTitle id="alert-dialog-slide-title">{"PRODUTOR"}</DialogTitle>
                         <DialogContent>
                             <DialogContentText id="alert-dialog-slide-description">
-                            {
-                                this.state.listaFiltro.map(
-                                    function (a) {
-                                        return (
-                                            <div className="card-produto">
-                                                <div className="imagem-redonda-card-produto"> <img src="" alt="" /></div>
-                                                <p className='nome-produto'>{a.nome_produto}</p>
-                                                <ul>
-                                                    <li>Nome: {a.nome}</li>
-                                                    <li>Telefone: {a.telefone}</li>
-                                                    <li>Celular: {a.celular}</li>
-                                                    <li>Endereço: {a.rua}</li>
-                                                    <li>Cidade: {a.cidade}</li>
-                                                    <li>Região: {a.regiao}</li>
-                                                </ul>
-                                            </div>
-                                        )
-                                    }
-                                )
-                            }
-                                
+
+
+
+                                <div className="card-produto">
+                                    <div className="imagem-redonda-card-produto"> <img src="" alt="" /></div>
+                                    <p className='nome-produto'>{this.state.umProduto.nome_produto}</p>
+                                    <ul>
+                                        <li>Nome: {this.state.umProduto.idUsuarioNavigation.nome}</li>
+                                        <li>Telefone: {this.state.umProduto.idUsuarioNavigation.telefone[0].telefone1}</li>
+                                        <li>Celular: {this.state.umProduto.idUsuarioNavigation.telefone[0].celular}</li>
+                                        <li>Endereço: {this.state.umProduto.idUsuarioNavigation.endereco[0].rua}</li>
+                                        <li>Cidade: {this.state.umProduto.idUsuarioNavigation.endereco[0].bairro}</li>
+                                        <li>Região: {this.state.umProduto.idUsuarioNavigation.endereco[0].regiao}</li>
+                                    </ul>
+                                </div>
+
+
+
                             </DialogContentText>
                         </DialogContent>
                         <DialogActions>
