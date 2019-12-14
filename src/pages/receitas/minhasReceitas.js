@@ -162,39 +162,48 @@ export default class minhasReceitas extends Component {
     }
 
 
-    putReceita = (event) =>{
-        //event.preventDefault();
-        let receita_id = this.state.putReceita.idReceita;
-        let receita_alterada = this.state.putReceita;
+    
+    
 
-        console.log(receita_id)
-        console.log(receita_alterada)
-        // 03 - Criamos nosso formData
-        let formData = new FormData();
-        formData.set('idReceita', this.state.putReceita.idReceita);
-        formData.set('nomeReceita', this.state.putReceita.nomeReceita);
-        formData.set('ingredientes', this.state.putReceita.ingredientes);
-        formData.set('tempoPreparo', this.state.putReceita.tempoPreparo);
-        formData.set('porcoes', this.state.putReceita.porcoes);
-        formData.set('modoPreparo', this.state.putReceita.modoPreparo);
-        formData.set('idUsuario', this.state.putReceita.idUsuario);
-        formData.set('idCategoriaReceita', this.state.putReceita.idCategoriaReceita);
-        // 04 - Nesta parte está o segredo, precisamos de 3 parâmetros
-        // Veja no exemplo dado na documentação:
-        // https://developer.mozilla.org/pt-BR/docs/Web/API/FormData/set
-        formData.set('imagem', this.state.putReceita.imagem.current.files[0] , this.state.putReceita.imagem.value);
+    // putReceita = (event) =>{
+    //     //event.preventDefault();
+    //     let receita_id = this.state.putReceita.idReceita;
+    //     let receita_alterada = this.state.putReceita;
 
-        // 05 - Não esqueçam de passar o formData
-        apiFormData.put('/receita/'+receita_id, formData)
-        .then(() => {
-            this.setState({successMsg : "Evento alterado com sucesso!"});
-        })
-        .catch(error => {
-            console.log(error);
-            this.setState({erroMsg : "Falha ao alterar o Receita"});
-        })
-            this.refreshPage()
-    }
+    //     console.log(receita_id)
+    //     console.log(receita_alterada)
+        
+
+    //     // 03 - Criamos nosso formData
+    //     let formData = new FormData();
+    //     if (this.state.putReceita.imagem.current !== undefined) {
+    //         // Seta a nova imagem.
+    //         formData.set('imagem', this.state.putReceita.imagem.current.files[0], this.state.putReceita.imagem.value);
+    //     }
+                
+    //     formData.set('idReceita', this.state.putReceita.idReceita);
+    //     formData.set('nomeReceita', this.state.putReceita.nomeReceita);
+    //     formData.set('ingredientes', this.state.putReceita.ingredientes);
+    //     formData.set('tempoPreparo', this.state.putReceita.tempoPreparo);
+    //     formData.set('porcoes', this.state.putReceita.porcoes);
+    //     formData.set('modoPreparo', this.state.putReceita.modoPreparo);
+    //     formData.set('idUsuario', this.state.putReceita.idUsuario);
+    //     formData.set('idCategoriaReceita', this.state.putReceita.idCategoriaReceita);
+    //     // 04 - Nesta parte está o segredo, precisamos de 3 parâmetros
+    //     // Veja no exemplo dado na documentação:
+    //     // https://developer.mozilla.org/pt-BR/docs/Web/API/FormData/set
+
+    //     // 05 - Não esqueçam de passar o formData
+    //     apiFormData.put('/receita/'+receita_id, formData)
+    //     .then(() => {
+    //         this.setState({successMsg : "Evento alterado com sucesso!"});
+    //     })
+    //     .catch(error => {
+    //         console.log(error);
+    //         this.setState({erroMsg : "Falha ao alterar o Receita"});
+    //     })
+    //         this.refreshPage()
+    // }
 
 
     //#endregion

@@ -75,8 +75,6 @@ export default class CadastrarCategoria extends Component{
              }
             })
         }
- 
-
 
     // PUT
     putSetState = (input) =>{
@@ -102,11 +100,18 @@ export default class CadastrarCategoria extends Component{
         event.preventDefault();
         console.log(this.state.putCategoria)
         let categoria_id = this.state.putCategoria.idProduto;
-        // 03 - Criamos nosso formData
+        
         let formData = new FormData();
+        
+        if (this.state.putCategoria.imagem.current !== undefined) {
+            // Seta a nova imagem.
+            formData.set('imagem',  this.state.putCategoria.imagem.current.files[0], this.state.putCategoria.imagem.value);
+        }
+
+        // 03 - Criamos nosso formData
         formData.set('idProduto', this.state.putCategoria.idProduto);
         formData.set('nomeProduto', this.state.putCategoria.nomeProduto);
-        formData.set('imagem',  this.state.putCategoria.imagem.current.files[0], this.state.putCategoria.imagem.value);
+        // formData.set('imagem',  this.state.putCategoria.imagem.current.files[0], this.state.putCategoria.imagem.value);
         // 04 - Nesta parte está o segredo, precisamos de 3 parâmetros
         // Veja no exemplo dado na documentação:
         // https://developer.mozilla.org/pt-BR/docs/Web/API/FormData/set

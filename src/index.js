@@ -18,6 +18,9 @@ import CadastrarReceitas from "./pages/receitas/cadastrarreceitas"
 import AlterarCategoria from "./pages/produtos/alterarcategoria"
 import CadastrarCategoria from "./pages/produtos/cadastrarcategoria"
 
+import Oferta from "./pages/oferta/oferta"
+
+
 import todosProdutos from "./pages/produtos/todosprodutos"
 
 // import PerfilProdutor from "./pages/perfilProdutor/PerfilProdutor"
@@ -73,7 +76,7 @@ const Rotas = (
             <Route path="/todosprodutos" component={todosProdutos} />
             <Route path="/cadastrarcategoria" component={CadastrarCategoria} />
             <Route path="/alterarcategoria" component={AlterarCategoria} />
-            
+            <Route path="/oferta" component={Oferta} />
             {/* <Route path="/Cadastro" component={Cadastro} />
             <PermissaoComprador path="/PerfilComprador" component={PerfilComprador} />
             <PermissaoProdutor path="/PerfilProdutor" component={PerfilProdutor} />
@@ -84,7 +87,6 @@ const Rotas = (
             <Route path="/CadastrarProdutos" component={CadastrarProdutos} /> */}
             <Route exact path="/login" component={Login}/>
             </Switch>
-            
         </div>
     </Router>
 )
