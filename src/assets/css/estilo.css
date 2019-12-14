@@ -483,6 +483,7 @@ font-family: var(--fonte_titulo);
     padding: 15px 0px 15px 0px;
     margin-left: 3vw;
     
+    
 }
 .backdrop_form{
     width: 100%; /* Full width */
@@ -614,11 +615,13 @@ list-style: none;
      font-weight: bold;
      font-size: 25px;
      font-family: var(--fonte_titulo);
+     cursor: pointer;
 }
 
 .erroMsg{
     text-align: center;
     font-size: 1.5em;
+    margin-top: 2vw;
 }
 
 /*______________________________*/
