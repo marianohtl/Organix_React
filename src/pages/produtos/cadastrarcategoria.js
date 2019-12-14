@@ -1,89 +1,120 @@
-import React, { Component } from 'react';
-import { api } from "../../services/api"
-// import { parseJwt } from "../../services/auth"
-import Footer from '../../components/Footer/Footer'
-
-
+import React, {Component} from 'react';
+import {api,apiFormData} from "../../services/api"
+import { parseJwt } from "../../services/auth"
+// import Fab from '@material-ui/core/Fab';
+// import EditIcon from '@material-ui/icons/Edit';
 import IconButton from '@material-ui/core/IconButton';
 import PhotoCamera from '@material-ui/icons/PhotoCamera';
-
-import Fab from '@material-ui/core/Fab';
-//  import AddIcon from '@material-ui/icons/Add';
-import EditIcon from '@material-ui/icons/Edit';
-//  import FavoriteIcon from '@material-ui/icons/Favorite';
+import  "../../assets/css/receita.css";
+import Button from '@material-ui/core/Button';
+// import Dialog from '@material-ui/core/Dialog';
+// import DialogActions from '@material-ui/core/DialogActions';
+// import DialogContent from '@material-ui/core/DialogContent';
+// import DialogContentText from '@material-ui/core/DialogContentText';
+// import DialogTitle from '@material-ui/core/DialogTitle';
+import Slide from '@material-ui/core/Slide';
 // import Grid from '@material-ui/core/Grid';
+// import TextField from '@material-ui/core/TextField';
 
 import HeaderPerfil from "../../components/header/HeaderPerfil"
 import HeaderPerfilFull from "../../components/header/HeaderPerfilFull"
-import ResponsiveProdutor from "../../components/responsive/ResponsiveProdutor"
+import ResponsiveAdm from "../../components/responsive/ResponsiveAdm"
+import Footer from '../../components/Footer/Footer'
+
+
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+    return <Slide direction="up" ref={ref} {...props} />;
+});
 
 
 export default class CadastrarCategoria extends Component {
     constructor() {
         super()
         this.state = {
-            postProduto: {
-                idProduto: "",
+            postCategoria : {
                 nomeProduto: "",
-                imagem: ""
+                imagem : React.createRef()
             },
-            fileInput: React.createRef(),
-            msgErro: ""
+                listaCategorias:[],
+                msgErro: "",
+                open:false
         }
     };
-
+  
+    
     refreshPage() {
         window.location.reload(true);
     }
 
+    //#region
+        openDialog(produto) {
+            this.setState({ open: true });
+            this.setState({putCategoria : produto})
 
-    postSetState = (input) => {
+        }
+
+        closeDialog() {
+            this.setState({ 
+                open:false});
+        }
+    //#endregion
+
+    postSetState = (input) =>{
         this.setState({
-            postProduto: {
-                ...this.state.postReceita, [input.target.name]: input.target.value
+            postCategoria : {
+                ...this.state.postCategoria, [input.target.name] : input.target.value
             }
         })
     }
 
-
-    // postReceita = (r) => {
-    //     r.preventDefault();
-
-    //     let receita = new FormData();
-
-    //     let id = parseJwt().IdUsuario
-    //     console.log(id)
-
-    //     receita.set("idUsuario", id );
-    //     receita.set("nomeReceita", this.state.postReceita.nomeReceita);
-    //     receita.set("ingredientes", this.state.postReceita.ingredientes);
-    //     receita.set("modoPreparo", this.state.postReceita.modoPreparo);
-    //     receita.set("porcoes", this.state.postReceita.porcoes);
-    //     receita.set("tempoPreparo", this.state.postReceita.tempoPreparo);
-    //     receita.set("idCategoriaReceita", this.state.postReceita.idCategoriaReceita);
-    //     receita.set("imagem" , this.state.fileInput.current.files[0]);
-
-
-    //     apiFormData.post('/Receita', receita)
-    //     .then(response => {
-    //         console.log(response);
-    //         console.log(this.postReceita)
-    //         this.refreshPage();
-    //     })
-    //     .catch(erro => {
-    //         console.log(erro);
-    //         this.setState({msgErro : "Não foi possível cadastrar a receita!"})
-    //     })
-    //     }
-
-    handleImageChange = (r) => {
+    handleImageChange = (input) =>{
         this.setState({
-            fileInput: r.target.files[0]
+            postCategoria : {
+                ...this.state.postCategoria, [input.target.name] : input.target.files[0]
+            }   
         })
-    };
-    componentDidMount() {
-        this.getCategorias();
+        console.log(this.state.postCategoria)
     }
+
+
+    PostCategoria = (r) => {
+
+        r.preventDefault();
+        console.log(this.state.postCategoria);
+
+        let produto = new FormData();
+        let id = parseJwt().IdUsuario;
+        produto.set("nomeProduto", this.state.postCategoria.nomeProduto);
+        produto.set("imagemArquivo" , this.state.postCategoria.imagem.current.files[0]);
+        produto.set("imagem" , this.state.postCategoria.imagem.current.value);
+        
+        apiFormData.post('/produto/', produto)
+        .then(response => {
+             console.log(response)
+             setTimeout(() => {
+                this.getCategorias();
+                this.setState({
+                    postCategoria:{
+                        ...this.state.postCategoria, nomeProduto : ""
+                    }
+                })
+             }, 1000);
+
+        })
+        .catch(erro => {
+             console.log(erro);
+             this.setState({msgErro : "Não foi possível cadastrar a receita!"})
+        })
+     }
+
+
+        componentDidMount(){
+            setTimeout(() => {
+                this.getCategorias();
+             }, 1000);
+        
+        }
 
     getCategorias = () => {
         api.get('/produto')
@@ -93,20 +124,16 @@ export default class CadastrarCategoria extends Component {
                     console.log(this.state.listaCategorias)
                 }
             })
-    }
+        }
+ 
 
-    // 02 - Adicionamos um setState específico
-    putSetStateFile = (input) => {
-        this.setState({
-            putReceita: {
-                ...this.state.putReceita, [input.target.name]: input.target.files[0]
-            }
-        })
-    }
-    render() {
-        return (
-            <>
-                <ResponsiveProdutor />
+
+
+
+        render(){
+            return(
+                <>
+                <ResponsiveAdm />
                 <HeaderPerfil />
                 <main className="itens-encontrados">
                     <div className="esquerdo_perfil">
@@ -115,55 +142,37 @@ export default class CadastrarCategoria extends Component {
                             <HeaderPerfilFull />
                         </div>
                     </div>
-                    <div className="lado-direito-resultado">
+                        <div className="lado-direito-resultado">
                         <div className="container-perfil">
-
-                            <h2>Cadastro Padrão de Produtos</h2>
-
-
-                            <div className="direita_cadastro_receita prod-cad">
-                                <form action="#" id="cadastrar-receita" method="POST" class="cad-cat-produto">
-                                    <div className="cadastro-receitas-correcao-input">
-                                        <label className="label_porcoes" for="POST-tempo-receita">Nome do Produto: </label>
-                                        <input type="text" name="porcoes" className="porcoesreceita" />
-                                    </div>
-                                    <IconButton color="primary" aria-label="upload picture" component="span">
-                                        {
-                                            // 06 - Aqui damos nosso "onChange" especial e também passamos nosso "ref"
-
-                                        }
-                                        {/* */}
-                                        <input accept="image/*" className="input_load" id="icon-button-file" type="file" name="imagem" onChange={this.putSetStateFile} ref={this.state.putReceita.imagem} />        <PhotoCamera />
-                                    </IconButton>
-
-                                </form>
-                                <div className="prop-cad-div">
-                                    {
-                                        this.state.listaCategorias.map(
-                                            function (cat) {
-                                                return (
-                                                    <div className="divisao-produto">
-                                                        <p>
-                                                            {cat.nomeProduto}
-                                                            <Fab color="secondary" aria-label="edit" size="small">
-                                                                <EditIcon />
-                                                            </Fab>
-                                                        </p>
-                                                    </div>
-                                                );
-                                            }// }.bind(this)
-                                        )
-                                    }
-                                </div>
+                        <h2>Cadastro de Produtos</h2>
+                        <div className="direita_cadastro_receita prod-cad">
+ 
+                        <form id="cadastrar-receita" class="cad-cat-produto" onSubmit={(e) => this.PostCategoria(e)}>
+                            <div className="cadastro-receitas-correcao-input">
+                                <label className="label_porcoes" for="nomeProduto">Nome do Produto: </label>
+                                <input type="text" name="nomeProduto" className="porcoesreceita"  onChange={this.postSetState} value={this.state.postCategoria.nomeProduto} />
                             </div>
-                            <div className="lado-direito-resultado1"></div>
+                            <label htmlFor="icon-button-file">
+                                <IconButton color="primary"  aria-label="upload picture" component="span">
+                                {
+                                // 06 - Aqui damos nosso "onChange" especial e também passamos nosso "ref"
+                                }
+                                <input accept="image/*" className="input_load" id="icon-button-file" type="file" name="imagem" onChange={this.handleImageChange} ref={this.state.postCategoria.imagem}  />        <PhotoCamera />
+                                </IconButton>
+                            </label>
+                            
+                            <Button type="submit" color="primary" >
+                            Enviar
+                            </Button>                  
+                        </form>
+
+                                </div>
+                                <div className="lado-direito-resultado1"></div>
                         </div>
-                    </div>
-                </main>
-                <Footer/>
-            </>
-        )
+                    </div>           
+        </main>
+        <Footer/>
+        </>
+            )
+        }
     }
-
-
-}

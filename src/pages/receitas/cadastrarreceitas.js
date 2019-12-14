@@ -18,7 +18,6 @@ export default class CadastrarReceitas extends Component {
 
     constructor() {
         super()
-
         this.state = {
             listaCategorias: [],
             postReceita: {
@@ -64,7 +63,9 @@ export default class CadastrarReceitas extends Component {
     }
 
     componentDidMount() {
-        this.getCategorias();
+        setTimeout(() => {
+            this.getCategorias();
+        }, 1000);
     }
 
 
@@ -84,7 +85,6 @@ export default class CadastrarReceitas extends Component {
         receita.set("tempoPreparo", this.state.postReceita.tempoPreparo);
         receita.set("idCategoriaReceita", this.state.postReceita.idCategoriaReceita);
         receita.set("imagem", this.state.fileInput.current.files[0]);
-
 
         apiFormData.post('/Receita', receita)
             .then(response => {
@@ -108,120 +108,123 @@ export default class CadastrarReceitas extends Component {
     render() {
         return (
             <>
-            <ResponsiveComprador />
-            <HeaderPerfil />
-            <main className="itens-encontrados-cadastro">
-            <div className="esquerdo_perfil">
+                <ResponsiveComprador />
+                <HeaderPerfil />
+                <main className="itens-encontrados-cadastro">
+                    <div className="esquerdo_perfil">
                         <div className="menu_perfil">
-                            <HeaderPerfilFull/>
+                            <HeaderPerfilFull />
                         </div>
                     </div>
-                <div className="lado-direito-resultado">
-                    <div className="container-perfil">
-                   
-
-                        <h2>Cadastrar Receitas</h2>
+                    <div className="lado-direito-resultado">
+                        <div className="container-perfil">
 
 
-                        <div className="container-cards1">
-                            <form action="#"  id="form-cadastrar-produto" method="POST" onSubmit={this.postReceita}>
-                                {/* <div className="fileira-um">
+                            <h2>Cadastrar Receitas</h2>
+
+
+                            <div className="container-cards1">
+                                <form action="#" id="form-cadastrar-produto" method="POST" onSubmit={this.postReceita}>
+                                    {/* <div className="fileira-um">
                                     <div className="cadastro-receitas-correcao-input"> */}
-                                        <label className="lbl-form-cad-prod" htmlFor="POST-tempo-receita">Nome da Receita: </label>
-                                        <input 
+                                    <label className="lbl-form-cad-prod" htmlFor="POST-tempo-receita">Nome da Receita: </label>
+                                    <input
                                         id="cad-preco"
-                                        type="text" 
+                                        type="text"
                                         placeholder="Digite o nome da receita"
                                         className="nomereceita" name="nomeReceita" value={this.state.postReceita.nomeReceita} onChange={this.postSetState} />
                                     {/* </div> */}
                                     {/* <div className="cadastro-receitas-correcao-input"> */}
-                                        <label className="lbl-form-cad-prod" htmlFor="POST-tempo-receita">Porções: </label>
-                                        <input type="number"
-                                        placeholder="Insira a quantidade de porções" 
+                                    <label className="lbl-form-cad-prod" htmlFor="POST-tempo-receita">Porções: </label>
+                                    <input type="number"
+                                        placeholder="Insira a quantidade de porções"
                                         id="cad-preco"
                                         name="porcoes" className="porcoesreceita" value={this.state.postReceita.porcoes} onChange={this.postSetState} />
                                     {/* </div> */}
                                     {/* <div className="cadastro-receitas-correcao-input" id="temprep"> */}
-                                        <label className="lbl-form-cad-prod" htmlFor="POST-tempo-receita">Tempo de Preparo: </label>
-                                        <input type="text"
-                                        placeholder="Informe o tempo de preparo" 
+                                    <label className="lbl-form-cad-prod" htmlFor="POST-tempo-receita">Tempo de Preparo: </label>
+                                    <input type="text"
+                                        placeholder="Informe o tempo de preparo"
                                         id="cad-preco"
                                         className="tempopreparo" name="tempoPreparo" value={this.state.postReceita.tempoPreparo} onChange={this.postSetState} />
                                     {/* </div> */}
-                                {/* </div> */}
+                                    {/* </div> */}
 
-                                {/* <div className="fileira-dois"> */}
-                                    <label 
-                                    className="lbl-form-cad-prod"
-                                    htmlFor="POST-tempo-receita">Ingredientes:</label>
-                                    <input 
-                                    id="cad-preco" 
-                                    placeholder="Informe os ingredientes"
-                                    type="text" 
-                                    name="ingredientes" 
-                                    value={this.state.postReceita.ingredientes} 
-                                    onChange={this.postSetState} />
-                                {/* </div> */}
+                                    {/* <div className="fileira-dois"> */}
+                                    <label
+                                        className="lbl-form-cad-prod"
+                                        htmlFor="POST-tempo-receita">Ingredientes:</label>
+                                    <input
+                                        id="cad-preco"
+                                        placeholder="Informe os ingredientes"
+                                        type="text"
+                                        name="ingredientes"
+                                        value={this.state.postReceita.ingredientes}
+                                        onChange={this.postSetState} />
+                                    {/* </div> */}
 
-                                {/* <div className="fileira-dois"> */}
+                                    {/* <div className="fileira-dois"> */}
                                     <label className="lbl-form-cad-prod" htmlFor="POST-tempo-receita">Modo de Preparo:
                                     </label>
                                     <input id="cad-preco"
-                                    placeholder="Descreva o modo de preparo"
-                                    type="text" name="modoPreparo" value={this.state.postReceita.modoPreparo} onChange={this.postSetState} />
-                                {/* </div> */}
-                                <label className="lbl-form-cad-prod" htmlFor="nome-prod">Categoria:</label>
+                                        placeholder="Descreva o modo de preparo"
+                                        type="text" name="modoPreparo" value={this.state.postReceita.modoPreparo} onChange={this.postSetState} />
+                                    {/* </div> */}
+                                    <label className="lbl-form-cad-prod" htmlFor="nome-prod">Categoria:</label>
 
-                                <select
-                                 id="cad-preco"
-                                    name="idCategoriaReceita"
-                                    value={this.state.getCategoria.idCategoriaReceita}
-                                    onChange={this.postSetState}
-                                >
-                                    <option value="">Escolha uma categoria: </option>
-                                    {
-                                        this.state.listaCategorias.map(function (c) {
-                                            return (
-                                                <option
-                                                    key={c.idCategoriaReceita}
-                                                    value={c.idCategoriaReceita}
-                                                >
-                                                    {c.nomeCategoria}
-                                                </option>
-                                            )
-                                        })
-                                    }
-                                </select>
-                                <label className="lbl-form-cad-prod" htmlFor="dt-venc-prod">Imagem</label>
-                                <input type="file" className="inp-date"
-                                id="dt-venc-prod" 
-                                ref={this.state.fileInput} /><label>
+                                    <select
+                                        id="cad-preco"
+                                        name="idCategoriaReceita"
+                                        value={this.state.getCategoria.idCategoriaReceita}
+                                        onChange={this.postSetState}
+                                    >
+                                        <option value="">Escolha uma categoria: </option>
+                                        {
+                                            this.state.listaCategorias.map(function (c) {
+                                                return (
+                                                    <option
+                                                        key={c.idCategoriaReceita}
+                                                        value={c.idCategoriaReceita}
+                                                    >
+                                                        {c.nomeCategoria}
+                                                    </option>
+                                                )
+                                            })
+                                        }
+                                    </select>
+                                    <label className="lbl-form-cad-prod" htmlFor="dt-venc-prod">Imagem</label>
+                                    <input type="file" className="inp-date"
+                                        id="dt-venc-prod"
+                                        ref={this.state.fileInput} /><label>
 
-                                </label>
-                                <div className="btn-b">
-                                <button 
-                                className="btn-cadastrar"
-                                type="submit">Enviar
+                                    </label>
+                                    <div className="btn-b">
+                                        <button
+                                            className="btn-cadastrar"
+                                            type="submit">Enviar
                                 </button>
-                                </div>
+                                    </div>
 
-                            </form>
+                                </form>
+                            </div>
+
+
+                            <div className="lado-direito-resultado1"></div>
                         </div>
 
+                        {/* <div className="fileira-dois">
+                            <label for="POST-tempo-receita">Modo de Preparo:</label>
+                            <input id="input-receita-preparo" type="text" name="modoPreparo" onChange={this.postSetState} />
+                        </div> */}
 
-                        <div className="lado-direito-resultado1"></div>
+
                     </div>
+                </main>
+                <Footer />
 
-                </div>
+            </>
 
-
-
-            </main>
-            <Footer/>
-
-                                    </>
-                
-            )
+        )
     }
 
 
