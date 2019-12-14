@@ -1,5 +1,6 @@
 import React from "react"
 import Swiper from 'react-id-swiper'
+import "../../assets/css/estilo.css"
 
 const Banner= () => {
 

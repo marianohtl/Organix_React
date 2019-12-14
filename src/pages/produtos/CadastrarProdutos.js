@@ -36,6 +36,10 @@ export default class CadastrarProdutos extends Component {
         this.getProdutos()
     }
 
+    componentDidUpdate(){
+        console.log(this.state.postProduto.idProduto)
+    }
+
     getProdutos = () => {
         api.get("/Produto")
             .then(response => {

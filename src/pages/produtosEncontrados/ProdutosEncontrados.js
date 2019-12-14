@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import api from '../../services/api';
+import {api} from '../../services/api';
 import '../../assets/css/estilo.css';
 import { Link } from 'react-router-dom';
 
@@ -12,6 +12,11 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
+
+import HeaderPerfil from "../../components/header/HeaderPerfil"
+import HeaderPerfilFull from "../../components/header/HeaderPerfilFull"
+import ResponsiveProdutor from "../../components/responsive/ResponsiveProdutor"
+import Footer from '../../components/Footer/Footer'
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
@@ -56,21 +61,16 @@ export default class ProdutosEncontrados extends Component {
 
     render() {
         return (
-            <main className="itens-encontrados">
+            <>
+            <ResponsiveProdutor />
+                <HeaderPerfil />
+                <main className="itens-encontrados">
+                    <div className="esquerdo_perfil">
 
-                <div className="esquerdo_perfil">
-                    <img src="" alt="avatar do produtor" />
-                    <div className="menu_perfil">
                         <div className="menu_perfil">
-                            <h2>Renata Amaral</h2>
-                            <p><a href="perfil.html">Perfil</a></p>
-                            <p><a href="pesquisar_produtos.html">Buscar Produtos</a></p>
-                            <p><a href="receitas.html">Receitas</a></p>
-                            <p><a href="cadastro_receitas.html">Cadastro de Receitas</a></p>
-                            <p><a href="index.html">Dicas</a></p>
+                            <HeaderPerfilFull />
                         </div>
                     </div>
-                </div>
                 <div className="lado-direito-resultado">
                     <div className="container-perfil">
                         <h2>Produtos Encontrados</h2>
@@ -142,6 +142,8 @@ export default class ProdutosEncontrados extends Component {
                     </Dialog>
                 </>
             </main>
+            <Footer/>
+            </>
         )
     }
 }
