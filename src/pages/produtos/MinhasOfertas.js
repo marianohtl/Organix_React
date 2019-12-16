@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 //import CardReceita from '../src/components/cardReceita/CardReceita'
 import { api, apiFormData } from "../../services/api"
-import TextField from '@material-ui/core/TextField';
+// import TextField from '@material-ui/core/TextField';
 //modal
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -11,17 +11,22 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
 
-import Fab from '@material-ui/core/Fab';
-import EditIcon from '@material-ui/icons/Edit';
-import Grid from '@material-ui/core/Grid';
+import HeaderPerfil from "../../components/header/HeaderPerfil"
+import HeaderPerfilFull from "../../components/header/HeaderPerfilFull"
+import ResponsiveProdutor from "../../components/responsive/ResponsiveProdutor"
+import Footer from '../../components/Footer/Footer'
+
+// import Fab from '@material-ui/core/Fab';
+// import EditIcon from '@material-ui/icons/Edit';
+// import Grid from '@material-ui/core/Grid';
 
 
 
-import Select from '@material-ui/core/Select';
-import NativeSelect from '@material-ui/core/NativeSelect';
+// import Select from '@material-ui/core/Select';
+// import NativeSelect from '@material-ui/core/NativeSelect';
 
-import IconButton from '@material-ui/core/IconButton';
-import PhotoCamera from '@material-ui/icons/PhotoCamera';
+// import IconButton from '@material-ui/core/IconButton';
+// import PhotoCamera from '@material-ui/icons/PhotoCamera';
 import { parseJwt } from "../../services/auth"
 import "../../assets/css/receita.css";
 
@@ -196,17 +201,13 @@ export default class MinhasOfertas extends Component {
         
 
                 {/*-----------------------PRINCIPAL----------------------*/}
-                <main className="itens-encontrados-cadastro">
-
+                <ResponsiveProdutor />
+                <HeaderPerfil />
+                <main className="itens-encontrados">
                     <div className="esquerdo_perfil">
-                        <img src="#" alt="avatar do produtor" />
+
                         <div className="menu_perfil">
-                            <h2>Renata Amaral</h2>
-                            <p><a href="perfil.html">Perfil</a></p>
-                            <p><a href="pesquisar_produtos.html">Buscar Produtos</a></p>
-                            <p><a href="receitas.html">Ofertas</a></p>
-                            <p><a href="cadastro_receitas.html">Cadastro de Ofertas</a></p>
-                            <p><a href="index.html">Dicas</a></p>
+                            <HeaderPerfilFull />
                         </div>
                     </div>
                     <div className="lado-direito-resultado">
@@ -245,6 +246,7 @@ export default class MinhasOfertas extends Component {
                     </div>
 
                 </main>
+                <Footer/>
 
             </Fragment>
 

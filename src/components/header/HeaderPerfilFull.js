@@ -60,6 +60,7 @@ export default class HeaderPerfilFull extends Component {
                                             <p><a href="#/PerfilProdutor">Perfil</a></p>
                                             <p><a href="#/ProdutosCadastrados">Produtos Cadastrados</a></p>
                                             <p><a href="#/CadastrarProdutos">Cadastrar Produtos</a></p>
+                                            <p><a href="#/MinhasOfertas">Minhas Ofertas</a></p>
                                         </>
                                     ) : (
                                         usuarioAutenticado() && parseJwt().Role === "3" ?

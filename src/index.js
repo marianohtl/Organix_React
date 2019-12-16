@@ -20,7 +20,7 @@ import BuscarProdutos from './pages/produtos/BuscarProdutos';
 
 
 
-import MinhasOfertas from "./pages/oferta/oferta"
+import MinhasOfertas from "./pages/produtos/MinhasOfertas"
 
 import ProdutosEncontrados from "./pages/produtosEncontrados/ProdutosEncontrados"
 import MinhasReceitas from "./pages/receitas/MinhasReceitas"

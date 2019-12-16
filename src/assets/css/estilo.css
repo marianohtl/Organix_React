@@ -93,11 +93,13 @@ a {
 
 footer{
  background-color: var(--branco);
+ box-shadow: 2px -4px 7px -5px rgba(128,128,128)
 }
 .container-home-footer {
     width: 80%; 
     height: 10vh;
-    margin: auto;
+    margin:5px auto;
+    
 }
 
 .centro-footer p {
@@ -322,6 +324,7 @@ font-family: var(--fonte_titulo);
 .historia-txt h2{
     font-family: var(--fonte_titulo);
     margin-bottom: 30px;
+    text-shadow: 3px 1px 1px rgba(0,0,0,0.6);
 }
 .historia-txt{
     width: 1000px;
@@ -330,6 +333,25 @@ font-family: var(--fonte_titulo);
     font-family: var(--fonte_text);
 }
 
+.text-quem-somos{
+    text-shadow: 3px 1px 1px rgba(0,0,0,0.6);
+}
+
+.blur-quem-somos{
+ background-color:rgba(0, 0, 0, 0.1);
+ margin-top: -8px;
+ text-align: center;
+ justify-content: center;
+ height: 655px;
+ width: 100%;
+ align-items: center;
+ background-repeat: no-repeat;
+ background-position: top center;
+ background-size: cover;
+ color: var(--branco);
+ display: flex;
+ background-attachment: fixed;
+}
 /*Quem Somos (Igor)*/
 
 /* TELA DE CADASTRO */
@@ -1314,17 +1336,19 @@ list-style: none;
     color: var(--roxo);
 }
 
-footer{
+/* footer{
     background-color: var(--roxo);
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 6vh;
     margin-top: -6px;
-}
-.icone-redesocial-footer{
+} */
+
+/* .icone-redesocial-footer{
     display: none;
-}
+} */
+
 .icone-redesocial-footer-mobile{
     display: flex;
     align-items: center;
@@ -1396,7 +1420,7 @@ footer{
     
   
     .swiper-container{
-        background-color: var(--roxo);
+        /* background-color: var(--roxo); */
         height: 400px;
         padding:  0px;
         margin: -5px auto !important;
