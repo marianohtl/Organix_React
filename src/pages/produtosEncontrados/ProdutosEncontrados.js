@@ -53,6 +53,7 @@ export default class ProdutosEncontrados extends Component {
                         rua: "''",
                         bairro: "''",
                         regiao: "''",
+                        cidade:"",
                     }],
 
                 },
@@ -158,11 +159,11 @@ export default class ProdutosEncontrados extends Component {
                                     <p className='nome-produto'>{this.state.umProduto.nome_produto}</p>
                                     <ul>
                                         <li>Nome: {this.state.umProduto.idUsuarioNavigation.nome}</li>
-                                        <li>Telefone: {this.state.umProduto.idUsuarioNavigation.telefone[0].telefone1}</li>
-                                        <li>Celular: {this.state.umProduto.idUsuarioNavigation.telefone[0].celular}</li>
-                                        <li>Endereço: {this.state.umProduto.idUsuarioNavigation.endereco[0].rua}</li>
-                                        <li>Cidade: {this.state.umProduto.idUsuarioNavigation.endereco[0].bairro}</li>
-                                        <li>Região: {this.state.umProduto.idUsuarioNavigation.endereco[0].regiao}</li>
+                                        <li>Telefone: {this.state.umProduto.idUsuarioNavigation.telefone[0] ? this.state.umProduto.idUsuarioNavigation.telefone[0].telefone1: ""}</li>
+                                        <li>Celular: {this.state.umProduto.idUsuarioNavigation.telefone[0] ? this.state.umProduto.idUsuarioNavigation.telefone[0].celular: ""}</li>
+                                        <li>Endereço: {this.state.umProduto.idUsuarioNavigation.endereco[0] ? this.state.umProduto.idUsuarioNavigation.endereco[0].rua: ""}</li>
+                                        <li>Cidade: {this.state.umProduto.idUsuarioNavigation.endereco[0] ? this.state.umProduto.idUsuarioNavigation.endereco[0].cidade: ""}</li>
+                                        <li>Região: {this.state.umProduto.idUsuarioNavigation.endereco[0] ? this.state.umProduto.idUsuarioNavigation.endereco[0].regiao: ""}</li>
                                     </ul>
                                 </div>
 
