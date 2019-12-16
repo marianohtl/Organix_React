@@ -12,6 +12,7 @@ import Produtor from '../../assets/img/cadastro/produtor.svg'
 
 import FormularioCadastro from '../../components/formularioCadastro/formularioCadastro'
 import Header from '../../components/header/Header'
+import ResponiveHome from "../../components/responsive/ResponsiveHome"
 
 import Footer from '../../components/Footer/Footer'
 
@@ -35,11 +36,16 @@ export default class Cadastro extends Component {
         this.setState({fechar_modal:fechar_modal})
     }
 
+    componentDidUpdate(){
+        console.log("num", this.state.userProfile)
+    }
+
     
 
     render() {
         return (
             <div>
+                <ResponiveHome/>
                 <Header/>
                 <main className="main_cad">
                     <div className="esquerdo_cadastro">

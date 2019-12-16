@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 // import '../../assets/css/estilo.css';
 import '../../assets/css/formularioCadastro.css';
 
-import api from '../../services/api';
+import { api } from '../../services/api';
 
 import Fechar from '../../assets/img/fechar.png'
 
@@ -37,7 +37,7 @@ export default class FormularioCadastro extends Component {
                 cidade: "",
                 estado: "",
                 regiao: "",
-                idUsuario:""
+                idUsuario: ""
             },
 
             erroMsg: "",
@@ -85,7 +85,7 @@ export default class FormularioCadastro extends Component {
         api.post('/Usuario', this.state.postCadastro)
             .then(response => {
                 this.setState({ ListaUsuario: response.data })
-                console.log("Response do usuário cadastrado: ", this.state.ListaUsuario.idUsuario);
+                // console.log("Response do usuário cadastrado: ", this.state.ListaUsuario.idUsuario);
 
                 let userTelefone = this.state.postTelefone;
                 let userEndereco = this.state.postEndereco;
@@ -117,10 +117,7 @@ export default class FormularioCadastro extends Component {
                 console.log(error);
                 this.setState({ erroMsg: "Não foi possível Cadastrar! Tente Novamente" });
             })
-
-
         setTimeout(() => {
-            this.props.fechar_modal();
             { this.setState({ erroMsg: "" }) }
         }, 2000);
     }
@@ -138,6 +135,7 @@ export default class FormularioCadastro extends Component {
                     </div>
 
                     <form id="cadastro_produtor" onSubmit={this.postCadastro}>
+                        {this.props.user_profile}
                         <h2>Dados Pessoais</h2>
                         <div className="container">
                             <div className="dadosPessoais">
@@ -186,7 +184,7 @@ export default class FormularioCadastro extends Component {
                                         onChange={this.postSetState}
                                     />
 
-                                    <label className="labelForm"> Confirme o senha:</label>
+                                    <label className="labelForm"> Confirme a senha:</label>
                                     <input id="POST-senha-prod2" type="password" placeholder="Confirme a senha" className="inputForm"
                                         name="senhaConfirmacao"
                                         value={this.state.postCadastro.senhaConfirmacao}
@@ -196,7 +194,7 @@ export default class FormularioCadastro extends Component {
                             </div>
                             <hr></hr>
                             <h2>Endereço</h2>
-                            
+
                             <div className="endereco">
                                 <div className="endereco1">
                                     <label className="labelForm">CEP:</label>
@@ -235,7 +233,7 @@ export default class FormularioCadastro extends Component {
                                         onChange={this.postSetStateEnd}
                                     />
 
-                                    <label className="labelForm">Zona:</label>
+                                    <label className="labelForm">Região:</label>
                                     <input id="POST-regiao-prod2" className="inputForm" placeholder="Digite a região"
                                         name="regiao"
                                         value={this.state.postEndereco.regiao}
@@ -244,16 +242,17 @@ export default class FormularioCadastro extends Component {
                                 </div>
                             </div>
                         </div>
+                        <div className="erroMsg">
+
+                            {submitDisabled ? (
+                                <p>As senhas devem ser iguais</p>
+                            ) : null}
+
+                            {this.state.erroMsg}
+                        </div>
                         <p><button className="submitBtn btnResposivo" disabled={submitDisabled}>Cadastrar</button></p>
                     </form>
-                    <div className="erroMsg">
 
-                        {submitDisabled ? (
-                            <p>As senhas devem ser iguais</p>
-                        ) : null}
-
-                        {this.state.erroMsg}
-                    </div>
                 </div>
             </div>
         )

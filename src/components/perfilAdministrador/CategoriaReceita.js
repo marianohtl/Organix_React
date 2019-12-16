@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 
 import '../../assets/css/estilo.css';
 
-import api from '../../services/api';
+import {api} from '../../services/api';
+
+// import Footer from '../../components/Footer/Footer'
 
 //MODAL
 import Button from '@material-ui/core/Button';

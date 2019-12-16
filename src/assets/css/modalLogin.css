@@ -1,0 +1,73 @@
+.inputLogin{
+    height: 3vw;
+    width: 15vw;
+    font-size: 1.2em;
+    padding-left: 0.5vw;
+}
+
+.labelLogin{
+    font-size: 1.5em;
+    color: #7A3F86;
+    font-weight: bold;
+}
+
+.MuiButton-label{
+    color: #7A3F86 !important;
+    font-size: 1.5em;
+    width: 50% !important;
+    display: inherit !important; 
+    align-items: inherit !important; 
+    justify-content: center !important;
+}   
+
+.MuiDialogActions-root {
+    flex: 0 0 auto;
+    display: flex;
+    padding-right: 7vw !important;
+    padding-left: 2vw !important;
+    padding-bottom: 2vw !important;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.MuiDialogContent-root{
+    padding-right: 1vw !important;
+}
+
+.logoModal{
+    margin-left: 5.5vw;
+    width: 4vw;
+}
+
+.closeBtn{
+     margin-left: 15vw;
+    cursor: pointer;
+}
+
+.MuiDialogTitle-root{
+    padding:0px !important;
+    padding-top:1vw !important;
+}
+
+.MuiButton-root{
+    padding:0px !important;
+}
+
+    
+@media(max-width:768px){
+
+    .MuiDialogActions-root {
+        flex: 0 0 auto;
+        display: flex;
+        padding: 5vw !important;
+        /* align-items: center; */
+        justify-content: flex-end;
+    }
+
+    .MuiPaper-root {
+        color: #9C4289 !important;
+    }
+    .MuiTypography-colorTextSecondary{
+        color: none !important;
+    }
+}

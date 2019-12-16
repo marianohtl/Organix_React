@@ -79,6 +79,7 @@ header img {
     font-weight: bold;
     font-size: 25px;
     font-family: var(--fonte_titulo);
+    cursor: pointer;
 }
 
 a {
@@ -92,11 +93,13 @@ a {
 
 footer{
  background-color: var(--branco);
+ box-shadow: 2px -4px 7px -5px rgba(128,128,128)
 }
 .container-home-footer {
     width: 80%; 
     height: 10vh;
-    margin: auto;
+    margin:auto; 
+    
 }
 
 .centro-footer p {
@@ -304,7 +307,7 @@ font-family: var(--fonte_titulo);
     font-size: 25px;
 }
 .nossa-historia{
-    margin-top: 80px;
+    margin-top: 60px;
     text-align: center;
     justify-content: center;
     height: 650px;
@@ -321,6 +324,7 @@ font-family: var(--fonte_titulo);
 .historia-txt h2{
     font-family: var(--fonte_titulo);
     margin-bottom: 30px;
+    text-shadow: 3px 1px 1px rgba(0,0,0,0.6);
 }
 .historia-txt{
     width: 1000px;
@@ -329,6 +333,25 @@ font-family: var(--fonte_titulo);
     font-family: var(--fonte_text);
 }
 
+.text-quem-somos{
+    text-shadow: 3px 1px 1px rgba(0,0,0,0.6);
+}
+
+.blur-quem-somos{
+ background-color:rgba(0, 0, 0, 0.1);
+ margin-top: -8px;
+ text-align: center;
+ justify-content: center;
+ height: 655px;
+ width: 100%;
+ align-items: center;
+ background-repeat: no-repeat;
+ background-position: top center;
+ background-size: cover;
+ color: var(--branco);
+ display: flex;
+ background-attachment: fixed;
+}
 /*Quem Somos (Igor)*/
 
 /* TELA DE CADASTRO */
@@ -390,10 +413,11 @@ font-family: var(--fonte_titulo);
 .btn_cadastro2{
     background-color: var(--verde_claro);
     color: var(--roxo);
-    /*__________________________________*/
     padding: 5px 15px 5px 15px;
-    margin-top: 20px;
+    margin-top: 25px;
     border-radius: 10px;
+    border:none;
+    font-size: 1.2em;
 }
 
 
@@ -481,6 +505,7 @@ font-family: var(--fonte_titulo);
     border-radius: 10px;
     padding: 15px 0px 15px 0px;
     margin-left: 3vw;
+    
     
 }
 .backdrop_form{
@@ -613,11 +638,13 @@ list-style: none;
      font-weight: bold;
      font-size: 25px;
      font-family: var(--fonte_titulo);
+     cursor: pointer;
 }
 
 .erroMsg{
     text-align: center;
     font-size: 1.5em;
+    margin-top: 2vw;
 }
 
 /*______________________________*/
@@ -715,8 +742,8 @@ list-style: none;
     flex-wrap: wrap;
     justify-content: center;
     background-color: var(--roxo_fundo);
-    /* width: 80%; */
-    padding: 40px;
+    width: 50%;
+    padding-bottom: 40px;
     border-radius: 30px;
     font-family: var(--fonte_titulo);
     font-size: 25px;
@@ -732,13 +759,15 @@ list-style: none;
 }
 
 #pesquisar-produto label{
-    margin-top: 50px;
+    margin-top: 2vw;
 }
 
 #pesquisar-produto #POST-preco-prod{
-width: 5vw;
+width: 13.5vw;
 height: 4vh;
 margin-left: 10px;
+margin-top: 1vw;
+
 }
 
 .max-min{
@@ -775,17 +804,18 @@ margin-left: 10px;
 }
    
 .prodt{
-    width: 20vh;
+    width: 30vh;
     height: 6vh;
-    margin-top: 10%;
+    margin-top: 1vw;
     font-family: var(--fonte_titulo);
     /* font-weight: bold; */
     font-size: 20px;
 
 }
 .reg{
-    width: 20vh;
+    width: 30vh;
     height: 6vh;
+    margin-top: 1vw;
     font-family: var(--fonte_titulo);
     font-size: 20px;
     /* font-weight: bold; */
@@ -801,6 +831,7 @@ margin-left: 10px;
     border-radius: 10px;
     padding: 10px;
     font-size: 20px;
+    width: 30vh;
 }
 
 
@@ -832,10 +863,28 @@ margin-left: 10px;
     font-weight: bold;
     font-size: 25px;
 }
+.container-perfil3 h4{
+    font-family: var(--fonte_titulo);
+    color: var(--roxo_letra_fundo);
+    font-weight: bold;
+    font-size: 25px;
+}
 
 .container-perfil2 {
     margin: auto;
     margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color:var(--roxo_fundo);
+    width: 80%;
+    padding: 45px 20px 45px 20px;
+    border-radius: 10px;
+    line-height: 3em;
+}
+.container-perfil3 {
+    margin: auto;
+    margin-bottom: 120px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -851,8 +900,18 @@ margin-left: 10px;
 list-style: none;
 
 }
+.container-perfil3 input {
+    list-style: none;
+    
+    }
 
 .container-perfil2 p{
+    color: black;
+    font-family: var(--fonte_titulo);
+    font-size: 20px;
+
+}
+.container-perfil3 p{
     color: black;
     font-family: var(--fonte_titulo);
     font-size: 20px;
@@ -1171,9 +1230,23 @@ list-style: none;
     font-family: var(--fonte_text);
 }
 #cad-preco{
-    border: none;
+    /* border: none;
+    border-radius: 10px;
+    padding: 10px; */
+    order: none;
     border-radius: 10px;
     padding: 10px;
+    height: 2vw;
+    font-size: 1em;
+    border:none;
+}
+
+.selectReceita{
+    height: 3vw;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 1em;
+    border:none;
 }
 .inp-date{
     border: none;
@@ -1203,6 +1276,7 @@ list-style: none;
     width: 9vw;
     margin-left: 4px;
     }
+    
     .max-min label {
         margin-right: 20px;
     }
@@ -1221,13 +1295,23 @@ list-style: none;
 }
 
 /* MEDIAs */
+
+@media(max-width:1024px){
+    .banner{
+        display: block !important;
+        background-image: url(../img/banner.jpg);
+        width: 100%;
+        background-repeat: no-repeat;
+        background-position: top center;
+        height: 350px;
+        margin-top: 100px;
+    }
+}
+
 @media(max-width:450px){
 /*MENU PARA CELULAR*/
-.container-home{
-    display: none !important;
-    
-}
-.container-home-responsivo{
+
+/* .container-home-responsivo{
     width: 100%;
     margin: auto;
     display: flex;
@@ -1242,7 +1326,7 @@ list-style: none;
   
     position: fixed;
     top: 0px;
-}
+} */
 .logo-cenoura{
     width: 54px;
     height: 54px;
@@ -1265,15 +1349,6 @@ list-style: none;
 .swiper-container {
     display: none !important;
 }
-.banner{
-    display: block !important;
-    background-image: url(../img/banner.jpg);
-    width: 100%;
-    background-repeat: no-repeat;
-    background-position: top center;
-    height: 350px;
-    margin-top: 10px;
-}
 
 
 .home-contato {
@@ -1281,17 +1356,19 @@ list-style: none;
     color: var(--roxo);
 }
 
-footer{
+/* footer{
     background-color: var(--roxo);
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 6vh;
     margin-top: -6px;
-}
-.icone-redesocial-footer{
+} */
+
+/* .icone-redesocial-footer{
     display: none;
-}
+} */
+
 .icone-redesocial-footer-mobile{
     display: flex;
     align-items: center;
@@ -1363,7 +1440,7 @@ footer{
     
   
     .swiper-container{
-        background-color: var(--roxo);
+        /* background-color: var(--roxo); */
         height: 400px;
         padding:  0px;
         margin: -5px auto !important;
@@ -1420,10 +1497,17 @@ footer{
     .container-perfil2 p{
         font-size: 15px;
     }
+    .container-perfil3 p{
+        font-size: 15px;
+    }
 
     .container-perfil2 h4{
         font-size: 18px;
     }
+    .container-perfil3 h4{
+        font-size: 18px;
+    }
+
 
     .botao-perfil{
         margin-top: 1vh;
@@ -1489,6 +1573,11 @@ footer{
 }
 
 @media(max-width:800px){
+    .container-home{
+        display: none !important;
+        
+    }
+
     .container-home {
         width: 375px;
         margin: auto;
@@ -1574,7 +1663,7 @@ footer{
     #pesquisar-produto select{
         border-radius: 10px;
         border: none;
-        width: 78vw;
+        width: 25vw;
         height: 50px;
         margin-top: 10px;
         text-align: left;
@@ -1635,9 +1724,9 @@ footer{
 .banner{
     display: none;
 }
-.marg{
+/* .marg{
     margin-bottom: 150px;
-}
+} */
 .dicas{
     font-size: 15px;
     padding: 40px 20px;

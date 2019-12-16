@@ -4,7 +4,7 @@ import '../../assets/css/estilo.css';
 
 import '../../assets/css/perfilAdm.css';
 
-import api from '../../services/api';
+import {api} from '../../services/api';
 
 import Footer from '../../components/Footer/Footer'
 import PerfilAdmModal from '../../components/perfilAdministrador/CategoriaReceita'
@@ -17,6 +17,10 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
+
+import HeaderPerfil from "../../components/header/HeaderPerfil"
+import HeaderPerfilFull from "../../components/header/HeaderPerfilFull"
+import ResponsiveAdm from "../../components/responsive/ResponsiveAdm"
 
 
 
@@ -140,6 +144,16 @@ export default class CategoriaReceita extends Component {
     render() {
         return (
             <>
+                <ResponsiveAdm />
+                <HeaderPerfil />
+                
+                <main className="itens-encontrados">
+                    <div className="esquerdo_perfil">
+
+                        <div className="menu_perfil">
+                            <HeaderPerfilFull />
+                        </div>
+                    </div>
                 <div className="lado-direito-perfil-produtor">
 
                     <div className="container-perfil">
@@ -174,7 +188,7 @@ export default class CategoriaReceita extends Component {
                     </div>
                 </div>
 
-                <Footer />
+                
                 <>
                     <Dialog
                         open={this.state.open}
@@ -208,6 +222,8 @@ export default class CategoriaReceita extends Component {
                         </DialogActions>
                     </Dialog>
                 </>
+                </main>
+                <Footer/>
             </>
         )
     }
