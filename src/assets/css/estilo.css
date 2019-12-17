@@ -1279,12 +1279,15 @@ list-style: none;
 @media(max-width:1024px){
     .banner{
         display: block !important;
-        background-image: url(../img/banner.jpg);
-        width: 100%;
+        background-image: url(../img/ba.png);
+        /* width: 100%; */
         background-repeat: no-repeat;
         background-position: top center;
-        height: 350px;
-        margin-top: 100px;
+        width: 100vw;
+        height: 22vh;
+        margin-top: 60px;
+        background-size: cover !important;
+        background-attachment: inherit;
     }
 }
 

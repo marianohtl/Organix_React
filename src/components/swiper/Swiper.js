@@ -27,9 +27,9 @@ const SimpleSwiper = () => {
     <Swiper {...params}>
 
       <div className="swiper-slide">
-        <img src={agrotoxico} alt="Homem em meio a plantação com agrotóxicos."/>
-          <h3>Não há dose segura de agrotóxico!</h3>
-          <a href="https://www.hojeemdia.com.br/horizontes/pesquisa-indica-que-n%C3%A3o-h%C3%A1-dose-segura-de-agrot%C3%B3xico-1.733131" target="_blank" class="btn_saiba_mais">SAIBA MAIS</a>
+      <Link href=""><img src={tomate} alt="Imagem de tomates" /></Link>
+      <p>Cesta Sortidas</p>
+          <p>Por apenas R$1,00</p>
       </div>
         <div className="swiper-slide">
           <Link href=""><img src={banana} alt="Imagem de bananas" /></Link>

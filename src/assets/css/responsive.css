@@ -3,7 +3,7 @@ display: none !important;
 }
 
 @import url('https://fonts.googleapis.com/css?family=Varela+Round');
-@media(max-width:800px){
+@media(max-width:1100px){
 html, body {
     overflow-x: hidden;
     height: 100%;
