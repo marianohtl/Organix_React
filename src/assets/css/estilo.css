@@ -247,9 +247,11 @@ font-family: var(--fonte_titulo);
 /*slide*/
 .swiper-slide{
     text-align: center;
-    padding: 40px 10px; 
+    padding-top: 2vw;
+    padding-bottom: 2vw;
+    /* padding: 40px 10px;  */
     font-size: 1.4em;
-    color: white;
+    color: var(--roxo);
     font-weight: bold;
     font-family: var(--fonte_titulo);
     z-index: 0 !important;
@@ -258,15 +260,32 @@ font-family: var(--fonte_titulo);
 .back_swiper{
     background-image: url("../img/Slider/aaa.jpg");
 }
+.swiperHome{
+    margin-top: 500px;  
+    background-image:linear-gradient(rgba(132, 66, 130,0.2),rgba(132, 66, 130,0.2)) !important; 
+    height: 400px;
+    padding:  0px;
+    margin: -5px auto !important;
+    z-index: 0 !important;
+}
 
-.swiper-container{
+.swiperHome h2{
+    text-align: center;
+    font-family: 'Segoe UI';
+    padding-top: 1vw;
+    font-size: 2em;
+    color: var(--roxo);
+
+}
+
+/* .swiper-container{
     margin-top: 500px;  
     background-image:linear-gradient(rgba(132, 66, 130,0.3),rgba(132, 66, 130,0.3)); 
     height: 400px;
     padding:  0px;
     margin: -5px auto !important;
     z-index: 0 !important;
-}
+} */
 
 /*sombra de quem somos*/
 .sombra{
