@@ -1,0 +1,41 @@
+.uniao_bnt{
+        display: flex;            
+        padding: 2px;
+       }
+       
+       .inputs_block{
+               display: block ;            
+       
+       }
+       
+       .input_load{
+               display: none
+       }
+       
+       .cad-cat-produto{
+               width: 200px;
+               display: flex;
+       }
+       
+       .cat-produto{
+               width: 1200px;
+               display: flex;
+       }
+       
+       .prod-cad{
+               display: block; 
+       }
+       
+       .prop-cad-div{
+               display: flex;
+       }
+       
+       .produto-pre-setado{
+               display: flex;
+               margin-left: 40px;       
+       }
+       
+       .espaco-prod{
+         padding-left: 140px;
+         margin-left: 20px;
+       }

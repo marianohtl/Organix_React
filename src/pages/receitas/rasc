@@ -1,0 +1,38 @@
+
+                { 
+                  this.state.umUsuario.map(
+                  function(user){
+                      return(
+                        <Fragment>
+                        
+                      </Fragment>
+                      );
+                  }.bind(thi
+                    )
+                  )
+              }   
+
+
+                <table> 
+              <tr>
+                  <td>TEMPO DE PREPARO</td>
+                  <td>PORÇÕES</td>
+              </tr>
+              <tr>
+                  <td>{this.state.umaReceita.tempoPreparo}</td>
+                  <td>{this.state.umaReceita.porcoes}</td>
+              </tr>
+              
+              <tr>                   
+                  <td>INGREDIENTES:</td>
+              </tr>
+              <tr>
+                  <td>{this.state.umaReceita.ingredientes}</td>
+              </tr>
+              <tr>                   
+                  <td>MODO DE PREPARO:</td>
+              </tr>
+              <tr>                   
+                  <td>{this.state.umaReceita.modoPreparo}</td>                    
+              </tr>
+              </table>  

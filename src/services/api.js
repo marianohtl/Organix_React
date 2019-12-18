@@ -1,6 +1,6 @@
 import Axios from 'axios';
 
-const api = Axios.create({
+export const api = Axios.create({
     baseURL: "http://localhost:5000/api" ,
     headers: {
         "Content-Type" : "application/json",
@@ -9,4 +9,10 @@ const api = Axios.create({
 });
 
 
-export default api;
+export const apiFormData = Axios.create({
+    baseURL: "http://localhost:5000/api" ,
+    headers: {
+        "Authorization" : "Bearer " + localStorage.getItem("usuario-organix")
+    }
+})
+
