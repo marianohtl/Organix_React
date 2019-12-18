@@ -98,7 +98,7 @@ footer{
 .container-home-footer {
     width: 80%; 
     height: 10vh;
-    margin:auto; 
+    margin:5px auto;
     
 }
 
@@ -216,9 +216,11 @@ font-family: var(--fonte_titulo);
 /*slide*/
 .swiper-slide{
     text-align: center;
-    padding: 40px 10px; 
+    padding-top: 2vw;
+    padding-bottom: 2vw;
+    /* padding: 40px 10px;  */
     font-size: 1.4em;
-    color: white;
+    color: var(--roxo);
     font-weight: bold;
     font-family: var(--fonte_titulo);
     z-index: 0 !important;
@@ -227,15 +229,32 @@ font-family: var(--fonte_titulo);
 .back_swiper{
     background-image: url("../img/Slider/aaa.jpg");
 }
+.swiperHome{
+    margin-top: 500px;  
+    background-image:linear-gradient(rgba(132, 66, 130,0.2),rgba(132, 66, 130,0.2)) !important; 
+    height: 400px;
+    padding:  0px;
+    margin: -5px auto !important;
+    z-index: 0 !important;
+}
 
-.swiper-container{
+.swiperHome h2{
+    text-align: center;
+    font-family: 'Segoe UI';
+    padding-top: 1vw;
+    font-size: 2em;
+    color: var(--roxo);
+
+}
+
+/* .swiper-container{
     margin-top: 500px;  
     background-image:linear-gradient(rgba(132, 66, 130,0.3),rgba(132, 66, 130,0.3)); 
     height: 400px;
     padding:  0px;
     margin: -5px auto !important;
     z-index: 0 !important;
-}
+} */
 
 /*sombra de quem somos*/
 .sombra{
@@ -413,11 +432,10 @@ font-family: var(--fonte_titulo);
 .btn_cadastro2{
     background-color: var(--verde_claro);
     color: var(--roxo);
+    /*__________________________________*/
     padding: 5px 15px 5px 15px;
-    margin-top: 25px;
+    margin-top: 20px;
     border-radius: 10px;
-    border:none;
-    font-size: 1.2em;
 }
 
 
@@ -742,8 +760,8 @@ list-style: none;
     flex-wrap: wrap;
     justify-content: center;
     background-color: var(--roxo_fundo);
-    width: 50%;
-    padding-bottom: 40px;
+    /* width: 80%; */
+    padding: 40px;
     border-radius: 30px;
     font-family: var(--fonte_titulo);
     font-size: 25px;
@@ -759,15 +777,13 @@ list-style: none;
 }
 
 #pesquisar-produto label{
-    margin-top: 2vw;
+    margin-top: 50px;
 }
 
 #pesquisar-produto #POST-preco-prod{
-width: 13.5vw;
+width: 5vw;
 height: 4vh;
 margin-left: 10px;
-margin-top: 1vw;
-
 }
 
 .max-min{
@@ -804,18 +820,17 @@ margin-top: 1vw;
 }
    
 .prodt{
-    width: 30vh;
+    width: 20vh;
     height: 6vh;
-    margin-top: 1vw;
+    margin-top: 10%;
     font-family: var(--fonte_titulo);
     /* font-weight: bold; */
     font-size: 20px;
 
 }
 .reg{
-    width: 30vh;
+    width: 20vh;
     height: 6vh;
-    margin-top: 1vw;
     font-family: var(--fonte_titulo);
     font-size: 20px;
     /* font-weight: bold; */
@@ -831,7 +846,6 @@ margin-top: 1vw;
     border-radius: 10px;
     padding: 10px;
     font-size: 20px;
-    width: 30vh;
 }
 
 
@@ -1230,23 +1244,9 @@ list-style: none;
     font-family: var(--fonte_text);
 }
 #cad-preco{
-    /* border: none;
-    border-radius: 10px;
-    padding: 10px; */
-    order: none;
+    border: none;
     border-radius: 10px;
     padding: 10px;
-    height: 2vw;
-    font-size: 1em;
-    border:none;
-}
-
-.selectReceita{
-    height: 3vw;
-    border-radius: 10px;
-    padding: 10px;
-    font-size: 1em;
-    border:none;
 }
 .inp-date{
     border: none;
@@ -1276,7 +1276,6 @@ list-style: none;
     width: 9vw;
     margin-left: 4px;
     }
-    
     .max-min label {
         margin-right: 20px;
     }
@@ -1299,12 +1298,15 @@ list-style: none;
 @media(max-width:1024px){
     .banner{
         display: block !important;
-        background-image: url(../img/banner.jpg);
-        width: 100%;
+        background-image: url(../img/ba.png);
+        /* width: 100%; */
         background-repeat: no-repeat;
         background-position: top center;
-        height: 350px;
-        margin-top: 100px;
+        width: 100vw;
+        height: 22vh;
+        margin-top: 60px;
+        background-size: cover !important;
+        background-attachment: inherit;
     }
 }
 
@@ -1663,7 +1665,7 @@ list-style: none;
     #pesquisar-produto select{
         border-radius: 10px;
         border: none;
-        width: 25vw;
+        width: 78vw;
         height: 50px;
         margin-top: 10px;
         text-align: left;

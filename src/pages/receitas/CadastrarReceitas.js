@@ -173,11 +173,10 @@ export default class CadastrarReceitas extends Component {
                                     <label className="lbl-form-cad-prod" htmlFor="nome-prod">Categoria:</label>
 
                                     <select
-                                        // id="cad-preco"
+                                        id="cad-preco"
                                         name="idCategoriaReceita"
                                         value={this.state.getCategoria.idCategoriaReceita}
                                         onChange={this.postSetState}
-                                        className="selectReceita"
                                     >
                                         <option value="">Escolha uma categoria: </option>
                                         {

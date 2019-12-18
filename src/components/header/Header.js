@@ -19,15 +19,14 @@ import Slide from '@material-ui/core/Slide'
 // Alternativa para realizar redirecionamentos com this.props.history.push
 import { withRouter } from 'react-router-dom'
 
-import '../../assets/css/modalLogin.css'
-
-import Fechar from '../../assets/img/fechar_login.png'
-import LogoModal from '../../assets/img/LogoModal.png'
-
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
+
+
+
+
 
 
 class Header extends Component {
@@ -191,50 +190,46 @@ class Header extends Component {
           aria-describedby="alert-dialog-slide-description"
           open={this.state.open}
           onClose={this.handleClose}
-          TransitionComponent={Transition}
-          className="modalLogin">
+          TransitionComponent={Transition}>
           <DialogTitle id="alert-dialog-slide-title">
 
           </DialogTitle>
           <form onSubmit={this.realizarLogin}>
-              <img src={Fechar}  alt="icone de fechar modal" onClick={this.closeDialog.bind(this)} className="closeBtn"/>
             <DialogContent>
-            <img src={LogoModal}  alt="logo Organix" className="logoModal"/>
               <DialogContentText id="alert-dialog-slide-description">
-              <Button>
-                </Button>
-               <p><label className="labelLogin">Email</label></p>
+                <h2>E-mail</h2>
                 <input
                   placeholder="E-Mail"
                   type="adress"
                   name="email"
                   value={this.state.email}
                   onChange={this.atualizaEstado}
-                  className="inputLogin"
 
-              />
-                
+                >
+                </input>
               </DialogContentText>
             </DialogContent>
 
             <DialogContent>
               <DialogContentText id="alert-dialog-slide-description">
-              <p><label className="labelLogin">Senha</label></p>
+                <h2>Senha</h2>
                 <input
                   placeholder="Senha"
                   type="password"
                   name="senha"
                   value={this.state.senha}
                   onChange={this.atualizaEstado}
-                  className="inputLogin"
-                />
-               
+                >
+                </input>
               </DialogContentText>
             </DialogContent>
 
             <DialogActions>
-              <Button
-                type="submit" className="MuiButton-label">
+              <Button onClick={this.closeDialog.bind(this)} color="primary" >
+                FECHAR
+                </Button>
+              <Button color="primary"
+                type="submit" >
                 LOGAR
                 </Button>
             </DialogActions>

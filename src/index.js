@@ -82,7 +82,7 @@ const Rotas = (
             <PermissaoComprador exact path="/CadastrarReceitas" component={CadastrarReceitas} />
             <PermissaoProdutor exact path="/ProdutosCadastrados" component={ProdutosCadastrados} />
             <PermissaoAdmin exact path="/CadastrarCategoria" component={CadastrarCategoria} />
-            <Route path="/AlterarCategoria" component={AlterarCategoria} />
+            <Route path="/alterarcategoria" component={AlterarCategoria} />
             <Route path="/Cadastro" component={Cadastro} />
             <PermissaoComprador path="/PerfilComprador" component={PerfilComprador} />
             <PermissaoProdutor path="/PerfilProdutor" component={PerfilProdutor} />

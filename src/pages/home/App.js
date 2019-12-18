@@ -20,7 +20,10 @@ function App() {
     <ResponsiveHome/>
       <Header/>
         <div className="banner"></div>
+        <div className="swiperHome">
+        <h2>Como Funciona?</h2>
         <SimpleSwiper/>
+        </div>
       <main>
         <div className="marg"></div>
         <div className="h1_dicas">

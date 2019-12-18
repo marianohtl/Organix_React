@@ -85,7 +85,7 @@ export default class FormularioCadastro extends Component {
         api.post('/Usuario', this.state.postCadastro)
             .then(response => {
                 this.setState({ ListaUsuario: response.data })
-                // console.log("Response do usuário cadastrado: ", this.state.ListaUsuario.idUsuario);
+                console.log("Response do usuário cadastrado: ", this.state.ListaUsuario.idUsuario);
 
                 let userTelefone = this.state.postTelefone;
                 let userEndereco = this.state.postEndereco;
@@ -117,7 +117,10 @@ export default class FormularioCadastro extends Component {
                 console.log(error);
                 this.setState({ erroMsg: "Não foi possível Cadastrar! Tente Novamente" });
             })
+
+
         setTimeout(() => {
+            this.props.fechar_modal();
             { this.setState({ erroMsg: "" }) }
         }, 2000);
     }
@@ -135,7 +138,6 @@ export default class FormularioCadastro extends Component {
                     </div>
 
                     <form id="cadastro_produtor" onSubmit={this.postCadastro}>
-                        {this.props.user_profile}
                         <h2>Dados Pessoais</h2>
                         <div className="container">
                             <div className="dadosPessoais">

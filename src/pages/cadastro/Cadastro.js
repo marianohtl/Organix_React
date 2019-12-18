@@ -36,10 +36,6 @@ export default class Cadastro extends Component {
         this.setState({fechar_modal:fechar_modal})
     }
 
-    componentDidUpdate(){
-        console.log("num", this.state.userProfile)
-    }
-
     
 
     render() {

@@ -131,7 +131,7 @@ export default class BuscarProdutos extends Component {
 
                         <div className="container-pesq-prod">
                             <form id="pesquisar-produto" onSubmit={this.carregaForm} to='/ProdutosEncontrados'>
-                                <label for="POST-nome-prod">Produto:</label>
+                                <label for="POST-nome-prod">Produto:
                             <select className="prodt" name="Produto" onChange={this.postSetState}>
                                         <option>Escolha</option>
                                         {this.state.listaProdutos.map(function (a) {
@@ -141,8 +141,8 @@ export default class BuscarProdutos extends Component {
                                         })
                                         }
                                     </select>
-                                
-                                <label for="POST-regiao">Região: </label>
+                                </label>
+                                <label for="POST-regiao">Região:
                             <select className="reg" name="Regiao" value={this.state.listaFiltro.Regiao} onChange={this.postSetState}>
                                         <option>Escolha</option>
                                         <option value="Norte" >Norte</option>
@@ -150,16 +150,16 @@ export default class BuscarProdutos extends Component {
                                         <option value="Leste">Leste</option>
                                         <option value="Oeste">Oeste</option>
                                     </select>
-                               
-                                <label for="POST-preco-min-prod">Preço Mínimo:  </label>
+                                </label>
+                                <label for="POST-preco-min-prod">Preço Mínimo:
                                     <input className="input_produto_list" id="POST-preco-prod" type="text" name="menorPreco"
                                         placeholder="R$0,00" defaultValue={this.state.listaFiltro.menorPreco} onChange={this.postSetState} />
-                              
-                                <label for="POST-preco-max-prod">Preço Máximo: </label>
-
+                                </label>
+                                <label for="POST-preco-max-prod">Preço Máximo:
                                     <input className="input_produto_list" id="POST-preco-prod" type="text" name="maiorPreco"
                                         placeholder="R$0,00" defaultValue={this.state.listaFiltro.maiorPreco} onChange={this.postSetState} />
-                                
+                                </label>
+
                                 <button type="submit" className="btn_cadastro2" onClick={() => this.getFiltro(this.state.listaFiltro)}>Buscar</button>
                             </form>
                         </div>

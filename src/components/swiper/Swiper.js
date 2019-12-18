@@ -1,78 +1,84 @@
 import React from "react"
 import Swiper from 'react-id-swiper'
 import { Link } from "react-router-dom"
-import morango from "../../assets/img/Slider/morango.png"
-import banana from "../../assets/img/Slider/banana.png"
-import abacaxi from "../../assets/img/Slider/abacaxi.png"
-import tomate from "../../assets/img/Slider/tomate.png"
-import agrotoxico from "../../assets/img/agrotóxico.png"
+import Woman from "../../assets/img/slides/woman.svg"
+import Fruit from "../../assets/img/slides/fruit.svg"
+import Conversation from "../../assets/img/slides/conversation.svg"
+import Farmer from "../../assets/img/slides/farmer.svg"
+import Sold from "../../assets/img/slides/vendeu.svg"
+import Buy from "../../assets/img/slides/shopping-online.svg"
+import Arrow from "../../assets/img/slides/right-arrow.svg"
 
 import 'swiper/css/swiper.css'
 
+
 const SimpleSwiper = () => {
   const params = {
-    slidesPerView: 3,
-    spaceBetween: 30,
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    }
-
+  
+    // slidesPerView: 3,
+    // spaceBetween: 10,
+    // pagination: {
+    //   el: '.swiper-pagination',
+    //   clickable: true,
+    //   autoplay: {
+    //     delay: 2500,
+    //     disableOnInteraction: false
+    //   },
+    // },
+    // navigation: {
+    //   nextEl: '.swiper-button-next',
+    //   prevEl: '.swiper-button-prev',
+    // }
+      spaceBetween: 30,
+      centeredSlides: true,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false
+      },
+      pagination: {
+        // el: '.swiper-pagination',
+        clickable: true
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      }
   }
+
+  
   return (
-    <Swiper {...params}>
-
-      <div className="swiper-slide">
-        <img src={agrotoxico} alt="Homem em meio a plantação com agrotóxicos."/>
-          <h3>Não há dose segura de agrotóxico!</h3>
-          <a href="https://www.hojeemdia.com.br/horizontes/pesquisa-indica-que-n%C3%A3o-h%C3%A1-dose-segura-de-agrot%C3%B3xico-1.733131" target="_blank" class="btn_saiba_mais">SAIBA MAIS</a>
-      </div>
-        <div className="swiper-slide">
-          <Link href=""><img src={banana} alt="Imagem de bananas" /></Link>
-          <p>Cesta Sortidas</p>
-          <p>Por apenas R$1,00</p>
-        </div>
-        <div className="swiper-slide">
-          <Link href=""><img src={morango} alt="Imagem de morangos" /></Link>
-          <p>Cesta Sortidas</p>
-          <p>Por apenas R$1,00</p>
-        </div>
-        <div className="swiper-slide">
-          <Link href=""><img src={abacaxi} alt="Imagem de um abacaxi" /></Link>
-          <p>Cesta Sortidas</p>
-          <p>Por apenas R$1,00</p>
-        </div>
-        <div className="swiper-slide">
-          <Link href=""><img src={tomate} alt="Imagem de tomates" /></Link>
-          <p>Cesta Sortidas</p>
-          <p>Por apenas R$1,00</p>
-        </div>
-        <div className="swiper-slide">
-          <Link href=""><img src={banana} alt="Imagem de bananas" /></Link>
-          <p>Cesta Sortidas</p>
-          <p>Por apenas R$1,00</p>
-        </div>
-        <div className="swiper-slide">
-          <Link href=""><img src={morango} alt="Imagem de morangos" /></Link>
-          <p>Cesta Sortidas</p>
-          <p>Por apenas R$1,00</p>
-        </div>
-        <div className="swiper-slide">
-          <Link href=""><img src={abacaxi} alt="Imagem de um abacaxi" /></Link>
-          <p>Cesta Sortidas</p>
-          <p>Por apenas R$1,00</p>
-        </div>
-        <div className="swiper-slide">
-          <Link href=""><img src={tomate} alt="Imagem de tomates" /></Link>
-          <p>Cesta Sortidas</p>
-          <p>Por apenas R$1,00</p>
-        </div>
-
-    </Swiper>
+    <div ClassName="swiperHome">
+     
+        <Swiper {...params}>
+        
+          <div className="swiper-slide">
+          
+          <Link href=""><img src={Farmer} alt="Imagem de um Fazendeiro"  width="250vw" /></Link>
+            <p>Sobrou?</p>  
+          </div>
+            <div className="swiper-slide">
+              <Link href=""><img src={Fruit} alt="Imagem de bananas " width="250vw" /></Link>
+              <p>Cadastrou</p>
+            </div>
+            <div className="swiper-slide">
+              <Link href=""><img src={Sold} alt="Imagem de morangos" width="250vw"  /></Link>
+              <p>Vendeu</p>
+            </div>
+            <div className="swiper-slide">
+          
+              <Link href=""><img src={Woman} alt="Imagem de morangos" width="250vw"  /></Link>
+              <p>Escolheu</p>
+            </div>
+            <div className="swiper-slide">
+              <Link href=""><img src={Conversation} alt="Imagem de morangos" width="250vw"  /></Link>
+              <p>Negociou</p>
+            </div>
+            <div className="swiper-slide">
+              <Link href=""><img src={Buy} alt="Imagem de morangos" width="250vw"  /></Link>
+              <p>Comprou</p>
+            </div>
+        </Swiper>
+    </div>
       )
     }
     
