@@ -18,6 +18,37 @@
     --roxo_fundo: #7e3f8159;
     --roxo_letra_fundo:#5a2a5d;
    }
+
+   .inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.inputfile + label {
+    /* width: 22vh;
+    height: 6vh; */
+    font-size: 1.2em;
+    border-radius: 4px;
+    padding: 11px;
+    border: none;
+    /* background-color: var(--azul); */
+    color:var(--roxo);
+    cursor: pointer;
+    font-weight: bold;
+    /* margin-top: 0px; */
+    font-family: 'Segoe UI';
+    display: flex;
+    align-items: center;
+}
+.iconCadastrar{
+    width: 2vw;
+    margin-right: 0.5vw;
+}
+
 /*_____________________________________________*/
 header{
     background-color: var(--branco);

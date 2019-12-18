@@ -20,9 +20,7 @@ export default class QuemSomos extends Component{
               <div className="historia-txt">
                 <h2>Nossa História</h2>
                 <p className="text-quem-somos">
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                  industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-                  scrambled it to make a type specimen book.</p>
+                Tudo começou em Julho de 2019 quando 6 desenvolvedores encontraram um problema: Grandes quantidades de Produtos orgânicos estavam sendo descartados. Visando resolver esse problema, foi criado a Organix, onde o objetivo é conectar produtores orgânicos com pessoas interessadas em comprar estes produtos. </p>
               </div>
             </div>
             </section>
@@ -32,26 +30,21 @@ export default class QuemSomos extends Component{
                 <div className="div-box">
                   <div className="div-txt">
                     <h4>Missão</h4>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                      industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-                      scrambled it to make a type specimen book.</p>
-                  </div>
-                </div>
-                <div className="div-box">
-                  <div className="div-txt">
-                    <h4>Valores</h4>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                      industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-                      scrambled it to make a type specimen book.
-                    </p>
+                    <p>Conectar em uma só plataforma tanto produtores orgânicos que querem vender o excedente de sua produção, quantos compradores interessados nestes produtos, assim, evitando o desperdício de produtos e deixando mais acessível a compra e venda de produtos orgânicos</p>
                   </div>
                 </div>
                 <div className="div-box">
                   <div className="div-txt">
                     <h4>Visão</h4>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                      industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-                      scrambled it to make a type specimen book.</p>
+                    <p>Tornar-se referência como a melhor plataforma de produtores/consumidores de produtos orgânicos do Brasil.
+                    </p>
+                    
+                  </div>
+                </div>
+                <div className="div-box">
+                  <div className="div-txt">
+                    <h4>Valores</h4>
+                    <p>Ética<br/>  Respeito<br/> Comprometimento <br/> Preservação do meio ambiente</p>
                   </div>
                 </div>
               </div>

@@ -7,6 +7,7 @@ import HeaderPerfil from "../../components/header/HeaderPerfil"
 import HeaderPerfilFull from "../../components/header/HeaderPerfilFull"
 import ResponsiveComprador from "../../components/responsive/ResponsiveComprador"
 import Footer from '../../components/Footer/Footer'
+import icon from "../../assets/img/photoIcon.svg"
 
 
 
@@ -173,10 +174,11 @@ export default class CadastrarReceitas extends Component {
                                     <label className="lbl-form-cad-prod" htmlFor="nome-prod">Categoria:</label>
 
                                     <select
-                                        id="cad-preco"
+                                        // id="cad-preco"
                                         name="idCategoriaReceita"
                                         value={this.state.getCategoria.idCategoriaReceita}
                                         onChange={this.postSetState}
+                                        className="selectReceita"
                                     >
                                         <option value="">Escolha uma categoria: </option>
                                         {
@@ -193,11 +195,15 @@ export default class CadastrarReceitas extends Component {
                                         }
                                     </select>
                                     <label className="lbl-form-cad-prod" htmlFor="dt-venc-prod">Imagem</label>
-                                    <input type="file" className="inp-date"
-                                        id="dt-venc-prod"
-                                        ref={this.state.fileInput} /><label>
-
+                                   <div className="btn-b">
+                                    <input type="file" className="inputfile"
+                                        id="file"
+                                        ref={this.state.fileInput} /><label for="file" >
+                                       <img src={icon} className="iconCadastrar" />
+                                            Escolha um arquivo
                                     </label>
+                                    </div>
+                                    
                                     <div className="btn-b">
                                         <button
                                             className="btn-cadastrar"
