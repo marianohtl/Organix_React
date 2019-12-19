@@ -761,7 +761,7 @@ text-align: center;
 /* CARD DAS RECEITAS */
 
 .imagem-redonda-card-receita img{
-    width: 200px;
+    width: 200px  !important;
     height: 200px;
     border-radius: 50%;
 
@@ -1354,7 +1354,6 @@ list-style: none;
         background-size: cover !important;
         background-attachment: inherit;
     }
-
 }
 
 @media(max-width:450px){
@@ -1846,7 +1845,7 @@ list-style: none;
     
     /*slider*/
     .swiper-slide img{
-        padding: 40px 8px; 
+        padding: 0px 8px; 
         width: 17%;
     }
     .card img{

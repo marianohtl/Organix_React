@@ -30,7 +30,7 @@ class SwiperProducts extends Component {
       }
     }
     this.params = {
-      slidesPerView: 3,
+      slidesPerView: 5,
       spaceBetween: 30,
       observer: true,
       pagination: {

@@ -11,7 +11,6 @@ import Arrow from "../../assets/img/slides/right-arrow.svg"
 
 import 'swiper/css/swiper.css'
 
-
 const SimpleSwiper = () => {
   const params = {
   
