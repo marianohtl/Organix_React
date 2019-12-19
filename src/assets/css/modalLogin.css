@@ -13,7 +13,7 @@
 
 .MuiButton-label{
     color: #7A3F86 !important;
-    font-size: 1.5em;
+    /* font-size: 1.5em; */
     width: 50% !important;
     display: inherit !important; 
     align-items: inherit !important; 

@@ -143,28 +143,28 @@ export default class FormularioCadastro extends Component {
                             <div className="dadosPessoais">
                                 <div className="dadosPessoais1">
                                     <label className="labelForm">Nome Completo/Razão Social:</label>
-                                    <input id="POST-nome-produtor" type="text" placeholder="Digite o Nome Completo/Razão Social..." className="inputForm"
+                                    <input id="POST-nome-produtor" type="text" className="inputForm"
                                         name="nome"
                                         value={this.state.postCadastro.nome}
                                         onChange={this.postSetState}
                                     />
 
                                     <label className="labelForm">E-mail:</label>
-                                    <input id="POST-email-produtor" type="email" placeholder="Digite o email" className="inputForm"
+                                    <input id="POST-email-produtor" type="email"  className="inputForm"
                                         name="email"
                                         value={this.state.postCadastro.email}
                                         onChange={this.postSetState}
                                     />
 
                                     <label className="labelForm">Telefone:</label>
-                                    <input id="POST-tel-prod" className="inputForm" placeholder="Digite o telefone"
+                                    <input id="POST-tel-prod" className="inputForm" 
                                         name="telefone1"
                                         value={this.state.postTelefone.telefone1}
                                         onChange={this.postSetStateTel}
                                     />
 
                                     <label className="labelForm">Celular:</label>
-                                    <input id="POST-cel-prod" className="inputForm" placeholder="Digite o celular"
+                                    <input id="POST-cel-prod" className="inputForm" 
                                         name="celular"
                                         value={this.state.postTelefone.celular}
                                         onChange={this.postSetStateTel}
@@ -173,21 +173,21 @@ export default class FormularioCadastro extends Component {
 
                                 <div className="dadosPessoais1">
                                     <label className="labelForm">CPF/CNPJ:</label>
-                                    <input id="POST-cpf-comprador" type="text" placeholder="Digite o CPF/CNPJ" className="inputForm"
+                                    <input id="POST-cpf-comprador" type="text" className="inputForm"
                                         name="cpfCnpj"
                                         value={this.state.postCadastro.cpfCnpj}
                                         onChange={this.postSetState}
                                     />
 
                                     <label className="labelForm">Senha:</label>
-                                    <input id="POST-senha-prod" type="password" placeholder="Mínimo 6 caracteres" className="inputForm"
+                                    <input id="POST-senha-prod" type="password"  className="inputForm"
                                         name="senha"
                                         value={this.state.postCadastro.senha}
                                         onChange={this.postSetState}
                                     />
 
                                     <label className="labelForm"> Confirme a senha:</label>
-                                    <input id="POST-senha-prod2" type="password" placeholder="Confirme a senha" className="inputForm"
+                                    <input id="POST-senha-prod2" type="password" className="inputForm"
                                         name="senhaConfirmacao"
                                         value={this.state.postCadastro.senhaConfirmacao}
                                         onChange={this.postSetState}
@@ -200,21 +200,21 @@ export default class FormularioCadastro extends Component {
                             <div className="endereco">
                                 <div className="endereco1">
                                     <label className="labelForm">CEP:</label>
-                                    <input id="POST-cep-prod2" className="inputForm" placeholder="Digite o CEP"
+                                    <input id="POST-cep-prod2" className="inputForm" 
                                         name="cep"
                                         value={this.state.postEndereco.cep}
                                         onChange={this.postSetStateEnd}
                                     />
 
                                     <label className="labelForm">Endereço:</label>
-                                    <input id="POST-endereco-prod2" className="inputForm" placeholder="Digite o endereço"
+                                    <input id="POST-endereco-prod2" className="inputForm" 
                                         name="rua"
                                         value={this.state.postEndereco.rua}
                                         onChange={this.postSetStateEnd}
                                     />
 
                                     <label className="labelForm">Bairro:</label>
-                                    <input id="POST-bairro-prod2" className="inputForm" placeholder="Digite o bairro"
+                                    <input id="POST-bairro-prod2" className="inputForm" 
                                         name="bairro"
                                         value={this.state.postCadastro.bairro}
                                         onChange={this.postSetStateEnd}
@@ -222,21 +222,21 @@ export default class FormularioCadastro extends Component {
                                 </div>
                                 <div className="endereco1">
                                     <label className="labelForm">Cidade:</label>
-                                    <input id="POST-cidade-prod2" className="inputForm" placeholder="Digite a cidade"
+                                    <input id="POST-cidade-prod2" className="inputForm" 
                                         name="cidade"
                                         value={this.state.postEndereco.cidade}
                                         onChange={this.postSetStateEnd}
                                     />
 
                                     <label className="labelForm">Estado:</label>
-                                    <input id="POST-estado-prod2" className="inputForm" placeholder="Digite o estado"
+                                    <input id="POST-estado-prod2" className="inputForm" 
                                         name="estado"
                                         value={this.state.postEndereco.estado}
                                         onChange={this.postSetStateEnd}
                                     />
 
                                     <label className="labelForm">Região:</label>
-                                    <input id="POST-regiao-prod2" className="inputForm" placeholder="Digite a região"
+                                    <input id="POST-regiao-prod2" className="inputForm" 
                                         name="regiao"
                                         value={this.state.postEndereco.regiao}
                                         onChange={this.postSetStateEnd}

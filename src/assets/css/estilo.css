@@ -123,8 +123,9 @@ a {
 /* FOOTER */
 
 footer{
- background-color: var(--branco);
- box-shadow: 2px -4px 7px -5px rgba(128,128,128)
+    background-color: var(--branco);
+    box-shadow: 2px -4px 7px -5px rgba(128,128,128);
+    position: relative;
 }
 .container-home-footer {
     width: 80%; 
@@ -262,11 +263,12 @@ font-family: var(--fonte_titulo);
 }
 .swiperHome{
     margin-top: 500px;  
-    background-image:linear-gradient(rgba(132, 66, 130,0.2),rgba(132, 66, 130,0.2)) !important; 
+    background-color: #ffeb3b57;
     height: 400px;
     padding:  0px;
-    margin: -5px auto !important;
+    margin: 0px auto !important;
     z-index: 0 !important;
+    
 }
 
 .swiperHome h2{
@@ -467,6 +469,8 @@ font-family: var(--fonte_titulo);
     padding: 5px 15px 5px 15px;
     margin-top: 20px;
     border-radius: 10px;
+    border: none;
+    font-size: 1.2em;
 }
 
 
@@ -630,6 +634,7 @@ font-family: var(--fonte_titulo);
 
 .container-cards ul {
 list-style: none;
+text-align: center;
 }
 
 .card-produto {
@@ -651,6 +656,7 @@ list-style: none;
     font-size: 16px;
     font-family: var(--fonte_titulo);
     color: var(--roxo_letra_fundo);
+    padding-bottom: 10px;
 }
 
 .card-produto button {
@@ -659,10 +665,14 @@ list-style: none;
     background-color: white;
     border-radius: 8px;
     font-family: var(--fonte_titulo);
-    font-size: 15px;
     color: var(--roxo);
     font-weight: bold;
-
+    /* border: none; */
+    cursor: pointer;
+}
+.card-produto button:hover{
+    background-color: var(--verde_claro);
+    color: var(--roxo_letra_fundo);    
 }
 
 .imagem-redonda-card-produto{
@@ -700,15 +710,18 @@ list-style: none;
 
 
 /* LADO ESQUERDO */
+
+.admPainel{
+    position: fixed;
+    width: 30%;
+}
+
 .esquerdo_perfil img{
     width: 50%;
     margin-top: 150px;   
 }
 
 .esquerdo_perfil{
-    /*________*/
-    margin:auto;
-    /*_____________*/
     width: 40%;
     height: 100vh;
     text-align: center;
@@ -791,7 +804,7 @@ list-style: none;
     flex-wrap: wrap;
     justify-content: center;
     background-color: var(--roxo_fundo);
-    /* width: 80%; */
+    width: 45%;
     padding: 40px;
     border-radius: 30px;
     font-family: var(--fonte_titulo);
@@ -812,9 +825,9 @@ list-style: none;
 }
 
 #pesquisar-produto #POST-preco-prod{
-width: 5vw;
-height: 4vh;
-margin-left: 10px;
+    width: 26vw;
+    height: 4vh;
+    margin-left: 10px;
 }
 
 .max-min{
@@ -836,10 +849,10 @@ margin-left: 10px;
     font-weight: bold;
 }
 
-#pesquisar-produto select{
+#pesquisar-produto select {
     border-radius: 10px;
     border: none;
-    /* width: 10vw; */
+    width: 28vw;
     /* height: 50px; */
     font-size: 20px;
     margin-left: 10px;
@@ -853,7 +866,7 @@ margin-left: 10px;
 .prodt{
     width: 20vh;
     height: 6vh;
-    margin-top: 10%;
+    margin-top: 2vh;
     font-family: var(--fonte_titulo);
     /* font-weight: bold; */
     font-size: 20px;
@@ -862,6 +875,7 @@ margin-left: 10px;
 .reg{
     width: 20vh;
     height: 6vh;
+  
     font-family: var(--fonte_titulo);
     font-size: 20px;
     /* font-weight: bold; */
@@ -877,6 +891,7 @@ margin-left: 10px;
     border-radius: 10px;
     padding: 10px;
     font-size: 20px;
+    
 }
 
 
@@ -1339,6 +1354,7 @@ list-style: none;
         background-size: cover !important;
         background-attachment: inherit;
     }
+
 }
 
 @media(max-width:450px){
@@ -1379,8 +1395,15 @@ list-style: none;
 }
 
 
-.swiper-container {
-    display: none !important;
+
+.swiperHome h2{
+    padding-top: 5vw;
+    font-size: 1.1em;
+}
+
+.swiper-slide img{
+    padding: 40px 8px; 
+    width: 50% !important;
 }
 
 
@@ -1696,12 +1719,12 @@ list-style: none;
     #pesquisar-produto select{
         border-radius: 10px;
         border: none;
-        width: 78vw;
+        width:50vw;
         height: 50px;
         margin-top: 10px;
         text-align: left;
         
-        }
+    }
 
     .esquerdo_perfil{
         display: none !important;
@@ -1738,7 +1761,8 @@ list-style: none;
 @media(max-width:1024px){
     .swiper-slide img{
         padding: 40px 8px; 
-        width: 70%;
+        width: 25%;
+
     }
 
 /* header*/
@@ -1823,7 +1847,7 @@ list-style: none;
     /*slider*/
     .swiper-slide img{
         padding: 40px 8px; 
-        width: 70%;
+        width: 17%;
     }
     .card img{
         width: 65%;

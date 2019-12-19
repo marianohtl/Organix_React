@@ -4,8 +4,8 @@ import { parseJwt, usuarioAutenticado } from "../../services/auth"
 import React, { Component } from "react"
 import { api } from "../../services/api"
 
-import Qiyana from "../../assets/img/token_1.png"
-import Fizz from "../../assets/img/token_2.png"
+import Qiyana from "../../assets/img/Perfil/comprador.png"
+import Fizz from "../../assets/img/Perfil/Agrupar 91.png"
 import Orianna from "../../assets/img/token_3.png"
 
 
@@ -38,7 +38,7 @@ export default class HeaderPerfilFull extends Component {
             <>
 
 
-                <div>
+                <div className="admPainel">
                     {
                         usuarioAutenticado() && parseJwt().Role === "1" ?
                             (

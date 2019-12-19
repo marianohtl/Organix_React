@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import {api} from '../../services/api';
+import { api } from '../../services/api';
 import '../../assets/css/estilo.css';
 import { Link } from 'react-router-dom';
 
@@ -53,7 +53,7 @@ export default class ProdutosEncontrados extends Component {
                         rua: "''",
                         bairro: "''",
                         regiao: "''",
-                        cidade:"",
+                        cidade: "",
                     }],
 
                 },
@@ -97,7 +97,7 @@ export default class ProdutosEncontrados extends Component {
     render() {
         return (
             <>
-            <ResponsiveProdutor />
+                <ResponsiveProdutor />
                 <HeaderPerfil />
                 <main className="itens-encontrados">
                     <div className="esquerdo_perfil">
@@ -106,77 +106,74 @@ export default class ProdutosEncontrados extends Component {
                             <HeaderPerfilFull />
                         </div>
                     </div>
-                <div className="lado-direito-resultado">
-                    <div className="container-perfil">
-                        <h2>Produtos Encontrados</h2>
-                        <div className="container-cards">
-                            {
-                                this.state.listaFiltro.map(
-                                    function (a) {
-                                        return (
-                                            <div className="card-produto">
-                                                <div className="imagem-redonda-card-produto"> <img src="" alt="" /></div>
-                                                <p className='nome-produto'>{a.nome_produto}</p>
-                                                <ul>
-                                                    <li>Preço: {a.preco}</li>
-                                                    <li>Região: {a.regiao}</li>
-                                                    <li>Data de Fabricação: {a.data_fabricacao}</li>
-                                                    <li>Data de Fabricação: {a.data_vencimento}</li>
-                                                    <li>Data de Fabricação: {a.id_oferta}</li>
-                                                    <button onClick={e => this.handleClickOpen(a.id_oferta)}>Negociar</button>
-                                                </ul>
-                                            </div>
-                                        )
-                                    }.bind(this)
-                                )
-                            }
+                    <div className="lado-direito-resultado">
+                        <div className="container-perfil">
+                            <h2>Produtos Encontrados</h2>
+                            <div className="container-cards">
+                                {
+                                    this.state.listaFiltro.map(
+                                        function (a) {
+                                            return (
+                                                <div className="card-produto">
+                                                    <div className="imagem-redonda-card-produto"> <img src="" alt="" /></div>
+                                                    <p className='nome-produto'>{a.nome_produto}</p>
+                                                    <ul>
+                                                        <li>Preço: {a.preco}</li>
+                                                        <li>Região: {a.regiao}</li>
+                                                        <li>Data de Fabricação: {a.data_fabricacao}</li>
+                                                        <li>Data de Fabricação: {a.data_vencimento}</li>
+                                                        <li>Data de Fabricação: {a.id_oferta}</li>
+                                                        <button onClick={e => this.handleClickOpen(a.id_oferta)}>Negociar</button>
+                                                    </ul>
+                                                </div>
+                                            )
+                                        }.bind(this)
+                                    )
+                                }
 
+                            </div>
+                            <div className="lado-direito-resultado1"></div>
                         </div>
-                        <button onClick={this.handleClickOpen}>Negociar</button>
-
-
-                        <div className="lado-direito-resultado1"></div>
                     </div>
-                </div>
-                <>
-                    <Dialog
-                        open={this.state.open}
-                        TransitionComponent={Transition}
-                        keepMounted
-                        onClose={this.handleClose}
-                        aria-labelledby="alert-dialog-slide-title"
-                        aria-describedby="alert-dialog-slide-description"
-                        className="dialogForm"
-                    >
-                        <DialogTitle id="alert-dialog-slide-title">{"PRODUTOR"}</DialogTitle>
-                        <DialogContent>
-                            <DialogContentText id="alert-dialog-slide-description">
+                    <>
+                        <Dialog
+                            open={this.state.open}
+                            TransitionComponent={Transition}
+                            keepMounted
+                            onClose={this.handleClose}
+                            aria-labelledby="alert-dialog-slide-title"
+                            aria-describedby="alert-dialog-slide-description"
+                            className="dialogForm"
+                        >
+                            <DialogTitle id="alert-dialog-slide-title">{"PRODUTOR"}</DialogTitle>
+                            <DialogContent>
+                                <DialogContentText id="alert-dialog-slide-description">
 
 
 
-                                <div className="card-produto">
-                                    <div className="imagem-redonda-card-produto"> <img src="" alt="" /></div>
-                                    <p className='nome-produto'>{this.state.umProduto.nome_produto}</p>
-                                    <ul>
-                                        <li>Nome: {this.state.umProduto.idUsuarioNavigation.nome}</li>
-                                        <li>Telefone: {this.state.umProduto.idUsuarioNavigation.telefone[0] ? this.state.umProduto.idUsuarioNavigation.telefone[0].telefone1: ""}</li>
-                                        <li>Celular: {this.state.umProduto.idUsuarioNavigation.telefone[0] ? this.state.umProduto.idUsuarioNavigation.telefone[0].celular: ""}</li>
-                                        <li>Endereço: {this.state.umProduto.idUsuarioNavigation.endereco[0] ? this.state.umProduto.idUsuarioNavigation.endereco[0].rua: ""}</li>
-                                        <li>Cidade: {this.state.umProduto.idUsuarioNavigation.endereco[0] ? this.state.umProduto.idUsuarioNavigation.endereco[0].cidade: ""}</li>
-                                        <li>Região: {this.state.umProduto.idUsuarioNavigation.endereco[0] ? this.state.umProduto.idUsuarioNavigation.endereco[0].regiao: ""}</li>
-                                    </ul>
-                                </div>
+                                    <div className="card-produto">
+                                        <div className="imagem-redonda-card-produto"> <img src="" alt="" /></div>
+                                        <p className='nome-produto'>{this.state.umProduto.nome_produto}</p>
+                                        <ul>
+                                            <li>Nome: {this.state.umProduto.idUsuarioNavigation.nome}</li>
+                                            <li>Telefone: {this.state.umProduto.idUsuarioNavigation.telefone[0] ? this.state.umProduto.idUsuarioNavigation.telefone[0].telefone1 : ""}</li>
+                                            <li>Celular: {this.state.umProduto.idUsuarioNavigation.telefone[0] ? this.state.umProduto.idUsuarioNavigation.telefone[0].celular : ""}</li>
+                                            <li>Endereço: {this.state.umProduto.idUsuarioNavigation.endereco[0] ? this.state.umProduto.idUsuarioNavigation.endereco[0].rua : ""}</li>
+                                            <li>Cidade: {this.state.umProduto.idUsuarioNavigation.endereco[0] ? this.state.umProduto.idUsuarioNavigation.endereco[0].cidade : ""}</li>
+                                            <li>Região: {this.state.umProduto.idUsuarioNavigation.endereco[0] ? this.state.umProduto.idUsuarioNavigation.endereco[0].regiao : ""}</li>
+                                        </ul>
+                                    </div>
 
 
 
-                            </DialogContentText>
-                        </DialogContent>
-                        <DialogActions>
-                        </DialogActions>
-                    </Dialog>
-                </>
-            </main>
-            <Footer/>
+                                </DialogContentText>
+                            </DialogContent>
+                            <DialogActions>
+                            </DialogActions>
+                        </Dialog>
+                    </>
+                </main>
+                <Footer />
             </>
         )
     }

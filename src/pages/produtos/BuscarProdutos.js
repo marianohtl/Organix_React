@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 // import { useState } from "react";
-import {api} from '../../services/api';
+import { api } from '../../services/api';
 import '../../assets/css/estilo.css';
 // import { Link } from 'react-router-dom';
 
@@ -80,9 +80,9 @@ export default class BuscarProdutos extends Component {
             })
 
     }
-      
 
-    
+
+
 
 
     componentDidMount() {
@@ -124,15 +124,15 @@ export default class BuscarProdutos extends Component {
                             <HeaderPerfilFull />
                         </div>
                     </div>
-                <div className="lado-direito-resultado">
-                    <div className="container-perfil">
+                    <div className="lado-direito-resultado">
+                        <div className="container-perfil">
 
-                        <h2>Buscar Produtos</h2>
+                            <h2>Buscar Produtos</h2>
 
-                        <div className="container-pesq-prod">
-                            <form id="pesquisar-produto" onSubmit={this.carregaForm} to='/ProdutosEncontrados'>
-                                <label for="POST-nome-prod">Produto:
-                            <select className="prodt" name="Produto" onChange={this.postSetState}>
+                            <div className="container-pesq-prod">
+                                <form id="pesquisar-produto" onSubmit={this.carregaForm} to='/ProdutosEncontrados'>
+                                    <label for="POST-nome-prod">Produto: </label>
+                                    <select className="prodt" name="Produto" onChange={this.postSetState}>
                                         <option>Escolha</option>
                                         {this.state.listaProdutos.map(function (a) {
                                             return (
@@ -141,33 +141,33 @@ export default class BuscarProdutos extends Component {
                                         })
                                         }
                                     </select>
-                                </label>
-                                <label for="POST-regiao">Região:
-                            <select className="reg" name="Regiao" value={this.state.listaFiltro.Regiao} onChange={this.postSetState}>
+
+                                    <label for="POST-regiao">Região:</label>
+                                    <select className="reg" name="Regiao" value={this.state.listaFiltro.Regiao} onChange={this.postSetState}>
                                         <option>Escolha</option>
                                         <option value="Norte" >Norte</option>
                                         <option value="Sul">Sul</option>
                                         <option value="Leste">Leste</option>
                                         <option value="Oeste">Oeste</option>
                                     </select>
-                                </label>
-                                <label for="POST-preco-min-prod">Preço Mínimo:
+
+                                    <label for="POST-preco-min-prod">Preço Mínimo:</label>
                                     <input className="input_produto_list" id="POST-preco-prod" type="text" name="menorPreco"
                                         placeholder="R$0,00" defaultValue={this.state.listaFiltro.menorPreco} onChange={this.postSetState} />
-                                </label>
-                                <label for="POST-preco-max-prod">Preço Máximo:
+
+                                    <label for="POST-preco-max-prod">Preço Máximo:</label>
                                     <input className="input_produto_list" id="POST-preco-prod" type="text" name="maiorPreco"
                                         placeholder="R$0,00" defaultValue={this.state.listaFiltro.maiorPreco} onChange={this.postSetState} />
-                                </label>
 
-                                <button type="submit" className="btn_cadastro2" onClick={() => this.getFiltro(this.state.listaFiltro)}>Buscar</button>
-                            </form>
+
+                                    <button type="submit" className="btn_cadastro2" onClick={() => this.getFiltro(this.state.listaFiltro)}>Buscar</button>
+                                </form>
+                            </div>
+                            <div className="lado-direito-resultado1"></div>
                         </div>
-                        <div className="lado-direito-resultado1"></div>
                     </div>
-                </div>
-            </main>
-            <Footer/>
+                </main>
+                <Footer />
             </>
         )
     }
