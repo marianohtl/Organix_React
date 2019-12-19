@@ -93,11 +93,13 @@ a {
 
 footer{
  background-color: var(--branco);
+ box-shadow: 2px -4px 7px -5px rgba(128,128,128)
 }
 .container-home-footer {
     width: 80%; 
     height: 10vh;
-    margin: auto;
+    margin:5px auto;
+    
 }
 
 .centro-footer p {
@@ -231,7 +233,7 @@ font-family: var(--fonte_titulo);
     background-image:linear-gradient(rgba(132, 66, 130,0.3),rgba(132, 66, 130,0.3)); 
     height: 400px;
     padding:  0px;
-    margin: -5px auto !important;
+    margin: 0px auto !important;
     z-index: 0 !important;
 }
 
@@ -305,7 +307,7 @@ font-family: var(--fonte_titulo);
     font-size: 25px;
 }
 .nossa-historia{
-    margin-top: 80px;
+    margin-top: 60px;
     text-align: center;
     justify-content: center;
     height: 650px;
@@ -322,6 +324,7 @@ font-family: var(--fonte_titulo);
 .historia-txt h2{
     font-family: var(--fonte_titulo);
     margin-bottom: 30px;
+    text-shadow: 3px 1px 1px rgba(0,0,0,0.6);
 }
 .historia-txt{
     width: 1000px;
@@ -330,6 +333,25 @@ font-family: var(--fonte_titulo);
     font-family: var(--fonte_text);
 }
 
+.text-quem-somos{
+    text-shadow: 3px 1px 1px rgba(0,0,0,0.6);
+}
+
+.blur-quem-somos{
+ background-color:rgba(0, 0, 0, 0.1);
+ margin-top: -8px;
+ text-align: center;
+ justify-content: center;
+ height: 655px;
+ width: 100%;
+ align-items: center;
+ background-repeat: no-repeat;
+ background-position: top center;
+ background-size: cover;
+ color: var(--branco);
+ display: flex;
+ background-attachment: fixed;
+}
 /*Quem Somos (Igor)*/
 
 /* TELA DE CADASTRO */
@@ -339,7 +361,7 @@ font-family: var(--fonte_titulo);
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
-    margin-top:80px;
+    margin-top:60px;
 }
 
 .btn_cadastro{
@@ -440,19 +462,21 @@ font-family: var(--fonte_titulo);
 
 /* FORM CADASTRO-COMPRADOR / PRODUTOR */
 
-.body_form{
-    background-color: gray;
-}
 
 .main_cadastro_comprador, .main_cadastro_produtor{
     background-color:var(--roxo-claro);
     color: var(--branco);
     font-family: var(--fonte_titulo);
-    width: 80vw;
-    height: 80vh;
+    width: 50vw;
+    /* height: 50vh; */
     padding: 50px;
     margin: auto;
-    padding-bottom:100px;
+    /* padding-bottom:100px; */
+    position: absolute;
+    top: 160px;
+    left: 0;
+    right: 0;
+    border-radius: 20px;
 }
 
 .container-cadastro-comprador, .container-cadastro-produtor{
@@ -469,71 +493,39 @@ font-family: var(--fonte_titulo);
     text-align: center;
 }
 
-#cadastro_comprador, #cadastro_produtor{
-    display: flex;
-    justify-content: space-between;
-    text-align: left;
-    margin: auto;
-}
-
-
-#cadastro_comprador label, #cadastro_produtor label{
-    font-size: 1.5em;
-
-}
-
-#cadastro_comprador input, #cadastro_comprador select, #cadastro_produtor input, #cadastro_produtor select{
-    border: none;
-    border-radius: 10px;
-    padding: 15px;
-    margin-bottom: 4%;
-    margin-top: 1%;
-    font-size: 1em; 
-    
-}
-
-#cadastro_comprador ::placeholder , #cadastro_produtor ::placeholder {
-    padding-left: 10px;
-
-}
-
-#cadastro_comprador div, #cadastro_produtor div{
-    display: flex;
-    flex-direction: column;
-}
-
-#cadastro_comprador .form_txt, #cadastro_produtor .form_txt{
-    width: 20vw;
-}
-
-#cadastro_comprador .form_txt_cidade,  #cadastro_produtor .form_txt_cidade{
-    width: 10vw;
-}
-#cadastro_comprador .form_date{
-    width: 8vw;
-}
-
-#cadastro_comprador .form_number,  #cadastro_produtor .form_number {
-    width: 15vw;
-}
-
-#cadastro_comprador .form_lista,  #cadastro_produtor .form_lista{
-    width: 11vw;
-}
-
-
 #cadastro_comprador .btn, #cadastro_produtor .btn{
-    width: 15vw;
+    width: 10vw;
     font-size: 30px;
-    bottom: 0px;
+    /* bottom: 0px; */
     background-color: var(--verde_claro);
     color: var(--roxo);
-    margin-top: 100px;
-
+    margin-top: 37px;
+    border: none;
+    border-radius: 10px;
+    padding: 15px 0px 15px 0px;
+    margin-left: 3vw;
+    
+    
+}
+.backdrop_form{
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.6); 
+    position: fixed; /* Stay in place */
+    z-index: 1;
+    /* padding-top: 100px; Location of the box */
+    left: 0;
+    top: 0;
 }
 
-
-
+.btnCloseModal_form{
+    background-color: #0000;
+    border:none;
+    display: flex;
+    justify-items: flex-end;
+    margin-left: 48vw;
+}
 
 /* PÁGINA DE RESULTADO DE PRODUTOS */
 
@@ -631,6 +623,29 @@ list-style: none;
     height: 80%;
 }
 
+.btnCadastro{
+    background-color: var(--verde_claro);
+    color: var(--roxo);
+    border:none;
+    padding: 5px 15px 5px 15px;
+     margin-top: 15px;
+     border-radius: 10px;
+     text-decoration: none;
+     text-align: center;
+     text-decoration: none;
+     color: var(--roxo);
+     font-weight: bold;
+     font-size: 25px;
+     font-family: var(--fonte_titulo);
+     cursor: pointer;
+}
+
+.erroMsg{
+    text-align: center;
+    font-size: 1.5em;
+    margin-top: 2vw;
+}
+
 /*______________________________*/
 
 
@@ -689,11 +704,7 @@ list-style: none;
 
 }
 
-/* .swiper-container {
-    background-color: var(--verde-verdadeiro);
-    text-align: center;
-  
-} */
+
 /* modificações para mobile*/
 
 .menu_perfil{
@@ -843,10 +854,28 @@ margin-left: 10px;
     font-weight: bold;
     font-size: 25px;
 }
+.container-perfil3 h4{
+    font-family: var(--fonte_titulo);
+    color: var(--roxo_letra_fundo);
+    font-weight: bold;
+    font-size: 25px;
+}
 
 .container-perfil2 {
     margin: auto;
     margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color:var(--roxo_fundo);
+    width: 80%;
+    padding: 45px 20px 45px 20px;
+    border-radius: 10px;
+    line-height: 3em;
+}
+.container-perfil3 {
+    margin: auto;
+    margin-bottom: 120px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -862,8 +891,18 @@ margin-left: 10px;
 list-style: none;
 
 }
+.container-perfil3 input {
+    list-style: none;
+    
+    }
 
 .container-perfil2 p{
+    color: black;
+    font-family: var(--fonte_titulo);
+    font-size: 20px;
+
+}
+.container-perfil3 p{
     color: black;
     font-family: var(--fonte_titulo);
     font-size: 20px;
@@ -1217,11 +1256,13 @@ list-style: none;
     .max-min label {
         margin-right: 20px;
     }
-/*cad produtor e comprador*/
+
     
+/*cad produtor e comprador*/
 .main_cadastro_comprador, .main_cadastro_produtor{
-    height: 100%;  
+    height: 60%;
 }
+
 /*---------------------------*/
 
 /*MENU PARA CELULAR*/
@@ -1230,28 +1271,24 @@ list-style: none;
 }
 
 /* MEDIAs */
+
+@media(max-width:1024px){
+    .banner{
+        display: block !important;
+        background-image: url(../img/ba.png);
+        /* width: 100%; */
+        background-repeat: no-repeat;
+        background-position: top center;
+        width: 100vw;
+        height: 70vh;
+        margin-top: 60px;
+        background-size: cover !important;
+        background-attachment: inherit;
+    }
+}
+
 @media(max-width:450px){
-/*MENU PARA CELULAR*/
-.container-home{
-    display: none !important;
-    
-}
-.container-home-responsivo{
-    width: 100%;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 0px 15px 0px;
-    text-align: center;
-    background-color: var(--roxo);
-    -webkit-box-shadow: 1px 2px 3px 1px rgba(112,112,112,1);
-    -moz-box-shadow: 1px 2px 3px 1px rgba(112,112,112,1);
-    box-shadow: 1px 2px 3px 1px rgba(112,112,112,1);
-  
-    position: fixed;
-    top: 0px;
-}
+
 .logo-cenoura{
     width: 54px;
     height: 54px;
@@ -1268,20 +1305,12 @@ list-style: none;
     font-weight: bold;
     font-family: var(--fonte_titulo);
     font-size: 1.3em;
+    display: none !important;
 }
 
 
 .swiper-container {
     display: none !important;
-}
-.banner{
-    display: block !important;
-    background-image: url(../img/banner.jpg);
-    width: 100%;
-    background-repeat: no-repeat;
-    background-position: top center;
-    height: 350px;
-    margin-top: 10px;
 }
 
 
@@ -1290,17 +1319,7 @@ list-style: none;
     color: var(--roxo);
 }
 
-footer{
-    background-color: var(--roxo);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 6vh;
-    margin-top: -6px;
-}
-.icone-redesocial-footer{
-    display: none;
-}
+
 .icone-redesocial-footer-mobile{
     display: flex;
     align-items: center;
@@ -1372,10 +1391,10 @@ footer{
     
   
     .swiper-container{
-        background-color: var(--roxo);
+        /* background-color: var(--roxo); */
         height: 400px;
         padding:  0px;
-        margin: -5px auto !important;
+        margin: 0px auto !important;
         z-index: 0 !important;
     }
 
@@ -1429,10 +1448,17 @@ footer{
     .container-perfil2 p{
         font-size: 15px;
     }
+    .container-perfil3 p{
+        font-size: 15px;
+    }
 
     .container-perfil2 h4{
         font-size: 18px;
     }
+    .container-perfil3 h4{
+        font-size: 18px;
+    }
+
 
     .botao-perfil{
         margin-top: 1vh;
@@ -1494,49 +1520,16 @@ footer{
         /* text-align: center; */
         display: flex;
     }
-     /* FORMULÁRIO */
     
- 
-  
-  #cadastro_comprador,#cadastro_produtor {
-      display: flex;
-      flex-direction: column;
-      margin: auto;
-      width: 50%;
-  }
-
-  #cadastro_comprador label, #cadastro_produtor label{
-      font-size:1em;
-  }
-  
-  #cadastro_comprador div, #cadastro_produtor div {
-      display: flex;
-      flex-direction: column;
-  }
-  
-  #cadastro_comprador input, #cadastro_comprador select, #cadastro_produtor input,#cadastro_produtor select {
-      border: none;
-      border-radius: 10px;
-      padding: 10px;
-      font-size: 1em;
-  }
-  #cadastro_comprador .media_input_cad, #cadastro_produtor .media_input_cad{
-       width: 50vw;
-  }
-         
-  
-  #cadastro_comprador .btn, #cadastro_produtor .btn{
-      font-size: 20px;
-      bottom: 0px;
-      background-color: var(--verde_claro);
-      color: var(--roxo);
-      margin-top: 40px;
-}   
-
 }
 
 @media(max-width:800px){
-    .container-home {
+    .container-home{
+        display: none !important;
+        
+    }
+
+    /* .container-home {
         width: 375px;
         margin: auto;
         display: flex;
@@ -1545,7 +1538,7 @@ footer{
         justify-content: center; 
         padding: 20px 0px 20px 0px;
         text-align: center;
-    }
+    } */
     .ul-home li {
         padding:2px;
     }
@@ -1668,23 +1661,17 @@ footer{
 
 /* header*/
 .container-home {
-    width: 375px;
-    margin: auto;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center; 
-    padding: 20px 0px 20px 0px;
-    text-align: center;
+  display: none !important;
 }
+
 
 /*Adicionado 09/08/2019*/
 .banner{
     display: none;
 }
-.marg{
+/* .marg{
     margin-bottom: 150px;
-}
+} */
 .dicas{
     font-size: 15px;
     padding: 40px 20px;
@@ -1728,7 +1715,7 @@ footer{
 }
 
 @media(max-width:1100px){
-    .container-home {
+    /* .container-home {
     width: 375px;
     margin: auto;
     display: flex;
@@ -1737,7 +1724,7 @@ footer{
     justify-content: center; 
     padding: 20px 0px 20px 0px;
     text-align: center;
-    }
+    } */
 }
 @media(max-width:1240px){
     /*espaço header*/

@@ -1,20 +1,26 @@
 import React, {Component} from 'react';
 import {api,apiFormData} from "../../services/api"
 import { parseJwt } from "../../services/auth"
-import Fab from '@material-ui/core/Fab';
-import EditIcon from '@material-ui/icons/Edit';
+// import Fab from '@material-ui/core/Fab';
+// import EditIcon from '@material-ui/icons/Edit';
 import IconButton from '@material-ui/core/IconButton';
 import PhotoCamera from '@material-ui/icons/PhotoCamera';
 import  "../../assets/css/receita.css";
 import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
+// import Dialog from '@material-ui/core/Dialog';
+// import DialogActions from '@material-ui/core/DialogActions';
+// import DialogContent from '@material-ui/core/DialogContent';
+// import DialogContentText from '@material-ui/core/DialogContentText';
+// import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
-import Grid from '@material-ui/core/Grid';
-import TextField from '@material-ui/core/TextField';
+// import Grid from '@material-ui/core/Grid';
+// import TextField from '@material-ui/core/TextField';
+
+import HeaderPerfil from "../../components/header/HeaderPerfil"
+import HeaderPerfilFull from "../../components/header/HeaderPerfilFull"
+import ResponsiveAdm from "../../components/responsive/ResponsiveAdm"
+import Footer from '../../components/Footer/Footer'
+
 
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -22,8 +28,8 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 
-export default class CadastrarCategoria extends Component{
-    constructor(){
+export default class CadastrarCategoria extends Component {
+    constructor() {
         super()
         this.state = {
             postCategoria : {
@@ -110,13 +116,13 @@ export default class CadastrarCategoria extends Component{
         
         }
 
-        getCategorias = () => {
-            api.get('/produto')
+    getCategorias = () => {
+        api.get('/produto')
             .then(response => {
-              if(response.status === 200){
-               this.setState({listaCategorias : response.data})
-               console.log(this.state.listaCategorias)
-             }
+                if (response.status === 200) {
+                    this.setState({ listaCategorias: response.data })
+                    console.log(this.state.listaCategorias)
+                }
             })
         }
  
@@ -126,10 +132,19 @@ export default class CadastrarCategoria extends Component{
 
         render(){
             return(
-                <main className="itens-encontrados-cadastro">
+                <>
+                <ResponsiveAdm />
+                <HeaderPerfil />
+                <main className="itens-encontrados">
+                    <div className="esquerdo_perfil">
+
+                        <div className="menu_perfil">
+                            <HeaderPerfilFull />
+                        </div>
+                    </div>
                         <div className="lado-direito-resultado">
                         <div className="container-perfil">
-                        <h2>Cadastro Padrão de Produtos</h2>
+                        <h2>Cadastro de Produtos</h2>
                         <div className="direita_cadastro_receita prod-cad">
  
                         <form id="cadastrar-receita" class="cad-cat-produto" onSubmit={(e) => this.PostCategoria(e)}>
@@ -139,10 +154,7 @@ export default class CadastrarCategoria extends Component{
                             </div>
                             <label htmlFor="icon-button-file">
                                 <IconButton color="primary"  aria-label="upload picture" component="span">
-                                {
-                                // 06 - Aqui damos nosso "onChange" especial e também passamos nosso "ref"
-                                }
-                                <input accept="image/*" className="input_load" id="icon-button-file" type="file" name="imagem" onChange={this.handleImageChange} ref={this.state.postCategoria.imagem}  />        <PhotoCamera />
+                                <input className="input_load" id="icon-button-file" type="file" name="imagem" />   <PhotoCamera />
                                 </IconButton>
                             </label>
                             
@@ -154,9 +166,10 @@ export default class CadastrarCategoria extends Component{
                                 </div>
                                 <div className="lado-direito-resultado1"></div>
                         </div>
-                    </div>
-
+                    </div>           
         </main>
+        <Footer/>
+        </>
             )
         }
     }

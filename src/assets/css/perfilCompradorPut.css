@@ -1,0 +1,53 @@
+
+.formPut{
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    padding: 0vw 1vw 0vw 1vw;
+}
+.sideLeft{
+    margin-right: 1vw;
+}
+.sideRight{
+    margin-bottom: 2vw;
+    margin-left: 1vw;
+}
+
+.passwordFormPut {
+    text-align: center;
+}
+
+.btnFormPut{
+    text-align: center;
+    margin-top: 2vw;
+}
+
+.inputPerfil{
+    border-radius: 5px;
+    border: 1px solid gray;
+    padding: 0.5vw;
+    font-size: 1em;
+    margin-bottom: 1vw;
+}
+
+.labelPerfil{
+    font-size: 1.4em;
+    margin-top: 5vw;
+    color:black;
+
+}
+
+.SucessMsg{
+    font-size: 1.4em;
+    padding: 1.5vw;
+    background-color: white;
+    position: absolute;
+    border-radius: 5px;
+    font-family: 'Segoe UI';
+    display: flex;
+    align-content: center;
+}
+
+.imgSucessMsg {
+    padding-left: 0.5vw;
+}

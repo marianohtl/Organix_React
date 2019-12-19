@@ -1,0 +1,17 @@
+.table{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto; 
+    width: 100%;
+    /* border: 1px solid black; */
+}
+
+.users{
+    margin-right: 10vw;
+}
+
+.btnDelete button{
+    border: none;
+    padding: 0.5vw 1vw;
+}

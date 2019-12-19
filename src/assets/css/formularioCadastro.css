@@ -1,0 +1,211 @@
+
+
+.formCadastro{
+    background-color:var(--roxo-claro);
+    color: var(--branco);
+    font-family: var(--fonte_titulo);
+    width: 50vw;
+    /* height: 50vh; */
+    padding: 3vw;
+    margin: auto;
+    /* padding-bottom:100px; */
+    position: absolute;
+    top: 160px;
+    left: 0;
+    right: 0;
+    border-radius: 20px;
+}
+
+
+.h1_form h1{
+    margin-bottom: 5px;
+}
+
+
+.h1_form{
+    text-align: center;
+}
+
+.dadosPessoais{
+   display: flex;
+   justify-content: space-between;
+}
+
+.dadosPessoais1{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.endereco{
+    display: flex;
+    justify-content: space-between;
+}
+
+.endereco1{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.inputForm{
+    width: 20vw;
+    height: 2.5vw;
+    border-radius: 5px;
+    border:none;
+    margin: 0.5vw 1vw 0vw 0vw;
+    font-size: 1.5em;
+    padding-left: 5px;
+}
+
+.labelForm{
+    font-size: 1.5em;
+    color: white;
+    margin-top:1vw;
+}
+
+.formCadastro h2{
+    text-align: center;
+    color:white;
+    margin-top: 1vw;
+    font-size: 2em;
+}
+
+
+.formCadastro hr{
+    margin-top:2vw ;
+}
+
+
+.submitBtn{
+    width: 10vw;
+    font-size: 1.5em;
+    /* bottom: 0px; */
+    background-color: var(--verde_claro);
+    color: var(--roxo);
+    margin-top: 2vw;
+    border: none;
+    border-radius: 10px;
+    padding: 1vw 1vw 1vw 1vw;
+    margin-left: 20vw;
+    cursor: pointer;
+}
+
+.backdrop_form{
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.6); 
+    position: fixed; /* Stay in place */
+    z-index: 1;
+    /* padding-top: 100px; Location of the box */
+    left: 0;
+    top: 0;
+}
+
+.btnCloseModal_form{
+    background-color: #0000;
+    border:none;
+    display: flex;
+    justify-items: flex-end;
+    margin-left: 48vw;
+    cursor: pointer;
+}
+
+
+
+    
+@media(max-width:768px){
+
+    .formCadastro{
+        width: 90%;
+    }
+  
+    #cadastro_comprador,#cadastro_produtor {
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        width: 100%;
+        padding: 10px;
+        margin-left: 15vw;
+    }
+
+    #cadastro_comprador div, #cadastro_produtor div {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #cadastro_comprador input, #cadastro_comprador select, #cadastro_produtor input,#cadastro_produtor select {
+        border: none;
+        border-radius: 10px;
+        padding: 10px;
+        font-size: 1em;
+        margin-top:3vw;
+        margin-bottom: 5vw;
+    }
+
+    .inputForm{
+        width: 55vw;
+        margin-top:1vw;
+    }
+
+    .labelForm{
+        font-size: 1.2em;
+        margin-top:1vw;
+    }
+
+    .formCadastro hr{
+        margin-top:5vw;
+        width:60vw;
+    }
+
+    .formCadastro h2{
+       margin-right: 30vw;
+        margin-bottom: 3vw;
+        margin-top: 3vw;
+        font-size: 1.5em;
+    }
+
+    .submitBtn{
+        font-size: 20px;
+        padding-right: 25vw;
+        margin-top: 40px;
+        margin-left:15vw;
+    }
+
+    .btnCloseModal_form{
+        margin-top:3vw;
+        margin-left: 80vw;
+    }
+}
+
+@media(max-width:1023px){
+    .btnResposivo{
+        font-size: 20px;
+        padding: 2vw 15vw 2vw 3.5vw;
+        margin-top: 40px;
+        margin-left:20vw;
+        text-align: center;
+    }
+
+}
+
+@media(max-width:1024px){
+    .formCadastro{
+        width: 70%;
+    }
+
+    .btnCloseModal_form{
+        margin-top:3vw;
+        margin-left: 65vw;
+    }
+
+    .btnResposivo{
+        font-size: 20px;
+        padding: 2vw 12vw 2vw 4vw;
+        margin-top: 40px;
+        margin-left: 25vw;
+        text-align: center;
+    }
+  
+}

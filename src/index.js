@@ -1,34 +1,41 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './assets/css/estilo.css'
+import "./assets/css/receita.css"
 //import "./assets/css/imagens/Slider/aaa.jpg"
 import App from './pages/home/App';
 import * as serviceWorker from './serviceWorker';
 import Login from "../src/components/header/Header"
 
-import QuemSomos from "./pages/quemSomos/QuemSomos"
-// import Cadastro from "./pages/cadastro/Cadastro"
-// import PerfilComprador from "./pages/perfilComprador/PerfilComprador"
-// import BuscarProdutos from "./pages/buscarProdutos/BuscarProdutos"
-// import ProdutosEncontrados from "./pages/produtosEncontrados/ProdutosEncontrados"
-// import Receitas from "./pages/receitas/Receitas"
-import minhasReceitas from "./pages/receitas/minhasReceitas"
-import todasReceitas from "./pages/receitas/todasReceitas"
-import CadastrarReceitas from "./pages/receitas/cadastrarreceitas"
-import AlterarCategoria from "./pages/produtos/alterarcategoria"
-import CadastrarCategoria from "./pages/produtos/cadastrarcategoria"
+//PAGES
 
-import Oferta from "./pages/oferta/oferta"
+import QuemSomos from "./pages/quemSomos/QuemSomos";
+import Cadastro from "./pages/cadastro/Cadastro";
+
+import PerfilComprador from "./pages/perfil/PerfilComprador"
+import EditUsers from './pages/perfilAdm/EditUsers';
+import NewCategoria from './pages/perfilAdm/NewCategoria';
+import PerfilAdm from './pages/perfilAdm/PerfilAdm';
+import BuscarProdutos from './pages/produtos/BuscarProdutos';
 
 
-import todosProdutos from "./pages/produtos/todosprodutos"
 
-// import PerfilProdutor from "./pages/perfilProdutor/PerfilProdutor"
-// import ProdutosCadastrados from "./pages/produtosCadastrados/ProdutosCadastrados"
-// import CadastrarProdutos from "./pages/cadastrarProdutos/CadastrarProdutos"
+import MinhasOfertas from "./pages/produtos/MinhasOfertas"
 
-import {Route, HashRouter as Router, Switch, Redirect} from 'react-router-dom';
-import { usuarioAutenticado, parseJwt } from './services/auth';
+import ProdutosEncontrados from "./pages/produtosEncontrados/ProdutosEncontrados"
+import MinhasReceitas from "./pages/receitas/MinhasReceitas"
+import TodasReceitas from "./pages/receitas/TodasReceitas"
+import CadastrarReceitas from "./pages/receitas/CadastrarReceitas"
+import CadastrarCategoria from "./pages/produtos/CadastrarCategoria"
+import ProdutosCadastrados from "./pages/produtos/ProdutosCadastrados"
+import CadastrarProdutos from "./pages/produtos/CadastrarProdutos"
+import AlterarCategoria from "./pages/produtos/AlterarCategoria"
+
+
+
+import {Route, HashRouter as Router, Switch, Redirect} from 'react-router-dom'
+import { usuarioAutenticado, parseJwt } from './services/auth'
+import PerfilProdutor from './pages/perfil/PerfilProdutor'
 
 const PermissaoAdmin = ({component : Component}) => (
     <Route
@@ -69,23 +76,29 @@ const Rotas = (
         <div>
             <Switch>
             <Route exact path="/" component={App} />
-            <PermissaoAdmin exact path="/quemsomos" component={QuemSomos} />
-            <Route path="/minhasreceitas" component={minhasReceitas} />
-            <Route path="/todasreceitas" component={todasReceitas} />
-            <Route path="/cadastrarreceitas" component={CadastrarReceitas} />
-            <Route path="/todosprodutos" component={todosProdutos} />
-            <Route path="/cadastrarcategoria" component={CadastrarCategoria} />
+            <Route path="/QuemSomos" component={QuemSomos} />
+            <PermissaoComprador exact path="/MinhasReceitas" component={MinhasReceitas} />
+            <PermissaoComprador exact path="/TodasReceitas" component={TodasReceitas} />
+            <PermissaoComprador exact path="/CadastrarReceitas" component={CadastrarReceitas} />
+            <PermissaoProdutor exact path="/ProdutosCadastrados" component={ProdutosCadastrados} />
+            <PermissaoAdmin exact path="/CadastrarCategoria" component={CadastrarCategoria} />
             <Route path="/alterarcategoria" component={AlterarCategoria} />
-            <Route path="/oferta" component={Oferta} />
-            {/* <Route path="/Cadastro" component={Cadastro} />
+            <Route path="/Cadastro" component={Cadastro} />
             <PermissaoComprador path="/PerfilComprador" component={PerfilComprador} />
             <PermissaoProdutor path="/PerfilProdutor" component={PerfilProdutor} />
+            
+            
+            <Route path="/editUsers" component={EditUsers} />
+            <Route path="/NewCategoria" component={NewCategoria}/>
             <Route path="/BuscarProdutos" component={BuscarProdutos} />
             <Route path="/ProdutosEncontrados" component={ProdutosEncontrados} />
-            <Route path="/Receitas" component={Receitas} />
-            <Route path="/ProdutosCadastrados" component={ProdutosCadastrados} />
-            <Route path="/CadastrarProdutos" component={CadastrarProdutos} /> */}
+            <Route path="/MinhasOfertas" component={MinhasOfertas}/>
+            
+            
+            <Route path="/PerfilAdm" component={PerfilAdm} />            
             <Route exact path="/login" component={Login}/>
+            <PermissaoProdutor path="/CadastrarProdutos" component={CadastrarProdutos} />
+            {/* <Route path="/CategoriaReceita" component={CategoriaReceita}/> */}
             </Switch>
         </div>
     </Router>

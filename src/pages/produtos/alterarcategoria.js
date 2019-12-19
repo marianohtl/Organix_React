@@ -16,13 +16,18 @@ import Slide from '@material-ui/core/Slide';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 
+import HeaderPerfil from "../../components/header/HeaderPerfil"
+import HeaderPerfilFull from "../../components/header/HeaderPerfilFull"
+import ResponsiveAdm from "../../components/responsive/ResponsiveAdm"
+import Footer from '../../components/Footer/Footer'
+
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
 });
 
 
-export default class CadastrarCategoria extends Component{
+export default class AlterarCategoria extends Component{
     constructor(){
         super()
         this.state = {
@@ -155,10 +160,18 @@ deleteCategoria = (id) => {
 
         render(){
             return(
-                <main className="itens-encontrados-cadastro">
+                <>
+                <ResponsiveAdm />
+            <HeaderPerfil />
+            <main className="itens-encontrados-cadastro">
+            <div className="esquerdo_perfil">
+                        <div className="menu_perfil">
+                            <HeaderPerfilFull/>
+                        </div>
+                    </div>
                         <div className="lado-direito-resultado">
                         <div className="container-perfil">
-                        <h2>Alteração de Produtos Pré-Setados</h2>
+                        <h2>Alteração de Produtos Cadastrados</h2>
                         <div className="direita_cadastro_receita prod-cad">
                          
 
@@ -229,6 +242,8 @@ deleteCategoria = (id) => {
                 </DialogContent>
             </Dialog>
         </main>
+            <Footer/>
+</>
             )
         }
     }
