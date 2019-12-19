@@ -172,8 +172,8 @@ export default class MinhasOfertas extends Component {
                                     <td>Preço: {this.state.umaOferta.preco}</td>
                                 </tr>
                                 <tr>
-                                    <td>Data de produção: {this.state.umaOferta.dataFabricacao.split("T")[0]}</td>
-                                    <td>Data de Validade: {this.state.umaOferta.dataVencimento.split("T")[0]}</td>
+                                    <td>Data de produção: {this.state.umaOferta.dataFabricacao}</td>
+                                    <td>Data de Validade: {this.state.umaOferta.dataVencimento}</td>
                                 </tr>
 
                                 <tr>

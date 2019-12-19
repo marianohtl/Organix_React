@@ -34,7 +34,7 @@ class SwiperProducts extends Component {
       spaceBetween: 30,
       observer: true,
       pagination: {
-        el: '.swiper-pagination',
+        // el: '.swiper-pagination',
         clickable: true,
       },
       navigation: {
