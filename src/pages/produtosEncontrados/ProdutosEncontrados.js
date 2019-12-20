@@ -120,11 +120,11 @@ export default class ProdutosEncontrados extends Component {
                                                 <ul>
                                                 <div className="imagem-redonda-card-receita"> <img src={"http://localhost:5000/" + a.imagem}
                       alt="torta de morango" /></div>
-                                                    <li>Preço: {a.preco}</li>
+                                                    <li>Preço: R${a.preco}</li>
                                                     <li>Região: {a.regiao}</li>
                                                     <li>Data de Fabricação: {a.data_fabricacao.split("T")[0]}</li>
-                                                    <li>Data de Fabricação: {a.data_vencimento.split("T")[0]}</li>
-                                                    <li>Data de Fabricação: {a.id_oferta}</li>
+                                                    <li>Data de Vencimento: {a.data_vencimento.split("T")[0]}</li>
+                                                    {/* <li>Data de Fabricação: {a.id_oferta}</li> */}
                                                     <button onClick={e => this.handleClickOpen(a.id_oferta)}>Negociar</button>
                                                 </ul>
                                             </div>

@@ -26,7 +26,7 @@ import Slide from '@material-ui/core/Slide';
 
 import HeaderPerfil from "../../components/header/HeaderPerfil"
 import HeaderPerfilFull from "../../components/header/HeaderPerfilFull"
-import ResponsiveProdutor from "../../components/responsive/ResponsiveProdutor"
+import ResponsiveComprador from "../../components/responsive/ResponsiveComprador"
 
 
 
@@ -225,7 +225,7 @@ export default class PerfilComprador extends Component {
         return (
 
             <div>
-                <ResponsiveProdutor/>
+                <ResponsiveComprador/>
         <HeaderPerfil/>
         <main className="itens-encontrados">
                     <div className="esquerdo_perfil">

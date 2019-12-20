@@ -133,17 +133,17 @@ class ResponsiveHome extends Component {
             {((usuarioAutenticado() && parseJwt().Role === "1") || (usuarioAutenticado() && parseJwt().Role === "2") || (usuarioAutenticado() && parseJwt().Role === "3")) ?
               (
                 <React.Fragment>
-                  <li><a href="/" target="_blank">Home</a></li>
-                  <li><a href="#/QuemSomos" target="_blank">Quem Somos</a></li>
+                  <li><a href="/">Home</a></li>
+                  <li><a href="#/QuemSomos">Quem Somos</a></li>
                   <li ><a href="#/" onClick={this.logout}>Sair</a></li>
                   <li ><a href='#/CadastrarProdutos'>Perfil</a></li>
 
                 </React.Fragment>
               ) : (
                 <>
-                  <li><a href="/" target="_blank">Home</a></li>
-                  <li><a href="#/QuemSomos" target="_blank">Quem Somos</a></li>
-                  <li ><a href="#/" onClick={this.openDialog.bind(this)}>Entrar</a></li>
+                  <li><a href="/">Home</a></li>
+                  <li><a href="#/QuemSomos" >Quem Somos</a></li>
+                  <li ><a onClick={this.openDialog.bind(this)}>Entrar</a></li>
                   <li ><a href='#/Cadastro'>Cadastre-se</a></li>
                 </>
               )

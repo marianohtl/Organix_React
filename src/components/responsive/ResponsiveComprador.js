@@ -24,11 +24,11 @@ class ResponsiveComprador extends Component{
   <div id="sidebarMenu">
     <ul className="sidebarMenuInner">
       <li><a href="/" target="_blank">Home</a></li>
-      <li><a href="#/PerfilComprador" target="_blank">Perfil</a></li>
-      <li><a href="#/BuscarProdutos" target="_blank">Buscar Produtos</a></li>
-      <li><a href="#/TodasReceitas" target="_blank">Encontrar Receitas</a></li>
-      <li><a href="#/MinhasReceitas" target="_blank">Minhas Receitas</a></li>
-      <li><a href="#/CadastrarReceitas" target="_blank">Cadastrar Receitas</a></li>
+      <li><a href="#/PerfilComprador">Perfil</a></li>
+      <li><a href="#/BuscarProdutos">Buscar Produtos</a></li>
+      <li><a href="#/TodasReceitas">Encontrar Receitas</a></li>
+      <li><a href="#/MinhasReceitas">Minhas Receitas</a></li>
+      <li><a href="#/CadastrarReceitas">Cadastrar Receitas</a></li>
       <li ><a href="#/" onClick={this.logout}>Sair</a></li>
     </ul>
   </div>

@@ -22,10 +22,10 @@ import { withRouter } from 'react-router-dom';
   </label>
   <div id="sidebarMenu">
     <ul className="sidebarMenuInner">
-      <li><a href="/" target="_blank">Home</a></li>
-      <li><a href="#/PerfilProdutor" target="_blank">Perfil</a></li>
-      <li><a href="#/ProdutosCadastrados" target="_blank">Produtos Cadastrados</a></li>
-      <li><a href="#/CadastrarProdutos" target="_blank">Cadastrar Produtos</a></li>
+      <li><a href="/">Home</a></li>
+      <li><a href="#/PerfilProdutor">Perfil</a></li>
+      <li><a href="#/ProdutosCadastrados">Produtos Cadastrados</a></li>
+      <li><a href="#/CadastrarProdutos">Cadastrar Produtos</a></li>
       <li ><a href="#/"onClick={this.logout}>Sair</a></li>
     </ul>
   </div>

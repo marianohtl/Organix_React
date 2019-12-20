@@ -10,6 +10,10 @@ import Footer from '../../components/Footer/Footer'
 
 import icon from "../../assets/img/photoIcon.svg"
 
+import IconButton from '@material-ui/core/IconButton';
+import PhotoCamera from '@material-ui/icons/PhotoCamera';
+import  "../../assets/css/receita.css";
+
 export default class CadastrarReceitas extends Component {
 
     constructor() {

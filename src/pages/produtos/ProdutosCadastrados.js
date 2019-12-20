@@ -128,7 +128,7 @@ export default class ProdutosCadastrados extends Component {
                 </DialogContent>
                 
                 <DialogActions>
-                <Button onClick={this.closeDialog.bind(this)} color="primary"  >
+                <Button onClick={this.closeDialog.bind(this)} color="primary">
                     FECHAR
                 </Button>
                 </DialogActions>

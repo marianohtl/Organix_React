@@ -154,10 +154,7 @@ export default class CadastrarCategoria extends Component {
                             </div>
                             <label htmlFor="icon-button-file">
                                 <IconButton color="primary"  aria-label="upload picture" component="span">
-                                {
-                                // 06 - Aqui damos nosso "onChange" especial e também passamos nosso "ref"
-                                }
-                                <input accept="image/*" className="input_load" id="icon-button-file" type="file" name="imagem" onChange={this.handleImageChange} ref={this.state.postCategoria.imagem}  />        <PhotoCamera />
+                                <input className="input_load" id="icon-button-file" type="file" name="imagem" />   <PhotoCamera />
                                 </IconButton>
                             </label>
                             

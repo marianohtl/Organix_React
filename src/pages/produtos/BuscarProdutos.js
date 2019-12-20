@@ -6,7 +6,7 @@ import '../../assets/css/estilo.css';
 
 import HeaderPerfil from "../../components/header/HeaderPerfil"
 import HeaderPerfilFull from "../../components/header/HeaderPerfilFull"
-import ResponsiveProdutor from "../../components/responsive/ResponsiveProdutor"
+import ResponsiveComprador from "../../components/responsive/ResponsiveComprador"
 import Footer from '../../components/Footer/Footer'
 
 
@@ -115,7 +115,7 @@ export default class BuscarProdutos extends Component {
         return (
 
             <>
-                <ResponsiveProdutor />
+                <ResponsiveComprador />
                 <HeaderPerfil />
                 <main className="itens-encontrados">
                     <div className="esquerdo_perfil">
