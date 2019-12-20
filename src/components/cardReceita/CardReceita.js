@@ -53,7 +53,7 @@ class CardReceita extends Component {
               <p className='nome-produto'>{a.idProdutoNavigation.nomeProduto}</p>
 
               <ul>
-                <li>Preço Médio: {a.preco}R$</li>
+                <li>Preço Médio: R${a.preco}</li>
                 
               </ul>
              <button type="button" onClick={() => this.irParaAPagina("/Cadastro")}>VER PRODUTO</button>

@@ -157,8 +157,8 @@ export default class CadastrarProdutos extends Component {
                                     >
                                         <option value="0">Selecione o estado do produto</option>
                                         <option value="Pronto para consumo">Pronto para consumo</option>
-                                        <option value="Amadurecido">Amadurecido</option>
-                                        <option value="não amadurecido">Não Amadurecido</option>
+                                        <option value="Maduro">Maduro</option>
+                                        <option value="Perto do Vencimento">Perto do Vencimento</option>
                                         {/* <option value="Ruim">Ruim</option> */}
                                     </select>
                                     {/* <label className="lbl-form-cad-prod" htmlFor="regiao">Região</label>
