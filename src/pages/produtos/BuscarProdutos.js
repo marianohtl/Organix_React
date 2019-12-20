@@ -151,11 +151,11 @@ export default class BuscarProdutos extends Component {
                                         <option value="Oeste">Oeste</option>
                                     </select>
 
-                                    <label for="POST-preco-min-prod">Preço Mínimo:</label>
+                                    <label for="POST-preco-min-prod">Preço Mínimo por KG:</label>
                                     <input className="input_produto_list" id="POST-preco-prod" type="text" name="menorPreco"
                                         placeholder="R$0,00" defaultValue={this.state.listaFiltro.menorPreco} onChange={this.postSetState} />
 
-                                    <label for="POST-preco-max-prod">Preço Máximo:</label>
+                                    <label for="POST-preco-max-prod">Preço Máximo por KG:</label>
                                     <input className="input_produto_list" id="POST-preco-prod" type="text" name="maiorPreco"
                                         placeholder="R$0,00" defaultValue={this.state.listaFiltro.maiorPreco} onChange={this.postSetState} />
 
